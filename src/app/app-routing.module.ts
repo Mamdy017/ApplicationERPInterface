@@ -75,7 +75,11 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },  {
+    path: 'liste-tirage',
+    loadChildren: () => import('./liste-tirage/liste-tirage.module').then( m => m.ListeTiragePageModule)
   },
+
 ];
 
 @NgModule({
