@@ -1,0 +1,7 @@
+{
+  "name": "ERPODC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
