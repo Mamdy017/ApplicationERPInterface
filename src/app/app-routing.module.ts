@@ -74,7 +74,11 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },  {
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
   },
+
 ];
 
 @NgModule({

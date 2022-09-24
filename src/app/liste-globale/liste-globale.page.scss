@@ -1,0 +1,84 @@
+.tout{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.card{
+    width: 200%;
+    text-align: center;
+    // height: 425px;
+    height: 300px;
+    margin-left: 50%;
+    background-color: #FFFFFF;
+    padding: 2%;
+    margin-left: 100%;
+    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+
+}
+.contenuCard{
+    // text-align: center;
+    margin: 30%;
+}
+.head{
+    background-color: black;
+    color: white;
+    height: 60px;
+  }
+  .contenudroite{
+    width: 70%;
+    margin-left: 20%;
+  }
+  h2{
+    font-size: 50px;
+  }
+  h1{
+    margin-left: 10%;
+  }
+//   .contenuCard{
+//     align-items: center;
+//   }
+// .container{
+//     width: 920px;
+//     height: 600px;
+//     margin-left: 32.5%;
+//    margin-bottom: -9%;
+//    padding-top: 10%;
+//     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+
+//   }
+  .tab{
+    width: 95%;
+    margin-top: 3%; 
+    margin-left: 2.5%;
+
+  }
+  tr{
+    height: 40px;
+    border-bottom: 0.25px solid  lightgray;
+   }
+  td,th{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .gauche{
+    border-radius: 10px 0 0 0;
+}
+.droite{
+    border-radius: 0 10px 0 0;
+} 
+// .cont{
+//     display: flex;
+//     position: relative;
+//     top: 120px;
+// }
+button{
+    width: 70px;
+    height: 18px;
+    background: #FF6600;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 0px 30px;
+}
