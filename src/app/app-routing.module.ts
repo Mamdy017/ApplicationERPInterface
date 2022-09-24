@@ -81,6 +81,10 @@ const routes: Routes = [
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then(m=> m.ListeGlobalePageModule)
   },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then(m=> m.EntitePageModule)
+  },
 ];
 
 @NgModule({
