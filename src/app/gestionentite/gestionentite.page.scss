@@ -1,0 +1,112 @@
+.container{
+    position: absolute;
+    margin: 5vh;
+    right: 0;
+    width: 70vw;
+    height: 90vh;
+    border-radius: 12px;
+}
+
+
+
+.header{
+    position: absolute;
+    margin: 5vh;
+    right: 0;
+    border-radius: 12px;
+    width: 65vw;
+    height: 15vh;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.contenu{
+    position: relative;
+}
+table{
+    justify-content: space-evenly;
+}
+td{
+    width: 220px;
+    height: 140px;
+    margin: 20px 10px;
+    
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 12px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.contenu .content{
+    position: relative;
+    top: 100px;
+    flex: 4;
+    margin-left: 100px;
+    margin-right: 100px;
+    // margin: 100px;
+    justify-content: space-between;
+}
+
+.contenu .content .cards .card{
+    width: 220px;
+    height: 140px;
+    margin: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 12px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+}
+
+.contenu .content .cards{
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.header h4{
+    margin: 15px;
+}
+.titre{
+    background: #E7EBED;
+    width: 240px;
+}
+
+.header h5{
+    margin-left: 15px;
+}
+
+input{
+    position: relative;
+    top: 150px;
+    left: 700px;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    width: 150px;
+    height: 40px;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+}
+.p1{
+    display: flex;
+    margin: 4px;
+}
+.p1 .card{
+    margin-left: 25%;
+}
+.c1{
+    position: relative;
+    left: 5%;
+}
+
+.p1{
+    width: 800px;
+}
+
+h6{
+    text-align: center;
+}
