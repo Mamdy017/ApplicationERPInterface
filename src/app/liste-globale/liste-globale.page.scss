@@ -1,23 +1,42 @@
 .tout{
+    position: absolute;
+    width: 890px;
+    height: 400px;
+     left: 410px;
+    // right: 436px;
+    top: 108px;
     display: flex;
     justify-content: center;
     padding: 5px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+    position: right;
 }
 .card{
+    position: relative;
+    top: 10px;
+    right: 98px;
     width: 200%;
     text-align: center;
     // height: 425px;
-    height: 300px;
+    height: 250px;
     margin-left: 50%;
     background-color: #FFFFFF;
     padding: 2%;
     margin-left: 100%;
     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+    display: flex;
+    position: left;
+    
 
+}
+.text{
+    text-align: center;
 }
 .contenuCard{
     // text-align: center;
     margin: 30%;
+    
 }
 .head{
     background-color: black;
@@ -26,13 +45,17 @@
   }
   .contenudroite{
     width: 70%;
-    margin-left: 20%;
+    margin-left: 14%;
   }
   h2{
     font-size: 50px;
   }
   h1{
     margin-left: 10%;
+  }
+  .nombreSurlaCard{
+    color: #FF6600;
+   
   }
 //   .contenuCard{
 //     align-items: center;
@@ -76,9 +99,11 @@ button{
     width: 70px;
     height: 18px;
     background: #FF6600;
+    color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
 /* Note: backdrop-filter has minimal browser support */
 
 border-radius: 0px 30px;
 }
+
