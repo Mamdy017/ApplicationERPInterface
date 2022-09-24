@@ -85,6 +85,15 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then(m=> m.EntitePageModule)
   },
+  {
+    path: 'page-liste-suite',
+    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m=> m.PageListeSuitePageModule)
+  },
+  {
+    path: 'page-liste-tirage',
+    loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then(m=> m.PageListeTiragePageModule)
+  },
+
 ];
 
 @NgModule({

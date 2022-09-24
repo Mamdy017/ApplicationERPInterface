@@ -1,0 +1,178 @@
+
+
+ .gauche{
+    border-radius: 10px 0 0 0;
+}
+.droite{
+    border-radius: 0 10px 0 0;
+}
+// // tr{
+// //     border: 1px solid black; 
+// //     border-radius: 10px 10px 0 0;
+// // }
+// td{
+//     padding: 10px;
+//     border-bottom: 1px solid;
+
+// }
+// .head{
+//     // border: 1px solid black;
+//     background-color: black ;
+   
+//     color: white;
+//     height: 40px;
+//     padding: 2px;
+//     border-radius: 10px 10px 0 0;
+    
+// }
+// .container{
+//     display: flex;
+//     justify-content: space-around ;
+    
+
+// }
+// .row{
+    
+//     display: flex;
+//     flex-direction: row ;
+// }
+// .libelle{
+    
+//     display: flex;
+//     justify-content: space-around ;
+// }
+// .buttons{
+//     margin: 10px;
+// }
+
+  .search--{
+    border-radius: 12%;
+  }
+  .search{
+    width: 300px;
+    height: 1px;
+    margin-left: 70.5%;
+   
+
+  }
+  .container1{
+    display: flex;
+    width: 912px;
+    height: 60px;
+    margin-left: 25%;
+    margin-top: 15px;
+  }
+  .div-gauche{
+    width: 60%;
+    height: 100px;
+    /* background-color: blue; */
+    margin-right: 10px; 
+    margin-top: 80px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .div-droite{
+    width: 40%;
+    height: 100px;
+    /* background-color: green;  */
+    margin-top: 80px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .div-gauche p{
+    position: relative;
+    top: 30%;
+    left: 10%;
+  }
+
+  .div-droite p{
+    position: relative;
+    bottom: 15%;
+    left: 5%;
+  }
+
+  .div-droite span{
+    position: relative;
+    bottom: -15%;
+    left: 25%;
+  }
+  .container{
+    width: 920px;
+    height: 400px;
+    margin-left: 25%;
+    margin-top: 10%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    
+  }
+  .tab{
+    width: 95%;
+    margin-top: 3%; 
+    margin-left: 2.5%;
+
+  }
+  .button2{
+    height: 40px;
+    border:0.5px solid #FF6600;
+    border-radius: 12px;
+    margin-left: 70%; 
+  }
+  .head{
+    background-color: black;
+    color: white;
+    height: 60px;
+  }
+  tr{
+    height: 40px;
+    border-bottom: 0.25px solid  lightgray;
+    margin-left: 100px;
+  }
+  td{
+padding-left:22px ;
+  }
+
+  .boutton{
+    display: flex;
+    justify-content: space-around;
+  }
+  span{
+    width: 200px;
+    height: 40px;
+    border:2px solid #FF6600;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 15px;
+  }
+.sp1{
+  margin-left: 10%;
+  position: relative;
+  right: 25px;
+
+}
+.sp2{
+  position: relative;
+  right: 15px;
+
+}
+b{
+  position: relative;
+  top: 20%;
+}
+.sp1 b{
+  position: relative;
+  right: 25px;
+}
+ .gauche{
+border-radius: 10px 0 0 0;
+}
+ .droite{
+  border-radius: 0 10px 0 0;
+
+} .b{
+  width: 350px;
+  margin-left: 15%;
+  position: relative;
+  top: 12px;
+}
+
+.div-droite{
+  display: flex;
+  justify-self: center;
+}
