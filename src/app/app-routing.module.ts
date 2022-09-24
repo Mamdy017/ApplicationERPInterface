@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -76,6 +76,10 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },
+  {
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then(m=> m.ListeGlobalePageModule)
   },
 ];
 
