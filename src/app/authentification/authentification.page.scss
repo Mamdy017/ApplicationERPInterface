@@ -92,11 +92,37 @@ height: 120%;
   
 }
 
-
-
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media (max-width: 740px) {
+     
+  .position{
+    // background-color: #ff6600;
   }
+  .gauche 
+{
+  display: none;
+
 }
+.droite
+{
+  background-image:url(../../assets/Fichier2.png);
+  position: relative; background-color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+.droite[_ngcontent-sjk-c198] .formulaire[_ngcontent-sjk-c198] {
+  width: 65%;
+  margin: 20%;
+}
+
+
+.imageInvisible
+{
+  display: block;
+}
+
+  }
+
 

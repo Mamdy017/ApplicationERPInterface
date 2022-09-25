@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authentification',
+    redirectTo: 'accueil-user',
     pathMatch: 'full'
   },
   {
