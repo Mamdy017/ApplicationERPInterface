@@ -14,6 +14,18 @@ form
   font-size: 100%; font-weight: bold;
 
 }
+.centered {
+  position: absolute;
+  top: 110%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: auto;
+  width: 120%;
+height: 120%;
+
+}
+   
  .hr{
     width: 60px;
     border: 2px solid #ff6600;
@@ -71,8 +83,13 @@ form
 {
   align-self: flex-end; justify-content: center; width: 60%;
   padding: 1%; background-color: #303030;color:#FFF;
-  margin-left: 20%;position: fixed; align-content: center;
+  margin-left: 19.5%;position: fixed; align-content: center;
   font-family: 'poppins'; text-align: center;
+  position: absolute;
+
+
+  left: 7px;
+  
 }
 
 
