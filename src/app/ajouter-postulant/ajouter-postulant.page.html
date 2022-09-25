@@ -1,13 +1,88 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>AjouterPostulant</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-  <div class="container">
-    
 
+  <div class="container">
+    <div class="row boxShadow">
+      <!------------- Colonne Gauche---->
+      <div class="col-12 col-md-4 imgGauche">
+        <img src="assets/images/logo.png" alt="">
+        <h2 class="display-6 text-center" style="font-weight: bold;">Bienvenue</h2>
+        <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+      </div>
+  
+      <!------------- Colonne Droite ---->
+      <div class="col-12 col-md-8">
+        <form>
+          <fieldset>
+            <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
+          </fieldset>
+          <div class="trait"></div>
+          <div class="row col-12">
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Nom</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="firstname" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
+              <label for="firstname">Prénom</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="num" id="num" placeholder="Numéro" class="form form-control inputvalue">
+              <label for="num">Numéro</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
+              <label for="email">Email</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
+                  <option selected> --- Genre ---</option>
+                  <option> Homme</option>
+                  <option> Femme</option>
+                  <label for="sexe">Genre</label>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="liste" id="liste" class="form-select form-control inputvalue" >
+                  <option selected > --- à la liste ... ---</option>
+                  <option> Liste1</option>
+                  <option> Liste2</option>
+                  <label for="sexe">Genre</label>
+              </select>
+            </div>
+          </div>
+          <button class="btn btnAjouter">Ajouter</button>
+          
+        
+        </form>
+  
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Tiec -->
+  <!-- <div class="container">
     <div class="left" style="position: absolute; left: 0;">
       <img src="assets/images/logo.png" alt="">
       <h2>Bienvenue</h2>
@@ -41,5 +116,7 @@
 
     </div>
 
-  </div> 
+  </div>  -->
+
+
 </ion-content>
