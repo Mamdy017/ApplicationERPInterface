@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { LayoutModule } from '@angular/cdk/layout';
+// import { LayoutModule } from '@angular/cdk/layout';
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule, 
-    LayoutModule,
+    // LayoutModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
