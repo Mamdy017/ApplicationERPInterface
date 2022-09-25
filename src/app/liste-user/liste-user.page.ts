@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeUserPage implements OnInit {
 
+  page = 1;
+  cp = 1;
+  data: any = [
+    { itemName: 'toothpase' },
+    { itemName: 'salt' },
+    { itemName: 'sugar' },
+    { itemName: 'oil' },
+    { itemName: 'toothpase' },
+    { itemName: 'salt' },
+    { itemName: 'sugar' },
+    { itemName: 'oil' },
+    { itemName: 'toothpase' },
+    { itemName: 'salt' },
+    { itemName: 'sugar' },
+    { itemName: 'oil' },
+  ];
   constructor() { }
 
   ngOnInit() {

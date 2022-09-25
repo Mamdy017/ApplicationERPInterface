@@ -6,6 +6,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
+// import {NgxPaginationModule} from 'ngx-pagination';
+
+
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
