@@ -74,7 +74,15 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },  {
+    path: 'modifier-postulant',
+    loadChildren: () => import('./modifier-postulant/modifier-postulant.module').then( m => m.ModifierPostulantPageModule)
   },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+
 ];
 
 @NgModule({
