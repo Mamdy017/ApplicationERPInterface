@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^12.2.0",
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
@@ -24,12 +25,26 @@
     "@capacitor/haptics": "4.0.1",
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
+    "@fortawesome/fontawesome-free": "^6.2.0",
     "@ionic/angular": "^6.1.9",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
+    "@popperjs/core": "^2.11.6",
     "boostrap": "^2.0.0",
+<<<<<<< HEAD
     "bootstrap": "^5.2.1",
     "ionicons": "^6.0.3",
     "jquery": "^3.6.1",
+=======
+
+    "bootstrap": "^5.2.1",
+    "ionicons": "^6.0.3",
+    "ngx-pagination": "^6.0.2",
+    "popper.js": "^1.16.1",
+
+    "ionicons": "^6.0.3",
+    "ng2-charts": "^4.0.1",
+
+>>>>>>> aece6fb8cf85a4a9c9b666290d54f62483fa8798
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
@@ -46,6 +61,8 @@
     "@angular/language-service": "^14.0.0",
     "@capacitor/cli": "4.3.0",
     "@ionic/angular-toolkit": "^6.0.0",
+    "@ionic/app-scripts": "^3.2.4",
+    "@ionic/lab": "3.2.13",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
