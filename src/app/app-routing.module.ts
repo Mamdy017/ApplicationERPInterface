@@ -38,7 +38,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-ajouter-acteur-user',
-    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
+       m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
