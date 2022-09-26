@@ -82,9 +82,9 @@ const routes: Routes = [
   {
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
+  },
 
-
-
+];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
