@@ -1,131 +1,65 @@
-<ion-content>
-  <!-- <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-  <div class="container1">
-    <div class="div-gauche">
-    <p>Vous souhaitez ajouter
-      un acteur?</p>
-    </div>
-
-    <div class="div-droite">
-      <span ><p>Ajouter un acteur</p></span>
-    </div>
-
-  </div>
-  
-<div class="container">
-   <div class="cont">
-     <div class="boutton">  
-       <p class="b"><b>Liste des acteurs</b></p>
-       <span class="sp1"><b>Filtrer</b></span>
-       <span class="sp2"><b>Exporter liste</b></span>
-     </div> 
-    <table class="table">
-      <thead class="thead-dark" >
-        <th class="gauche" scope="col">Nom</th>
-        <th scope="col">Prenom</th>
-        <th scope="col">Email</th>
-        <th scope="col">Numéro</th>
-        <th scope="col">Genre</th>
-        <th class="droite" scope="col">Actions</th>
-
-        <tr>
-          <td scope="col">Djire</td>
-          <td scope="col">Youssouf</td>
-          <td scope="col">djireyoussouf1999@gmail.com</td>
-          <td scope="col">72095772</td>
-          <td scope="col">Masculin</td>
-          <td>
-            <a></a>
-            <a></a>
-          </td>
-        </tr>
-      </thead>
-      </table>
-    </div> 
-  </div> -->
 
 
-  <!-- <style>
-   
-  </style> -->
   <ion-content>
-    <!-- <div class="search"><ion-searchbar value="recherche"></ion-searchbar></div> -->
-    <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-    <div class="container1">
-      <div class="div-gauche">
-      <p>Vous souhaitez ajouter
-        un acteur?</p>
+    <div class="container" style="padding: 20px;">
+
+      <div class="row">
+        <div class="col-11 col-md-11 col-xs-12 col-sm-12">
+          <ion-searchbar class="search-- float-right search"></ion-searchbar>
+        </div><br><br>
       </div>
-  
-      <div class="div-droite">
-        <span  ><p >Ajouter un acteur</p></span>
-      </div>
-  
-    </div>
-    
-  <div class="container">
-     <div class="cont">
-       <div class="boutton">  
-         <p class="b"><b>Liste des acteurs</b></p>
-         
-       </div> 
-      <table class="tab">
-        <thead class="head">
-          <th class="gauche">Nom</th>
-          <th>Prenom</th>
-          <th>Email</th>
-          <th>Numéro</th>
-          <th>Genre</th>
-          <th class="droite">Actions</th>
-    
+
+      <div class="row justify-content-around">
+        <div class=" col-6 col-md-8 col-xs-12 col-sm-6  head">
+          <div class="headContent">
+            <p> Souhaitez-vous ajouter un utilisacteur?</p><br>
+          </div><br>
+        </div>
+
+        <div class="col-2 col-md-2 heads" >
+          <input type="submit" value="Ajouter un utilisateur" class="float-right bouton">
+        </div>
+      </div><br>
+
+      <div class="tableContent col-12 col-md-12 col-xs-12 col-sm-12 ">
+
+        <span>Listes des Utilisateurs</span>
+      <table class="table tables">
+
+        <thead class="thead">
+          <tr class="theads">
+            <th scope="col" style="border-radius: 15px 0 0 0; border-top: none;">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numero</th>
+            <th scope="col" style="border-radius: 0 15px 0 0; border-top: none;">Action</th>
+          </tr>
         </thead>
-      
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
 
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
 
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
-
-        
-          <!-- <a href=""><ion-icon name="skip-backward"></ion-icon></a>
-          <ion-icon name="arrow-dropleft"></ion-icon>
-          <ion-icon name="arrow-dropright"></ion-icon>
-          <ion-icon name="skip-forward"></ion-icon> -->
-       
-       
       </table>
-  
-    </div> 
-  </div>
-  
+    </div>
+
+    </div>
 </ion-content>
