@@ -1,9 +1,43 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Authentification</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <div class="container">
+    <div class="row boxShadow">
+      <!------------- Colonne Gauche---->
+      <div class="col-12 col-md-6 imgGauche">
+        <div class="contenu py-5">
+          <div class="py-5"></div>
+          <h2 class="display-5 text-center" style="font-weight: bold;">Bienvenue</h2> 
+          <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+        </div>
+        
+      </div>
+  
+      <!------------- Colonne Droite ---->
+      <div class="col-12 col-md-6 form">
+        <form class="py-3 px-3">
+          <fieldset>
+            <legend class="display-6 text-center my-3"><b>Autentification</b></legend>
+          </fieldset>
+          <div class="trait"></div>
+          <div class="row col-12">
+            <div class="mb-3 form-row form-floating">
+              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
+              <label for="email">Email</label>
+            </div>
+
+            <div class="mb-3 form-row form-floating">
+              <input type="password" name="password" id="password" placeholder="Mots de passe *" class="form form-control inputvalue">
+              <label for="password">Mots de passe *</label>
+              <p class="my-3">Mots de passe oublié ?<span style="color:#FF6600; cursor:pointer"> Oui</span></p>
+            </div>
+            
+          </div>
+          <button class="btn btnAjouter">Se Connecter</button>
+        </form>
+  
+      </div>
+    </div>
+  </div>
+
 
 </ion-content>
