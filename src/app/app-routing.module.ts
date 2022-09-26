@@ -1,6 +1,6 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'accueil-user',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -78,16 +78,19 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
-    path: 'gestionentite',
-    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+    path: 'modifier-postulant',
+    loadChildren: () => import('./modifier-postulant/modifier-postulant.module').then( m => m.ModifierPostulantPageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-    NgbModule
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })
