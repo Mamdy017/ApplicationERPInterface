@@ -1,0 +1,241 @@
+
+
+<style>
+  .search--{
+    border-radius: 12%;
+  }
+  .search{
+    width: 300px;
+    height: 1px;
+    margin-left: 70.5%;
+   
+
+  }
+  .container1{
+    display: flex;
+    width: 912px;
+    height: 60px;
+    margin-left: 25%;
+    margin-top: 15px;
+  }
+  .div-gauche{
+    width: 60%;
+    height: 100px;
+    /* background-color: blue; */
+    margin-right: 10px; 
+    margin-top: 80px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .div-droite{
+    width: 40%;
+    height: 100px;
+    /* background-color: green;  */
+    margin-top: 80px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .div-gauche p{
+    position: relative;
+    top: 30%;
+    left: 10%;
+  }
+
+  .div-droite p{
+    position: relative;
+    bottom: 15%;
+    left: 5%;
+  }
+
+  .div-droite span{
+    position: relative;
+    bottom: -15%;
+    left: 25%;
+  }
+  .container{
+    width: 920px;
+    height: 400px;
+    margin-left: 25%;
+    margin-top: 10%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    
+  }
+  .tab{
+    width: 95%;
+    margin-top: 3%; 
+    margin-left: 2.5%;
+
+  }
+  .button2{
+    height: 40px;
+    border:0.5px solid #FF6600;
+    border-radius: 12px;
+    margin-left: 70%; 
+  }
+  .head{
+    background-color: black;
+    color: white;
+    height: 60px;
+  }
+  tr{
+    height: 40px;
+    border-bottom: 0.25px solid  lightgray;
+    margin-left: 100px;
+  }
+  td{
+padding-left:22px ;
+  }
+
+  .boutton{
+    display: flex;
+    justify-content: space-around;
+  }
+  span{
+    width: 200px;
+    height: 40px;
+    border:2px solid #FF6600;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 15px;
+  }
+.sp1{
+  margin-left: 10%;
+  position: relative;
+  right: 25px;
+
+}
+.sp2{
+  position: relative;
+  right: 15px;
+
+}
+b{
+  position: relative;
+  top: 20%;
+}
+.sp1 b{
+  position: relative;
+  right: 25px;
+}
+ .gauche{
+border-radius: 10px 0 0 0;
+}
+ .droite{
+  border-radius: 0 10px 0 0;
+
+} .b{
+  width: 350px;
+  margin-left: 15%;
+  position: relative;
+  top: 12px;
+}
+
+.div-droite{
+  display: flex;
+  justify-self: center;
+}
+</style>
+<ion-content>
+  <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
+  <div class="container1">
+    <div class="div-gauche">
+    <p>Vous souhaitez ajouter
+      un participant?</p>
+    </div>
+
+    <div class="div-droite">
+      <span ><p>Ajouter un Participant</p></span>
+    </div>
+
+  </div>
+  
+<div class="container">
+   <div class="cont">
+     <div class="boutton">  
+       <p class="b"><b>La Liste des Participant</b></p>
+       <span class="sp1"><b>Filtrer</b></span>
+       <span class="sp2"><b>Exporter liste</b></span>
+     </div> 
+    <table class="tab">
+      <thead class="head">
+        <th class="gauche">Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Numéro</th>
+        <th>Genre</th>
+        <th class="droite">Actions</th>
+  
+      </thead>
+    
+      <tr>
+        <td>TRAORE</td>
+        <td>Moussoudou</td>
+        <td>moussoudoutraore34@gmail.com</td>
+        <td>90289311</td>
+        <td>Masculin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+
+        <td>KONTE</td>
+        <td>Aly</td>
+        <td>alykonte19@gmail.com</td>
+        <td>76621307</td>
+        <td>Masculin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td>DEMBELE</td>
+        <td>Fatoumata</td>
+        <td>fantisca747@gmail.com</td>
+        <td>68286610</td>
+        <td>Feminin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td>KEITA</td>
+        <td>Mahamadou</td>
+        <td>kmahamadou858@gmail.com</td>
+        <td>78204039</td>
+        <td>Masculin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td>DIARRA</td>
+        <td>Diaraba</td>
+        <td>diarradiaraba9@gmail.com</td>
+        <td>78204039</td>
+        <td>Masculin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td>MAIGA</td>
+        <td>Abdoulaziz</td>
+        <td>maigaabdoulaziz795@gmail.com</td>
+        <td>79522067</td>
+        <td>Masculin</td>
+        <td>
+          <a>icone </a>
+          <a>icone </a>
+        </td>
+      </tr>
+    </table>
+
+  </div> 
+</div>
+
+
+</ion-content>
