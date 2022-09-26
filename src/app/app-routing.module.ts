@@ -80,7 +80,10 @@ const routes: Routes = [
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
-
+  {
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
+  },
 ];
 @NgModule({
   imports: [
