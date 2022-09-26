@@ -1,0 +1,151 @@
+.container{
+    display: flex;
+  justify-content: space-around; 
+  margin-top: 5%;
+  }
+  .user{
+    height: 150px;
+    width: 300px;
+    margin-left: 10%;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .user2{
+    height: 150px;
+    width: 300px;
+   background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+} 
+.user1{
+    height: 150px;
+    width: 300px;
+   background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+} 
+.ion{
+  background: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  width: 280px;
+  height: 120px;
+}
+img{
+  width: 300px;
+  height: 60px;
+}
+.activites{
+  background: white;
+  height: 477px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+   margin-left:-35%;
+  width: 300px;
+
+}
+.tout{
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+}
+.tout1{
+  margin-left: 5%;
+  width: 70%;
+}
+.position{
+  display: flex;
+  justify-content: space-around;
+}
+.img1{
+  height: 80px;
+  width: 80px;
+}
+.tout2{
+  margin-top: -5%;
+  width: 68%;
+  display:flex;
+  margin-left: 5%;
+  flex-direction: column;
+  justify-content: center;
+}
+.icon{
+  font-size: 60px;
+  color: #FF6600;
+  margin-top: 30px;
+} 
+h1{
+  font-size: 40px;
+  margin-top: 39px;
+  margin-left: -50%;
+}
+.span{
+  margin-left: 41%;
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) { 
+  .user{
+    margin-left: -10%;
+    width: 200px;
+  }
+  .user2{
+    width: 200px;
+  }
+  .user1{
+    width: 200px;
+  }
+  h1{
+    font-size: 30px;
+    margin-left: 1px;
+  }
+  .tout1{
+    margin-left: -10%;
+  width: 70%;
+  }
+    
+}
+@media screen and (min-width: 200px) and (max-width: 767px) {
+  h1{
+    font-size: 15px;
+    margin-left: 1px;
+  }
+  .user{
+    margin-left: 5%;
+    width: 150px;
+  }
+  .user1{
+    width: 150px;
+  }
+  .user2{
+    width: 150px;
+  }
+  .activites{
+    position: relative;
+    margin-top: 850px;
+    width: 1000px;
+    left: -30%;
+  }
+  .tout{
+    margin-top: -60%;
+  }
+  .tout1{
+    width: 450px;
+  }
+
+
+}
+@media screen and (min-width: 200px) and (max-width: 659px) {
+  .activtes{
+    width: 1100px;
+  }
+  .tout{
+    margin-top: -80%;
+  }
+  .user{
+    margin-left: 1%;
+    width: 150px;
+  }
+  .user1{
+    width: 150px;
+  }
+  .user2{
+    width: 150px;
+  }
+
+
+}

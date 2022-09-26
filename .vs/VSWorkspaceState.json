@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\tirage"
+    "\\src\\app\\home"
   ],
   "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": false
