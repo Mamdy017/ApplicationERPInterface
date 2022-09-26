@@ -1,0 +1,128 @@
+// body
+// {
+//   background-color: aqua;
+// }
+
+// Ezpacement au niveau de formulaire
+form
+{
+  padding:2%;
+}
+.formulaire .autentification
+{
+  font-family: 'poppins';
+  font-size: 100%; font-weight: bold;
+
+}
+.centered {
+  position: absolute;
+  top: 110%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: auto;
+  width: 120%;
+height: 120%;
+
+}
+   
+ .hr{
+    width: 60px;
+    border: 2px solid #ff6600;
+    margin-left: auto;
+    margin-right: auto;
+  }
+ .form-control {
+    height: 40px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
+  }
+ .btn{
+    height: 60px;
+    width: -webkit-fill-available;
+    background-color: #303030;
+  }
+  .mdp a{
+      color: black;
+    }
+// --------------------------------------------------------------------
+
+.position{
+  display:  flex; justify-content: space-around;
+  background: #ffff; margin-top: 5%;
+}
+// Contenu principale
+
+.container
+{
+  display: flex;
+  justify-content: space-around;
+  position: fixed; border: 1px solid;
+}
+.gauche
+{
+  width: 60%;margin-left: 20%;
+
+}
+.droite
+{
+  width: 68.5%; margin-right: 20%; justify-content: center;
+}
+.droite .formulaire
+{
+    border: 1px;
+    width: 65%;
+    text-align: center;
+    margin: 20%;
+    background-color: white;
+    box-shadow: 1px 1px 12px rgb(0, 0, 0, 0.5);
+}
+
+
+
+.pied
+{
+  align-self: flex-end; justify-content: center; width: 60%;
+  padding: 1%; background-color: #303030;color:#FFF;
+  margin-left: 19.5%;position: fixed; align-content: center;
+  font-family: 'poppins'; text-align: center;
+  position: absolute;
+
+
+  left: 7px;
+  
+}
+
+@media (max-width: 740px) {
+     
+  .position{
+    // background-color: #ff6600;
+  }
+  .gauche 
+{
+  display: none;
+
+}
+.droite
+{
+  background-image:url(../../assets/Fichier2.png);
+  position: relative; background-color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+.droite[_ngcontent-sjk-c198] .formulaire[_ngcontent-sjk-c198] {
+  width: 65%;
+  margin: 20%;
+}
+
+
+.imageInvisible
+{
+  display: block;
+}
+
+  }
+
+
