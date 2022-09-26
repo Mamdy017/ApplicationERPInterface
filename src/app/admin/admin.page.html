@@ -3,26 +3,59 @@
 
   <div class="row containerSearch">
     <div class="col-12 col-md-8 py-3">
-      <p class=" display-6 mx-3">Bienvenue Jeremi</p>
+      <p class=" display-6 mx-3">Bienvenue Jeremi !</p>
       <p class="mx-3">Gestion de Orange Digital Center</p>
     </div>
     <div class="col-12 col-md-4 py-3">
-      <input type="search" placeholder="Rechercher">
+      <form id="searchForm" class="py-3 ms-auto px-3">
+        <div class="input-group">
+          <input type="search" name="q" placeholder="Rechercher" class="form-control">
+          <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+        </div>
+ 
+      </form>
     </div>
   </div>
-
- <div class="row col-12 py-3">
-    <div class="cardHome col-12 col-md-4">
+<main class="container-fluid">
+  <section class="row gy-4">
+    <div class="cardHome col-12 col-sm-4 col-md-4">
+      <p class="text-center iconns"><i class="bi bi-person-plus-fill"></i></p>
       <p class="pcardHome pt-3">100</p>
       <p class="txtcardHome">Apprennants</p>
     </div>
-    <div class="cardHome col-12 col-md-4">
+    <div class="cardHome col-12 col-sm-4 col-md-4">
+      <p class="text-center iconns"><i class="bi bi-person-workspace"></i></p>
       <p class="pcardHome pt-3">200</p>
       <p class="txtcardHome">Apprennants</p>
     </div>
-    <div class="cardHome col-12 col-md-4">
+    <div class="cardHome col-12 col-sm-4 col-md-4">
+      <p class="text-center iconns"><i class="bi bi-person-workspace"></i></p>
       <p class="pcardHome pt-3">150</p>
       <p class="txtcardHome">Apprennants</p>
     </div>
- </div>
+  </section>
+
+  
+  <div class="row">
+    <div class="col-12 col-ms-4 bg-success">
+      <div class="cardHome col-12 col-sm-6">
+        <p class="text-center iconns"><i class="bi bi-person-workspace"></i></p>
+        <p class="pcardHome pt-3">150</p>
+        <p class="txtcardHome">Apprennants</p>
+      </div>
+      <div class="cardHome col-12 col-sm-6">
+        <p class="text-center iconns"><i class="bi bi-person-workspace"></i></p>
+        <p class="pcardHome pt-3">150</p>
+        <p class="txtcardHome">Apprennants</p>
+      </div>
+    </div>
+
+
+    <div class="col-12 col-ms-8 bg-danger">
+      dd
+    </div>
+  </div>
+
+
+</main>
 </ion-content>
