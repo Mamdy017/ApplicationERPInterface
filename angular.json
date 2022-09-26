@@ -33,16 +33,9 @@
 
             "styles": [
               "src/theme/variables.scss",
-               "src/global.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",  {
-                "input":"node_modules/@fortawesome/fontawesome-free/css/all.css"
-              }
+               "src/global.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              {
-                "input": "node_modules/@fortawesome/fontawesome-free/js/all.js"
-              }
             ],
             "aot": false,
             "vendorChunk": true,
