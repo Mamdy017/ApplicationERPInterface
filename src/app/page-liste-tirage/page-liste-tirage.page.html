@@ -1,15 +1,15 @@
 <ion-content>
 <div class="container">
-  <div class="entete">
-      
-  <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-    
-    <div class="intermediare">
+  <div class="entete col-12 row">
+      <div >
+          <div class="search col-6"><ion-searchbar class="search--"></ion-searchbar></div>
+      </div>    
+    <div class="intermediare col-12">
       <h1><b> Tirage 01 </b> </h1>
     </div>
-    <p class="libelle">Les postulants retenu au tirage</p>
-    <div class="cont">
-     <table class="tab">
+  </div>
+
+     <!-- <table class="tab">
        <thead class="head">
          <th class="gauche">Nom</th>
          <th>Prenom</th>
@@ -81,8 +81,60 @@
          </td>
        </tr>
      </table>
- 
+  -->
+  <p class="libelle">Les postulants retenu au tirage</p>
+  <table class="table col-12">
+    <thead class="thead-dark ">
+      <style>
+        th, td{
+          width: 5%;
+        }
+  
+      </style>
+      <tr>
+        <th class="gauche" scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Adresse</th>
+        <th class="droite" scope="col">Action</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td scope="row">Diarra</td>
+        <td>Diaraba Idrissa</td>
+        <td>diarradiaraba9@gmail.com</td>
+        <td>78204039</td>
+        <td>ACI 2000</td>
+        <td>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">Diarra</td>
+        <td>Diaraba Idrissa</td>
+        <td>diarradiaraba9@gmail.com</td>
+        <td>78204039</td>
+        <td>ACI 2000</td>
+        <td>
+          <a>icone </a>
+        </td>
+      </tr>
+      <tr>
+        <td scope="row">Diarra</td>
+        <td>Diaraba Idrissa</td>
+        <td>diarradiaraba9@gmail.com</td>
+        <td>78204039</td>
+        <td>ACI 2000</td>
+        <td>
+          <a>icone </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
    </div> 
-  </div>
-  </div>>
+
+
 </ion-content>

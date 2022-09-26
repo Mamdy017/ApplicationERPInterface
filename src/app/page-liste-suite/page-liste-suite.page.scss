@@ -1,19 +1,22 @@
-.head{
+
+  .table .thead-dark th {
+    color: #fff;
     background-color: black;
-    color: white;
-    height: 60px;
-  }
+    border-color: black;
+    border: none;
+}
 .container{
-    width: 920px;
-    height: 800px;
-    margin-left: 31.75%;
-   margin-bottom: -9%;
+    // width: 920px;
+    // height: 800px;
+  //   margin-left: 31.75%;
+  //  margin-bottom: -9%;
   //  margin-top: 10%;
    margin-top: 1.5px;
-
-
-   padding-top: 1%;
-   padding-bottom: 1%;
+   margin-right: 50px;
+  //  padding: 30px;
+   padding-right: 40px;
+  //  padding-top: 1%;
+  //  padding-bottom: 1%;
 
 //    padding: 0px;
     // box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
@@ -39,16 +42,16 @@ padding-left:22px ;
     width: 95%;
     height: 50px;
     position: relative;
-    margin-top: 5%;
+    margin-top: 2.5%;
 
-    top: 10Ppx;
+    // top: 10Ppx;
     left: 24px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
 }
 .intermediare h1{
     position: relative;
-    top: 10px;
-    left: 45%;
+    bottom: 10px;
+    left: 43%;
 }
 .libelle{
     position: relative;
@@ -65,13 +68,14 @@ padding-left:22px ;
 }
 .side-entete{
   display: flex;
-  width: 25%;
-  height: 35px;
+  width: 22%;
+  height: 40px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
   border-top-right-radius: 23px;
   border-bottom-right-radius:23px;
   position: relative;
-    top: 35px;
+    bottom: 20px;
+    right: 10px;
     background-color: black;
     color: white;
 }
@@ -83,21 +87,37 @@ top: 25%;
 }
 .entete-h4{
   position: relative;
-  top: 45%; 
+  top:  9%;
+  color: black;
 }
-.search{
-  width: 300px;
-  height: 1px;
-  margin-left: 70.5%;
-  position: relative;
-  top: 21px;
-  left: -7%;
+// .search{
+//   // width: 300px;
+//   // height: 1px;
+//   margin-left: 50%;
+//   position: relative;
+//   top: 21px;
+//   // left: 7%;
  
 
-}
+// }
+// .search[_ngcontent-hfa-c144] {
+//   width: 300px;
+//   /* height: 1px; */
+//   margin-left: 76.5%;
+//   position: relative;
+//   top: 1%;
+//   left: -4.5%;
+// }
+
 h4{
   margin-top: 10px;
     margin-left: 12px;
+}
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  left: 52%;
+  top: 15%;
 }
 // .cont{
 //     width: 800px;
@@ -110,9 +130,10 @@ h4{
 //     bottom: 50%;
 //     // background-color: cadetblue;
 // }
-.tab{
-    width: 95%;
-    margin-top: 3%; 
-    margin-left: 2.5%;
+// .tab{
+//     width: inherit;
+//     margin-top: 3%; 
+//     margin-left: 25%;
+//     // padding-left: 650%;
 
-  }
+//   }
