@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
   {
@@ -45,10 +45,6 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  },
-  {
     path: 'liste-acteur',
     loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
   },
@@ -77,19 +73,18 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
-    path: 'modifier-postulant',
-    loadChildren: () => import('./modifier-postulant/modifier-postulant.module').then( m => m.ModifierPostulantPageModule)
+    path: 'page-liste-suite',
+    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
   },
   {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+    path: 'page-liste-tirage',
+    loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
   {
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
   },
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -97,3 +92,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
