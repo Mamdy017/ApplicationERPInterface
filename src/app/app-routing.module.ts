@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authentification',
+    redirectTo: 'accueil-user',
     pathMatch: 'full'
   },
   {
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'accueil-admin',
     loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
   {
     path: 'accueil-user',

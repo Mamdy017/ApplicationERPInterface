@@ -1,26 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
 
- /* menuBureau: boolean = true;
-  menuMobile: boolean = false;*/
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
-  constructor( /*public breakpointObserver: BreakpointObserver*/) { }
-/*
+  constructor( public breakpointObserver: BreakpointObserver) { }
+
   actualise(): void{
     setInterval(
       ()=>{
       },100, clearInterval(1500));
-  }*/
+  }
 
   ngOnInit() {
 
-   /* this.breakpointObserver
+    this.breakpointObserver
     .observe(['(max-width: 767px)'])
     .subscribe((state: BreakpointState) => {
       if (state.matches) {
@@ -32,10 +33,11 @@ export class AppComponent implements OnInit{
         this.menuMobile = false;
         this.actualise();
       }
-    });*/
+    });
 
+  }
 
- /* afficheMenuMobile(){
+  afficheMenuMobile(){
     this.menuBureau = true;
     this.menuMobile = false;
   }
@@ -45,7 +47,6 @@ export class AppComponent implements OnInit{
     this.menuMobile = true;
   }
 
-  */
 
-}
+
 }
