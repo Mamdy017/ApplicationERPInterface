@@ -1,75 +1,94 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>AdminAjouterActeurUser</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
   <div class="container">
-    
 
-    <div class="left" style="position: absolute; left: 0;">
-      <h2>Formulaire Acteur</h2>
-      <div class="trait"></div>
+    <div class="row">
 
-      <form>
-        <table>
-          <tr>
-            <td><input type="text" name="nom" placeholder="Saisir Nom" required></td>
-          </tr>
-          <tr>
-            <td><input type="text" name="prenom" placeholder="Saisir Prenom" required></td>
-          </tr>
-          <tr>
-            <td><input type="email" name="email" placeholder="Saisir Email" required></td>
-          </tr>
-          <tr>
-            <td><select class="slth">
-              <option value="">--Statut--</option>
-              <option value="">Lead</option>
-              <option value="">Modérateur</option>
-              <option value="">Formateur</option>
-            </select></td>
-          </tr>
-          <input type="submit" class="bouton1" value="Envoyer">
-        </table>
-      </form>
-    </div> 
+      <div class="col-6">
+        <h2>Formulaire Acteur</h2>
+        <div class="trait"></div>
 
-    <div class="right">
+        <form>
 
-      <h2>Formulaire Utilisateur</h2>
-      <div class="trait"></div>
-     
-      <form action="" method="post" >
-        <table>
-          <tr>
-            <td><input type="text" name="nom" placeholder="Saisir Nom" required></td>
-            <td><input type="text" name="prenom" placeholder="Saisir Prenom" required></td>
-          </tr>
-          
-          <tr>
-            <td><input type="email" name="email" placeholder="Saisir Email" required></td>
-            <td><input type="text" name="num" placeholder="Saisir Numero" required></td>
-          </tr>
-          
-        </table>
-        <td><select>
-          <option value="">--Rôle--</option>
-          <option value="">Administrateur</option>
-          <option value="">Responsable</option>
-          <option value="">Utilisateur</option>
-        </select></td>
-        <td><select>
-          <option value="">--Entité--</option>
-          <option value="">Kalanso</option>
-          <option value="">Fablab</option>
-          <option value="">OrangeFab</option>
-        </select></td>
-        <input type="submit" class="bouton2" value="Envoyer">
-      </form>
+          <div class="mb-3 mt-3">
+            <input type="text" name="nom" class="form-control" placeholder="Nom" >
+          </div>
+          <div class="mb-3 mt-3">
+            <input type="text" name="prenom" class="form-control" placeholder="Prenom" >
+          </div>
 
-    </div>
+          <div class="mb-3 mt-3">
+            <input type="number" name="numero" class="form-control" placeholder="numero" >
+          </div>
 
-  </div> 
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-6">
+        <h2>Formulaire Utilisateur</h2>
+        <div class="trait"></div>
+
+        <form>
+          <div class="row">
+            <div class="col-6 ">
+              <input type="text" class="form-control" placeholder="Nom" name="nom">
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Prenom" name="prenom">
+            </div>
+            <div class="col-6">
+              <input type="email" class="form-control" placeholder="Email" name="email">
+            </div>
+            <div class="col-6">
+              <input type="password" class="form-control" placeholder="password" name="pswd">
+            </div>
+            <div class="col-6">
+              <input type="text" class="form-control" placeholder="Numero" name="numero">
+            </div>
+            <div class="col-6">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>--Choisir--</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+        </form>
+
+
+
+          <!-- <form>
+            <div>
+            <div class="col-8 ">
+                <input type="text" class="form-control" placeholder="Enter email" name="email">
+            </div>
+              <div class="col-md-6">
+                <input type="password" class="form-control" placeholder="Enter password" name="pswd">
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Enter email" name="email">
+              </div>
+              <div class="col-6">
+                <input type="text" class="form-control" placeholder="Enter email" name="email">
+              </div>
+
+              <div class="col-6">
+                <input type="text" class="form-control" placeholder="Enter email" name="email">
+              </div>
+
+              <div class="col-6">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>--Choisir--</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+          </form> -->
+     </div>
+     </div>
+  </div>
 </ion-content>
