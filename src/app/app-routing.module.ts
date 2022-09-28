@@ -80,6 +80,14 @@ const routes: Routes = [
     path: 'gestionentite',
     loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
 
 ];
 

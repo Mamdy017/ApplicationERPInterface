@@ -1,10 +1,12 @@
 
 <ion-content >
-<div class="container-fluid">
-  <div class="row flex-nowrap">
+<!-- <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap"> -->
+    
     <!-- debut du sidebar { -->
-      <div class="col-auto px-4" >
-        <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+      <!-- <div class="col-auto px-4" >
+        
           <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
             <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
                 <div>
@@ -22,11 +24,9 @@
                 </div>
               </li>
               <li>
-                <div class="row tiret px-4">
-                    <div class="col "></div>
-                    <div class="col  py-2 " style="margin-left:-75% ; margin-top: 2%;"><i class="bi bi-bell"></i></div>
-                    <div class="col py-3" style="margin-left:-50% ; background-color: ble; width: 15px; font-size: 16px;"><span> Notification</span></div>
-                    <div class="col-4 py-3 nombre "><span><b>23</b></span> </div>
+                <div class="row tiret px-4 py-2">
+                    <div class="col-2" style="margin-top:-2% ; margin-left:-8%;"><i class="bi bi-bell"></i></div>
+                    <div class="col "><span> Notification</span></div>
                 </div>
               </li>
               <li class="li">
@@ -53,14 +53,14 @@
           </ul>
               </div>
           </div>
-      </div>
+      </div> -->
       <!-- fin du sidebar }-->
       <!-- le debut du container{ -->
-      <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+      <!-- <main class="col ps-md-2 pt-2  " style= " height: 100vh ;"> -->
           <ion-app>
             <ion-router-outlet></ion-router-outlet>
         </ion-app>
-      </main>
-  </div>
-</div>
+      <!-- </main> -->
+  <!-- </div>
+</div> -->
 </ion-content>
