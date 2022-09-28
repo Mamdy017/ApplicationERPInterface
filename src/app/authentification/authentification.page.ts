@@ -49,7 +49,7 @@ export class AuthentificationPage implements OnInit {
         this.service.seConnecter(this.email,this.password).subscribe(data=>{
           this.connexion = data;
 
-          console.log(data);
+          console.log("session "+data);
           
           if(this.connexion.email == this.email && this.connexion.password==this.password)
           {
@@ -58,19 +58,29 @@ export class AuthentificationPage implements OnInit {
             
             if(this.typeUser != null)
               {
+                      sessionStorage.setItem("id_users",data.iduser);
+                      sessionStorage.setItem("nom_users",data.nom);
+                      sessionStorage.setItem("prenom_users",data.prenom);
+                      sessionStorage.setItem("email_users",data.email);
+                      sessionStorage.setItem("numero_users",data.numero);
+                      
+
+
+
+
                       if(this.typeUser == "User")
                       {
                       this.route.navigateByUrl('/accueil-user');
                       }
-                      else if(this.typeUser == "Admin")
+                      else if(this.typeUser == "admin")
                       {
-                      this.route.navigateByUrl('/ajouter-postulant');
+                      this.route.navigateByUrl('/accueil-admin');
                         
                       
                       }
                       else
                       {
-                        this.route.navigateByUrl('');
+                        this.route.navigateByUrl('h');
                       }
               }
           }

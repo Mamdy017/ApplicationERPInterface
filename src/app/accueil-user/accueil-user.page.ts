@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Session } from 'protractor';
 import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
 
 @Component({
@@ -11,6 +12,9 @@ export class AccueilUserPage implements OnInit {
   totalApprrenant:any;
   apprenantsTotal: any;
   participantTotal: any;
+
+    nom:any;
+    prenom:any;
   
 
       constructor(private service:AccueilUserService) { }
@@ -28,6 +32,12 @@ export class AccueilUserPage implements OnInit {
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data=>{
       this.participantTotal = data
+
+      // Ici on charge les sessions
+
+      this.prenom = sessionStorage.getItem("prenom_users");
+      this.nom = sessionStorage.getItem("nom_users")
+
 })
 
   }
