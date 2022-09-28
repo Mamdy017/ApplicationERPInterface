@@ -42,6 +42,7 @@ export class AuthentificationPage implements OnInit {
   Connexion(){
     this.bool_erreur = true;
     if(typeof this.email === 'undefined' || typeof this.password === 'undefined'){
+      
       this.erreur="Tous les champs sont obligatoires";
       console.log(this.erreur);
     }else{
@@ -65,6 +66,7 @@ export class AuthentificationPage implements OnInit {
                       {
                       this.route.navigateByUrl('/ajouter-postulant');
                         
+                      
                       }
                       else
                       {
