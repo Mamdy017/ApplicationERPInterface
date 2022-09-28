@@ -21,18 +21,24 @@
           <div class="trait"></div>
           <div class="row col-12">
             <div class="mb-3 form-row form-floating">
-              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
+              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue" [(ngModel)]="email">
               <label for="email">Email</label>
             </div>
 
             <div class="mb-3 form-row form-floating">
-              <input type="password" name="password" id="password" placeholder="Mots de passe *" class="form form-control inputvalue">
-              <label for="password">Mots de passe *</label>
+              <input type="password" name="password" id="password" placeholder="Mots de passe *" class="form form-control inputvalue" [(ngModel)]="password">
+              <label for="password">Mot de passe *</label>
               <p class="my-3">Mots de passe oublié ?<span style="color:#FF6600; cursor:pointer"> Oui</span></p>
+              <span class="erreur px-4 w-100" *ngIf="bool_erreur" >
+                {{erreur}}
+              </span>
             </div>
-            
+           
           </div>
-          <button class="btn btnAjouter">Se Connecter</button>
+
+          
+
+          <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button>
         </form>
   
       </div>
