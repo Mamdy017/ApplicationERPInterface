@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'accueil-user',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+    loadChildren: () => import('./entite/entite.module').then(m => m.EntitePageModule)
   },
   {
     path: 'accueil-user',
@@ -85,7 +85,7 @@ const routes: Routes = [
   },
   {
     path: 'page-liste-suite',
-    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
+    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
   },
   {
     path: 'page-liste-tirage',
