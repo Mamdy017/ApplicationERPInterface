@@ -1,137 +1,20 @@
 
 <ion-content >
-
-            <style>
-                .offcanvas-header img{
-                    width: 65%;
-                }
-
-                    .nav-item img{
-                    border-radius: 100%;
-                    height: 75px;
-                    width: 100px;
-
-                  }
-                  .courbe{
-                    border-radius: 0 80px 0 0;
-                  }
-                  .tiret{
-                    background-color: white;
-                    margin-left: -1%;
-                    width: 100%;
-                  }
-                  /* .nav-item{
-                    margin-top: 2%;
-                  } */
-                  .ca{
-                    display: flex;
-                    flex-direction: column;
-                    color: white;
-                    margin-top: 20% ;
-                    margin-left: -10%;
-                  }
-                  .v{
-                  width: 250px;
-                 }
-
-                  .nav-item img{
-                    border-radius: 100%;
-                    height: 60px;
-                    width: 60px;
-                    padding: 1px;
-                  }
-                  i,.i{
-                    font-size: 25px;
-
-                  }
-                  .nom{
-                    color: white;
-                    display: flex;
-                    flex-direction: column;
-                  }
-                  .ul{
-                    border-radius: 0 50px 0 0;
-                    position: relative;
-                    margin-left: -15%;
-                    background-color: #202020;
-
-                  }
-                  .ul .li:hover{
-                    background-color: #FF6600;
-                    color:white;
-                  }
-                  a{
-                    color:white;
-                  }
-                  .tiret{
-                    background-color: white;
-                    width: 125%;
-                  }
-                  .nombre {
-                    background-color: #FF6600;
-                    position: relative;
-                    border-radius: 90%;
-                    height: 50px;
-                    left: 10%;
-                    width: 50px}
-                    .hh{
-                        width: 90px;
-                    }
-                    .nombre b {
-                        color:white;
-                        position: relative;
-                        top: 20%;
-                    }
-                    .haut{
-                      display: none;
-                    }
-                  @media screen and (max-width:767px) {
-                    .nombre{
-                      left: -10%;
-                    }
-                    .con{
-                        z-index: -1;
-                    }
-                    .ul{
-                        width: 200px;
-
-                    }
-                    .tiret{
-                      display: flex;
-                      flex-direction: row;
-                    }
-                    .haut{
-                      display: block;
-                    }
-                    .card{
-                        background-color: red;
-                        width: 140px;
-                    }
-                  }
-                </style>
-
-
-
 <div class="container-fluid">
   <div class="row flex-nowrap">
-
-      <div class="col-auto   px-4" >
-        <div>
-        <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse" class="haut"><i class="bi bi-arrow-left-circle py-2 p-1 " style="color:black"></i></a>
-          <!-- <a class="ionee"><ion-icon  name="reorder-four-outline"  ></ion-icon></a> -->
-        </div>
+    <!-- debut du sidebar { -->
+      <div class="col-auto px-4" >
+        <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
           <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
             <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
-                <div class="py-4">
-                  <img src="../assets/logo.png" style="height: 90px; width: 150px;"  alt="">
-                  <a href="#" data-bs-target="#sidebar"  (click)="cacherMenuMobile()"  data-bs-toggle="collapse"><i class="bi bi-arrow-left-circle py-2 p-1 " style="color:black"></i></a>
-                  <!-- <i class="bi bi-arrow-left-circle" (click)="cacherMenuMobile()"></i> -->
-
+                <div>
+                  <img src="../assets/logo.png" style="height: 75px; width: 150px;"  alt="">
              </div>
-            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
+             <div class="py-3"></div>
+            <ul class=" nav nav-pills flex-column mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
               <li class="nav-item py-4">
                 <div class="row px-2">
-                    <div class="col">  <img src="../assets/logo.png" alt=""></div>
+                    <div class="col">  <img src="../assets/icon/favicon.png" alt=""></div>
                     <div class="col nom py-1">
                         <span>Camara</span>
                         <span>Camara</span>
@@ -140,49 +23,44 @@
               </li>
               <li>
                 <div class="row tiret px-4">
-                    <div class="col"></div>
-                    <div class="col  py-2" style="margin-left:-75% ;"><i class="bi bi-bell"></i></div>
-                    <div class="col py-3" style="margin-left:-50% ; background-color: ble; width: 15px;"><span> Notification</span></div>
-                    <div class="col-1 nombre"><span><b>23</b></span> </div>
+                    <div class="col "></div>
+                    <div class="col  py-2 " style="margin-left:-75% ; margin-top: 2%;"><i class="bi bi-bell"></i></div>
+                    <div class="col py-3" style="margin-left:-50% ; background-color: ble; width: 15px; font-size: 16px;"><span> Notification</span></div>
+                    <div class="col-4 py-3 nombre "><span><b>23</b></span> </div>
                 </div>
               </li>
               <li class="li">
                   <a href="#" class="nav-link  align-middle li">
-                      <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light">Accueil</span></a>
+                      <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
               </li>
               <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light">Entités</span></a>
+                    <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light px-3">Entités</span></a>
             </li>
             <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light">Tirage</span></a>
+                    <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
             </li>
             <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light">Acticitées</span></a>
+                    <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light px-3">Acticitées</span></a>
             </li>
             <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light">Utilisateurs</span></a>
+                    <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Utilisateurs</span></a>
             </li>
-            <li style="height: 79px;"></li>
+            <li style="height: 120px;"></li>
           </ul>
               </div>
           </div>
       </div>
+      <!-- fin du sidebar }-->
+      <!-- le debut du container{ -->
       <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
           <ion-app>
             <ion-router-outlet></ion-router-outlet>
         </ion-app>
-          <hr>
       </main>
   </div>
 </div>
-<style>
-
-#sidebar-nav {
-  width: 190px;
-}
-</style>
 </ion-content>
