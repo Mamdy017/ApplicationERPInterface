@@ -79,7 +79,11 @@ const routes: Routes = [
   {
     path: 'gestionentite',
     loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+  },  {
+    path: 'liste-des-salles',
+    loadChildren: () => import('./liste-des-salles/liste-des-salles.module').then( m => m.ListeDesSallesPageModule)
   },
+
 
 ];
 
