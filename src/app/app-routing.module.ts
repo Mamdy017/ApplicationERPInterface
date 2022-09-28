@@ -79,10 +79,7 @@ const routes: Routes = [
     path: 'ajouter-activate',
     loadChildren: () => import('./ajouter-activate/ajouter-activate.module').then( m => m.AjouterActivatePageModule)
   },
-  {
-    path: 'salle',
-    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
-  },
+  
   {
     path: 'page-liste-suite',
     loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
@@ -95,6 +92,10 @@ const routes: Routes = [
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
   },
+  {
+    path: 'salle',
+    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  }
 ];
 @NgModule({
   imports: [
