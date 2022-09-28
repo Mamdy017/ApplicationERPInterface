@@ -83,6 +83,10 @@ const routes: Routes = [
     path: 'liste-des-salles',
     loadChildren: () => import('./liste-des-salles/liste-des-salles.module').then( m => m.ListeDesSallesPageModule)
   },
+  {
+    path: 'renitialisation-m-p',
+    loadChildren: () => import('./renitialisation-m-p/renitialisation-m-p.module').then( m => m.RenitialisationMPPageModule)
+  },
 
 
 ];
