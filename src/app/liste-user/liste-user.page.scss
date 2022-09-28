@@ -1,63 +1,77 @@
-section
-{
-  margin-left: 20%;
-  margin-top: 2%;
+.search{
+  position: relative;
+  width: 220px;
+  height: 40px;
+  font-size: 16px;
+  top: 0px;
+  left: 7%;
+  border-radius: 10px;
 }
-.generale
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  margin: 10%;
+.head{
+  height: 100px;
+  background: #ffffff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
-
-table
-{
-  font-family: 'poppins'; width: 100%;
-}
-.containerT
-{
-  display: flex; justify-content: space-around;
-}
-.souhater
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  padding: 2%; align-content: center; text-align: center;
-  display: flex; flex-direction: row; font-size: 100%;
-  font-family: 'poppins';
-}
-.bouton
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  padding: 2%; display: flex;
-}
-.tableContainer
-{
-   margin: 5%; font-family: 'poppins'; align-items: center;
-  // box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-}
-.entete
-{
-   display: flex; justify-content: space-around;
-}
-.titleT
-{
-  display: flex; flex-direction: row;
-}
-.boutons{
-  margin: 10px;
-}
-thead
-{
-  background-color: #000000; color: white; border-radius: 2px 2px 0px 2px solid;
-}
-td span
-{
-  margin: 12%;
-}
-// Modification des bordures du tableaux
-.fhead{
-  border-radius: 10px 0 0 0;
-}
-.lhead{
-  border-radius: 0 10px 0 0;
+.heads{
+  height: 100px;
+  width: 200px;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
+.headContent{
+  // width: 250px;
+  height: 20px;
+  padding-top: 10px;
+}
+
+.p, .headContent p{
+  font-size: 22px;
+}
+
+.bouton{
+  position: relative;
+  width: 170px;
+  height: 50px;
+  font-size: 16px;
+  top: 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.tableContent{
+  width: 95%;
+  height: auto;
+  padding: 5px;
+  background-color: #ffffff;
+  margin-left: 20px;
+  text-align: center;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+.table>thead {
+  vertical-align: bottom;
+  color: white;
+  height: 50px;
+  background-color: #202020;
+}
+
+span{
+  font-weight: bold;
+  font-size: 34px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+td a i{
+  width: 90px;
+  height: 30px;
+}
+.b1{
+  display: flex;
+  margin-top: 12%;
+}
+.b2{
+  margin-top: 12%;
+}
