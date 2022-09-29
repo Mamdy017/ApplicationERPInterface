@@ -23,6 +23,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
+ 
   {
     path: 'accueil-admin',
     loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
@@ -85,7 +86,7 @@ const routes: Routes = [
     loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
   },
   {
-    path: 'page-liste-tirage',
+    path: 'liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
   {
