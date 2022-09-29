@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'salle',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
   {
