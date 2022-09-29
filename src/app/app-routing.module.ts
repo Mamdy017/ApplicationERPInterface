@@ -96,6 +96,10 @@ const routes: Routes = [
     path: 'ajouter-tache',
     loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
   },
+  {
+    path: 'liste-salle',
+    loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
+  },
 
  
   
