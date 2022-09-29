@@ -1,9 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
 #sidebar-nav {
     width: 190px;
   }
   *{
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 .offcanvas-header img{
     width: 65%;
@@ -14,10 +14,10 @@
     width: 100px;
 
   }
-  .tiret{
+  .active{
     background-color: white;
-    margin-left: -1%;
-    width: 100%;
+    width: 250px;
+    color:#202020;
   }
   .v{
   width: 250px;
@@ -30,7 +30,7 @@
     padding: 1px;
   }
   i,.i{
-    font-size: 20px;
+    font-size: 18px;
   }
   .nom{
     color: white;
@@ -40,7 +40,7 @@
   .ul{
     border-radius: 0 50px 0 0;
     position: relative;
-    margin-left: -15%;
+    margin-left: -8%;
     background-color: #202020;
 
   }
@@ -66,9 +66,6 @@
     width: 30%;
 }
     
-    .hh{
-        width: 90px;
-    }
     .nombre b {
         color:white;
         position: relative;
