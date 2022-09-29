@@ -30,8 +30,9 @@ mesDonnees:any
   }
   ajouterSalle(){
     console.log("je suis Etage: "+this.salles.etage);
+    console.log("je suis nbreplace: "+this.salles.nbreplace);
+    console.log("je suis Dispo: "+this.salles.disponibilite);
  
-    console.log("Les données: "+this.salles)
    this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data =>{
     console.log("Les données: "+data)
    })
