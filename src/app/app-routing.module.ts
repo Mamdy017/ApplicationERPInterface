@@ -95,7 +95,11 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },  {
+    path: 'renitialisation-mot-de-passe',
+    loadChildren: () => import('./renitialisation-mot-de-passe/renitialisation-mot-de-passe.module').then( m => m.RenitialisationMotDePassePageModule)
   }
+
 ];
 @NgModule({
   imports: [
