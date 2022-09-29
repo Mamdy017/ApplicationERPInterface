@@ -82,6 +82,10 @@ const routes: Routes = [
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
+  {
+    path: 'modification-password',
+    loadChildren: () => import('./modification-password/modification-password.module').then( m => m.ModificationPasswordPageModule)
+  },
 
 ];
 
