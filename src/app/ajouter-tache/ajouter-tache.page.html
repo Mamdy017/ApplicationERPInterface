@@ -4,52 +4,54 @@
 
   <div class="container">
     <div class="row boxShadow">
-      <!------------- Colonne Gauche---->
+      <!------------- Colonne Droite ---->
       <div class="col-12 col-md-4 imgGauche">
-        <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
+        <img src="assets/icon/tache.png" alt="image ajouter un postulant" class="img-fluid rounded image">
         <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
         <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
       </div>
-
       <!------------- Colonne Droite ---->
       <div class="col-12 col-md-8">
         <form>
           <fieldset>
-            <legend class="display-6 text-center my-3"><b>Ajouter un participant</b></legend>
+            <legend class="display-6 text-center my-3"><b>Ajouter une tache</b></legend>
           </fieldset>
+
           <div class="trait"></div>
           <div class="row col-12">
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Nom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="firstname" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
-              <label for="firstname">Prénom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="num" id="num" placeholder="Numéro" class="form form-control inputvalue">
-              <label for="num">Numéro</label>
-            </div>
-            
             <div class="mb-4 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control" >
-                  <option selected>Genre</option>
-                  <option> Homme</option>
-                  <option> Femme</option>
-                  <label for="sexe">Genre</label>
+              <select name="designation" id="designation" class="form-select form-control" >
+                  <option selected>Designation</option>
+                  <option> Tache 1</option>
+                  <option> Tache 2</option>
+                  <label for="designation">Designation</label>
+              </select>
+            </div>
+            <div class="mb-4 col-12 col-md-6 form-row form-floating">
+              <select name="activite" id="activite" class="form-select form-control" >
+                  <option selected>Activite</option>
+                  <option>Developpement web</option>
+                  <option> Python</option>
+                  <label for="activite">Activite</label>
               </select>
               
             </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
-              <label for="email">Email</label>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Date debut</label>
             </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="firstname" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
+              <label for="firstname">Date fin</label>
+            </div>
+            
+           
+           
             <div class="mb-3 col-12 col-md-12 form-row form-floating">
               <select name="liste" id="liste" class="form-select form-control" >
-                  <option selected > Choisir une liste </option>
-                  <option> Liste1</option>
-                  <option> Liste2</option>
+                  <option selected > Statut </option>
+                  <option>Activer</option>
+                  <option> Desactiver</option>
                   <label for="sexe">liste</label>
               </select>
             </div>

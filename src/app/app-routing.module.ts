@@ -84,14 +84,21 @@ const routes: Routes = [
   {
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
-  },  {
+  },
+  {
     path: 'ajouter-participant',
     loadChildren: () => import('./ajouter-participant/ajouter-participant.module').then( m => m.AjouterParticipantPageModule)
   },
   {
     path: 'profile-user-profile',
     loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
+  },  {
+    path: 'ajouter-tache',
+    loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
   },
+
+ 
+  
 
 ];
 @NgModule({
