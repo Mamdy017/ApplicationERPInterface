@@ -1,11 +1,17 @@
 
 <ion-content >
+  <style>
+          .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;}
+  </style>
 <div class="container-fluid">
     <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
   <div class="row flex-nowrap">
     
     <!-- debut du sidebar { -->
-      <div class="col-auto px-4" >
+      <div class="col-auto px-2" >
         
           <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
             <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
