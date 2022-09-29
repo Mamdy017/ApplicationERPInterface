@@ -1,5 +1,13 @@
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthentificationPageModule } from './authentification/authentification.module';
+
+
+
+
+
+
 
 const routes: Routes = [
   {
@@ -8,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'salle',
     pathMatch: 'full'
   },
   {
@@ -18,6 +26,10 @@ const routes: Routes = [
   {
     path: 'accueil-admin',
     loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then(m => m.EntitePageModule)
   },
   {
     path: 'accueil-user',
@@ -44,10 +56,6 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  },
-  {
     path: 'liste-acteur',
     loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
   },
@@ -71,24 +79,24 @@ const routes: Routes = [
     path: 'ajouter-activate',
     loadChildren: () => import('./ajouter-activate/ajouter-activate.module').then( m => m.AjouterActivatePageModule)
   },
+  
   {
-    path: 'salle',
-    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
-  },  {
     path: 'page-liste-suite',
-    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
+    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
   },
   {
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
   {
-    path: 'modification-password',
-    loadChildren: () => import('./modification-password/modification-password.module').then( m => m.ModificationPasswordPageModule)
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
   },
-
+  {
+    path: 'salle',
+    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  }
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
@@ -96,3 +104,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

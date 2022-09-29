@@ -1,9 +1,78 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Tirage</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
 
+  <div class="container">
+    <div class="import">
+      <div>
+        <h1>Importer un fichier</h1>
+        <p class="vertical "></p>
+        <div class="file"><input type="file" class="retour"></div>
+        <input type="text" placeholder="Nom de la liste">
+        <input type="submit" name="Importer" value="Importer" class="submit">
+        <button class="btn btn-primary">Ajouter un postulant</button>
+      </div>
+    </div>
+    <div class="tirage">
+      <h1>Faire un tirage</h1>
+      <p class="vertical "></p>
+      <div class="row">
+        <div>
+          <input type="text" placeholder="Libelle tirage" class="align">
+        </div>
+        <div>
+          <select class="align cen">
+            <option>Choisir une liste</option>
+            <option>Liste1</option>
+            <option>Liste2</option>
+            <option>Liste3</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <input type="number" placeholder="Nombre à trier" class="align">
+        </div>
+        <div>
+          <input type="text" placeholder="Nom de la liste" class="align cen">
+        </div>
+      </div>
+      <input type="submit" name="Importer" value="Faire un tirage" class="submit jus">
+    </div>
+  </div>
+  
+  <div class="fairetirage">
+    <h1>Faire tirage sur une liste existante</h1>
+    <p class="vertical "></p>
+    <div class="tirage2">
+
+
+      <div>
+        <div>
+          <select class="col1">
+            <option>Libellé de la liste</option>
+            <option>Liste1</option>
+            <option>Liste2</option>
+            <option>Liste3</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <input type="text" placeholder="Libellé tirage" class="col2">
+      </div>
+
+      <div >
+        <input type="number" placeholder="Nombre à trier" class="col3">
+      </div>
+      <div>
+        <input type="text" placeholder="Libellé de l'activité" class="col5">
+      </div>
+
+
+
+    </div>
+    <input type="submit" name="Importer" value="Faire un tirage" class="submit jus3">
+  </div>
+
 </ion-content>
+

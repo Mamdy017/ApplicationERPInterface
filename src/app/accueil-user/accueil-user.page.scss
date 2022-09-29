@@ -1,0 +1,78 @@
+
+
+.alarte{
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+.cardHome{
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+
+}
+.cardHome1{
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+.cardCenter{
+  justify-content: space-around;
+}
+.pContent1{
+  font-size: 3rem;
+  font-weight: 600;
+  position: relative;
+  top: 15px;
+}
+.pContent2{
+  top: -20px;
+  position: relative;
+}
+.slogan{
+  color: #FF6600;
+  text-align: center;
+  font-size: 1.3rem;
+  position: relative;
+  top: -15px;
+}
+
+.activity{
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+* {
+  font-family: 'Poppins' sans-serif;
+}
+
+.boxShadow{
+  padding: 15px;
+}
+.boxShadowArticle{
+  box-shadow: rgba(0, 0, 0, 0.20) 1.95px 1.95px 2.6px;
+  padding-top: 15px;
+}
+.titleSectionActivity{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.actityAVenir{
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.dateActivity{
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  top: -10px;
+}
+.pActivityAVenir{
+  position: relative;
+  top: -20px;
+}
+.auteurActivityAVenir{
+  position: relative;
+  font-size: 1rem;
+  top: -30px;
+}
+.boxShadowArticleAVenir{
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.20) 1.95px 1.95px 2.6px;
+  padding-bottom: 0;
+}
