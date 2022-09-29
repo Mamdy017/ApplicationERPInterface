@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'salle',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
   {
@@ -89,13 +89,15 @@ const routes: Routes = [
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
   {
-    path: 'liste-globale',
-    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
+ 
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
-  }
+  },
+
 ];
 @NgModule({
   imports: [

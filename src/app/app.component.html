@@ -1,76 +1,83 @@
 
 <ion-content >
+  <style>
+          .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;}
+  </style>
 <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
   <div class="row flex-nowrap">
-
-      <div class="col-auto   px-4 " >
-        <div>
-        <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  ><i class="bi bi-arrow-left-circle py-2 p-1 " style="color:black"></i></a>
-          <!-- <a class="ionee"><ion-icon  name="reorder-four-outline"  ></ion-icon></a> -->
-        </div>
+    
+    <!-- debut du sidebar { -->
+      <div class="col-auto px-2" >
+        
           <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
             <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
-                <div class="py-4">
-                  <img src="../assets/logo.png" style="height: 90px; width: 150px;"  alt="">
-                  <!-- <a href="#" data-bs-target="#sidebar"  (click)="cacherMenuMobile()"  data-bs-toggle="collapse"><i class="bi bi-arrow-left-circle py-2 p-1 " style="color:black"></i></a> -->
-                  <!-- <i class="bi bi-arrow-left-circle" (click)="cacherMenuMobile()"></i> -->
-
+                <div>
+                  <img src="../assets/logo.png" style="height: 75px; width: 150px;"  alt="">
              </div>
-            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
-              <li class="nav-item py-4">
+             <div class="py-3"></div>
+            <ul class=" nav nav-pills mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
+              <li class=" py-4">
                 <div class="row px-2">
-                    <div class="col">  <img src="../assets/logo.png" alt=""></div>
+                    <div class="col">  <img src="../assets/icon/favicon.png" alt=""></div>
                     <div class="col nom py-1">
                         <span>Camara</span>
                         <span>Camara</span>
                     </div>
                 </div>
               </li>
-              <li>
-                <div class="row tiret px-4">
-                    <div class="col"></div>
-                    <div class="col  py-2" style="margin-left:-75% ;"><i class="bi bi-bell"></i></div>
-                    <div class="col py-3" style="margin-left:-50% ; background-color: ble; width: 15px;"><span> Notification</span></div>
-                    <div class="col-1 nombre"><span><b>23</b></span> </div>
+              <!-- <li>
+                <div class="row tiret px-4 py-2">
+                    <div class="col-2" style="margin-top:-2% ; margin-left:-8%;"><i class="bi bi-bell"></i></div>
+                    <div class="col "><span> Notification</span></div>
                 </div>
-              </li>
-              <li class="li">
+              </li> -->
+              <li class="li active">
                   <a href="#" class="nav-link  align-middle li">
-                      <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light">Accueil</span></a>
+                      <i class="bi bi-house active"></i> <span class="ms-1  d-sm-inline light active px-3">Accueil</span></a>
               </li>
-              <li class="li">
-                <a href="entite" class="nav-link  align-middle li">
-                    <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light">Entités</span></a>
-            </li>
-            <li class="li">
-                <a href="tirage" class="nav-link  align-middle li">
-                    <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light">Tirage</span></a>
-            </li>
+
+
             <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light">Acticitées</span></a>
+                  <i class="bi bi-card-checklist"></i> <span class="ms-1  d-sm-inline light px-3">Listes</span></a>
             </li>
             <li class="li">
+              <a href="#" class="nav-link  align-middle li">
+                <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Acteur</span></a>
+          </li>
+          <li class="li">
+            <a href="#" class="nav-link  align-middle li">
+                <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light px-3">Entités</span></a>
+        </li>
+          <li class="li">
+            <a href="#" class="nav-link  align-middle li">
+                <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
+        </li>
+            <li class="li">
                 <a href="#" class="nav-link  align-middle li">
-                    <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light">Utilisateurs</span></a>
+                    <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light px-3">Acticitées</span></a>
             </li>
-            <li style="height: 79px;"></li>
+
+            <li class="li">
+              <a href="#" class="nav-link  align-middle li">
+                  <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Utilisateurs</span></a>
+          </li>
+            <li style="height: 150px;"></li>
           </ul>
               </div>
           </div>
       </div>
+      <!-- fin du sidebar }-->
+      <!-- le debut du container{ -->
       <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
           <ion-app>
             <ion-router-outlet></ion-router-outlet>
         </ion-app>
-          <hr>
       </main>
   </div>
 </div>
-<style>
-
-#sidebar-nav {
-  width: 180px;
-}
-</style>
 </ion-content>
