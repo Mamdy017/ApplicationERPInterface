@@ -8,15 +8,15 @@
 <h2>Ajouter une entité</h2>
 <p class="vertical"></p>
 <div class="ligne">
-  <ion-input placeholder="Nom de l'entité" class="entite"></ion-input>
-  <ion-input placeholder="Description" class="entite"></ion-input>
+  <ion-input placeholder="Nom de l'entité" class="entite" [ngModel]="nom"></ion-input>
+  <ion-input placeholder="Description" class="entite" [ngModel]="description"></ion-input>
 </div>
-<ion-input placeholder="Slogan" class="entite"></ion-input>
+<ion-input placeholder="Slogan" class="entite" [ngModel]="slogan" ></ion-input>
 
-<ion-input type="file" class="input" ><img class ="image" src="../assets/camera1.png" alt="logo" srcset="" placeholder="logo" width="8%">Logo</ion-input> 
+<ion-input type="file" class="input" [ngModel]="image"><img class ="image" src="../assets/camera1.png" alt="logo" srcset="" placeholder="logo" width="8%">Logo</ion-input> 
 
 
-  <button type="button" class="btn">Créer</button>
+  <button type="button" class="btn" (click)="creer()">Créer</button>
 
 </section>
 </div>

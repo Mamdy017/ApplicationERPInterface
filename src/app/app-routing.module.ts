@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'accueil-user',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -77,9 +77,10 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
-    path: 'gestionentite',
-    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
-  },
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  }
+
 
 ];
 
