@@ -87,6 +87,10 @@ const routes: Routes = [
     path: 'renitialisation-m-p',
     loadChildren: () => import('./renitialisation-m-p/renitialisation-m-p.module').then( m => m.RenitialisationMPPageModule)
   },
+  {
+    path: 'detail-activite',
+    loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
+  },
 
 
 ];
