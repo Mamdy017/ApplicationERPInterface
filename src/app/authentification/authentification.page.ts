@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthentificationService } from '../Services/authentification/authentification.service';
@@ -49,7 +48,7 @@ export class AuthentificationPage implements OnInit {
         this.service.seConnecter(this.email,this.password).subscribe(data=>{
           this.connexion = data;
 
-          console.log("session "+data);
+          // console.log("session "+data);
           
           if(this.connexion.email == this.email && this.connexion.password==this.password)
           {

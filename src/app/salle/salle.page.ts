@@ -12,13 +12,14 @@ import { SalleService } from '../Services/salle/salle.service';
 
 export class SallePage implements OnInit {
 
+salles: Salle = {
+  idsalle: 0,
+  nom: '',
+  nbreplace:0,
+  etage:'',
+  disponibilite: true,
+}
 
- formulaireAjout!:FormGroup;
-
-ajouter:any;
-name!:number
-etage:string
-numeroPlace:number
 
 mesDonnees:any
 
@@ -28,8 +29,12 @@ mesDonnees:any
 
   }
   ajouterSalle(){
-
-    this.mesDonnees = this.formulaireAjout.value
-        console.log("je suis Etage: "+this.mesDonnees.etage);
+    console.log("je suis Etage: "+this.salles.etage);
+ 
+    console.log("Les données: "+this.salles)
+   this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data =>{
+    console.log("Les données: "+data)
+   })
+       
       }
-}
+    }
