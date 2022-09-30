@@ -2,7 +2,7 @@ export class Salle {
 
   idsalle!: number;
   nom!: string;
-  nbreplace!:number;
+  nbreplace!: number;
   etage!:string;
   disponibilite!: boolean;
 }

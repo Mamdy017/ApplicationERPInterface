@@ -13,9 +13,9 @@ export class SalleService {
 
 
 // =================================  ICI ON AJOUTE UN SALLE  =====================================
-ajouterUneSalle(salle:Salle):Observable<Salle>
+ajouterUneSalle(salle:Salle):Observable<any>
 {
-  return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`,Salle);
+  return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`, salle);
 }
 
 }
