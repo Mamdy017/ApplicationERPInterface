@@ -42,7 +42,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-ajouter-acteur-user',
-    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
+      m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
@@ -87,13 +88,10 @@ const routes: Routes = [
   {
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
-  },  {
-    path: 'ajouter-acteur',
-    loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
   },
   {
-    path: 'profil-user-profil',
-    loadChildren: () => import('./profil-user-profil/profil-user-profil.module').then( m => m.ProfilUserProfilPageModule)
+    path: 'ajouter-acteur',
+    loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
   },
 
 ];
