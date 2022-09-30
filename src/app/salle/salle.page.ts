@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { type } from 'os';
@@ -13,6 +14,7 @@ import { SalleService } from '../Services/salle/salle.service';
 
 export class SallePage implements OnInit {
 
+
 salles: Salle = new Salle();
 // {
 //   idsalle: 0,
@@ -23,13 +25,14 @@ salles: Salle = new Salle();
 // }
 
 
+
 mesDonnees:any
 
   constructor(private serviceSalle:SalleService) { }
-
   ngOnInit() {
 
   }
+
    ajouterSalle(){
 
      console.log("Les données: "+this.salles.nbreplace) 
@@ -38,7 +41,7 @@ mesDonnees:any
 
     console.log("Les gggdonnées: "+this.mesDonnees)
 
-   })
+ })
        
       }
   // ajouterSalle(){
