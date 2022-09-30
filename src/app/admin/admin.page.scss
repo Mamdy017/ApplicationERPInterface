@@ -22,28 +22,44 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .containerSearch{
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-  
 }
 
 .iconTop i{
   position: relative;
   color: #FF6600;
-  margin-left: 60px;
-  top: 50px;
+  display: flex;
+  justify-content: center;
+  top: 10px;
   font-size: 4rem;
+}
+
+.iconBas{
+  position: relative;
+  color: #FF6600;
+  display: flex;
+  justify-content: center;
+  top: 10px;
+  font-size: 3.8rem;
 }
 
 .pcardHome{
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   position: relative;
-  top: -50px;
+  top: -14px;
 }
 
 .txtcardHome{
   text-align: center;
   font-size: 1rem;
   position: relative;
-  top: -70px;
+  top: -38px;
+}
+
+.txtcardbottom{
+  text-align: center;
+  font-size: 1.2rem;
+  position: relative;
+  font-weight: 600;
 }

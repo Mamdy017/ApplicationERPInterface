@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'admin',
     pathMatch: 'full'
   },
   {
@@ -75,7 +75,8 @@ const routes: Routes = [
   {
     path: 'salle',
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
-  },  {
+  },
+  {
     path: 'liste-tirage',
     loadChildren: () => import('./liste-tirage/liste-tirage.module').then( m => m.ListeTiragePageModule)
   },
