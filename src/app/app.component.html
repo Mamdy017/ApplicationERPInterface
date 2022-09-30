@@ -7,13 +7,15 @@
     display: none;}
   </style>
 <div class="container-fluid">
-    <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <a href="#" data-bs-target="#sidebar"   data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
   <div class="row flex-nowrap">
-    
-    <!-- debut du sidebar { -->
-      <div class="col-auto px-2" >
-        
-          <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
+
+      <div class="col-auto   px-4 " >
+        <div>
+        <a href="#" data-bs-target="#sidebar"    data-bs-toggle="collapse"  ><i class="bi bi-arrow-left-circle py-2 p-1 " style="color:black"></i></a>
+          <!-- <a class="ionee"><ion-icon  name="reorder-four-outline"  ></ion-icon></a> -->
+        </div>
+          <div id="sidebar" class="collapse collapse-horizontal  show " >
             <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
                 <div>
                   <img src="../assets/logo.png" style="height: 75px; width: 150px;"  alt="">
@@ -54,7 +56,7 @@
                 <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light px-3">Entités</span></a>
         </li>
           <li class="li">
-            <a href="#" class="nav-link  align-middle li">
+            <a routerLink="tirage" class="nav-link  align-middle li">
                 <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
         </li>
             <li class="li">
