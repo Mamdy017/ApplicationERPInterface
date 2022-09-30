@@ -87,7 +87,11 @@ const routes: Routes = [
   {
     path: 'liste-globale',
     loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
+  },  {
+    path: 'ajouter-acteur',
+    loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
   },
+
 ];
 @NgModule({
   imports: [
