@@ -67,7 +67,7 @@ export class AuthentificationPage implements OnInit {
 
 
 
-                      if(this.typeUser == "User")
+                      if(this.typeUser == "user")
                       {
                       this.route.navigateByUrl('/accueil-user');
                       }
