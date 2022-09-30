@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'detail-activite',
     loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
   },
+  {
+    path: 'renialiser-code',
+    loadChildren: () => import('./renialiser-code/renialiser-code.module').then( m => m.RenialiserCodePageModule)
+  },
 
 
 ];
