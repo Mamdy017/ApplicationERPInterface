@@ -11,11 +11,14 @@ export class SalleService {
 
   constructor(private http:HttpClient) { }
 
-
-// =================================  ICI ON AJOUTE UN SALLE  =====================================
-ajouterUneSalle(salle:Salle):Observable<Salle>
+ajouterSalleSvc(salle:Salle):Observable<Salle>
 {
-  return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`,Salle);
+return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`,Salle)
 }
+// =================================  ICI ON AJOUTE UN SALLE  =====================================
+// ajouterUneSalle(salle:Salle):Observable<Salle>
+// {
+//   return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`,Salle);
+// }
 
 }
