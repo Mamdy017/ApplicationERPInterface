@@ -91,6 +91,10 @@ const routes: Routes = [
     path: 'ajouter-acteur',
     loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
   },
+  {
+    path: 'profil-user-profil',
+    loadChildren: () => import('./profil-user-profil/profil-user-profil.module').then( m => m.ProfilUserProfilPageModule)
+  },
 
 ];
 @NgModule({
