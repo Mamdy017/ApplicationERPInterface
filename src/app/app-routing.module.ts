@@ -100,6 +100,10 @@ const routes: Routes = [
     path: 'liste-salle',
     loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
   },
+  {
+    path: 'liste-tirage-nonvalide',
+    loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
+  },
 
  
   
