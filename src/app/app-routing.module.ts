@@ -1,6 +1,12 @@
+<<<<<<< .merge_file_a22048
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+=======
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+>>>>>>> .merge_file_a13384
 
 const routes: Routes = [
   {
@@ -9,7 +15,11 @@ const routes: Routes = [
   },
   {
     path: '',
+<<<<<<< .merge_file_a22048
     redirectTo: 'authentification',
+=======
+    redirectTo: 'accueil-user',
+>>>>>>> .merge_file_a13384
     pathMatch: 'full'
   },
   {
@@ -38,14 +48,25 @@ const routes: Routes = [
   },
   {
     path: 'admin-ajouter-acteur-user',
+<<<<<<< .merge_file_a22048
     loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
        m => m.AdminAjouterActeurUserPageModule)
+=======
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+>>>>>>> .merge_file_a13384
   },
   {
     path: 'authentification',
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
+<<<<<<< .merge_file_a22048
+=======
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+>>>>>>> .merge_file_a13384
     path: 'liste-acteur',
     loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
   },
@@ -74,6 +95,7 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
+<<<<<<< .merge_file_a22048
     path: 'page-liste-suite',
     loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
   },
@@ -112,8 +134,39 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+=======
+    path: 'gestionentite',
+    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+  },  {
+    path: 'liste-des-salles',
+    loadChildren: () => import('./liste-des-salles/liste-des-salles.module').then( m => m.ListeDesSallesPageModule)
+  },
+  {
+    path: 'renitialisation-m-p',
+    loadChildren: () => import('./renitialisation-m-p/renitialisation-m-p.module').then( m => m.RenitialisationMPPageModule)
+  },
+  {
+    path: 'detail-activite',
+    loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
+  },
+  {
+    path: 'renialiser-code',
+    loadChildren: () => import('./renialiser-code/renialiser-code.module').then( m => m.RenialiserCodePageModule)
+  },
+
+
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    NgbModule
+>>>>>>> .merge_file_a13384
   ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+<<<<<<< .merge_file_a22048
 
+=======
+>>>>>>> .merge_file_a13384
