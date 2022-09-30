@@ -10,11 +10,14 @@
   margin-left: 1000px;
   padding: 5px;
   margin-top: -10px;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+.contourCard{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 .cardHome{
 background: #FFFFFF;
-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 
 }
 .containerSearch{
@@ -22,12 +25,12 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
   
 }
 
-.cardHome .iconns{
-  color: #FF6600;
+.iconTop i{
   position: relative;
-  top: 20px;
-  display: block;
-
+  color: #FF6600;
+  margin-left: 60px;
+  top: 50px;
+  font-size: 4rem;
 }
 
 .pcardHome{
@@ -35,12 +38,12 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
   font-size: 2.3rem;
   font-weight: bold;
   position: relative;
-  top: -26px;
+  top: -50px;
 }
 
 .txtcardHome{
   text-align: center;
   font-size: 1rem;
   position: relative;
-  top: -45px;
+  top: -70px;
 }
