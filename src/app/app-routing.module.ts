@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'accueil-user',
     pathMatch: 'full'
   },
   {
@@ -77,9 +77,17 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
-  }
+    path: 'gestionentite',
+    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+  },
+  {
+    path: 'liste-des-salles',
+    loadChildren: () => import('./liste-des-salles/liste-des-salles.module').then( m => m.ListeDesSallesPageModule)
+  },
+  {
+    path: 'renitialisation-m-p',
+    loadChildren: () => import('./renitialisation-m-p/renitialisation-m-p.module').then( m => m.RenitialisationMPPageModule)
+  },
 
 
 ];
