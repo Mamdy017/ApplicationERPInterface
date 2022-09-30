@@ -1,25 +1,43 @@
-.button{
-    border-radius: 15px;
-    background-color: #FF6600;
+*{
+    font-family: 'Poppins', sans-serif;
 }
-.container{
+.conteneur{
     background: #FFFFFF;
-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.25);
-border-radius: 22px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 22px;
+    top: 70px;
+    position: relative;
+}
+.petitCard{
+    width: 70px;
+    height: 70px;
+    background: #ffffff;
+    box-shadow:  1px 1px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    border: none;
+    margin: 10px;
+}
+.boutton{
+    width: 150px;
+    height: 45px;
+    background: #FF6600;
+    // box-shadow: 0px 4px 21px rgba(120, 120, 120, 0.25);
+    // box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;  
+    color: #FFFFFF; 
+    border: none; 
+    font-weight: 600;
+}
+.titleItemss{
+    font-weight: bold;
+    font-size: 1.6rem;
 }
 .trait{
-    // position: absolute;
-width: 90px;
-height: 3px;
-// left: 183px;
-// top: 598px;
-
-background: #FF6600;
+    height: 5px;
+    width: 100px;
+    background: #FF6600;
 }
-.col{
-    // width: 76px;
-    // height: 83px;
-    background: #FFFFFF;
-    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+span{
+   
+    color: #FF6600;
 }
