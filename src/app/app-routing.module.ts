@@ -28,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
   },
   {
+    path: 'gestionentite',
+    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+  },
+  {
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then(m => m.EntitePageModule)
   },
