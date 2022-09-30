@@ -30,24 +30,13 @@
                 "output": "./svg"
               }
             ],
-<<<<<<< HEAD
+
             "styles": [
-              "src/theme/variables.scss", "src/global.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
+              "src/theme/variables.scss",
+               "src/global.scss"
             ],
-=======
-            "styles": ["src/theme/variables.scss", "src/global.scss",  {
-              "input": "node_modules/@fortawesome/fontawesome-free/css/all.css"
-            }],
             "scripts": [
-              {
-                "input": "node_modules/@fortawesome/fontawesome-free/js/all.js"
-              }
-            ]
-            ,
->>>>>>> aece6fb8cf85a4a9c9b666290d54f62483fa8798
+            ],
             "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,

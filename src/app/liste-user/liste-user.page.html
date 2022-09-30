@@ -1,113 +1,72 @@
 <ion-content>
-
-  <section class="container">
-
-      <div class="containerT row">
-        <div class="souhater">
-            <h1>
-              Souhaitez-vous ajouter un postulant ?
-            </h1>
-        </div>
-
-        <div class="bouton">
-          <button type="button" class="btn btn-outline-dark">Ajouter un utilisateur</button>
-        </div>
-
+  <div class="container">
+    <button type="button" class="btn" style="margin-left:92% ;">
+      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+        99+
+      </span></i>
+    </button>
+    <br><br>
+    <div class="row py-3">
+      <h1>Liste des utilisateurs</h1>
+      <div class="trait"></div>
+      <div class="position">
+          <button class="btn btnAjouter">Exporter le fichier</button>
+          <form action="">
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+          </form>
+        <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
+        <button class="btn btnAjouter">Ajouter un utilisateur</button>
       </div>
-
-<div class="generale">
-
-
-      <div class="tableContainer ">
-
-        <div class="entete row">
-
-          <div class="titleT">
-              <h1>Liste des utilisateurs</h1>
-          </div>
-
-          <div class="boutons">
-            <button type="button" class="btn btn-outline-dark">Exporter Fichier</button>
-          </div>
-        </div>
-
-
+      <div class="table-responsive ra py-5">
         <table class="table">
-
           <thead>
-             <th scope="col" class="fhead">Nom</th>
-             <th scope="col">Prénom</th>
-             <th scope="col">Email</th>
-             <th scope="col">Numero</th>
-             <th scope="col">Genre</th>
-             <th scope="col" class="lhead">Action</th>
+            <tr>
+              <th scope="col" class="ra">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Numéro</th>
+              <th scope="col">Rôle</th>
+              <th scope="col">Entité</th>
+              <th scope="col" class="ra1">Action</th>
+            </tr>
           </thead>
-
           <tbody>
             <tr>
-              <td>Coulibaly</td>
-              <td>Adama</td>
-              <td>adama@gmail.com</td>
-              <td>70 44 67 11</td>
-              <td>Masculin</td>
-              <td>
-                    <span><a> <i class="fa-solid fa-pen-to-square"></i></a></span>
-
-                    <span>  <a> <i class="fa fa-trash" aria-hidden="true"></i> </a></span>
-             </td>
-
-            <tr>
-              <td>Coulibaly</td>
-              <td>Awa</td>
-              <td>awa@gmail.com</td>
-              <td>70 66 67 11</td>
-              <td>Feminin</td>
-              <td>
-                <span><a> <i class="fa-solid fa-pen-to-square"></i></a></span>
-
-                <span>  <a> <i class="fa fa-trash" aria-hidden="true"></i> </a></span>
-
-              </td>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
             </tr>
-
             <tr>
-              <td>Diarra</td>
-              <td>Idrissa</td>
-              <td>idrissa@gmail.com</td>
-              <td>70 44 67 11</td>
-              <td>Masculin</td>
-              <td>
-                <span><a> <i class="fa-solid fa-pen-to-square"></i></a></span>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
 
-                    <span>  <a> <i class="fa fa-trash" aria-hidden="true"></i> </a></span>
-
-              </td>
             </tr>
-
             <tr>
-              <td>Traoré</td>
-              <td>Moussoudou</td>
-              <td>traore@gmail.com</td>
-              <td>60 44 67 11</td>
-              <td>Masculin</td>
-              <td>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
 
-                <span><a> <i class="fa-solid fa-pen-to-square"></i></a></span>
-
-                <span>  <a> <i class="fa fa-trash" aria-hidden="true"></i> </a></span>
-
-              </td>
             </tr>
           </tbody>
-
         </table>
-
       </div>
-</div>
+    </div>
 
-  </section>
-
-
+  </div>
 
 
 
