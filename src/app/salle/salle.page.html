@@ -109,29 +109,30 @@ Tiec -->
   
       <!------------- Colonne Droite ---->
       <div class="col-10 col-md-6">
-        <form>
+        <form >
           <fieldset>
             <legend class="display-6 text-center my-3"><b>Ajout d'une<p class="o">Salle</p></b></legend>
           </fieldset>
           <div class="trait"></div>
           <div class="row col-08">
             <div class="mb-3 col-10 col-md-12 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <input type="text" class="form form-control inputvalue" [(ngModel)]="salles.nom"  name="name" id="name" placeholder="Nom de la salle" >
               <label for="name">Nom</label>
             </div>
             <div class="mb-3 col-12 col-md- 12form-row form-floating">
-              <input type="text" name="etage" id="etage" placeholder="etage" class="form form-control inputvalue">
+              <input type="text" name="etage" id="etage" [(ngModel)]="salles.etage" placeholder="etage" class="form form-control inputvalue" >
               <label for="firstname">Etage</label>
             </div>
             <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <input type="number" name="numeroPlace" placeholder="Nombre de Place" class="form form-control inputvalue">
+              <input type="number" name="nbreplace" [(ngModel)]="salles.nbreplace" placeholder="Nombre de Place" class="form form-control inputvalue" >
               <label for="num">Nombre de Place</label>
             </div>
            
            
             
           </div>
-          <button class="btn btnAjouter">Valider</button>
+          <button (click)="ajouterSalle()" class="btn btnAjouter">Valider</button>
+          <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
           
         
         </form>

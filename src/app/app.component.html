@@ -1,211 +1,84 @@
 
 <ion-content >
-
-  <div class="container-fluid w-100">
-    <div class="row flex-nowrap ">
-        <div class="offcanvas offcanvas-start v " tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
-            <div class="offcanvas-header">
-                <img src="../assets/logo.png" alt="" class="py-3 logo">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-        <div class="col-auto col-md-12 col-xl-12 px-sm-6 courbe w-100 min-vh-100 px-0 bg-dark">
-           
-            <style>
-                .offcanvas-header img{
-                    width: 65%;
-                }
-
-                    .nav-item img{
-                    border-radius: 100%;
-                    height: 75px;
-                    width: 100px;
-                    
-                  }
-                  .courbe{
-                    border-radius: 0 80px 0 0;
-                  }
-                  .tiret{
-                    background-color: white;
-                    margin-left: -1%;
-                    width: 100%;
-                  }
-                  .nav-item{
-                    margin-top: 2%;
-                  }
-                  .ca{
-                    display: flex;
-                    flex-direction: column;
-                    color: white;
-                    margin-top: 20% ;
-                    margin-left: -10%;
-                  }
-                  .v{
-                  width: 250px;
-                 }
-            </style>
-
-            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
-                <li class="nav-item row">
-                    <div class="col-md-5  py-4">
-                         <img src="../assets/logo.png" alt="">
-                    </div>
-                   <div class="col-md-6 py-4">
-                         <span class="ca"><span>Camara</span> <span>Camara</span></span>
-                   </div>
-                </li>
-                <li class="tiret">
-                    <a href="#" class="nav-link text-truncate">
-                        <div class="row">
-                        <div class="col-md-1">
-                            <i class="bi bi-bell"></i>
-                        </div>
-                        <div class="col-md-7">
-                             <span class="ms-1 d-none d-sm-inline">Notification</span>
-                        </div>
-                       <div class="col-md-3" 
-                       style="background-color:#FF6600 ; width: 40px; height: 40px; border-radius: 50%;"><span style="color:white; top: 20%;
-                        position: relative; font-size: 15px;"> <b>23</b> </span></div>
-                        </div>
-                    </a>
-                </li>
-                <li >
-                    <a href="accueil-user" data-bs-toggle="collapse" class="nav-link text-truncate">
-                        <i class="bi bi-house"></i><span class="ms-1 d-none d-sm-inline">Accueil</span> </a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle  text-truncate" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                    </a>
-                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdown">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-truncate">
-                        <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link text-truncate">
-                        <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Utilisateurs</span> </a>
-                </li>
-            </ul>
-               <!-- <i class="bi bi-x-lg croix" style="color:red; position:relative; 
-                margin-left:80%;" (click)="cacherMenuMobile()"></i>
-                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                    <span class="fs-5 d-none d-sm-inline">Menu</span>
-                </a>  -->
-                <!-- <style>
-                  .nav-item img{
-                    border-radius: 100%;
-                    height: 60px;
-                    width: 60px;
-                    padding: 1px;
-                  }
-                  .Nom{
-                    position: relative;
-                    top: 8%;
-                  }
-                  .ul{
-                    border-radius: 0 50px 0 0;
-                    position: relative;
-                    margin-left: -4%;
-                    
-                  }
-                  .nombre{
-                    background-color: #FF6600;
-                    border-radius: 20%;
-                    height: 20px;
-                    width: 20px;
-                
-                  @media screen and (max-width:767px) {
-                    
-                    .croix{
-                        display: block;
-                    }
-                    i{
-                        
-                    }
-                    .con{
-                        z-index: -1;
-                    }
-                    .ul{
-                        width: 200px;
-                       
-                    }
-                    .li{
-                        margin-left: -50%;
-
-                    }
-                    .card{
-                        background-color: red;
-                        width: 140px;
-                    }
-                  }
-                </style>
-                 -->
-                <!-- <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center ul align-items-sm-start"id="menu">
-                    <li class="nav-item">
-                      <img src="../assets/logo.png" alt="">
-                      <span>Camara</span><br>
-                      <span>Camara</span>
-                     
-                    </li>
-                    
-                    <li>
-                        <div class="card" >
-                            <ul>
-                              <li class="list-group-item" ><i class="bi bi-bell"></i> 
-                                <span> Notification</span> 
-                                <p ><b s>23</b> </p></li>
-                            </ul>
-                          </div>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link  align-middle li">
-                            <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light">Accueil</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle li">
-                            <i class="fa-solid fa-database" style="font-size:30px;"></i> <span class="ms-1  d-sm-inline">Entités</span></a>
-                    </li>
-
-                    
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle li">
-                            <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline">Tirage</span> </a>
-                    </li>
-
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle li">
-                            <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline">Activitées</span> </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-0 align-middle li">
-                            <i class="bi bi-person-circle"></i> <span class="ms-1 d-sm-inline">Utilisateurs</span> </a>
-                    </li>
-                    <li style="height:100px ;">
-                    </li>
-                </ul> -->
-                <hr>
+  <style>
+          .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;}
+  </style>
+<div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar"  (click)="afficheMenuMobile()"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    
+    <!-- debut du sidebar { -->
+      <div class="col-auto px-2" >
+        
+          <div id="sidebar" class="collapse collapse-horizontal  show " *ngIf="menuBureau">
+            <div id="sidebar-nav" class="list-group border-0  hh rounded-0 text-sm-start">
+                <div>
+                  <img src="../assets/logo.png" style="height: 75px; width: 150px;"  alt="">
              </div>
-        </div>
-    </div>
-    <!-- <div class="container-fluid " style="overflow:hidden ;">
-        <div class="row">
-            <div class="col-md-2"></div> -->
-            <!-- <div class="col min-vh-100 py-3"> -->
-                <ion-app>
-                    <ion-router-outlet></ion-router-outlet>
-                </ion-app>
-            </div>
-        <!-- </div> -->
-    <!-- </div>
-</div> -->
+             <div class="py-3"></div>
+            <ul class=" nav nav-pills mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
+              <li class=" py-4">
+                <div class="row px-2">
+                    <div class="col">  <img src="../assets/icon/favicon.png" alt=""></div>
+                    <div class="col nom py-1">
+                        <span>Camara</span>
+                        <span>Camara</span>
+                    </div>
+                </div>
+              </li>
+              <!-- <li>
+                <div class="row tiret px-4 py-2">
+                    <div class="col-2" style="margin-top:-2% ; margin-left:-8%;"><i class="bi bi-bell"></i></div>
+                    <div class="col "><span> Notification</span></div>
+                </div>
+              </li> -->
+              <li class="li active">
+                  <a href="#" class="nav-link  align-middle li">
+                      <i class="bi bi-house active"></i> <span class="ms-1  d-sm-inline light active px-3">Accueil</span></a>
+              </li>
+
+
+            <li class="li">
+                <a href="#" class="nav-link  align-middle li">
+                  <i class="bi bi-card-checklist"></i> <span class="ms-1  d-sm-inline light px-3">Listes</span></a>
+            </li>
+            <li class="li">
+              <a href="#" class="nav-link  align-middle li">
+                <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Acteur</span></a>
+          </li>
+          <li class="li">
+            <a href="#" class="nav-link  align-middle li">
+                <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light px-3">Entités</span></a>
+        </li>
+          <li class="li">
+            <a href="#" class="nav-link  align-middle li">
+                <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
+        </li>
+            <li class="li">
+                <a href="#" class="nav-link  align-middle li">
+                    <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light px-3">Acticitées</span></a>
+            </li>
+
+
+            <li class="li">
+              <a href="#" class="nav-link  align-middle li">
+                  <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Utilisateurs</span></a>
+          </li>
+            <li style="height: 150px;"></li>
+          </ul>
+              </div>
+          </div>
+      </div>
+      <!-- fin du sidebar }-->
+      <!-- le debut du container{ -->
+      <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+          <ion-app>
+            <ion-router-outlet></ion-router-outlet>
+        </ion-app>
+      </main>
+  </div>
+</div>
 </ion-content>

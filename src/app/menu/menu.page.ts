@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+// import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,7 @@ export class MenuPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
-  constructor( public breakpointObserver: BreakpointObserver) { }
+  constructor(/* public breakpointObserver: BreakpointObserver*/) { }
 
   actualise(): void{
     setInterval(
@@ -21,19 +21,19 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
 
-    this.breakpointObserver
-    .observe(['(max-width: 767px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.menuBureau = false;
-        this.menuMobile = true;
-        this.actualise();
-      } else {
-        this.menuBureau = true;
-        this.menuMobile = false;
-        this.actualise();
-      }
-    });
+    // this.breakpointObserver
+    // .observe(['(max-width: 767px)'])
+    // .subscribe((state: BreakpointState) => {
+    //   if (state.matches) {
+    //     this.menuBureau = false;
+    //     this.menuMobile = true;
+    //     this.actualise();
+    //   } else {
+    //     this.menuBureau = true;
+    //     this.menuMobile = false;
+    //     this.actualise();
+    //   }
+    // });
 
   }
 

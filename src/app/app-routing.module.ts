@@ -92,7 +92,8 @@ const routes: Routes = [
   {
     path: 'profile-user-profile',
     loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
-  },  {
+  },
+  {
     path: 'ajouter-tache',
     loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
   },
@@ -101,11 +102,13 @@ const routes: Routes = [
     loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
   },
   {
+    path: 'ajouter-entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
     path: 'liste-tirage-nonvalide',
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
-
- 
   
 
 ];
