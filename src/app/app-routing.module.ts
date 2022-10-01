@@ -78,6 +78,10 @@ const routes: Routes = [
     path: 'liste-participant',
     loadChildren: () => import('./liste-participant/liste-participant.module').then( m => m.ListeParticipantPageModule)
   },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+  },
 
 ];
 
