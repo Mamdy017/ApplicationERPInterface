@@ -112,7 +112,15 @@ const routes: Routes = [
   {
     path: 'accueil-entite',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
+  },  {
+    path: 'changer-profile',
+    loadChildren: () => import('./changer-profile/changer-profile.module').then( m => m.ChangerProfilePageModule)
   },
+  {
+    path: 'reporting',
+    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
+  },
+
   
 
   
