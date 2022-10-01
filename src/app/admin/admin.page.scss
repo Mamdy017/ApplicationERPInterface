@@ -59,7 +59,22 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 
 .txtcardbottom{
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   position: relative;
   font-weight: 600;
+}
+.Filtree{
+  font-size: 3rem;
+  cursor: pointer;
+  
+}
+.toutFilter{
+  position: relative;
+  display: flex;
+  background-color: #E7EBED;
+  border-radius: 12px;
+} 
+.iputFilter{
+  position: relative;
+  top: 23px;
 }
