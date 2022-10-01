@@ -8,7 +8,7 @@ import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.servic
   styleUrls: ['./liste-acteur.page.scss'],
 })
 export class ListeActeurPage implements OnInit {
-  acteurs : any;
+  acteurs : Acteur[];
 
   constructor(private serviceActeur : ListeActeurService) { }
 

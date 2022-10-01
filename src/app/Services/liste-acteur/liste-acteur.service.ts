@@ -10,7 +10,7 @@ export class ListeActeurService {
 
   constructor(private http : HttpClient) { }
 
-  afficherLesActeurs() :Observable<any> {
-    return this.http.get("http://localhost:8080/acteur/afficher");
+  afficherLesActeurs() :Observable<Acteur[]> {
+    return this.http.get<Acteur[]>("http://localhost:8080/acteur/afficher");
   }
 }

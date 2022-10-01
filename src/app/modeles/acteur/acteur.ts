@@ -6,6 +6,7 @@ export class Acteur {
   nom!: string;
   prenom!: string;
   numero!: string;
+  email!: string;
   activite!: Activite;
   statut!: Statut;
 }
