@@ -49,7 +49,8 @@ const routes: Routes = [
   },
   {
     path: 'admin-ajouter-acteur-user',
-    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
+      m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
@@ -92,20 +93,10 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
   },
- 
   {
-    path: 'salle',
-    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+    path: 'ajouter-acteur',
+    loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
   },
-  {
-    path: 'liste-des-salles',
-    loadChildren: () => import('./liste-des-salles/liste-des-salles.module').then( m => m.ListeDesSallesPageModule)
-  },
-  {
-    path: 'renitialisation-m-p',
-    loadChildren: () => import('./renitialisation-m-p/renitialisation-m-p.module').then( m => m.RenitialisationMPPageModule)
-  },
-
 
 ];
 @NgModule({

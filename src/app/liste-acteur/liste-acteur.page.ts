@@ -19,4 +19,17 @@ export class ListeActeurPage implements OnInit {
     })
   }
 
+
+  supprimer(acteur : any){
+    let confirmer = confirm("êtes-vous sûr de le supprimer ?");
+    if(confirmer == false) return;
+    this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
+      next : (data) => {
+        console.log(acteur.id)
+        let index = this.acteurs.indexOf(acteur);
+        this.acteurs.splice(index, 1);
+      }
+    })
+  }
+
 }

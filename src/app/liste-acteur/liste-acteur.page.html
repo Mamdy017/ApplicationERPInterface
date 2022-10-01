@@ -1,108 +1,47 @@
-<!-- <ion-content> -->
-  <!-- <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-  <div class="container1">
-    <div class="div-gauche">
-    <p>Vous souhaitez ajouter
-      un acteur?</p>
-    </div>
-
-    <div class="div-droite">
-      <span ><p>Ajouter un acteur</p></span>
-    </div>
-
-  </div>
-  
 <div class="container">
-   <div class="cont">
-     <div class="boutton">  
-       <p class="b"><b>Liste des acteurs</b></p>
-       <span class="sp1"><b>Filtrer</b></span>
-       <span class="sp2"><b>Exporter liste</b></span>
-     </div> 
-    <table class="table">
-      <thead class="thead-dark" >
-        <th class="gauche" scope="col">Nom</th>
-        <th scope="col">Prenom</th>
-        <th scope="col">Email</th>
-        <th scope="col">Numéro</th>
-        <th scope="col">Genre</th>
-        <th class="droite" scope="col">Actions</th>
+  <button type="button" class="btn" style="margin-left:92% ;">
+    <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+      99+
+    </span></i>
+  </button>
+  <br><br>
+  <div class="row ro py-3">
+    <h1>Liste des acteurs</h1>
+    <div class="trait"></div>
+    <div class="position">
+        <button class="btn btnAjouter">Exporter le fichier</button>
 
-        <tr>
-          <td scope="col">Djire</td>
-          <td scope="col">Youssouf</td>
-          <td scope="col">djireyoussouf1999@gmail.com</td>
-          <td scope="col">72095772</td>
-          <td scope="col">Masculin</td>
-          <td>
-            <a></a>
-            <a></a>
-          </td>
-        </tr>
-      </thead>
-      </table>
-    </div> 
-  </div> -->
-
-
-  <!-- <style>
-   
-  </style> -->
-  <ion-content>
-    <!-- <div class="search"><ion-searchbar value="recherche"></ion-searchbar></div> -->
-    <!-- <div class="search"><ion-searchbar class="search--"></ion-searchbar></div> -->
-    <div class="container1">
-      <div class="div-gauche">
-      <p>Vous souhaitez ajouter
-        un acteur?</p>
-      </div>
-  
-      <div class="div-droite">
-        <span  ><p >Ajouter un acteur</p></span>
-      </div>
-  
+      <button class="btn "></button>
+      <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
+      <form action="">
+        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+      </form>
     </div>
-    
-  <div class="container">
-     <div class="cont">
-       <div class="boutton">  
-         <p class="b"><b>Liste des acteurs</b></p>
-         
-       </div> 
-      <table class="tab">
-        <thead class="head">
-          <th class="gauche">Nom</th>
-          <th>Prenom</th>
-          <th>Email</th>
-          <th>Numéro</th>
-          <!-- <th>Genre</th> -->
-          <th class="droite">Actions</th>
-    
+    <div class="table-responsive ra py-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Prénom</th>
+            <th scope="col">nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numéro</th>
+            <th scope="col">Rôle</th>
+            <th scope="col" class="ra1">Action</th>
+          </tr>
         </thead>
-      
-        <tr *ngFor="let a of acteurs">
-          <td>{{a.nom}}</td>
-          <td>{{a.prenom}}</td>
-          <!-- <td>djireyoussouf1999@gmail.com</td> -->
-
-          <td>{{a.email}}</td>
-          <td>{{a.numero}}</td>
-          <!-- <td>Masculin</td> -->
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
-      
-          <!-- <a href=""><ion-icon name="skip-backward"></ion-icon></a>
-          <ion-icon name="arrow-dropleft"></ion-icon>
-          <ion-icon name="arrow-dropright"></ion-icon>
-          <ion-icon name="skip-forward"></ion-icon> -->
-       
-       
+        <tbody>
+          <tr *ngFor="let acteur of acteurs">
+            <td>{{acteur.prenom}}</td>
+            <td>{{acteur.nom}}</td>
+            <td>{{acteur.email}}</td>
+            <td>{{acteur.numero}}</td>
+            <td>Modérateur</td>
+            <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+          </tr>
+       </tbody>
+       <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
       </table>
-  
-    </div> 
+    </div>
   </div>
-  
-</ion-content>
+</div>
