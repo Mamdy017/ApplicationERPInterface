@@ -67,14 +67,14 @@
                 <div class="col-12 col-md-6 mb-3 mt-4 " >
                   <select class="form-select" name="libelleListe" [(ngModel)]="libelleListe">
                     <option selected>--Choisir Liste--</option>
-                    <option *ngFor="let liste of liste$" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
+                    <option *ngFor="let liste of liste$" [(ngValue )] = "liste.libelleliste">{{liste.libelleliste}}</option>
                   </select>
                 </div>
 
                 <div class="col-12 col-md-6 mb-3 mt-3">
                   <select class="form-select" name="libelleActivite" [(ngModel)]="libelleActivite" >
                     <option selected>--Choisir Activité--</option>
-                    <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                    <option *ngFor="let listeActivite of listeActivites$" [(ngValue )] = "listeActivite.nom">{{listeActivite.nom}}</option>
                   </select>
                 </div>
                 
