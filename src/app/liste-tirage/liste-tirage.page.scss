@@ -1,246 +1,4 @@
 
-.tout{
-    display: flex;
-    //justify-content: center;
-    padding: 5px;
-    // background: #FFFFFF;
-    // box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-
-    position: absolute;
-width: 1000px;
-height: 500px;
-left: 250px;
-top: 75px;
-
-background: #FFFFFF;
-box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-}
-.card{
-    // width: 200%;
-    text-align: center;
-    // // height: 425px;
-    height: 300px;
-    // margin-left: 50%;
-    // background-color: #FFFFFF;
-    // padding: 2%;
-    //margin-left: 100%;
-    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-
-    position: absolute;
-    width: 250px;
-   // height: 200px;
-    left: 50px;
-    top: 100px;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 200;
-    font-size: 40px;
-    line-height: 60px;
-   
-
-}
-.contenuCard{
-    text-align: center;
-    // margin: 20%;
-    font-size: 30px;
-    // width: 80%;
-    position: absolute;
-width: 292px;
-height: 50px;
- left: -20px;
-margin-right: 10px;
- top: 50px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 300;
-font-size: 33px;
-line-height: 50px;
-/* identical to box height */
-
-
-color: #000000;
-
-}
-.head{
-    background-color: black;
-    color: white;
-    height: 60px;
-  }
-  .contenudroite{
-    width: 70%;
-    margin-left: 20%;
-  }
-  h2{
-    font-size: 50px;
-  }
-  h1{
-    margin-left: 10%;
-  }
-  .nombreSurlaCard{
-    color: #FF6600;
-   
-  }
-//   .contenuCard{
-//     align-items: center;
-//   }
-// .container{
-//     width: 920px;
-//     height: 600px;
-//     margin-left: 32.5%;
-//    margin-bottom: -9%;
-//    padding-top: 10%;
-//     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-
-//   }
-  .tab{
-    width: 62%;
-    // margin-top: 3%; 
-    // margin-left: 2.5%;
-    position: absolute;
-//width: 794px;
-height: 100.61px;
-left: 330px;
-top:100px;
-box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 100;
-font-size: 16px;
-line-height: 36px;
-
-// color: #FFFFFF;
-
-
-  }
-  tr{
-    height: 40px;
-    border-bottom: 0.25px solid  lightgray;
-   }
-  td,th{
-    justify-content: center;
-     text-align: center;
-
-//  position: absolute;
-// width: 77px;
-// height: 34px;
-// left: 500px;
-// top:100px;
-
-
-
-  }
-
-  .gauche{
-    border-radius: 10px 0 0 0;
-}
-.droite{
-    border-radius: 0 10px 0 0;
-} 
-// .cont{
-//     display: flex;
-//     position: relative;
-//     top: 120px;
-// }
-button{
-    width: 80px;
-    height: 18px;
-     background: #FF6600;
-    // border: 1px solid rgba(0, 0, 0, 0.5);
-    // backdrop-filter: blur(2px);
-/* Note: backdrop-filter has minimal browser support */
-left: 530px;
-margin-top: -10px;
-border-radius: 0px 30px;
-box-sizing: border-box;
-
-position: absolute;
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 200;
-font-size: 15px;
-line-height: 22px;
-/* identical to box height */
-
-
-color: white;
-justify-content: center;
-text-align: center;
-// border: 1px solid rgba(0, 0, 0, 0.5);
-// backdrop-filter: blur(2px);
-/* Note: backdrop-filter has minimal browser support */
-
-// border-radius: 0px 30px;
-}
-#statistiques{
-    position: absolute;
-    width: 243px;
-    height: 60px;
-    // left: 1000x;
-    margin-left: 70px;
-    top: 40px;
-    
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 60px;
-   
-    
-    
-    color: #000000;
- 
- }
- #tirages{
-    position: absolute;
-width: 376px;
-height: 60px;
-left: 500px;
-top: 40px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 40px;
-line-height: 60px;
-/* identical to box height */
-
-
-color: #000000;
-
- }
- #nouveau{
-    // box-sizing: border-box;
-
-position: absolute;
-width: 200px;
-height: 50px;
-left: 720px;
-top: 420px;
-
-background: white;
-// border: 3px solid #FF6600;
-// border-radius: 20px 0px;
-
-
-
-// top: 847px;
-
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 200;
-font-size: 20px;
-box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-// line-height: 54px;
-/* identical to box height */
-
-
-color: #000000;
-
- 
- }
-
 // .tout{
 //     display: flex;
 //     //justify-content: center;
@@ -415,7 +173,7 @@ color: #000000;
 
 // // border-radius: 0px 30px;
 // }
-// .statistiques{
+// #statistiques{
 //     position: absolute;
 //     width: 243px;
 //     height: 60px;
@@ -434,7 +192,7 @@ color: #000000;
 //     color: #000000;
  
 //  }
-//  .tirages{
+//  #tirages{
 //     position: absolute;
 // width: 376px;
 // height: 60px;
@@ -452,7 +210,7 @@ color: #000000;
 // color: #000000;
 
 //  }
-//  .nouveau{
+//  #nouveau{
 //     // box-sizing: border-box;
 
 // position: absolute;
@@ -483,40 +241,41 @@ color: #000000;
  
 //  }
 
-.container{
-    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
-    margin-top: 10%;
-    font-family: 'Poppins';
-}
-.card{
-    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
-}
-p{
-    text-align: center;
-    font-family: 'Poppins';
-    font-size: 30px;
 
-}
-.contenuCard{
-    text-align: center;
-    margin-top: 10%;
-}
+// .container{
+//     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+//     margin-top: 10%;
+//     font-family: 'Poppins';
+// }
+// .card{
+//     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
+// }
+// p{
+//     text-align: center;
+//     font-family: 'Poppins';
+//     font-size: 30px;
 
-.btnNouveau{
-    margin-left: 70%;
-    box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
-    margin-bottom: 2%;
-    border-radius: 0% 30%;
+// }
+// .contenuCard{
+//     text-align: center;
+//     margin-top: 10%;
+// }
 
-}
-thead{
-    border-radius: 20% 20% 0% 0%;
-}
-.btnVoir{
-    background-color: #FF6600; ;
-    color: white;
-    border-radius: 0% 30%;
-}
-.td1{
-    border-radius: 1Opx 0 0 0;
-}
+// .btnNouveau{
+//     margin-left: 70%;
+//     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
+//     margin-bottom: 2%;
+//     border-radius: 0% 30%;
+
+// }
+// thead{
+//     border-radius: 20% 20% 0% 0%;
+// }
+// .btnVoir{
+//     background-color: #FF6600; ;
+//     color: white;
+//     border-radius: 0% 30%;
+// }
+// .td1{
+//     border-radius: 1Opx 0 0 0;
+// }

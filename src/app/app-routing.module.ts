@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
   },
   {
+    path: 'liste-utilisateur',
+    loadChildren:()=> import('./liste-utilisateur/liste-utilisateur.module').then(m => m.ListeUtilisateurPageModule)
+  },
+  {
     path: 'accueil-user',
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
@@ -33,11 +37,11 @@ const routes: Routes = [
     loadChildren: () => import('./postulant-tire/postulant-tire.module').then( m => m.PostulantTirePageModule)
   },
   {
-    path: 'ajouter-postulant',
-    loadChildren: () => import('./ajouter-postulant/ajouter-postulant.module').then( m => m.AjouterPostulantPageModule)
+    path:'ajouter-postulant',
+    loadChildren:() => import('./ajouter-postulant/ajouter-postulant.module').then(m => m.AjouterPostulantPageModule)
   },
   {
-    path: 'ajouter-acteur',
+    path: 'admin-ajouter-acteur-user',
     loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
        m => m.AdminAjouterActeurUserPageModule)
   },
@@ -47,7 +51,11 @@ const routes: Routes = [
   },
   {
     path: 'liste-acteur',
-    loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
+    loadChildren:() => import('./liste-acteur/liste-acteur.module').then(m => m.ListeActeurPageModule)
+  },
+  {
+    path: 'liste-tirage',
+    loadChildren:() => import('./liste-tirage/liste-tirage.module').then(m => m.ListeTiragePageModule)
   },
   {
     path: 'liste-user',

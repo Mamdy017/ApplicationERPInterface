@@ -42,11 +42,17 @@ export class AuthentificationPage implements OnInit {
 
       this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
-    } else {
+    } 
+    // else if(this.email != this.utilisateur.email)
+    // {
+    //       this.erreur = data.contenu
+
+    //     console.log("VVVVVVVV "+this.erreur)
+    // }    
+    else {
       this.service.seConnecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
-
-
+      
 
         // console.log("session "+data);
 
@@ -61,8 +67,6 @@ export class AuthentificationPage implements OnInit {
             sessionStorage.setItem("email_users", data.email);
             sessionStorage.setItem("numero_users", data.numero);
 
-            console.log("______________ "+this.typeUser)
-
             if (this.typeUser == "user") {
               this.route.navigateByUrl('/user-accueil');
             }
@@ -75,12 +79,12 @@ export class AuthentificationPage implements OnInit {
             }
           }
         }
-        //On recupere le type de role de l'utilisateur en question
-        // console.log("Utilisateur = "+this.typeUser)
+        else{
+      this.erreur = data.contenu
+      console.log("VVVVVVVV "+this.erreur)
+        }
 
-        // ajouter-postulant
-        // this.route.navigateByUrl('/ajouter-postulant');accueil-user
-        // routerLink="/ajouter-postulant"
+    
 
       })
     }

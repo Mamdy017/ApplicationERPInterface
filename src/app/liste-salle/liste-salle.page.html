@@ -1,83 +1,69 @@
-<ion-content>
-  <div class="container">
-    <button type="button" class="btn" style="margin-left:92% ;">
-      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:15px;">
-        99+
-      </span></i>
-    </button>
-    <br><br>
-    <div class="row py-3">
-      <h1>Liste des salle</h1>
-      <div class="trait"></div>
-      <div class="position">
-          <button class="btn btnAjouter">Exporter le fichier</button>
-          <form action="">
-            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
-          </form>
-        <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
-        <button class="btn btnAjouter">Ajouter une salle</button>
-      </div>
-      <div class="table-responsive ra py-5">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" class="ra" style="text-align:center ;">N°</th>
-              <th scope="col" style="text-align:center ;">Nom</th>
-              <th scope="col" style="text-align:center ;">Etage</th>
-              <th scope="col" style="text-align:center ;">Nombre de place</th>
-              <th scope="col" style="text-align:center ;">Etat de disponibilité</th>
-            </tr>
-         
-         
-            <tr>
-              <td style="text-align:center ;">1</td>
-              <td style="text-align:center ;">Orange fab</td>
-              <td style="text-align:center ;">0</td>
-              <td style="text-align:center ;">204</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">2</td>
-              <td style="text-align:center ;">Orange kalanso</td>
-              <td style="text-align:center ;">2</td>
-              <td style="text-align:center ;">100</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i"></i></td>
-
-            </tr>
-            <tr>
-              <td style="text-align:center ;">3</td>
-              <td style="text-align:center ;">FabLab</td>
-              <td style="text-align:center ;">0</td>
-              <td style="text-align:center ;">200</td>
-              <td style="text-align:center ;"><i class="bi bi-slash-circle"></i></td>
-
-            </tr>
-            <tr>
-              <td style="text-align:center ;">4</td>
-              <td style="text-align:center ;">Orange fab</td>
-              <td style="text-align:center ;">0</td>
-              <td style="text-align:center ;">200</td>
-              <td style="text-align:center ;"><i class="bi bi-slash-circle"></i></td>
-
-            </tr>
-            <tr>
-              <td style="text-align:center ;">5</td>
-              <td style="text-align:center ;">Orange fab</td>
-              <td style="text-align:center ;">0</td>
-              <td style="text-align:center ;">200</td>
-              <td style="text-align:center ;"><i class="bi bi-slash-circle"></i></td>
-            </tr>
-            
-          </thead>
-        </table>
-      </div>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
+      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
 
+      
+      <div class="container">
+        <button type="button" class="btn" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px; color: #ff6600;">
+            99+
+          </span></i>
+        </button>
+        <br><br>
+        <div class="row ro py-3">
+          <h1>Liste des salles</h1>
+          <div class="trait"></div>
+          <div class="position">
+              <button class="btn btnAjouter">Exporter le fichier</button>
+              <form action="">
+                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+              </form>
+            <!-- <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button> -->
+
+            <select class="btn btnAjouter c1" >
+              <option></option>
+              <i class="bi bi-filter-right"></i>
+            </select>
+
+
+
+            <button class="btn btnAjouter"><a href="salle">Ajouter une salle</a>  </button>
+          </div>
+          <div class="table-responsive ra py-5">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="ra" style="text-align:center ;">N°</th>
+                  <th scope="col" style="text-align:center ;">Nom</th>
+                  <th scope="col" style="text-align:center ;">Etage</th>
+                  <th scope="col" style="text-align:center ;">Nombre de place</th>
+                  <th scope="col" style="text-align:center ;">Etat de disponibilité</th>
+                </tr>
+             
+             
+                <tr *ngFor="let uneSalle of maListes  let i = index">
+                  <td style="text-align:center ;">{{i+1}}</td>
+                  <td style="text-align:center ;">{{uneSalle.nom}}</td>
+                  <td style="text-align:center ;">{{uneSalle.etage}}</td>
+                  <td style="text-align:center ;">{{uneSalle.nbreplace}}</td>
+                  <td style="text-align:center ;">
+                    <i class="bi bi-check-circle i"></i>
+                  </td>
+                </tr>              
+              </thead>
+            </table>
+           
+                
+          </div>
+        </div>
+    
+      </div>
+    </main>
   </div>
-
-
-
-
-
-</ion-content>
+</div>
