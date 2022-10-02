@@ -1,0 +1,124 @@
+
+
+<ion-content>
+
+  <div class="container">
+    <div class="row boxShadow">
+      <!------------- Colonne Droite ---->
+      <div class="col-12 col-md-4 imgGauche">
+        <img src="assets/icon/tache.png" alt="image ajouter un postulant" class="img-fluid rounded image">
+        <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
+        <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+      </div>
+      <!------------- Colonne Droite ---->
+      <div class="col-12 col-md-8">
+        <form>
+          <fieldset>
+            <legend class="display-6 text-center my-3"><b>Ajouter une tache</b></legend>
+          </fieldset>
+
+          <div class="trait"></div>
+          <div class="row col-12">
+            <div class="mb-4 col-12 col-md-6 form-row form-floating">
+              <select name="designation" id="designation" class="form-select form-control" [(ngModel)]="libelleDesignation">
+                <option  >Designation</option>
+                  <option  *ngFor="let contenu of recuperation" [ngValue]="contenu.libelle">{{contenu.libelle}}</option>
+                  <label for="designation">Designation</label>
+              </select>
+            </div>
+            <div class="mb-4 col-12 col-md-6 form-row form-floating">
+              <select name="activite" id="activite" class="form-select form-control" [(ngModel)]="libelleActivite">
+                <option selected >Activité</option>
+                  <option  *ngFor="let contenuActivite of recuperationActivite" [ngValue]="contenuActivite.nom">{{contenuActivite.nom}}</option>
+                  <label for="activite">Activite</label>
+              </select>
+              
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="datedebut" [(ngModel)] = "datedebut" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Date debut</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="datefin" [(ngModel)] = "datefin" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
+              <label for="firstname">Date fin</label>
+            </div>
+            
+           
+           
+            <div class="mb-3 col-12 col-md-12 form-row form-floating">
+              <select name="liste" id="liste" class="form-select form-control"  [(ngModel)]="libelleStatut">
+                <option selected>Statut</option>
+                  <option  *ngFor="let contenuStatut of recuperationStatut" [ngValue]="contenuStatut.nom"> {{contenuStatut.nom}} </option>
+                  <label for="sexe">liste</label>
+              </select>
+            </div>
+          </div>
+          <button class="btn btnAjouter"(click)="ajouterUneTache()">Valider</button>
+
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Tiec -->
+  <!-- <div class="container">
+    <div class="left" style="position: absolute; left: 0;">
+      <img src="assets/images/logo.png" alt="">
+      <h2>Bienvenue</h2>
+      <h6>Sur Orange Digital Center</h6>
+    </div>
+
+    <div class="right">
+
+      <h2>Ajouter un postulant</h2>
+      <div class="trait"></div>
+
+      <form action="" method="post" >
+        <table>
+          <tr>
+            <td><input type="text" name="nom" placeholder="Saisir Nom" required></td>
+            <td><input type="text" name="nom" placeholder="Saisir Prenom" required></td>
+          </tr>
+
+          <tr>
+            <td><input type="text" name="num" placeholder="Saisir Numero" required></td>
+            <td><select class="slt">
+              <option value="" style="background: red;">--Genre--</option>
+              <option value="">Masculin</option>
+              <option value="">Féminin</option>
+            </select></td>
+          </tr>
+        </table>
+            <td><input class="eml" type="email" name="email" placeholder="Entrer Email" required></td>
+        <input type="submit" value="Envoyer">
+      </form>
+
+    </div>
+
+  </div>  -->
+
+
+</ion-content>

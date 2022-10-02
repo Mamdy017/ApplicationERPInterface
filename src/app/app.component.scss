@@ -12,6 +12,40 @@
     border-radius: 100%;
     height: 75px;
     width: 100px;
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+* {
+    font-family: 'Poppins' sans-serif;
+}
+.containers1
+{
+    display: flex;
+}
+.logo{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+
+.profile-non{
+    margin-top: 6%;
+    margin-left: -50%;
+}
+li{
+    list-style: none;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
 
   }
   .active{
@@ -81,3 +115,9 @@
       flex-direction: row;
     }
   }
+
+
+
+// @media (max-width: 400px) {
+
+// }

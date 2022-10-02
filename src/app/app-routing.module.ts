@@ -1,12 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthentificationPageModule } from './authentification/authentification.module';
-
-
-
-
-
 
 
 const routes: Routes = [
@@ -16,7 +10,9 @@ const routes: Routes = [
   },
   {
     path: '',
+  
     redirectTo: 'authentification',
+
     pathMatch: 'full'
   },
   {
@@ -50,13 +46,19 @@ const routes: Routes = [
   },
   {
     path: 'admin-ajouter-acteur-user',
-    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
+       m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+
     path: 'liste-acteur',
     loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
   },
@@ -82,6 +84,7 @@ const routes: Routes = [
   },
   
   {
+
     path: 'page-liste-suite',
     loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
   },
@@ -102,13 +105,40 @@ const routes: Routes = [
     path: 'gestionentite',
     loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
   },
+  {
+    path: 'ajouter-participant',
+    loadChildren: () => import('./ajouter-participant/ajouter-participant.module').then( m => m.AjouterParticipantPageModule)
+  },
+  {
+    path: 'profile-user-profile',
+    loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
+  },
+  {
+    path: 'ajouter-tache',
+    loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
+  },
+  {
+    path: 'liste-salle',
+    loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
+  },
+  {
+    path: 'liste-tirage-nonvalide',
+    loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
+  },
+  {
+    path: 'ajouter-entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+
+ 
+  
 
 ];
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+
   ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-

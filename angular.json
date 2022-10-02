@@ -35,8 +35,13 @@
               "src/theme/variables.scss",
                "src/global.scss"
             ],
+<<<<<<< .merge_file_a07164
             "scripts": [
             ],
+=======
+
+           
+>>>>>>> .merge_file_a06992
             "aot": false,
             "vendorChunk": true,
             "extractLicenses": false,
@@ -82,10 +87,8 @@
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
-            },
-            "ci": {
-              "progress": false
             }
+           
           }
         },
         "extract-i18n": {

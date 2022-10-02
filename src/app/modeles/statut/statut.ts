@@ -4,5 +4,4 @@ export class Statut {
 
   idstatut!: number;
   nom!: string;
-  acteur!: Acteur;
 }
