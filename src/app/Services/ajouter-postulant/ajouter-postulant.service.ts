@@ -16,10 +16,15 @@ export class AjouterPostulantService {
   recupererListePostulant():Observable<any>{
     return this.http.get(`${this.api}/listepostulant/afficher`);
   }
+
+  recupererListePostulantT():Observable<any>{
+    return this.http.get(`${this.api}/listepostulant/afficher`);
+  }
   
     //methode permettant d'ajouter un postulant
     ajouterPostulant(libelleListe: string, postulant: Postulant):Observable<any>{
       return this.http.post<Postulant>(`${this.api}/postulant/ajouter/${libelleListe}`, postulant);
     }
+
 
 }
