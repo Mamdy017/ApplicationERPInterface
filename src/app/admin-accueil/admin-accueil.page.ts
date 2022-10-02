@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
@@ -10,6 +11,8 @@ import { SalleService } from '../services/salle';
 })
 export class AdminAccueilPage implements OnInit {
   totalSalleLibre:any;
+    menuBureau: boolean = true;
+   menuMobile: boolean = false;
 
   totalUtilisateur:any;     // Nomre total d'utilisateurs 
   apprenantsTotal: any;     // Nomre total d'apprenants
@@ -21,10 +24,17 @@ export class AdminAccueilPage implements OnInit {
   
 
       constructor(private service:ServicesService, private serviceActeur:ListeActeurService,public breakpointObserver: BreakpointObserver) { }
+      actualise(): void{
+        setInterval(
+          ()=>{
+          },100, clearInterval(1500));
+      }
+    
 
       ngOnInit() {
 
     // Ici on recupere le nombre total d'utilisateurs
+    
 
         this.totalUtilisateur = this.serviceActeur.utilisateurTotal().subscribe(data=>{
           this.nbre = data
@@ -49,6 +59,16 @@ export class AdminAccueilPage implements OnInit {
 
 })
 
+  }
+  
+  afficheMenuMobile(){
+    this.menuBureau = true;
+    this.menuMobile = false;
+  }
+
+  cacherMenuMobile(){
+    this.menuBureau = false;
+    this.menuMobile = true;
   }
 
 }
