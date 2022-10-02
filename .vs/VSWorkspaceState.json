@@ -2,17 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\src",
-<<<<<<< HEAD
-    "\\src\\app"
-  ],
-  "SelectedNode": "\\src\\app\\ajouter-postulant",
-=======
     "\\src\\app",
-    "\\src\\app\\modeles",
-    "\\src\\app\\Services",
-    "\\src\\app\\Services\\postulant-tire"
+    "\\src\\app\\liste-acteur"
   ],
-  "SelectedNode": "\\src\\app\\Services\\postulant-tire\\postulant-tire.service.ts",
->>>>>>> 2c97299760b5597c7226cb5ad38fc90fde38eb99
+  "SelectedNode": "\\package-lock.json",
   "PreviewInSolutionExplorer": false
 }

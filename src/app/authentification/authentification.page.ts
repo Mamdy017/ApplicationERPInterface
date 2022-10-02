@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { AuthentificationService } from '../Services/authentification/authentification.service';
@@ -42,13 +41,14 @@ export class AuthentificationPage implements OnInit {
   Connexion(){
     this.bool_erreur = true;
     if(typeof this.email === 'undefined' || typeof this.password === 'undefined'){
+      
       this.erreur="Tous les champs sont obligatoires";
       console.log(this.erreur);
     }else{
         this.service.seConnecter(this.email,this.password).subscribe(data=>{
           this.connexion = data;
 
-          console.log(data);
+          // console.log("session "+data);
           
           if(this.connexion.email == this.email && this.connexion.password==this.password)
           {
@@ -57,18 +57,29 @@ export class AuthentificationPage implements OnInit {
             
             if(this.typeUser != null)
               {
+                      sessionStorage.setItem("id_users",data.iduser);
+                      sessionStorage.setItem("nom_users",data.nom);
+                      sessionStorage.setItem("prenom_users",data.prenom);
+                      sessionStorage.setItem("email_users",data.email);
+                      sessionStorage.setItem("numero_users",data.numero);
+                      
+
+
+
+
                       if(this.typeUser == "User")
                       {
                       this.route.navigateByUrl('/accueil-user');
                       }
-                      else if(this.typeUser == "Admin")
+                      else if(this.typeUser == "admin")
                       {
-                      this.route.navigateByUrl('/ajouter-postulant');
+                      this.route.navigateByUrl('/accueil-admin');
                         
+                      
                       }
                       else
                       {
-                        this.route.navigateByUrl('');
+                        this.route.navigateByUrl('h');
                       }
               }
           }
