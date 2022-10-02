@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SallePage implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {
