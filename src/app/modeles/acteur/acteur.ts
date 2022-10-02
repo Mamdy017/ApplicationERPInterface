@@ -1,11 +1,14 @@
-import { Activite } from "../activite/activite";
-import { Statut } from "../statut/statut";
-
 export class Acteur {
-  idActeur!: number;
-  nom!: string;
-  prenom!: string;
-  numero!: string;
-  activite!: Activite;
-  statut!: Statut;
-}
+    nom!: String;
+    prenom!: String;
+    numero!: String;
+    email!: String;
+    
+    constructor( nom:String,prenom:String,numero:String,email:String){
+      this.nom=nom
+      this.prenom=prenom
+      this.numero=numero
+      this.email=email
+      
+    }
+  }

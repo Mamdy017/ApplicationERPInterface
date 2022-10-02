@@ -95,6 +95,10 @@ const routes: Routes = [
     path: 'profil-user-profil',
     loadChildren: () => import('./profil-user-profil/profil-user-profil.module').then( m => m.ProfilUserProfilPageModule)
   },
+  {
+    path: 'statut',
+    loadChildren: () => import('./statut/statut.module').then( m => m.StatutPageModule)
+  },
 
 ];
 @NgModule({
