@@ -1,9 +1,90 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ListeUser</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <div class="container">
 
+        <div class="row bg-primary">
+          
+          <div class="col-md-4  b1">
+            <span> Filtrer</span>
+            <select name="sexe" id="sexe" class="form-select form-control" >
+              <option selected> --- Genre ---</option>
+              <option> Homme</option>
+              <option> Femme</option>
+              <label for="sexe">Genre</label>
+            </select>
+          </div>
+          <div class="col-md-7 b2">
+            <ion-searchbar class="search-- float-right search"></ion-searchbar>
+          </div>
+        </div>
+        
+     
+
+      <div class="row justify-content-around">
+        <div class=" col-6 col-md-8 col-xs-12 col-sm-6  head">
+          <div class="headContent">
+            <p> Souhaitez-vous ajouter un utilisacteur?</p>
+          </div>
+        </div>
+
+        <div class="col-2 col-md-2 heads" >
+          <input type="submit" value="Ajouter un utilisateur" class="float-right bouton">
+        </div>
+      </div><br>
+
+      <div class="tableContent col-12 col-md-12 col-xs-12 col-sm-12 ">
+
+        <span>Listes des Utilisateurs</span>
+      <table class="table tables">
+
+        <thead class="thead">
+          <tr class="theads">
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@fat</td>
+            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
 </ion-content>
+
+
+
+
+
+
+
+
+

@@ -1,9 +1,124 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>AccueilUser</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
+  <button class="btn float-end " data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+    <i class="bi bi-arrow-right-square-fill fs-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+</button>
+<div class="container py-5">
+  <div class="alert alarte">
+    <p class="display-5 text-center">Bienvenue ! Jeremi</p>
+    <p class="text-center">Sur la plateforme Orange Digital Center</p>
+    <p class="slogan">#Innovation - #Technologie - #Invention</p>
+  </div>
+</div>
 
+<div class="row cardCenter py-3">
+    <div class="cardHome1 col-12 col-md-3">
+      <p class="pContent1 text-center">{{totalSalleLibre}}</p>
+      <p class="pContent2 text-center">Salles disponibles</p>
+    </div>
+    <div class="cardHome col-12 col-md-3">
+      <p class="pContent1 text-center">{{apprenantsTotal}}</p>
+      <p class="pContent2 text-center">Apprénnants</p>
+    </div>
+    <div class="cardHome col-12 col-md-3">
+      <p class="pContent1 text-center">{{participantTotal}}</p>
+      <p class="pContent2 text-center">Participants</p>
+    </div>
+</div>
+
+<!-- Section Articles Gauches -->
+<div class="row my-3">
+  <div class="activity col-12 col-md-8">
+    <h1 class="titleSectionActivity">Activitées récentes</h1>
+    <p class="text-center">Merci de visionner nos activites récentes</p>
+    <div class="row boxShadowArticle">
+      <div class="col-12 col-md-4">
+        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="h5">Formation - Le numérique</p>
+        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
+        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
+      </div>
+    </div>
+
+    <div class="row boxShadowArticle">
+      <div class="col-12 col-md-4">
+        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="h5">Formation - Le numérique</p>
+        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
+        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
+      </div>
+    </div>
+
+    <div class="row boxShadowArticle">
+      <div class="col-12 col-md-4">
+        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="h5">Formation - Le numérique</p>
+        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
+        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
+      </div>
+    </div>
+    <div class="row boxShadowArticle">
+      <div class="col-12 col-md-4">
+        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="h5">Formation - Le numérique</p>
+        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
+        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
+      </div>
+    </div>
+    <div class="row boxShadowArticle">
+      <div class="col-12 col-md-4">
+        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
+      </div>
+      <div class="col-12 col-md-8">
+        <p class="h5">Formation - Le numérique</p>
+        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
+        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
+      </div>
+    </div>
+  </div>
+
+<!-- Section Articles Droite -->
+  <div class="activity col-12 col-md-4">
+    <div class="row">
+      <h1 class="actityAVenir my-3">Activitées à Venir</h1>
+      <p class="text-center">Merci de rester connecter à nous</p>
+      <div class="row">
+        <div class="boxShadowArticleAVenir">
+        <img src="../../assets/images/python.jpg" alt="formation en python à venir" class="img-fluid rounded">
+        <span class="h5 text-center ">Formation - Le numérique</span>
+        <span class="dateActivity py-1"><i>20-09-2022</i></span>
+        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
+        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
+      </div>
+      </div>
+      
+
+      <div class="col-12 boxShadowArticleAVenir">
+        <img src="../../assets/images/aws.jpg" alt="formation en python à venir" class="img-fluid rounded">
+        <span class="h5 text-center">Formation - Le numérique</span>
+        <span class="dateActivity py-1"><i>20-09-2022</i></span>
+        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
+        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
+      </div>
+
+      <div class="col-12 boxShadowArticleAVenir">
+        <img src="../../assets/images/python.jpg" alt="formation en python à venir" class="img-fluid rounded">
+        <span class="h5 text-center ">Formation - Le numérique</span>
+        <span class="dateActivity py-1"><i>20-09-2022</i></span>
+        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
+        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
 </ion-content>
