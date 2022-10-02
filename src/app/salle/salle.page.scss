@@ -1,0 +1,79 @@
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+.inputvalue{
+   background: #ffffff;
+   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+   border-radius: 12px;
+   border: none; 
+}
+
+
+.container{
+    padding: 12px;
+    margin-top: 80px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    padding: 25px;
+ 
+}
+
+label{
+    margin-left: 10px;
+}
+
+
+.trait{
+            border: 2px solid #FF6600;
+            width: 150px;  
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+        .o{
+            color: #FF6600;
+        }
+.row {
+ 
+    --bs-gutter-x: 23px;
+    --bs-gutter-y: 23px;
+    display: flex;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+    justify-content: center;
+}
+.btnAjouter{
+    background-color: #FF6600;
+    color: white;
+    border-radius: 12px;
+    margin-left: 2%;
+    width: 200px;
+    padding: 12px;
+    height: 50px;
+    border: none;
+}
+.btnAjouter:hover{
+    background-color: black;
+}
+main
+{
+    overflow: scroll;
+}
+.btnCancel{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    margin-left: 2%;
+    width: 200px;
+    padding: 12px;
+    height: 50px;
+    border: none;
+}
+
+.btnCancel:hover{
+    background: #FF6600;
+}

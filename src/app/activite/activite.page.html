@@ -1,64 +1,109 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Activite</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<ion-content>
-  <div class="container">
-    
-    <form>
-      <h2>Créer une Activité</h2>
-      <table>
-        <tr>
-          <td><input type="text" class="inType" name="titre" placeholder="Titre" required></td>
-        </tr>
-        <br>
-        <tr>
-          <td><textarea id="description" name="description" rows="3" cols="33" placeholder="Description"></textarea></td>
-        </tr>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="row flex-nowrap">
+  <div class="col-auto px-2" >
+    <app-menu></app-menu>
+    </div>
+  
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">  
+      <div class="container py-5">
         <div class="row">
-          <div class="col-6">
-            <label for="" style="margin-top:-20%;">Date début :</label><br>
-            <input type="date" name="datedf" class="datedf">
-          </div>
-          <div class="col-6">
-            <label for="" style="margin-top:-10%;">Date fin :</label><br>
-            <input type="date" name="datedf" class="datedf">
-          </div>
+          <div class="col-8"></div>
+          <div class="col-4 "></div>
         </div>
-
-          
-      </table>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-6">
-          <ion-list>
-            <ion-item>
-              <ion-select placeholder="Attribuer à un ou plusieurs acteurs" [multiple]="true">
-                <ion-select-option value="apples">Fatoumata KALOGA</ion-select-option>
-                <ion-select-option value="oranges">Néné SYLLA</ion-select-option>
-                <ion-select-option value="bananas">Adama SAMAKE</ion-select-option>
-              </ion-select>
-            </ion-item>
-          </ion-list>
-        </div>
-        <div class="col-6">
-          <style>
-             input[type=file]{ width:150px; color:transparent; } 
-
-          </style>
-          <script>
-            window.pressed = function(){ var a = document.getElementById('aa'); if(a.value == "") { fileLabel.innerHTML = "Choose file"; } else { var theSplit = a.value.split('\\'); fileLabel.innerHTML = theSplit[theSplit.length-1]; } }; 
-          </script>
-          <input type="file" name="file" id="file" accept=".png, .jpg, .jpeg">
+        <form action="" class="container1 container py-5">
+          <div class="row">
+            <div class="mb-3  col-12 col-md-12 viens2  form-row form-floating">
+              <h1 >Créer une Activité</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="mb-3 col-12 col-md-12 viens  form-row form-floating">
+              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Titre:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Entité:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Lieu:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Date début:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Date fin:</label>
+            </div>
+            <div class="mb-5 col-12 viens1 form-row form-floating" >
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="name">Description:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Type d'activité:</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
+                  <option selected> --- salle ---</option>
+                  <option> salle 1</option>
+                  <option> salle 2</option>
+                  <option> salle 3</option>
+                  <label >salle</label>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
+                  <option selected> --- Acteur interne ---</option>
+                  <option> Diaraba</option>
+                  <option> Mamady</option>
+                  <option> Adama</option>
+                  <label >Acteur interne</label>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
+                  <option selected> --- Acteur externe ---</option>
+                  <option> Diarra</option>
+                  <option> Camara</option>
+                  <option> Coulibaly</option>
+                  <label >Acteur externe</label>
+              </select>
+            </div>
+            
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
+                  <option selected> --- Responsable ---</option>
+                  <option> Aly</option>
+                  <option> Sy</option>
+                  <option> Aziz</option>
+                  <label>Responsable</label>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="number" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Objectif participant</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="file" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Image</label>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <button class="btn b1">Créer</button>
+              </div>
+              <div class="col-6">
+              <button class="btn b2 ">Ajouter acteur</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div>
         </div>
       </div>
-      <input type="submit" class="bouton2" value="Créer">
-    </form>
-    
-  </div>
-
-  
-</ion-content>
+    </main>
+</div>
+</div>
