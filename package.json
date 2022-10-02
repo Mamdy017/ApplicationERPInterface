@@ -30,9 +30,11 @@
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.11.6",
     "boostrap": "^2.0.0",
+    "cdk": "^2.44.0",
     "chart.js": "^3.9.1",
     "ionicons": "^6.0.3",
     "ng2-charts": "^4.0.1",
+    "npm": "^8.14.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"

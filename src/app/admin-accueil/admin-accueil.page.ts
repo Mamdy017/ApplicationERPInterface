@@ -20,7 +20,7 @@ export class AdminAccueilPage implements OnInit {
     nbre:any
   
 
-      constructor(private service:ServicesService, private serviceActeur:ListeActeurService) { }
+      constructor(private service:ServicesService, private serviceActeur:ListeActeurService,public breakpointObserver: BreakpointObserver) { }
 
       ngOnInit() {
 
