@@ -1,144 +1,7 @@
-// .container{
-//     position: absolute;
-
-//     margin: 5vh;
-//     right: 0;
-//     width: 70vw;
-//     height: 80vh;
-//     display: flex;
-//     justify-content: center;
-//     border-radius: 3rem;
-// }
-// .salle{
-//     position: absolute;
-//     width: 1000px;
-//     // margin: auto;
-//     margin-left: 400px;
-//     display: flex;
-// }
-// .sp{
-//     width: 30%;
-//     height: 10vh;
-    
-//     text-align: center;
-//     border-radius: 12px;
-//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
-//     border-radius: 10px;
-//      margin-left: 0px;
-//     // margin-top: 150px;
-   
-//     // margin: 50px;
-//     text-align: center;
-//     letter-spacing: 0.1rem;
-//     padding: 10px;
-//     color: black;
-// }
-// .left{
-//     margin: 5vh;
-//     width: 30%;
-//     height: 70vh;
-//     border-radius: 12px;
-//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
-// }
-
-
-
-// .right{
-//     margin: 5vh;
-//     height: 70vh;
-//     margin-left: 20vh;
-//     border-radius: 12px;
-//     flex-direction: column;
-//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
-// }
-// h2{
-//     margin-top: 10px;
-//     text-align: center;
-//     margin-left: 0%;
-//     margin-right: 0%;
-//     font-size: 20px;
-//     font-weight: bold;
-// }
-
-
-// .trait
-// {
-//     border: 3px solid #FF6600;
-//     width: 100px;
-//     margin-left: auto;
-//     margin-right: auto;
-//     margin-bottom: 30px;
-// }
-
-// input, select{
-//     width: 250px;
-//     height: 50px;
-//     border-radius: 12px;
-//     border: 1px solid white;
-//     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-// }
-
-
-
-
-// td{
-//     padding: 10px;
-// }
-// td .eml{
-//     width: 520px;
-// }
-// .slt{
-//     width: 250px;
-//     height: 50px ;
-//     margin-left: 150px;
-
-// }
-// .bouton2{
-//     background-color: black;
-//     color: white;
-//     border-radius: 12px;
-//     margin-top: 5%;
-//     margin-left: 160px;
-// }
-
-// .bouton1{
-//     background-color: black;
-//     color: white;
-//     border-radius: 12px;
-//     margin-left: 5%;
-// }
-
-
-// @media screen and (min-width: 768px) and (max-width: 1330px) { 
-//     /* STYLES HERE */
-//     .container{
-
-//         width: 80vw;
-//     }
-//     input, select{
-//         width: 150px;
-//         height: 30px;
-//         border-radius: 12px;
-//         border: 1px solid white;
-//         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-//     }
-//     .slt{
-//         width: 150px;
-//         height: 30px ;
-//         margin-left:50%;
-    
-//     }
-//     .bouton2{
-
-//         margin-left: 25%;
-//     }
-
-// }
 
 
 * {
-    font-family: 'Poppins' sans-serif;
-    
+    font-family: 'Poppins', sans-serif;
 }
 .inputvalue{
    background: #ffffff;
@@ -150,7 +13,7 @@
 
 .container{
     padding: 12px;
-    margin-top: 8%;
+    margin-top: 80px;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
     padding: 25px;
@@ -184,148 +47,33 @@ label{
     justify-content: center;
     flex-direction: row-reverse;}
 .btnAjouter{
+    background-color: #FF6600;
+    color: white;
+    border-radius: 12px;
+    margin-left: 2%;
+    width: 200px;
+    padding: 12px;
+    height: 50px;
+    border: none;
+}
+.btnAjouter:hover{
+    background-color: black;
+}
+main
+{
+    overflow: scroll;
+}
+.btnCancel{
     background-color: black;
     color: white;
     border-radius: 12px;
     margin-left: 2%;
     width: 200px;
-padding: 12px;
+    padding: 12px;
     height: 50px;
     border: none;
-    font-weight: bold;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-.btnAjouter:hover{
-    background-color: #FF6600;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//================TIEC=========================
-// .container{
-//     position: absolute;
-//     margin: 5vh;
-//     right: 0;
-//     width: 70vw;
-//     height: 80vh;
-//     display: flex;
-//     justify-content: center;
-//     border-radius: 12px;
-//     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-// }
-
-// .left{
-//     margin: 5vh;
-//     width: 30%;
-//     height: 70vh;
-//     background-color: black;
-//     border-radius: 12px;
-// }
-
-// img{
-//     position: relative;
-//     top: 20%;
-//     margin-left: 15%;
-// }
-
-// .left h2{
-//     margin-top: 17%;
-//     color: white;
-//     text-align: center;
-//     justify-content: center;
-//     margin-bottom: 0%;
-    
-// }
-// .left h6{
-//     margin-top: 2%;
-//     margin-bottom: 20vh;
-//     color: white;
-//     font-size: 10px;
-//     text-align: center;
-//     justify-content: center;
-    
-// }
-
-// .right{
-//     margin: 5vh;
-//     height: 70vh;
-//     margin-left: 50vh;
-//     flex-direction: column;
-    
-// }
-// .right h2{
-//     text-align: center;
-//     margin-left: 0%;
-//     margin-right: 0%;
-//     font-size: 40px;
-//     font-weight: bold;
-// }
-
-// .trait
-// {
-//     border: 3px solid #FF6600;
-//     width: 100px;
-//     margin-left: auto;
-//     margin-right: auto;
-//     margin-bottom: 30px;
-// }
-
-// input, select{
-//     width: 250px;
-//     height: 50px;
-//     border-radius: 12px;
-//     border: 1px solid white;
-//     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-// }
-
-
-
-
-// td{
-//     padding: 10px;
-// }
-// td .eml{
-//     width: 520px;
-// }
-// .slt{
-//     width: 250px;
-//     height: 50px ;
-
-// }
-// input[type=submit]{
-//     background-color: black;
-//     color: white;
-//     border-radius: 12px;
-//     margin-top: 5%;
-//     margin-left: 2%;
-// }
-
-
-
-
-
-
-
-
-
+.btnCancel:hover{
+    background: #FF6600;
+}

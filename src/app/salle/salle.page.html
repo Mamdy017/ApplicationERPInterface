@@ -10,12 +10,12 @@
       <div class="col-10 col-md-6">
         <form >
           <fieldset>
-            <legend class="display-6 text-center my-3"><b>Ajout d'une<p class="o">Salle</p></b></legend>
+            <legend class="display-6 text-center my-3"><b>Ajouter une<span class="o"> Salle</span></b></legend>
           </fieldset>
 
-          <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="messageRetour">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="messageRetour">
             <strong>{{messageRetour}}</strong> 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <button type="reset" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -23,12 +23,12 @@
 
 
           <div class="trait"></div>
-          <div class="row col-08">
-            <div class="mb-3 col-10 col-md-12 form-row form-floating">
+          <div class="row">
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
               <input type="text" class="form form-control inputvalue" [(ngModel)]="nom"  name="name" id="name" placeholder="Nom" >
               <label for="name">Nom</label>
             </div>
-            <div class="mb-3 col-12 col-md- 12form-row form-floating">
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
               <input type="text" name="etage" id="etage" [(ngModel)]="etage" placeholder="etage" class="form form-control inputvalue" >
               <label for="firstname">Etage</label>
             </div>
@@ -40,9 +40,11 @@
            
             
           </div>
-          <button (click)="ajouterSalle()" class="btn btnAjouter">Valider</button>
-          <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
-          
+          <div class="mb-3 col-12 col-md-12">
+            <button (click)="ajouterSalle()" class="btn btnAjouter my-3">Valider</button>
+            <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
+            <button class="btn btnCancel my-3">Annuler</button>
+          </div>
         
         </form>
   

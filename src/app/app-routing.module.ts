@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthentificationPageModule } from './authentification/authentification.module';
+import { AuthentificationPageModule } from '../../../InterfaceApplicationERP/src/app/authentification/authentification.module';
 
 
 
@@ -16,16 +16,21 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'admin',
+    redirectTo: 'authentification',
     pathMatch: 'full'
   },
+  {
+    path: 'authentification',
+    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
+  },
+  
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'accueil-admin',
-    loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+    path: 'admin-accueil',
+    loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
   },
   {
     path: 'gestionentite',
@@ -52,12 +57,12 @@ const routes: Routes = [
     loadChildren: () => import('./ajouter-postulant/ajouter-postulant.module').then( m => m.AjouterPostulantPageModule)
   },
   {
-    path: 'admin-ajouter-acteur-user',
+    path: 'ajouter-acteur',
     loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
-    loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
+    loadChildren: () => import('../../../InterfaceApplicationERP/src/app/authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
     path: 'liste-acteur',
@@ -66,6 +71,10 @@ const routes: Routes = [
   {
     path: 'liste-user',
     loadChildren: () => import('./liste-user/liste-user.module').then( m => m.ListeUserPageModule)
+  },
+  {
+    path: 'liste-utilisateur',
+    loadChildren: () => import('./liste-utilisateur/liste-utilisateur.module').then( m => m.ListeUtilisateurPageModule)
   },
   {
     path: 'activite',
@@ -92,10 +101,7 @@ const routes: Routes = [
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
-  {
-    path: 'menu',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
-  },
+
  
   {
     path: 'salle',

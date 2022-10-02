@@ -11,6 +11,7 @@ export class Activite {
   dateDebut!: Date;
   dateFin!: Date;
   acteur!: Acteur;
+  nombrepersonnedemande!:number;
   typeActivite!: TypeActivite;
   utilisateur!: Utilisateur;
   salle!: Salle;

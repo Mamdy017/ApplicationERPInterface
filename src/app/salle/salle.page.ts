@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+// import { clearInterval } from 'timers';
 import { Salle } from '../modeles/salle/salle';
-import { SalleService } from '../Services/salle/salle.service';
+import { SalleService } from '../services/salle'
 
 @Component({
   selector: 'app-salle',
   templateUrl: './salle.page.html',
   styleUrls: ['./salle.page.scss'],
 })
-
-
 export class SallePage implements OnInit {
 
   messageRetour: any;
 
-  salles: Salle = {
+  // salles:Salle
+
+salles:Salle
+  = {
     idsalle: 0,
     nom: '',
     nbreplace: 0,
@@ -29,10 +30,6 @@ export class SallePage implements OnInit {
 
   }
 
-
-
-
-
   nom: string = "";
   nbreplace: number = 0;
   etage: string = "";
@@ -46,31 +43,31 @@ export class SallePage implements OnInit {
   ngOnInit() {
 
   }
-
+ 
+//  La fonction nous permettant d'ajouter les salles
   ajouterSalle() {
-    this.salles.nom = this.nom;
-    this.salles.etage = this.etage;
-    this.salles.nbreplace = this.nbreplace;
 
-if(this.nom == null || this.etage == null || this.nbreplace){
+    if(this.etage == "" || this.nom == "" || this.nbreplace == null ){
+        this.messageRetour = " Veuillez bien remplir tous les champs !"   
+        this.resetForm();
+    }
+    else
+    {
+      this.salles.nom = this.nom;
+      this.salles.etage = this.etage;
+      this.salles.nbreplace = this.nbreplace;
 
-this.messageRetour = "Veuillez renseigner tous les champs !";
-}
-else{
-   console.log("Les données: " + this.salles)
+       console.log("Les données: " + this.salles)
     this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data => { 
       this.messageRetour = data.contenu;
+        this.resetForm();
+      // console.log(this.messageRetour);
 
-      console.log(this.messageRetour);
- this.resetForm();
     })
-}
-   
+    
+    }
+
 
   }
-
-
-
- 
 
 }

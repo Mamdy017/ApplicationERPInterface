@@ -1,111 +1,129 @@
-
-
-<ion-content>
-
-  <div class="container">
-
-    <div class="row">
-      <!-- la premiere partie -->
-      <div class="col-12 col-md-4 col-xs-6 py-3 text-center">
-       <form class="importContent">
-        <p>Importer un fichier</p>
-
-        <div class="trait"></div>
-
-
-
-          <div class=" mb-3 mt-3 bttn py-3">
-            <input type="libelle" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
-          </div>
-
-          <div class=" mb-3 mt-3 bttn">
-            <input type="file" class="form-control" name="file"/>
-          </div>
-
-          <button type="submit" class="btne">Importer</button>
-
-        </form>
-      </div>
-
-      <!-- la Deuxieme partie -->
-      <div class="col-md-1 col-xs-1 py-3"></div>
-      <div class="col-12 col-md-6 col-xs-6 text-center ">
-       <form class="tirageContent">
-
-          <p>Faire Tirage</p>
-
-          <div class="trait"></div><br>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
+      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+      <div class="container">
+        <button type="button" class="btn" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style="font-size:15px; background-color: #ff6600;">
+              99+
+            </span></i>
+        </button>
         <div class="row">
-            <div class="col-12 col-md-6 mb-3 mt-4 ">
-              <input type="libelle du tirage" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
-            </div>
+          <!-- la premiere partie -->
+          <div class="col-12 col-md-4 col-xs-6 py-3 text-center">
+            <form class="importContent">
+              <p>Importer un fichier</p>
 
-            <div class="col-12 col-md-6 mb-3 mt-4 ">
-              <select class="form-select">
-                <option selected>--Choisir Liste--</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-              </select>
-            </div>
+              <div class="trait"></div>
 
-            <div class="col-12 col-md-6 mb-3 mt-3  ">
-              <input type="libelle du tirage" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
-            </div>
 
-            <div class="col-12 col-md-6 mb-3 mt-3">
-              <select class="form-select">
-                <option selected>--Choisir Liste--</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-              </select>
-            </div>
 
-      </div>
-      <button type="submit" class="btn">Tirage</button>
-    </form>
-
-    </div>
-    </div>
-
-      <!-- la troisieme partie -->
-      <div class="row py-5">
-        <div class="col-11 col-md-11 text-center ">
-
-          <form class="forme">
-            <p>Faire Tirage sur une liste existante</p>
-            <div class="trait"></div><br><br>
-
-            <div class="row">
-
-              <div class="col-md-4 mb-3 mt-4">
-                <select class="form-select">
-                  <option selected>--Choisir Liste--</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                </select>
+              <div class=" mb-3 mt-3 bttn py-3">
+                <input type="libelle" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
               </div>
 
-              <div class="col-md-4 mb-3 mt-4">
-                <select class="form-select">
-                  <option selected>--Choisir Liste--</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                </select>
+              <div class=" mb-3 mt-3 bttn py-3">
+                <input type="libelle" class="form-control" id="libele" placeholder="activite" name="libelle">
               </div>
 
-              <div class="col-md-4 mb-3 mt-4">
-                <input type="number" class="form-control" placeholder="Nombre à tirer" name="nbre">
+              <div class=" mb-3 mt-3 bttn">
+                <input type="file" class="form-control" name="file" />
               </div>
 
-            </div>
-                <input type="submit" class="btn btnImporter" >
-          </form>
+              <button type="submit" class="btne">Importer</button>
+
+            </form>
+          </div>
+
+          <!-- la Deuxieme partie -->
+          <div class="col-md-1 col-xs-1 py-3"></div>
+          <div class="col-12 col-md-6 col-xs-6 text-center ">
+            <form class="tirageContent">
+
+              <p>Faire Tirage</p>
+
+              <div class="trait"></div><br>
+              <div class="row">
+                <div class="col-12 col-md-6 mb-3 mt-4 ">
+                  <input type="text" class="form-control" id="libele" placeholder="libelle du tirage"
+                    name="libelleTirage"  [(ngModel)]="libelleTirage">
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 mt-3  ">
+                  <input type="number" class="form-control" id="libele" placeholder="nombre à tiré"
+                    name="nombrePostulantTire" [(ngModel)]="nombrePostulantTire">
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 mt-4 " >
+                  <select class="form-select" name="libelleListe" [(ngModel)]="libelleListe">
+                    <option selected>--Choisir Liste--</option>
+                    <option *ngFor="let liste of liste$" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
+                  </select>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 mt-3">
+                  <select class="form-select" name="libelleActivite" [(ngModel)]="libelleActivite" >
+                    <option selected>--Choisir Activité--</option>
+                    <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <p *ngIf="bool_erreur">{{erreurTirage}}</p>
+                </div>
+              </div>
+              <button type="submit" (click)="postTirage()" class="btn">Tirage</button>
+            </form>
+
+          </div>
+        </div>
+
+        <!-- la troisieme partie -->
+        <div class="row py-5">
+          <div class="col-11 col-md-11 text-center ">
+
+            <form class="forme">
+              <p>Faire Tirage sur une liste existante</p>
+              <div class="trait"></div><br><br>
+
+              <div class="row">
+
+                <div class="col-md-4 mb-3 mt-4">
+                  <select class="form-select">
+                    <option selected>--Choisir Liste--</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 mb-3 mt-4">
+                  <select class="form-select">
+                    <option selected>--Choisir Liste--</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 mb-3 mt-4">
+                  <input type="number" class="form-control" placeholder="Nombre à tirer" name="nbre">
+                </div>
+
+              </div>
+              <input type="submit" class="btn1 btnImporter">
+            </form>
+
+          </div>
 
         </div>
 
       </div>
 
+    </main>
   </div>
-
-</ion-content>
-
+</div>

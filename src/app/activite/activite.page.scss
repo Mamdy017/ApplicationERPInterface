@@ -1,0 +1,52 @@
+label{
+    margin-left: 10px;
+}
+.btn
+{
+    padding: 2%;
+    width: 40%;
+    border-radius: 10px;
+    text-align: center;
+    background-color: black;
+    margin-top: 2%;
+    margin-left: 35%;
+    text-decoration: none;
+    color: white;
+}
+.viens{
+    width: 99%;
+}
+.viens1{
+    width: 99%;
+}
+.viens2{
+    width: 95%;
+    margin-left: 2%;
+    background-color: #ff6600;
+}
+.viens2 h1{
+    color: white;
+    margin-left: 40%;
+}
+
+.container1{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+
+}
+.b2{
+    margin-left:51%; width:50%;
+}
+.b1{
+    background-color: #ff6600;
+    margin-left:-1%; width:50%;
+}
+.b1:hover{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    background-color: #FF7900;
+}
+.b2:hover{
+    border: 2px solid #ff6600;
+}
+main{
+overflow: scroll;
+}
