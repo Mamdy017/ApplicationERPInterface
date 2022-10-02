@@ -1,15 +1,12 @@
 {
   "ExpandedNodes": [
-<<<<<<< HEAD
-    "\\src"
-  ],
-=======
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\home"
+    "\\src\\app\\modeles",
+    "\\src\\app\\Services",
+    "\\src\\app\\Services\\postulant-tire"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
->>>>>>> c95cddee440b43d1650f919bb2adfcfc227f0f46
+  "SelectedNode": "\\src\\app\\Services\\postulant-tire\\postulant-tire.service.ts",
   "PreviewInSolutionExplorer": false
 }
