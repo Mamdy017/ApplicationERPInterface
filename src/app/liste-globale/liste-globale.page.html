@@ -3,15 +3,23 @@
   <!-- <div class="icone" style="width: 300px;">
     <ion-searchbar></ion-searchbar>
     </div> -->
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-8"></div>
         <div class="col-md-3 py-3">
             <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
         </div>
-    </div>
+    </div> -->
   <div class="container">
+    <div class="row">
+      <div class="col-md-8"></div>
+        <div class="col-md-4 py-3">
+            <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
+        </div>
+    </div>
 
+   
     <div class="row boxShadow">
+
       <!------------- Colonne Gauche---->
       <div class="col-12 col-md-4 imgGauche">
         <div class="card">
@@ -30,13 +38,14 @@
       <div class="col-12 col-md-8">
       
           <h1>Statistiques Listes</h1>
+          
           <table class="table">
-            <thead class="thead-dark b">
+            <thead class="thead-dark ">
               <tr>
-                <th>Listes</th>
+                <th scope="col" style="border-radius: 15px 0 0 0; border-top: none;">Listes</th>
                 <th>Nombre tirages</th>
                 <th>Activités</th>
-                <th>Action</th>
+                <th scope="col" style="border-radius: 0 15px 0 0; border-top: none;">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -44,25 +53,29 @@
                 <td>Liste 01</td>
                 <td>7</td>
                 <td>Formation</td>
-                <td>Formation</td>
+                <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+
               </tr>
               <tr>
                 <td>Liste 01</td>
                 <td>7</td>
                 <td>Formation</td>
-                <td>Formation</td>
+                <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+
               </tr>
               <tr>
                 <td>Liste 01</td>
                 <td>7</td>
                 <td>Formation</td>
-                <td>Formation</td>
+                <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+
               </tr>
               <tr>
                 <td>Liste 01</td>
                 <td>7</td>
                 <td>Formation</td>
-                <td>Formation</td>
+                <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
+
               </tr>
             
             </tbody>
@@ -73,4 +86,4 @@
       </div>
     </div>
  
-  
+</ion-content>

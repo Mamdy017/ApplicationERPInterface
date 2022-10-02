@@ -1,5 +1,7 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-// import { clearInterval } from 'timers';
+import { FormGroup } from '@angular/forms';
+import { type } from 'os';
 import { Salle } from '../modeles/salle/salle';
 import { SalleService } from '../services/salle'
 
@@ -35,7 +37,6 @@ salles:Salle
   etage: string = "";
 
 
-
   mesDonnees: any
 
   constructor(private serviceSalle: SalleService) { }
@@ -50,6 +51,7 @@ salles:Salle
     if(this.etage == "" || this.nom == "" || this.nbreplace == null ){
         this.messageRetour = " Veuillez bien remplir tous les champs !"   
         this.resetForm();
+
     }
     else
     {
