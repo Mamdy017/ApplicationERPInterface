@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'accueil-admin',
-    loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+    path: 'admin-accueil',
+    loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
   },
   {
     path: 'accueil-user',
@@ -37,8 +37,9 @@ const routes: Routes = [
     loadChildren: () => import('./ajouter-postulant/ajouter-postulant.module').then( m => m.AjouterPostulantPageModule)
   },
   {
-    path: 'admin-ajouter-acteur-user',
-    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then( m => m.AdminAjouterActeurUserPageModule)
+    path: 'ajouter-acteur',
+    loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
+       m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
@@ -80,6 +81,50 @@ const routes: Routes = [
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
+  {
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
+  },
+  {
+    path: 'ajouter-participant',
+    loadChildren: () => import('./ajouter-participant/ajouter-participant.module').then( m => m.AjouterParticipantPageModule)
+  },
+  {
+    path: 'profile-user-profile',
+    loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
+  },
+  {
+    path: 'ajouter-tache',
+    loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
+  },
+  {
+    path: 'liste-salle',
+    loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
+  },
+  {
+    path: 'ajouter-entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
+    path: 'liste-tirage-nonvalide',
+    loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
+  },
+  {
+    path: 'accueil-entite',
+    loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
+  },
+  {
+    path: 'changer-profile',
+    loadChildren: () => import('./changer-profile/changer-profile.module').then( m => m.ChangerProfilePageModule)
+  },
+  {
+    path: 'reporting',
+    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
+  },
+
+  
+
+  
 
 ];
 @NgModule({

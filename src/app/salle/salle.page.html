@@ -1,9 +1,61 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>salle</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+ 
 <ion-content>
 
+  <div class="container">
+    <div class="row boxShadow">
+      <!------------- Colonne Gauche---->
+      
+  
+      <!------------- Colonne Droite ---->
+      <div class="col-10 col-md-6">
+        <form >
+          <fieldset>
+            <legend class="display-6 text-center my-3"><b>Ajouter une<span class="o"> Salle</span></b></legend>
+          </fieldset>
+
+          <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="messageRetour">
+            <strong>{{messageRetour}}</strong> 
+            <button type="reset" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+
+
+          <div class="trait"></div>
+<<<<<<< HEAD
+          <div class="row">
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" class="form form-control inputvalue" [(ngModel)]="nom"  name="name" id="name" placeholder="Nom" >
+=======
+          <div class="row col-08">
+            <div class="mb-3 col-10 col-md-12 form-row form-floating">
+              <input type="text" class="form form-control inputvalue" [(ngModel)]="salles.nom"  name="name" id="name" placeholder="Nom de la salle" >
+>>>>>>> 53b2edcc61ca88cb757a11f52c928f8acdb4bf64
+              <label for="name">Nom</label>
+            </div>
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" name="etage" id="etage" [(ngModel)]="etage" placeholder="etage" class="form form-control inputvalue" >
+              <label for="firstname">Etage</label>
+            </div>
+            <div class="mb-3 col-12 col-md-12 form-row form-floating">
+              <input type="number" name="nbreplace" [(ngModel)]="nbreplace" placeholder="Nombre de Place" class="form form-control inputvalue" >
+              <label for="num">Nombre de Place</label>
+            </div>
+           
+           
+            
+          </div>
+          <div class="mb-3 col-12 col-md-12">
+            <button (click)="ajouterSalle()" class="btn btnAjouter my-3">Valider</button>
+            <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
+            <button class="btn btnCancel my-3">Annuler</button>
+          </div>
+        
+        </form>
+  
+      </div>
+    </div>
+  </div>
 </ion-content>
+

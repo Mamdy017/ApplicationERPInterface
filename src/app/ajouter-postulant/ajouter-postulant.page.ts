@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
-
 @Component({
   selector: 'app-ajouter-postulant',
   templateUrl: './ajouter-postulant.page.html',
@@ -10,44 +9,47 @@ import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-p
 export class AjouterPostulantPage implements OnInit {
 
   postulant: Postulant = {
-  nom_postulant: "",
-  prenom_postulant: "",
-  numero_postulant: "",
-  email: "",
-  genre: ""
-  }
-
-  nom_postulant: string = '';
-  prenom_postulant: string = '';
-  numero_postulant: string = '';
-  email: string = '';
-  genre: string = '';
-
-  listePostulant = "";
-
-  liste:any;
-
-  erreur: any;
-  bool_erreur: boolean = false;
-
-
-  constructor(
-    private ajouterPostulant : AjouterPostulantService
-  ) { }
-
-
-  ngOnInit() {
-
-    this.getListePostulant();
-
-  }
-
-
-  getListePostulant(){
-    this.ajouterPostulant.recupererListePostulant().subscribe((data) =>{
-      this.listePostulant = data;
-    })
-  }
+    nom_postulant: "",
+    prenom_postulant: "",
+    numero_postulant: "",
+    email: "",
+    genre: ""
+    }
+  
+    nom_postulant: string = '';
+    prenom_postulant: string = '';
+    numero_postulant: string = '';
+    email: string = '';
+    genre: string = '';
+  
+    listePostulant = "";
+  
+    liste:any;
+  
+    erreur: any;
+    bool_erreur: boolean = false;
+  
+  
+    constructor(
+      private ajouterPostulant : AjouterPostulantService
+    ) { }
+  
+  
+    ngOnInit() {
+  
+      this.getListePostulant();
+  
+    }
+  
+  
+    getListePostulant(){
+      this.ajouterPostulant.recupererListePostulant().subscribe((data) =>{
+        this.listePostulant = data;
+      })
+    }
+  
+  
+  
 
   posterPostulant(){
     

@@ -1,131 +1,153 @@
+<<<<<<< HEAD
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="row flex-nowrap">
+  <div class="col-auto px-2" >
+    <app-menu></app-menu>
+    </div>
+
+
+  <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+=======
 <ion-content>
-  <!-- <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-  <div class="container1">
-    <div class="div-gauche">
-    <p>Vous souhaitez ajouter
-      un acteur?</p>
-    </div>
-
-    <div class="div-droite">
-      <span ><p>Ajouter un acteur</p></span>
-    </div>
-
-  </div>
-  
-<div class="container">
-   <div class="cont">
-     <div class="boutton">  
-       <p class="b"><b>Liste des acteurs</b></p>
-       <span class="sp1"><b>Filtrer</b></span>
-       <span class="sp2"><b>Exporter liste</b></span>
-     </div> 
-    <table class="table">
-      <thead class="thead-dark" >
-        <th class="gauche" scope="col">Nom</th>
-        <th scope="col">Prenom</th>
-        <th scope="col">Email</th>
-        <th scope="col">Numéro</th>
-        <th scope="col">Genre</th>
-        <th class="droite" scope="col">Actions</th>
-
-        <tr>
-          <td scope="col">Djire</td>
-          <td scope="col">Youssouf</td>
-          <td scope="col">djireyoussouf1999@gmail.com</td>
-          <td scope="col">72095772</td>
-          <td scope="col">Masculin</td>
-          <td>
-            <a></a>
-            <a></a>
-          </td>
-        </tr>
-      </thead>
-      </table>
-    </div> 
-  </div> -->
-
-
-  <!-- <style>
-   
-  </style> -->
-  <ion-content>
-    <!-- <div class="search"><ion-searchbar value="recherche"></ion-searchbar></div> -->
-    <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-    <div class="container1">
-      <div class="div-gauche">
-      <p>Vous souhaitez ajouter
-        un acteur?</p>
-      </div>
-  
-      <div class="div-droite">
-        <span  ><p >Ajouter un acteur</p></span>
-      </div>
-  
-    </div>
-    
   <div class="container">
-     <div class="cont">
-       <div class="boutton">  
-         <p class="b"><b>Liste des acteurs</b></p>
+    <button type="button" class="btn" style="margin-left:92% ;">
+      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:15px;">
+        99+
+      </span></i>
+    </button>
+    <br><br>
+    <div class="row py-3">
+      <h1>Liste des acteurs</h1>
+      <div class="trait"></div>
+      <div class="position">
+          <button class="btn btnAjouter">Exporter le fichier</button>
+        <button class="btn btnAjouter">Ajouter une acteur</button>
+        <button class="btn btnAjouter c1">Filtré par Role <i class="bi bi-filter-right"></i></button>  
+        <form action="">
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+          </form>
+      </div>
+      <div class="table-responsive ra py-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="ra" style="text-align:center ;">Nom</th>
+              <th scope="col" style="text-align:center ;">Prenom</th>
+              <th scope="col" style="text-align:center ;">Email</th>
+              <th scope="col" style="text-align:center ;">Numero</th>
+              <th scope="col" style="text-align:center ;">Role</th>
+              <th scope="col" style="text-align:center ;">Actions</th>
+            </tr>
          
-       </div> 
-      <table class="tab">
-        <thead class="head">
-          <th class="gauche">Nom</th>
-          <th>Prenom</th>
-          <th>Email</th>
-          <th>Numéro</th>
-          <th>Genre</th>
-          <th class="droite">Actions</th>
-    
-        </thead>
-      
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
+         
+            <tr>
+              <td style="text-align:center ;">KONTE</td>
+              <td style="text-align:center ;">Aly</td>
+              <td style="text-align:center ;">alykonte19@gmail.com</td>
+              <td style="text-align:center ;">76621307</td>
+              <td style="text-align:center ;">Admin</td>
+              <td style="text-align:center ;"><i class="bi bi-pencil-square px-4"></i> <i class="bi bi-trash3"></i> </td>
+            </tr>
+            <tr>
+              <td style="text-align:center ;">KIRE</td>
+              <td style="text-align:center ;">Fatoumata</td>
+              <td style="text-align:center ;">kire@gmail.com</td>
+              <td style="text-align:center ;">66321307</td>
+              <td style="text-align:center ;">Organisatrice</td>
+              <td style="text-align:center ;"><i class="bi bi-pencil-square px-4"></i> <i class="bi bi-trash3"></i></td>
+            </tr>
+            <tr>
+              <td style="text-align:center ;">KOLOMA</td>
+              <td style="text-align:center ;">Jeremi</td>
+              <td style="text-align:center ;">jeremi@gmail.com</td>
+              <td style="text-align:center ;">9887654</td>
+              <td style="text-align:center ;">Moderatur</td>
+              <td style="text-align:center ;"><i class="bi bi-pencil-square px-4"></i> <i class="bi bi-trash3"></i></td>
+            </tr>
+            <tr>
+              <td style="text-align:center ;">COULIBALY</td>
+              <td style="text-align:center ;">Hawa</td>
+              <td style="text-align:center ;">hawa@gmail.com</td>
+              <td style="text-align:center ;">7210983</td>
+              <td style="text-align:center ;">Organisatrice</td>
+              <td style="text-align:center ;"><i class="bi bi-pencil-square px-4"></i> <i class="bi bi-trash3"></i></td>
+            </tr>
+            <tr>
+              <td style="text-align:center ;">DIALLO</td>
+              <td style="text-align:center ;">Hadjara</td>
+              <td style="text-align:center ;">hadja@gmail.com</td>
+              <td style="text-align:center ;">72345673</td>
+              <td style="text-align:center ;">Lead</td>
+              <td style="text-align:center ;"><i class="bi bi-pencil-square px-4"></i> <i class="bi bi-trash3"></i></td>
+            </tr>
+            
+          </thead>
+        </table>
+      </div>
+    </div>
 
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
-
-        <tr>
-          <td>Djire</td>
-          <td>Youssouf</td>
-          <td>djireyoussouf1999@gmail.com</td>
-          <td>72095772</td>
-          <td>Masculin</td>
-          <td> <a href=""><ion-icon name="create"></ion-icon></a>
-             
-            <a href=""><ion-icon name="trash"></ion-icon></a>
-          </td>
-        </tr>
-
-        
-          <!-- <a href=""><ion-icon name="skip-backward"></ion-icon></a>
-          <ion-icon name="arrow-dropleft"></ion-icon>
-          <ion-icon name="arrow-dropright"></ion-icon>
-          <ion-icon name="skip-forward"></ion-icon> -->
-       
-       
-      </table>
-  
-    </div> 
   </div>
-  
+>>>>>>> 53b2edcc61ca88cb757a11f52c928f8acdb4bf64
+
+
+<div class="container">
+  <button type="button" class="btn" style="margin-left:92% ;">
+    <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+      99+
+    </span></i>
+  </button>
+  <br><br>
+  <div class="row ro py-3">
+    <h1>Liste des acteurs</h1>
+    <div class="trait"></div>
+    <div class="position">
+        <button class="btn btnAjouter">Exporter le fichier</button>
+
+<<<<<<< HEAD
+     <a href="ajouter-acteur"> <button class="btn btnAjouter1" style="border: 1px solid;"  >Ajouter un acteur</button></a>
+      <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
+      <form action="">
+        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+      </form>
+    </div>
+    <div class="table-responsive ra py-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Prénom</th>
+            <th scope="col">nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Numéro</th>
+            <th scope="col">Rôle</th>
+            <th scope="col" class="ra1">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let acteur of acteurs">
+            <td>{{acteur.prenom}}</td>
+            <td>{{acteur.nom}}</td>
+            <td>{{acteur.email}}</td>
+            <td>{{acteur.numero}}</td>
+            <td>Modérateur</td>
+            <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+          </tr>
+       </tbody>
+       <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+</div>
+</div>
+=======
+
+
 </ion-content>
+>>>>>>> 53b2edcc61ca88cb757a11f52c928f8acdb4bf64

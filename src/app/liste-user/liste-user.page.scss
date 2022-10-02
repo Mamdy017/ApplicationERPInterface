@@ -1,63 +1,62 @@
-section
-{
-  margin-left: 20%;
+.row{
+  box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
+  border-radius: 20px;
+}
+input { outline-style:none; } 
+.btnAjouter{
+background-color: #ff6600;
+color: white;
+border-radius: 12px;
+width: 200px;
+height: 45px;
+border: none;
+font-size: 20px;
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+.btnAjouter:hover{
+color: black;
+background-color: white;
+border: 2px solid #ff6600;
+}
+.row h1{
+text-align: center;
+}
+.c1,.recherche{
+background-color: #ededed;
+color: black;
+}
+.position{
+display: flex;
+justify-content: space-around;
+}
+@media screen and (max-width:768px) {
+.position{
+  display: block;
+}
+.btnAjouter{
+  width: 100%;
   margin-top: 2%;
 }
-.generale
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  margin: 10%;
 }
-
-table
-{
-  font-family: 'poppins'; width: 100%;
+.trait{
+border: 2px solid #FF6600;
+width: 150px;  
+border-radius: 20px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 30px;
 }
-.containerT
-{
-  display: flex; justify-content: space-around;
+.i{
+color:#FF6600;
 }
-.souhater
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  padding: 2%; align-content: center; text-align: center;
-  display: flex; flex-direction: row; font-size: 100%;
-  font-family: 'poppins';
+th{
+background-color: #FF6600;
+color: white;
 }
-.bouton
-{
-  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-  padding: 2%; display: flex;
+.ra{
+border-radius: 12px 0 0 0;
 }
-.tableContainer
-{
-   margin: 5%; font-family: 'poppins'; align-items: center;
-  // box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.8);
-}
-.entete
-{
-   display: flex; justify-content: space-around;
-}
-.titleT
-{
-  display: flex; flex-direction: row;
-}
-.boutons{
-  margin: 10px;
-}
-thead
-{
-  background-color: #000000; color: white; border-radius: 2px 2px 0px 2px solid;
-}
-td span
-{
-  margin: 12%;
-}
-// Modification des bordures du tableaux
-.fhead{
-  border-radius: 10px 0 0 0;
-}
-.lhead{
-  border-radius: 0 10px 0 0;
+.ra1{
+border-radius: 0 12px 0 0;
 }
 

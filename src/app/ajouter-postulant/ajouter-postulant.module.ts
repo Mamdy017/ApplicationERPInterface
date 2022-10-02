@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { AjouterPostulantPageRoutingModule } from './ajouter-postulant-routing.module';
 
 import { AjouterPostulantPage } from './ajouter-postulant.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AjouterPostulantPage } from './ajouter-postulant.page';
     IonicModule,
     AjouterPostulantPageRoutingModule
   ],
-  declarations: [AjouterPostulantPage]
+  declarations: [AjouterPostulantPage,MenuComponent]
 })
 export class AjouterPostulantPageModule {}
