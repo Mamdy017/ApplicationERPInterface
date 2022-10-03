@@ -1,90 +1,75 @@
 <ion-content>
-    <div class="container">
+  <div class="container">
+    <button type="button" class="btn" style="margin-left:92% ;">
+      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+        99+
+      </span></i>
+    </button>
+    <br><br>
+    <div class="row py-3">
+      <h1>Liste des utilisateurs</h1>
+      <div class="trait"></div>
+      <div class="position">
+          <button class="btn btnAjouter">Exporter le fichier</button>
+          <form action="">
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+          </form>
+        <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
+        <button class="btn btnAjouter">Ajouter un utilisateur</button>
+      </div>
+      <div class="table-responsive ra py-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="ra">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Numéro</th>
+              <th scope="col">Rôle</th>
+              <th scope="col">Entité</th>
+              <th scope="col" class="ra1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+            </tr>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
 
-        <div class="row bg-primary">
-          
-          <div class="col-md-4  b1">
-            <span> Filtrer</span>
-            <select name="sexe" id="sexe" class="form-select form-control" >
-              <option selected> --- Genre ---</option>
-              <option> Homme</option>
-              <option> Femme</option>
-              <label for="sexe">Genre</label>
-            </select>
-          </div>
-          <div class="col-md-7 b2">
-            <ion-searchbar class="search-- float-right search"></ion-searchbar>
-          </div>
-        </div>
-        
-     
+            </tr>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Responsable</td>
+              <td>Kalanso</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
 
-      <div class="row justify-content-around">
-        <div class=" col-6 col-md-8 col-xs-12 col-sm-6  head">
-          <div class="headContent">
-            <p> Souhaitez-vous ajouter un utilisacteur?</p>
-          </div>
-        </div>
-
-        <div class="col-2 col-md-2 heads" >
-          <input type="submit" value="Ajouter un utilisateur" class="float-right bouton">
-        </div>
-      </div><br>
-
-      <div class="tableContent col-12 col-md-12 col-xs-12 col-sm-12 ">
-
-        <span>Listes des Utilisateurs</span>
-      <table class="table tables">
-
-        <thead class="thead">
-          <tr class="theads">
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Numero</th>
-            <th scope="col">Genre</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td><a href=""><i class="fa-light fa-pen-to-square"></i></a> <a href=""><ion-icon name="trash"></ion-icon></a></td>
-
-          </tr>
-        </tbody>
-
-      </table>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+
   </div>
-</ion-content>
 
-
-
-
-
-
+<ion-content>
 
 
 

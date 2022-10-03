@@ -1,147 +1,85 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-* {
-    font-family: 'Poppins' sans-serif;
-}
-.containers1
-{
-    display: flex;
-}
-.logo{
-    margin-top: 5%;
-    margin-left: 5%;
-}
 
-
-.profile-non{
-    margin-top: 6%;
-    margin-left: -50%;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
+#sidebar-nav {
+    width: 190px;
+  }
+  *{
+    font-family: 'Poppins', sans-serif;
+  }
+.offcanvas-header img{
+    width: 65%;
 }
-li{
-    list-style: none;
-}
-
-a, a:hover, a:focus {
-    color: inherit;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-.head{
-    display: flex;
-    justify-content: space-around;
-}
-
- .head img{
-    width: 60px;
-    height: 60px;
+    .nav-item img{
     border-radius: 100%;
-    margin-left: -70%;
-}
-.profileul{
-    margin-left: -30%;
-}
-#ull{
-    display: flex;
-    border: 20px solid #202020;
-    border-radius: 0 50px 0 0;
-    background: #202020;
-    height: 100vh;
-    width: 250px;
-    flex-direction: column;
-    margin-top: 10%;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    //align-items: center;
-    //justify-content: flex-start;
-}
+    height: 75px;
+    width: 100px;
 
-.onglet{
-    display: flex;
-    align-items: center;
-    width: 100%;
-   // margin: auto;
-}
-
-
-#sidebar {
-    z-index: 999;
-    position: fixed;
-    color: #fff;
-    transition: all 0.3s;
-}
-b{
-    font-size: 25px;
-    height: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 0.9em;
-    display: block;
-}
-.notification{
-    margin-top: 15%;
+  }
+  .active{
     background-color: white;
     width: 250px;
-    margin-left: -35%;
-}
-.notification .iconeContentOnglet{
-    color: black;
-    margin-left: 10%;
-}
-.nombre{
-    background-color: red;
-    border-radius: 20px;
-    font-size: 30px;
-    height: 30px;
-    margin-left: 14%;
-}
-.not{
+    color:#202020;
+  }
+  .v{
+  width: 250px;
+ }
+
+  .nav-item img{
+    border-radius: 100%;
+    height: 60px;
+    width: 60px;
+    padding: 1px;
+  }
+  i,.i{
+    font-size: 18px;
+  }
+  .nom{
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .ul{
+    border-radius: 0 50px 0 0;
     position: relative;
-    color: black;
-    top: -15%;
+    margin-left: -8%;
+    background-color: #202020;
 
+  }
+  .ul .li:hover{
+    background-color: #FF6600;
+    color:white;
+    width: 200px;
+  }
+  a{
+    color:white;
+  }
+  .tiret{
+    background-color: white;
+    width: 125%;
+  }
+  .nombre {
+    background-color: #FF6600;
+    position: relative;
+    border-radius: 90%;
+    top: 5%;
+    height:15%;
+    left: 5%;
+    width: 30%;
 }
-.ione{
-    display: none;
-}
-
-.reorder-four-outline{
-    font-size: 40px!important;
-}
-
-.ionee ion-icon[name="reorder-four-outline"]{
-    font-size: 90px;
-}
-
-.ione ion-icon[name="close-outline"]{
-    color: red;
-    font-size: 50px;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-}
-
-
-.iconeContentOnglet{
-    font-size: 25px;
-    padding-right: 20px;
-    margin-left: -18%;
-}
-
-@media  (max-width: 767px) {
-    .ione{
-        display: block;
+    
+    .nombre b {
+        color:white;
+        position: relative;
+        top: 20%;
     }
-}
 
-
-@media (max-width: 400px) {
-
-}
+    // Le debut du media screen
+  @media screen and (max-width:767px) {
+    .ul{
+        width: 200px;
+    }
+    .tiret{
+      display: flex;
+      flex-direction: row;
+    }
+  }

@@ -1,140 +1,80 @@
 <ion-content>
-<div class="container">
-  <div class="entete col-12 row">
-      <div >
-          <div class="search col-6"><ion-searchbar class="search--"></ion-searchbar></div>
-      </div>    
-    <div class="intermediare col-12">
-      <h1><b> Tirage 01 </b> </h1>
+  <div class="container">
+    <button type="button" class="btn" style="margin-left:92% ;">
+      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+        99+
+      </span></i>
+    </button>
+    <br><br>
+    <div class="row py-3">
+    <h1> Tirage 01 </h1>
+      
+      <h3>Les postulants retenus au tirage</h3>
+      <div class="trait"></div>
+      <div class="position">
+          <button class="btn btnAjouter">Exporter le fichier</button>
+          <form action="">
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+          </form>
+          <div class="mb-3 col-12 col-md-2 form-row form-floating">
+            <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right"  >
+                <option selected>Filtré par Genre</option>
+                <option>HOMME</option>
+                <option>FEMME</option>
+            </select>
+          </div>
+        <button class="btn btnAjouter">Ajouter un postulant</button>
+      </div>
+      <div class="table-responsive ra py-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="ra">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Adresse</th>
+              
+              <th scope="col" class="ra1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Bamako</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+            </tr>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Kayes</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+
+            </tr>
+            <tr>
+              <td scope="row">Camara</td>
+              <td>Mamady</td>
+              <td>Mamdy017@gmail.com</td>
+              <td>9122889</td>
+              <td>Bamko</td>
+              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+
   </div>
 
-     <!-- <table class="tab">
-       <thead class="head">
-         <th class="gauche">Nom</th>
-         <th>Prenom</th>
-         <th>Email</th>
-         <th>Numéro</th>
-         <th>Genre</th>
-         <th class="droite">Actions</th>
-   
-       </thead>
-     
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-       <tr>
-         <td>Diarra</td>
-         <td>Diaraba Idrissa</td>
-         <td>diarradiaraba9@gmail.com</td>
-         <td>78204039</td>
-         <td>Masculin</td>
-         <td>
-           <a>icone </a>
-         </td>
-       </tr>
-     </table>
-  -->
-  <p class="libelle">Les postulants retenu au tirage</p>
-  <table class="table col-12">
-    <thead class="thead-dark ">
-      <style>
-        th, td{
-          width: 5%;
-        }
-  
-      </style>
-      <tr>
-        <th class="gauche" scope="col">Nom</th>
-        <th scope="col">Prenom</th>
-        <th scope="col">Email</th>
-        <th scope="col">Contact</th>
-        <th scope="col">Adresse</th>
-        <th class="droite" scope="col">Action</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td scope="row">Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>ACI 2000</td>
-        <td>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>ACI 2000</td>
-        <td>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>ACI 2000</td>
-        <td>
-          <a>icone </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-   </div> 
+<ion-content>
 
 
-</ion-content>
+

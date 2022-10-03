@@ -1,121 +1,80 @@
-.color1{
-  background: white;
-  width: 250px;
-  height: 150px;
-  margin-left: 0%;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-} 
- .color2{
-  background: white;
-  width: 250px;
-  height: 150px;
-  margin-left: -13%;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-} 
-.color3{
-  background: white;
-  width: 250px;
-  height: 150px;
-  margin-left: -13%;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-h1{
-  font-size: 40px;
-  margin-top: 39px;
+*{
+  font-family: 'Poppins';font-size: 22px;
 }
 
-.container1{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2%;
-  margin-left: 14%;
-} 
-.icon{
-  font-size: 60px;
+.welcomeP{
+  position: relative;
+  background-color: #E7EBED;
+  width: 50%;
+  border-radius: 0px 23px 23px 0px;
+  margin-left: 1000px;
+  padding: 5px;
+  margin-top: -10px;
+  font-size: 1rem;
+}
+.contourCard{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+.cardHome{
+background: #FFFFFF;
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+}
+.containerSearch{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.iconTop i{
+  position: relative;
   color: #FF6600;
-  margin-top: 30px;
-} 
-.position{
-  margin-left: 20%;
   display: flex;
-  justify-self: unset;
+  justify-content: center;
+  top: 10px;
+  font-size: 4rem;
 }
-.position1{
-  margin-left: 30%;
-  display: flex;
-  justify-self: unset;
-}
-span{
-  margin-left: 41%;
-}
-.position h1{
-  margin-left: 5%;
-}
-.container{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 2%;
-}
-.carreau{
-  display: flex;
-  justify-content: space-around; 
-}
-.ligne1{
-  display: flex;
-  justify-content: space-around; 
-  margin-left: 20px;
-  margin-top:7%;
-}
-.graphique{
-  display: flex;
-  justify-content: space-around; 
-}
-@media screen and (min-width: 768px) and (max-width: 1200px) { 
-  .color1{
-    width: 200px;
-    margin-left: -9%;
-  }
-  .color2{
-    width: 200px;
-  }
-  .color3{
-    width: 200px;
-  }
-}
-@media screen and (min-width: 500px) and (max-width: 767px) { 
-  .color1{
-    width: 150px;
-    margin-left: -15%;
-  }
-  .icon{
-    font-size: 40px;
-  }
-  .color2{
-    width: 150px;
-  }
-  .color3{
-    width: 150px;
-  }
-  h1{
-    font-size: 30px;
-  }
-}
-@media screen and (min-width: 360px) and (max-width: 500px) { 
 
-  .color1{
-    margin-left: -20%;
-    width: 120px;
-  }
-  .color2{
-    width: 120px;
-  }
-  .color3{
-    width: 120px;
-  }
-  h1{
-    font-size: 20px;
-  }
-  .icon{
-    font-size: 25px;
-  }
+.iconBas{
+  position: relative;
+  color: #FF6600;
+  display: flex;
+  justify-content: center;
+  top: 10px;
+  font-size: 3.8rem;
+}
+
+.pcardHome{
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  top: -14px;
+}
+
+.txtcardHome{
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  top: -38px;
+}
+
+.txtcardbottom{
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  font-weight: 600;
+}
+.Filtree{
+  font-size: 3rem;
+  cursor: pointer;
+  
+}
+.toutFilter{
+  position: relative;
+  display: flex;
+  background-color: #E7EBED;
+  border-radius: 12px;
+} 
+.iputFilter{
+  position: relative;
+  top: 23px;
 }

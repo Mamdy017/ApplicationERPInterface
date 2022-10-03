@@ -12,13 +12,11 @@ import { ListePostulantService } from '../Services/liste-postulant/liste-postula
 export class AjouterParticipantPage implements OnInit {
 
   postulantparticipant: Postulant  ={
-    id:0,
     nom_postulant: '',
   prenom_postulant:'',
   numero_postulant:'',
   email:"",
-  genre: "",
-  etat:true
+  genre: ""
   }
 
   
