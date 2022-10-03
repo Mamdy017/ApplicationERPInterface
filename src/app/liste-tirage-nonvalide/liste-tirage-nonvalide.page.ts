@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-tirage-nonvalide.page.scss'],
 })
 export class ListeTirageNonvalidePage implements OnInit {
+  p=1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   constructor(  public breakpointObserver: BreakpointObserver) { }

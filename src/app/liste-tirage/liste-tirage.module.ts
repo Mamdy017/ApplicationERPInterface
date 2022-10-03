@@ -8,13 +8,15 @@ import { ListeTiragePageRoutingModule } from './liste-tirage-routing.module';
 
 import { ListeTiragePage } from './liste-tirage.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeTiragePageRoutingModule
+    ListeTiragePageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [ListeTiragePage,MenuComponent]
 })
