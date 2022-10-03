@@ -43,12 +43,7 @@ export class AuthentificationPage implements OnInit {
       this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
     } 
-    // else if(this.email != this.utilisateur.email)
-    // {
-    //       this.erreur = data.contenu
-
-    //     console.log("VVVVVVVV "+this.erreur)
-    // }    
+   
     else {
       this.service.seConnecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
@@ -68,7 +63,7 @@ export class AuthentificationPage implements OnInit {
             sessionStorage.setItem("numero_users", data.numero);
 
             if (this.typeUser == "user") {
-              this.route.navigateByUrl('/user-accueil');
+              this.route.navigateByUrl('/accueil-user');
             }
             else if (this.typeUser == "admin") {
               this.route.navigateByUrl('/admin-accueil');

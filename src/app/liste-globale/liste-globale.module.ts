@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListeGlobalePageRoutingModule } from './liste-globale-routing.module';
 
 import { ListeGlobalePage } from './liste-globale.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ListeGlobalePage } from './liste-globale.page';
     IonicModule,
     ListeGlobalePageRoutingModule
   ],
-  declarations: [ListeGlobalePage]
+  declarations: [ListeGlobalePage,MenuComponent]
 })
 export class ListeGlobalePageModule {}
