@@ -22,7 +22,7 @@
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                     <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
                   </svg>
-                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">199</p>
+                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">{{totalTirage}}</p>
                   <p>Nombres Tirages</p>
                 </div>
             </div>
@@ -44,19 +44,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td scope="row">Tirage01</td>
-                      <td scope="">7</td>
-                      <td>10/01/22</td>
-                      <td><a href="#">Voir Plus</a></td>
+                    <tr *ngFor="let liste of listeTirages">
+                      <td scope="row">{{liste.libelleTirage}}</td>
+                      <td scope="">{{liste.nombrePostulantTire}}</td>
+                      <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
+                      <td><a href="{{liste.idtirage}}">Voir Plus</a></td>
                     </tr>
-                    <tr>
-                      <td scope="row">Tirage02</td>
-                      <td scope="">7</td>
-                      <td>10/01/22</td>
-                      <td><a href="#">Voir Plus</a></td>
-                    </tr>
-                
+                                  
                   </tbody>
                 </table>
                   <!-- <pagination-controls (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
