@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +9,7 @@ import { AjouterPostulantPageRoutingModule } from './ajouter-postulant-routing.m
 
 import { AjouterPostulantPage } from './ajouter-postulant.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [

@@ -1,141 +1,146 @@
-<ion-content>
-  <div class="container">
-  
-    <div class="row py-3">
-      <div class="col-12 col-md-4 py-3">
-        <div class="trait1">Reporting</div>
-      </div>
-      <div class="col-12 col-md-4 ">
-        <h1>Filtrer par : </h1>
-        <div class="trait"></div>
-      </div>
-      
-      <div class="position ">
-        <div class="mb-3 col-12 col-md-2 form-row ">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right r"  >
-              <option selected>Activité</option>
-              <option>Formation</option>
-              <option>Kalanso</option>
-              <option>Orange Fab</option>
-          </select>          
-        </div>
-        <div class="mb-3 col-12 col-md-2 form-row ">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right r"  >
-              <option selected>Statut</option>
-              <option>Encours</option>
-              <option>Terminer</option>
-          </select>          
-        </div>
-        <div class="mb-3 col-12 col-md-2 form-row ">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right r"  >
-              <option selected>Date</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
-              <option>2024</option>
-              <option>2025</option>
-          </select>          
-        </div>
-        <div class="mb-3 col-12 col-md-2 form-row ">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right r"  >
-              <option selected>Entité</option>
-              <option>Kalanso</option>
-              <option>Orange FabLab</option>
-              <option>Orange Fab</option>
-          </select>          
-        </div>
-        <div class="mb-3 col-12 col-md-2 form-row ">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right r"  >
-              <option selected>Liste</option>
-              <option>Liste1</option>
-              <option>Liste2</option>
-              <option>Liste3</option>
-              <option>Liste4</option>
-              <option>Liste5</option>
-          </select>          
-        </div>
-      <form>
-        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search "></i> <input type="text" style=" border: 0; background: transparent;"></button>
-      </form>
-      </div>
-      <div class="table-responsive ra py-5">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" class="ra" style="text-align:center ;">Liste</th>
-              <th scope="col" style="text-align:center ;">Entité</th>
-              <th scope="col" style="text-align:center ;">Activité</th>
-              <th scope="col" style="text-align:center ;">Date</th>
-              <th scope="col" style="text-align:center ;">Statut</th>
-              <th scope="col" style="text-align:center ;">Actions</th>
-            </tr>
-         
-         
-            <tr>
-              <td style="text-align:center ;">Liste2</td>
-              <td style="text-align:center ;">Kalanso</td>
-              <td style="text-align:center ;">Evenement</td>
-              <td style="text-align:center ;">02/08/2022</td>
-              <td style="text-align:center ;">Encours</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste3</td>
-              <td style="text-align:center ;">Kalanso</td>
-              <td style="text-align:center ;">Formation</td>
-              <td style="text-align:center ;">02/09/2022</td>
-              <td style="text-align:center ;">Encours</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste4</td>
-              <td style="text-align:center ;">Orange Fab solidaire</td>
-              <td style="text-align:center ;">Talk</td>
-              <td style="text-align:center ;">02/10/2022</td>
-              <td style="text-align:center ;">Encours</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste5</td>
-              <td style="text-align:center ;">Orange Fab</td>
-              <td style="text-align:center ;">Formation</td>
-              <td style="text-align:center ;">02/08/2022</td>
-              <td style="text-align:center ;">Terminer</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste3</td>
-              <td style="text-align:center ;">Kalanso</td>
-              <td style="text-align:center ;">Evenements</td>
-              <td style="text-align:center ;">02/09/2022</td>
-              <td style="text-align:center ;">Encours</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste1</td>
-              <td style="text-align:center ;">Kalanso</td>
-              <td style="text-align:center ;">Formation</td>
-              <td style="text-align:center ;">02/08/2022</td>
-              <td style="text-align:center ;">Encours</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-            <tr>
-              <td style="text-align:center ;">Liste2</td>
-              <td style="text-align:center ;">Kalanso</td>
-              <td style="text-align:center ;">Talk</td>
-              <td style="text-align:center ;">02/08/2021</td>
-              <td style="text-align:center ;">Terminer</td>
-              <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
-            </tr>
-          </thead>
-        </table>
-      </div>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+      <div class="container">
 
+        <div class="row py-3">
+          <div class="col-12 col-md-4 py-3">
+            <div class="trait1">Reporting</div>
+          </div>
+          <div class="col-12 col-md-4 ">
+            <h1>Filtrer par : </h1>
+            <div class="trait"></div>
+          </div>
+
+          <div class="position ">
+            <div class="mb-3 col-12 col-md-2 form-row ">
+              <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+                <option selected>Activité</option>
+                <option>Formation</option>
+                <option>Kalanso</option>
+                <option>Orange Fab</option>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-2 form-row ">
+              <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+                <option selected>Statut</option>
+                <option>Encours</option>
+                <option>Terminer</option>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-2 form-row ">
+              <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+                <option selected>Date</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+                <option>2024</option>
+                <option>2025</option>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-2 form-row ">
+              <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+                <option selected>Entité</option>
+                <option>Kalanso</option>
+                <option>Orange FabLab</option>
+                <option>Orange Fab</option>
+              </select>
+            </div>
+            <div class="mb-3 col-12 col-md-2 form-row ">
+              <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+                <option selected>Liste</option>
+                <option>Liste1</option>
+                <option>Liste2</option>
+                <option>Liste3</option>
+                <option>Liste4</option>
+                <option>Liste5</option>
+              </select>
+            </div>
+            <form>
+              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search "></i> <input
+                  type="text" style=" border: 0; background: transparent;"></button>
+            </form>
+          </div>
+          <div class="table-responsive ra py-5">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="ra" style="text-align:center ;">Liste</th>
+                  <th scope="col" style="text-align:center ;">Entité</th>
+                  <th scope="col" style="text-align:center ;">Activité</th>
+                  <th scope="col" style="text-align:center ;">Date</th>
+                  <th scope="col" style="text-align:center ;">Statut</th>
+                  <th scope="col" style="text-align:center ;">Actions</th>
+                </tr>
+
+
+                <tr>
+                  <td style="text-align:center ;">Liste2</td>
+                  <td style="text-align:center ;">Kalanso</td>
+                  <td style="text-align:center ;">Evenement</td>
+                  <td style="text-align:center ;">02/08/2022</td>
+                  <td style="text-align:center ;">Encours</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste3</td>
+                  <td style="text-align:center ;">Kalanso</td>
+                  <td style="text-align:center ;">Formation</td>
+                  <td style="text-align:center ;">02/09/2022</td>
+                  <td style="text-align:center ;">Encours</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste4</td>
+                  <td style="text-align:center ;">Orange Fab solidaire</td>
+                  <td style="text-align:center ;">Talk</td>
+                  <td style="text-align:center ;">02/10/2022</td>
+                  <td style="text-align:center ;">Encours</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste5</td>
+                  <td style="text-align:center ;">Orange Fab</td>
+                  <td style="text-align:center ;">Formation</td>
+                  <td style="text-align:center ;">02/08/2022</td>
+                  <td style="text-align:center ;">Terminer</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste3</td>
+                  <td style="text-align:center ;">Kalanso</td>
+                  <td style="text-align:center ;">Evenements</td>
+                  <td style="text-align:center ;">02/09/2022</td>
+                  <td style="text-align:center ;">Encours</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste1</td>
+                  <td style="text-align:center ;">Kalanso</td>
+                  <td style="text-align:center ;">Formation</td>
+                  <td style="text-align:center ;">02/08/2022</td>
+                  <td style="text-align:center ;">Encours</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+                <tr>
+                  <td style="text-align:center ;">Liste2</td>
+                  <td style="text-align:center ;">Kalanso</td>
+                  <td style="text-align:center ;">Talk</td>
+                  <td style="text-align:center ;">02/08/2021</td>
+                  <td style="text-align:center ;">Terminer</td>
+                  <td style="text-align:center ;"><i class="bi bi-filetype-csv"></i></td>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
   </div>
-
-
-
-
-
-</ion-content>
+</div>

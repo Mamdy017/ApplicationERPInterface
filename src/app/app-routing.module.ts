@@ -134,15 +134,20 @@ const routes: Routes = [
     loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
   },
   {
-    path: 'reporting',
+    path: 'repording',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
   },
   {
     path: 'importer-participant',
     loadChildren: () => import('./importer-participant/importer-participant.module').then( m => m.ImporterParticipantPageModule)
-  },  {
+  },
+  {
     path: 'accueil-user',
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
+  },
+  {
+    path: 'details-activite',
+    loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
 
 

@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
@@ -11,8 +12,10 @@ import { ActiviteService } from '../Services/activite/activite.service';
 })
 export class ImporterParticipantPage implements OnInit {
 
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
   constructor(private http: HttpClient,
-    private activiteService: ActiviteService) { }
+    private activiteService: ActiviteService,public breakpointObserver: BreakpointObserver) { }
 
     libelleListe:any
     libelleActivite:""
@@ -96,9 +99,30 @@ export class ImporterParticipantPage implements OnInit {
 
   }
 
-
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
   ngOnInit() {
     this.getListeActivite();
+    this.breakpointObserver
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
+  }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
   }
 
 }

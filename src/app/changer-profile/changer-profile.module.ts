@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ChangerProfilePageRoutingModule } from './changer-profile-routing.module';
 
 import { ChangerProfilePage } from './changer-profile.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ChangerProfilePage } from './changer-profile.page';
     IonicModule,
     ChangerProfilePageRoutingModule
   ],
-  declarations: [ChangerProfilePage]
+  declarations: [ChangerProfilePage,MenuComponent]
 })
 export class ChangerProfilePageModule {}

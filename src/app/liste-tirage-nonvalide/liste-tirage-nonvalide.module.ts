@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListeTirageNonvalidePageRoutingModule } from './liste-tirage-nonvalide-routing.module';
 
 import { ListeTirageNonvalidePage } from './liste-tirage-nonvalide.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ListeTirageNonvalidePage } from './liste-tirage-nonvalide.page';
     IonicModule,
     ListeTirageNonvalidePageRoutingModule
   ],
-  declarations: [ListeTirageNonvalidePage]
+  declarations: [ListeTirageNonvalidePage,MenuComponent]
 })
 export class ListeTirageNonvalidePageModule {}

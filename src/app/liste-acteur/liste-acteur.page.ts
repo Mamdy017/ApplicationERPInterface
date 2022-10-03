@@ -1,6 +1,10 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../modeles/acteur/acteur';
-import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
+// import { Acteur } from '../modeles/acteur/acteur';
+import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
+// import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
 
 @Component({
   selector: 'app-liste-acteur',
@@ -9,14 +13,34 @@ import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.servic
 })
 export class ListeActeurPage implements OnInit {
   acteurs : Acteur[];
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
-  constructor(private serviceActeur : ListeActeurService) { }
+  constructor(private serviceActeur : ListeActeurService,public breakpointObserver: BreakpointObserver) { }
 
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
   ngOnInit() {
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;
       console.table(this.acteurs);
     })
+    this.breakpointObserver
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
   }
 
 
@@ -31,5 +55,10 @@ export class ListeActeurPage implements OnInit {
       }
     })
   }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  }
+
 
 }

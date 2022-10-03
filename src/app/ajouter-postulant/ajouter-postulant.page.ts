@@ -1,4 +1,6 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 @Component({
@@ -7,6 +9,8 @@ import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-p
   styleUrls: ['./ajouter-postulant.page.scss'],
 })
 export class AjouterPostulantPage implements OnInit {
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
   postulant: Postulant = {
     nom_postulant: "",
@@ -31,12 +35,29 @@ export class AjouterPostulantPage implements OnInit {
   
   
     constructor(
-      private ajouterPostulant : AjouterPostulantService
+      private ajouterPostulant : AjouterPostulantService, public breakpointObserver: BreakpointObserver
     ) { }
   
-  
+    actualise(): void {
+      setInterval(
+        () => {
+        }, 100, clearInterval(1500));
+    }
     ngOnInit() {
   
+      this.breakpointObserver
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
       this.getListePostulant();
   
     }
@@ -80,6 +101,10 @@ export class AjouterPostulantPage implements OnInit {
     }
   }
 
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  }
 
 
 }

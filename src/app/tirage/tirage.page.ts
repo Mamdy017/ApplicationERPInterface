@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { Tirage } from '../modeles/tirage/tirage';
-import { TirageService } from '../Services/tirage/tirage.service';
+// import { Tirage } from '../modeles/tirage/tirage';*
+// import { TirageService } from '../Services/tirage/tirage.service';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { TirageService } from '../Services/tirage/tirage.service';
+import { Tirage } from '../modeles/tirage/tirage';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 
 @Component({
@@ -14,11 +18,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./tirage.page.scss'],
 })
 export class TiragePage implements OnInit {
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
   constructor(private serviceTirage: TirageService,
     private ajoutPostulantService: AjouterPostulantService,
     private activiteService: ActiviteService,
-    private http: HttpClient) { }
+    private http: HttpClient,public breakpointObserver: BreakpointObserver) { }
 
 
   tirageObjet: Tirage = {
@@ -245,11 +251,33 @@ export class TiragePage implements OnInit {
 
 
 
-
+actualise(): void {
+  setInterval(
+    () => {
+    }, 100, clearInterval(1500));
+}
   ngOnInit() {
+    this.breakpointObserver
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
     this.getListePostulant();
     this.getListeActivite();
   }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  }
+
 
 
 

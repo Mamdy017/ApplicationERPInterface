@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ImporterParticipantPageRoutingModule } from './importer-participant-routing.module';
 
 import { ImporterParticipantPage } from './importer-participant.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { ImporterParticipantPage } from './importer-participant.page';
     ImporterParticipantPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [ImporterParticipantPage]
+  declarations: [ImporterParticipantPage,MenuComponent]
 })
 export class ImporterParticipantPageModule {}

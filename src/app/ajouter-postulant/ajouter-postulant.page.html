@@ -1,69 +1,84 @@
-
-
 <ion-content>
-
-  <div class="container">
-    <div class="row boxShadow">
-      <!------------- Colonne Gauche---->
-      <div class="col-12 col-md-4 imgGauche">
-        <img src="assets/icon/illustre.png" alt="image ajouter un postulatn" class="img-fluid rounded">
-        <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
-        <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+  <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+      style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
       </div>
+      <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+        <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+          <div class="container">
+            <div class="row boxShadow">
+              <!------------- Colonne Gauche---->
+              <div class="col-12 col-md-4 imgGauche">
+                <img src="assets/icon/illustre.png" alt="image ajouter un postulatn" class="img-fluid rounded">
+                <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
+                <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+              </div>
 
-      <!------------- Colonne Droite ---->
-      <div class="col-12 col-md-8">
-        <form>
-          <fieldset>
-            <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
-          </fieldset>
-          <div class="trait"></div>
-          <div class="row col-12">
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" [(ngModel)]="nom_postulant" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Nom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="firstname" [(ngModel)]="prenom_postulant" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
-              <label for="firstname">Prénom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro" class="form form-control inputvalue">
-              <label for="num">Numéro</label>
-            </div>
-            
-            <div class="mb-4 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control" >
-                  <option selected>Genre</option>
-                  <option> Homme</option>
-                  <option> Femme</option>
-                  <label for="sexe">Genre</label>
-              </select>
-              
-            </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
-              <label for="email">Email</label>
-            </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <select name="liste" id="liste" class="form-select form-control" >
-                  <option selected > Choisir une liste </option>
-                  <option> Liste1</option>
-                  <option> Liste2</option>
-                  <label for="sexe">liste</label>
-              </select>
+              <!------------- Colonne Droite ---->
+              <div class="col-12 col-md-8">
+                <form>
+                  <fieldset>
+                    <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
+                  </fieldset>
+                  <div class="trait"></div>
+                  <div class="row col-12">
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="name" [(ngModel)]="nom_postulant" id="name" placeholder="Nom"
+                        class="form form-control inputvalue">
+                      <label for="name">Nom</label>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="firstname" [(ngModel)]="prenom_postulant" id="firstname"
+                        placeholder="Prénom" class="form form-control inputvalue">
+                      <label for="firstname">Prénom</label>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro"
+                        class="form form-control inputvalue">
+                      <label for="num">Numéro</label>
+                    </div>
+
+                    <div class="mb-4 col-12 col-md-6 form-row form-floating">
+                      <select name="sexe" id="sexe" class="form-select form-control">
+                        <option selected>Genre</option>
+                        <option> Homme</option>
+                        <option> Femme</option>
+                        <label for="sexe">Genre</label>
+                      </select>
+
+                    </div>
+                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                      <input type="email" name="email" id="email" placeholder="email"
+                        class="form form-control inputvalue">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                      <select name="liste" id="liste" class="form-select form-control">
+                        <option selected> Choisir une liste </option>
+                        <option> Liste1</option>
+                        <option> Liste2</option>
+                        <label for="sexe">liste</label>
+                      </select>
+                    </div>
+                  </div>
+                  <button class="btn btnAjouter">Valider</button>
+
+                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
+                    <p>{{erreur}}</p>
+                  </div>
+
+                  <button (click)="posterPostulant()" class="btn btnAjouter">Ajouter</button>
+
+                </form>
+
+              </div>
             </div>
           </div>
-          <button class="btn btnAjouter">Valider</button>
-
-          <div class="erreurAjoutPost" *ngIf="bool_erreur">
-            <p >{{erreur}}</p>
-          </div>
-
-          <button (click)="posterPostulant()" class="btn btnAjouter" >Ajouter</button>
-
-        </form>
-
-      </div>
+        </main>
+      </main>
+    </div>
   </div>
-</div>
+</ion-content>

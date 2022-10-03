@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AccueilUserPageRoutingModule } from './accueil-user-routing.module';
+import { DetailsActivitePageRoutingModule } from './details-activite-routing.module';
 
-import { AccueilUserPage } from './accueil-user.page';
+import { DetailsActivitePage } from './details-activite.page';
 import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
@@ -14,8 +14,8 @@ import { MenuComponent } from '../menu/menu.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    AccueilUserPageRoutingModule
+    DetailsActivitePageRoutingModule
   ],
-  declarations: [AccueilUserPage,MenuComponent]
+  declarations: [DetailsActivitePage,MenuComponent]
 })
-export class AccueilUserPageModule {}
+export class DetailsActivitePageModule {}
