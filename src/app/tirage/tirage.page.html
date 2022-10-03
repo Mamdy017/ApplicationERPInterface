@@ -23,11 +23,6 @@
         <div class="row">
           <!-- la premiere partie -->
 
-          <div class="mb-4 altert alert-danger" style="border-radius:10px;">
-            <div class="">
-              <p *ngIf="bool_erreurImp" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurImport}}</p>
-            </div>
-          </div>
 
           <div class="col-12 col-md-4 col-xs-6 py-3 text-center form">
             <div class="m-3">
@@ -35,6 +30,12 @@
                 <p class="h3"><b>Importer un fichier</b></p>
   
                 <div class="trait mb-5"></div>
+
+                <div class="mb-4 altert alert-danger" style="border-radius:10px;">
+                  <div class="">
+                    <p *ngIf="bool_erreurImp" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurImport}}</p>
+                  </div>
+                </div>
   
                 <div class="col-12 col-md-12">
                   <div class="mb-3 form-row form-floating">
@@ -66,7 +67,7 @@
   
                 <div class="col-12 col-md-12">
                  <div class="mb-3 form-row form-floating">
-                    <select  name="choice" id="choice" class="form-select form-control inputvalue"formControlName="libelleActivite">
+                    <select  name="choice" id="choice" class="form-select form-control inputvalue" formControlName="libelleActivite">
                       <option selected>--Choisir Activité--</option>
                       <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
                     </select>
@@ -154,6 +155,7 @@
 
         <!-- la troisieme partie -->
         <div class="row py-5">
+
           <div class="text-center form">
             <div class="m-3">
 
@@ -162,6 +164,12 @@
               <div class="trait"></div><br><br>
 
               <div class="row">
+
+                <div class="mb-4 altert alert-danger" style="border-radius:10px;">
+                  <div class="">
+                    <p *ngIf="bool_erreurImpTrie" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurImportTrie}}</p>
+                  </div>
+                </div>
 
                 <div class="col-12 col-md-6 mb-3  ">
                   <div class="mb-3 form-row form-floating">

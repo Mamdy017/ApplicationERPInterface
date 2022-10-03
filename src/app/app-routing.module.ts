@@ -137,10 +137,12 @@ const routes: Routes = [
     path: 'reporting',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
   },
+  {
+    path: 'importer-participant',
+    loadChildren: () => import('./importer-participant/importer-participant.module').then( m => m.ImporterParticipantPageModule)
+  },
 
-  
 
-  
 
 ];
 @NgModule({

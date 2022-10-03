@@ -30,9 +30,10 @@ export class TiragePage implements OnInit {
   listeActivites$!: any
   bool_erreur: boolean = false;
   bool_erreurImp: boolean = false;
+  bool_erreurImpTrie: boolean = false;
 
 
-    libelleTirage: ''
+    libelleTirage: ""
     nombrePostulantTire: 0
     libelleActivite:""
     libelleListe:""
@@ -135,19 +136,20 @@ export class TiragePage implements OnInit {
 
       //console.log(`http://localhost:8080/postulant/import/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
   
-      if(this.myForm.get('libelleListe').value != "" || this.myForm.get('libelleActivite').value != ""){
+      if(this.myForm.get('libelleListe').value.length > 0 && this.myForm.get('libelleActivite').value.length > 0 && formData != null){
         this.http.post<any>(`http://localhost:8080/postulant/import/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
   
         .subscribe(res => {
 
           this.erreurImport = res.contenu;
-          this.bool_erreurImp = false;
+          this.bool_erreurImp = true;
 
           console.log(res);
           
         })
        
       }else{
+        this.bool_erreurImp = true;
         this.erreurImport = "veuillez remplir tous les champs";
       }
       
@@ -205,18 +207,30 @@ export class TiragePage implements OnInit {
 
       console.log(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
   
-      this.http.post(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+      if(this.myFormImportTrie.get('libelleListe').value.length > 0  && this.myFormImportTrie.get('libelleTirage').value.length > 0 && this.myFormImportTrie.get('libelleListe').value.length > 0 && formData != null){
+        this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
   
         .subscribe(res => {
   
           console.log(res);
   
-          alert('Uploaded Successfully.');
-  
+          this.erreurImportTrie = res.contenu;
+          this.bool_erreurImpTrie = true;
+          console.log(this.erreurImportTrie)
         })
+
+      }else{
+
+          this.bool_erreurImpTrie = true;
+          this.erreurImportTrie = "Veuillez remplir tous les champs";
+          console.log(this.erreurImportTrie)
+  
+      
+      }
+     
+      
   
     }
-
 
 
 
