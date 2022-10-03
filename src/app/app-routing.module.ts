@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
     path: 'admin-accueil',
     loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
   },
@@ -124,6 +128,10 @@ const routes: Routes = [
   {
     path: 'changer-profile',
     loadChildren: () => import('./changer-profile/changer-profile.module').then( m => m.ChangerProfilePageModule)
+  },
+  {
+    path: 'gestionentite',
+    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
   },
   {
     path: 'reporting',
