@@ -10,6 +10,19 @@ export class MenuComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+nom:any
+prenom:any
+
+  ngOnInit() {
+
+   
+    this.nom =  sessionStorage.getItem("nom_users")
+    this.prenom =  sessionStorage.getItem("prenom_users")
+    
+   
+   
+
+
+   }
 
 }
