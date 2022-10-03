@@ -25,8 +25,8 @@ import { NgModule } from '@angular/core';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterLinkActive
-    
+    RouterLinkActive,
+
     // LayoutModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

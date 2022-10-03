@@ -9,12 +9,14 @@ import { ListeActeurPageRoutingModule } from './liste-acteur-routing.module';
 import { ListeActeurPage } from './liste-acteur.page';
 import { MenuComponent } from '../menu/menu.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeActeurPageRoutingModule
+    ListeActeurPageRoutingModule,
+
   ],
   declarations: [ListeActeurPage,MenuComponent]
 })
