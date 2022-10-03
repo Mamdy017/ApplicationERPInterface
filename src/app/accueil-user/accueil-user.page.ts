@@ -1,6 +1,7 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { Session } from 'protractor';
 import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
+// import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
 
 @Component({
   selector: 'app-accueil-user',
@@ -8,29 +9,48 @@ import { AccueilUserService } from '../Services/accueil-user/accueil-user.servic
   styleUrls: ['./accueil-user.page.scss'],
 })
 export class AccueilUserPage implements OnInit {
-  totalSalleLibre:any;
-  totalApprrenant:any;
+  totalSalleLibre: any;
+  totalApprrenant: any;
   apprenantsTotal: any;
   participantTotal: any;
 
-    nom:any;
-    prenom:any;
-  
+  nom: any;
+  prenom: any;
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
-      constructor(private service:AccueilUserService) { }
+  constructor(private service: AccueilUserService, public breakpointObserver: BreakpointObserver) { }
 
-      ngOnInit() {
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
+  ngOnInit() {
 
+    this.breakpointObserver
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
     //    Chargement du nombre de salle disponoble
-        this.service.totalSallesDisponible().subscribe(data=>{
-          this.totalSalleLibre = data
-        })
+    this.service.totalSallesDisponible().subscribe(data => {
+      this.totalSalleLibre = data
+    })
     // Ici on charge le nombre total des Apprenants
-        this.service.apprenantOUParticipant("apprenant").subscribe(data=>{
-          this.apprenantsTotal = data
-        })
+    this.service.apprenantOUParticipant("apprenant").subscribe(data => {
+      this.apprenantsTotal = data
+    })
     // Ici on charge le nombre total des Participants
-    this.service.apprenantOUParticipant("participant").subscribe(data=>{
+    this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
 
       // Ici on charge les sessions
@@ -38,8 +58,13 @@ export class AccueilUserPage implements OnInit {
       this.prenom = sessionStorage.getItem("prenom_users");
       this.nom = sessionStorage.getItem("nom_users")
 
-})
+    })
 
+  }
+
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
   }
 
 }

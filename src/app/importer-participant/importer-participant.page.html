@@ -1,0 +1,80 @@
+
+
+<ion-content>
+
+  <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse"  (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
+        class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
+      </div>
+      <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+        <button type="button" class="btn py-1" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+            99+
+          </span></i>
+        </button>
+        <div class="container py-3">
+          <div class="contain">
+            <div class="row boxShadow">
+              <!------------- Colonne Gauche---->
+              <div class="col-12 col-md-4 imgGauche">
+                <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
+                <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
+                <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+              </div>
+        
+              <!------------- Colonne Droite ---->
+              <div class="col-12 col-md-8">
+                <form [formGroup]="myForm" (ngSubmit)="submit()">
+                  <fieldset>
+                    <legend class="display-6 text-center my-3"><b>Importer une liste Participants</b></legend>
+                  </fieldset>
+                  <div class="trait"></div>
+                  <div class="row col-12">
+
+
+                    <div class="mb-4 altert alert-danger" style="border-radius:10px;">
+                      <div class="">
+                        <p *ngIf="bool_erreurImp" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurImport}}</p>
+                      </div>
+                    </div>
+
+                    
+                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                      <input type="text" id="libelle" placeholder="libelle"  formControlName="libelleListe"  class="form form-control inputvalue">
+                      <label for="name">Libelle</label>
+                    </div>
+
+                    <div class=" mb-3 col-12 col-md-12 form-row form-floating ">
+                      <input type="file" class="form-control"  formControlName="file" (change)="onFileChange($event)"/>
+                    </div>
+                    
+                    
+                    <div class="mb-4 col-12 col-md-12 form-row form-floating">
+                      <select id="libelleActivite" class = "form-select form-control" formControlName="libelleActivite">
+                          <option selected>--Choisir Activivité--</option>
+                          <option *ngFor="let libelleActivite of libelleActivites$" [(ngValue) ] = "libelleActivite.nom">{{libelleActivite.nom}}</option>
+                          <label for="activité">Activite</label>
+                      </select>
+                      
+                    </div>
+  
+                  </div>
+                  <button class="btn btnAjouter">Valider</button>
+        
+        
+                </form>
+        
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  
+
+</ion-content>

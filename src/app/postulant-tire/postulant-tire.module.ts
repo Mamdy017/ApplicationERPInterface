@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PostulantTirePageRoutingModule } from './postulant-tire-routing.module';
 
 import { PostulantTirePage } from './postulant-tire.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { PostulantTirePage } from './postulant-tire.page';
     IonicModule,
     PostulantTirePageRoutingModule
   ],
-  declarations: [PostulantTirePage]
+  declarations: [PostulantTirePage,MenuComponent]
 })
 export class PostulantTirePageModule {}

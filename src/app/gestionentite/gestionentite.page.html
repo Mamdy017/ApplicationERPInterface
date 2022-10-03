@@ -1,3 +1,12 @@
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
+      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+
 
 <ion-content>
   <div class="container" style="padding: 20px;">
@@ -5,13 +14,13 @@
     <div class="row">
       <div class="col-12 head">
         <div class="headContent">
-          <p>Bienvenu <strong>TOURE</strong></p><br>
+          <p><strong>Entités</strong></p><br>
         </div><br><br>
         <p class="p">Orange Digital Center</p>
       </div><br><br>
 
       <div class="col-12" >
-        <input type="submit" value="Creer une entite" class="float-right bouton"><br><br><br>
+        <a href="ajouter-entite"><input type="button" value="Creer une entite" class="float-right bouton"></a><br><br><br>
       </div>
     </div>
 
@@ -51,3 +60,6 @@
 
 </ion-content>
 
+    </main>
+  </div>
+</div>

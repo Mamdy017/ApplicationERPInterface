@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ActivitePageRoutingModule } from './activite-routing.module';
 
 import { ActivitePage } from './activite.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ActivitePage } from './activite.page';
     IonicModule,
     ActivitePageRoutingModule
   ],
-  declarations: [ActivitePage]
+  declarations: [ActivitePage,MenuComponent]
 })
 export class ActivitePageModule {}
