@@ -17,6 +17,7 @@ export class ListeActeurPage implements OnInit {
   acteurs: Acteur[];
   menuBureau = true;
   menuMobile = false;
+  p= 1;
 
   constructor(private serviceActeur: ListeActeurService,public breakpointObserver: BreakpointObserver) { }
 

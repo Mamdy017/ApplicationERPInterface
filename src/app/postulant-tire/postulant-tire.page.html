@@ -30,7 +30,7 @@
             <button class="btn btnAjouter c1"><i class="bi bi-filter-right"></i>Filtré par Activité </button>
           </div>
           <div class="table-responsive ra py-5">
-            <table class="table">
+            <table id="season-tble" class="table">
               <thead>
                 <tr>
                   <th scope="col" class="ra">N°</th>
@@ -57,6 +57,7 @@
 
               </tbody>
             </table>
+            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
           </div>
         </div>
 

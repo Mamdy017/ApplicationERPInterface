@@ -13,6 +13,7 @@ import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste
 export class PostulantTirePage implements OnInit {
   menuBureau= true;
   menuMobile= false;
+  p=1;
 
   // eslint-disable-next-line max-len
   constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute, public breakpointObserver: BreakpointObserver) { }

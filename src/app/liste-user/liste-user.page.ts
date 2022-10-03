@@ -14,6 +14,7 @@ export class ListeUserPage implements OnInit {
   menuMobile = false;
   page = 1;
   cp = 1;
+  p=1;
   data: any = [
     { itemName: 'toothpase' },
     { itemName: 'salt' },

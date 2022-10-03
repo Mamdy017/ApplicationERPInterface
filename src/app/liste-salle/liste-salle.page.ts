@@ -9,11 +9,11 @@ import { SalleService } from '../services/salle';
 })
 export class ListeSallePage implements OnInit {
 
-  page:number=1
-  maListes:any
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
-  constructor(private serviceSalle:SalleService, public breakpointObserver: BreakpointObserver) { }
+  p=1;
+  maListes: any;
+  menuBureau= true;
+  menuMobile= false;
+  constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver) { }
 
   actualise(): void {
     setInterval(
@@ -36,10 +36,10 @@ export class ListeSallePage implements OnInit {
       });
 
     this.serviceSalle.afficherToutesLesSalles().subscribe(data =>{
-      this.maListes = data
+      this.maListes = data;
 
-      console.log("ma listes = "+this.maListes)
-    })
+      console.log('ma listes = '+this.maListes);
+    });
 
 
   }

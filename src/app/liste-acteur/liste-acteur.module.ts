@@ -8,6 +8,7 @@ import { ListeActeurPageRoutingModule } from './liste-acteur-routing.module';
 
 import { ListeActeurPage } from './liste-acteur.page';
 import { MenuComponent } from '../menu/menu.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MenuComponent } from '../menu/menu.component';
     FormsModule,
     IonicModule,
     ListeActeurPageRoutingModule,
+    NgxPaginationModule
 
   ],
   declarations: [ListeActeurPage,MenuComponent]

@@ -42,7 +42,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let acteur of acteurs">
+          <tr *ngFor="let acteur of acteurs | paginate: { itemsPerPage: 5, currentPage: p}">
             <td>{{acteur.prenom}}</td>
             <td>{{acteur.nom}}</td>
             <td>{{acteur.email}}</td>
@@ -53,6 +53,8 @@
        </tbody>
        <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
       </table>
+      <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+
     </div>
   </div>
 </div>

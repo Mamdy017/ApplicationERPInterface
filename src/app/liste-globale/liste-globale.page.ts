@@ -9,9 +9,9 @@ import { ListePostulantService } from '../Services/liste-postulant.service';
   styleUrls: ['./liste-globale.page.scss'],
 })
 export class ListeGlobalePage implements OnInit {
-
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
+  p =1;
+  menuBureau = true;
+  menuMobile = false;
   constructor(private serviceListe: ListePostulantService, public breakpointObserver: BreakpointObserver) { }
 
   listeTotal: any
