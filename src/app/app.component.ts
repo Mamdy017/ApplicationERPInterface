@@ -14,8 +14,7 @@ export class AppComponent {
   constructor( public breakpointObserver: BreakpointObserver) { }
 
   actualise(): void{
-    setInterval(
-      ()=>{
+    setInterval( ()=>{
       },100, clearInterval(1500));
   }
 
