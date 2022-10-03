@@ -11,7 +11,7 @@ export class ActiviteService {
 
   constructor(private http: HttpClient) { }
 
-  recupererListeActivite():Observable<any>{
+  recupererListeActiviteT():Observable<any>{
     return this.http.get(`${this.api}/activite/afficher`);
   }
 }

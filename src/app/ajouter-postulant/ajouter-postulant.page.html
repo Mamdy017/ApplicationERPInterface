@@ -20,15 +20,15 @@
           <div class="trait"></div>
           <div class="row col-12">
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <input type="text" name="name" [(ngModel)]="nom_postulant" id="name" placeholder="Nom" class="form form-control inputvalue">
               <label for="name">Nom</label>
             </div>
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="firstname" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
+              <input type="text" name="firstname" [(ngModel)]="prenom_postulant" id="firstname" placeholder="Prénom" class="form form-control inputvalue">
               <label for="firstname">Prénom</label>
             </div>
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="num" id="num" placeholder="Numéro" class="form form-control inputvalue">
+              <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro" class="form form-control inputvalue">
               <label for="num">Numéro</label>
             </div>
             
@@ -56,6 +56,11 @@
           </div>
           <button class="btn btnAjouter">Valider</button>
 
+          <div class="erreurAjoutPost" *ngIf="bool_erreur">
+            <p >{{erreur}}</p>
+          </div>
+
+          <button (click)="posterPostulant()" class="btn btnAjouter" >Ajouter</button>
 
         </form>
 

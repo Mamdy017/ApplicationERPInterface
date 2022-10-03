@@ -5,6 +5,7 @@
     <div class="col-auto px-2">
       <app-menu></app-menu>
     </div>
+
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
 
@@ -18,46 +19,30 @@
               99+
             </span></i>
         </button>
+
         <div class="row">
           <!-- la premiere partie -->
-          <div class="col-12 col-md-4 col-xs-6 py-3 text-center">
-            <form class="importContent">
-              <p>Importer un fichier</p>
 
-              <div class="trait"></div>
-
-
-
-              <div class=" mb-3 mt-3 bttn py-3">
-                <input type="libelle" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
-              </div>
-
-              <div class=" mb-3 mt-3 bttn py-3">
-                <input type="libelle" class="form-control" id="libele" placeholder="activite" name="libelle">
-              </div>
-
-              <div class=" mb-3 mt-3 bttn">
-                <input type="file" class="form-control" name="file" />
-              </div>
-
-              <button type="submit" class="btne">Importer</button>
-
-            </form>
+          <div class="mb-4 altert alert-danger" style="border-radius:10px;">
+            <div class="">
+              <p *ngIf="bool_erreurImp" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurImport}}</p>
+            </div>
           </div>
 
-          <!-- la Deuxieme partie -->
-          <div class="col-md-1 col-xs-1 py-3"></div>
-          <div class="col-12 col-md-6 col-xs-6 text-center ">
-            <form class="tirageContent">
-
-              <p>Faire Tirage</p>
-
-              <div class="trait"></div><br>
-              <div class="row">
-                <div class="col-12 col-md-6 mb-3 mt-4 ">
-                  <input type="text" class="form-control" id="libele" placeholder="libelle du tirage"
-                    name="libelleTirage"  [(ngModel)]="libelleTirage">
+          <div class="col-12 col-md-4 col-xs-6 py-3 text-center form">
+            <div class="m-3">
+              <form [formGroup]="myForm" (ngSubmit)="submit()">
+                <p class="h3"><b>Importer un fichier</b></p>
+  
+                <div class="trait mb-5"></div>
+  
+                <div class="col-12 col-md-12">
+                  <div class="mb-3 form-row form-floating">
+                    <input type="text" name="libele" id="libele" placeholder="Libelle de la liste" class="form form-control inputvalue" formControlName="libelleListe">
+                    <label for="libele">Libelle de la liste </label>
+                  </div>
                 </div>
+<<<<<<< HEAD
 
                 <div class="col-12 col-md-6 mb-3 mt-3  ">
                   <input type="number" class="form-control" id="libele" placeholder="nombre à tiré"
@@ -76,53 +61,154 @@
                     <option selected>--Choisir Activité--</option>
                     <option *ngFor="let listeActivite of listeActivites$" [(ngValue )] = "listeActivite.nom">{{listeActivite.nom}}</option>
                   </select>
+=======
+                
+  
+                <div class="col-12 col-md-12">
+                 <div class="mb-3 form-row form-floating">
+                    <select  name="choice" id="choice" class="form-select form-control inputvalue"formControlName="libelleActivite">
+                      <option selected>--Choisir Activité--</option>
+                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                    </select>
+                    <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
+                  </div> 
+>>>>>>> 1e2fb34073503c18f9f5eee9dc27e479464f5c5e
                 </div>
                 
-                <div>
-                  <p *ngIf="bool_erreur">{{erreurTirage}}</p>
+                <div class="col-12 col-md-12">
+                <div class=" mb-3 mt-3 bttn">
+                  <input type="file" class="form-control" formControlName="file" (change)="onFileChange($event)" />
                 </div>
-              </div>
-              <button type="submit" (click)="postTirage()" class="btn">Tirage</button>
-            </form>
+                </div>
+                <button class="btn btnImport mb-2 mt-3 ">Importer</button>
+              </form>
+            </div>
+          </div>
 
+          <!-- la Deuxieme partie -->
+          <div class="col-md-2 col-xs-1 py-3"></div>
+          <div class="col-12 col-md-6 col-xs-6 text-center form">
+
+            <div class="my-3 mt-5">
+              <div class="m-3">
+                <form>
+                  <p class="h3"><b>Faire Tirage</b></p>
+    
+                  <div class="trait mt-3"></div><br>
+    
+                  <div class="row">
+    
+                    <div class="mb-4 altert alert-danger" style="border-radius:10px;">
+                      <div class="">
+                        <p *ngIf="bool_erreur" class="m-3" style="font-size: 1.2rem; font-weight: bold;">{{erreurTirage}}</p>
+                      </div>
+                    </div>
+
+                    <script>
+                      var mamady=1;
+                      alert("hello")
+                    </script>
+    
+                    <div class="col-12 col-md-6 mb-3">
+                      <div class="mb-3 form-row form-floating">
+                        <input type="text" id="libele" placeholder="libelle du tirage" name="libelleTirage"  [(ngModel)] = "libelleTirage" class="form form-control inputvalue">
+                        <label for="libele">Libelle Tirage</label>
+                      </div>
+                    </div>
+    
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3 form-row form-floating  ">
+                        <input type="number" id="libele" placeholder="nombre à tiré" name="nombrePostulantTire" [(ngModel)]="nombrePostulantTire" class="form form-control inputvalue">
+                        <label for="num">Nombre à tiré </label>
+                      </div>
+                    </div>
+    
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3 form-row form-floating " >
+                        <select name="libelleListe" [(ngModel)]="libelleListe" class="form-select form-control inputvalue">
+                          <option selected>--Choisir Liste--</option>
+                          <option *ngFor="let liste of liste$" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
+                        </select>
+                        <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
+                      </div>
+                    </div>
+    
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3 form-row form-floating ">
+                        <select name="libelleActivite" [(ngModel)]="libelleActivite"  class="form-select form-control inputvalue">
+                          <option selected>--Choisir Activité--</option>
+                          <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                        </select>
+                        <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <button type="submit" (click)="postTirage()" class="btn btnImport mb-2 mt-3 ">Tirage</button>
+                </form>
+              </div>
+            </div>
+        
           </div>
         </div>
 
         <!-- la troisieme partie -->
         <div class="row py-5">
-          <div class="col-11 col-md-11 text-center ">
+          <div class="text-center form">
+            <div class="m-3">
 
-            <form class="forme">
-              <p>Faire Tirage sur une liste existante</p>
+            <form [formGroup]="myFormImportTrie" (ngSubmit)="submitImportTrie()">
+              <p class="h3">Faire Tirage sur une liste existante</p>
               <div class="trait"></div><br><br>
 
               <div class="row">
 
-                <div class="col-md-4 mb-3 mt-4">
-                  <select class="form-select">
-                    <option selected>--Choisir Liste--</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                  </select>
+                <div class="col-12 col-md-6 mb-3  ">
+                  <div class="mb-3 form-row form-floating">
+                    <input type="text" id="libeleListe" placeholder="Libelle Liste" class="form form-control inputvalue" formControlName="libelleListe">
+                    <label for="libele">Libelle de la liste </label>
+                  </div>
                 </div>
 
-                <div class="col-md-4 mb-3 mt-4">
-                  <select class="form-select">
-                    <option selected>--Choisir Liste--</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                  </select>
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="mb-3 form-row form-floating ">
+                    <select [(ngModel)]="libelleActivite"  formControlName="libelleActivite" class="form-select form-control inputvalue" >
+                      <option selected>--Choisir Activité--</option>
+                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                    </select>
+                    <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                  </div>
                 </div>
 
-                <div class="col-md-4 mb-3 mt-4">
-                  <input type="number" class="form-control" placeholder="Nombre à tirer" name="nbre">
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="mb-3 form-row form-floating">
+                    <input type="text" class="form-control" id="libele" placeholder="Libelle tirage" formControlName="libelleTirage" class="form form-control inputvalue">
+                    <label for="libele">Libelle Tirage</label>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                  <div class="mb-3 form-row form-floating">
+                    <input type="number" class="form-control" placeholder="Nombre à tirer" formControlName="nbreTire" class="form form-control inputvalue">
+                    <label for="num">Nombre à tiré </label>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3">
+                  <div class=" mb-3 mt-3 bttn ">
+                    <input type="file" class="form-control" formControlName="file" (change)="onFileChangeImportTrie($event)" />
+                  </div>
                 </div>
 
               </div>
-              <input type="submit" class="btn1 btnImporter">
+              <div>
+                 <input type="submit" class="btn1 btnImport">
+              </div>
+             
             </form>
 
           </div>
+        </div>
 
         </div>
 
