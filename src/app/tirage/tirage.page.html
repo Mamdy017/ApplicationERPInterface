@@ -49,7 +49,7 @@
                  <div class="mb-3 form-row form-floating">
                     <select  name="choice" id="choice" class="form-select form-control inputvalue" formControlName="libelleActivite">
                       <option selected>--Choisir Activité--</option>
-                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue) ] = "listeActivite.nom">{{listeActivite.nom}}</option>
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
                   </div> 
@@ -107,7 +107,7 @@
                       <div class="mb-3 form-row form-floating " >
                         <select name="libelleListe" [(ngModel)]="libelleListe" class="form-select form-control inputvalue">
                           <option selected>--Choisir Liste--</option>
-                          <option *ngFor="let liste of liste$" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
+                          <option *ngFor="let liste of liste$" [(ngValue) ] = "liste.libelleliste">{{liste.libelleliste}}</option>
                         </select>
                         <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
                       </div>
@@ -117,7 +117,7 @@
                       <div class="mb-3 form-row form-floating ">
                         <select name="libelleActivite" [(ngModel)]="libelleActivite"  class="form-select form-control inputvalue">
                           <option selected>--Choisir Activité--</option>
-                          <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                          <option *ngFor="let listeActivite of listeActivites$" [(ngValue) ] = "listeActivite.nom">{{listeActivite.nom}}</option>
                         </select>
                         <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
                       </div>
@@ -161,7 +161,7 @@
                   <div class="mb-3 form-row form-floating ">
                     <select [(ngModel)]="libelleActivite"  formControlName="libelleActivite" class="form-select form-control inputvalue" >
                       <option selected>--Choisir Activité--</option>
-                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                      <option *ngFor="let listeActivite of listeActivites$" [(ngValue) ] = "listeActivite.nom">{{listeActivite.nom}}</option>
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
                   </div>
