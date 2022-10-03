@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AccueilEntitePageRoutingModule } from './accueil-entite-routing.module';
 
 import { AccueilEntitePage } from './accueil-entite.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AccueilEntitePage } from './accueil-entite.page';
     IonicModule,
     AccueilEntitePageRoutingModule
   ],
-  declarations: [AccueilEntitePage]
+  declarations: [AccueilEntitePage,MenuComponent]
 })
 export class AccueilEntitePageModule {}

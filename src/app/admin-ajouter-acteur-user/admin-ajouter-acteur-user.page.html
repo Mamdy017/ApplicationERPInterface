@@ -1,39 +1,49 @@
 <ion-content>
-  <div class="container">
+  <div class="container row">
 
+    <!-- =============================  L'image  ============================== -->
+    <div class="col-lg-4 col-md-6 xs-6 droit" >
+      <img src="../../assets/ajouterM.png" width="100%">
+    </div>
 
-    <div class="left" style="position: absolute; left: 0;">
-      <h2>Formulaire Acteur</h2>
-      <div class="trait"></div>
+    <!-- =============================  Formulaire  ============================== -->
 
-      <form>
-        <div *ngIf="erreur">
-              {{erreur}}
-        </div>
-        <table>
-          <tr>
-            <td><input type="text" name="nom" placeholder="Saisir Nom"  [(ngModel)]="nom"required></td>
-          </tr>
-          <tr>
-            <td><input type="text" name="prenom" placeholder="Saisir Prenom"   [(ngModel)]="prenom" required></td>
-          </tr>
-          <tr>
-            <td><input type="email" name="email" placeholder="Saisir Email"  [(ngModel)]="email" required></td>
-          </tr>
+    <div class="col-lg-8 col-md-6 xs-6">
 
-          <tr>
-            <td><input type="text" name="telephone" placeholder="76 55 67 55"  [(ngModel)]="telephone" required></td>
-          </tr>
+      <div class="left" style="left: 0; align-items: center;">
 
-          <tr>
-            <td><select class="slth" name="selection" [(ngModel)]="statutChoix">
-              <!-- <option value="">--Statut--</option> -->
-              <option  *ngFor="let statuts of statut" class="form-control"  [ngValue] ="statuts.nom">{{statuts.nom}}</option>
-            </select></td>
-          </tr>
-          <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
-        </table>
-      </form>
+        <h2>Formulaire Acteur</h2>
+        <div class="trait"></div>
+
+        <form class="form">
+          <table>
+            <tr>
+              <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom" [(ngModel)]="nom" required> </td>
+            </tr>
+
+            <tr>
+              <td> <input type="text" name="prenom"  class="form-control"   class="form-control" placeholder="Saisir Prenom" [(ngModel)]="prenom" required> </td>
+            </tr>
+
+            <tr>
+              <td> <input type="email" name="email"  class="form-control"  placeholder="Saisir Email" [(ngModel)]="email" required> </td>
+            </tr>
+
+            <tr>
+              <td><input type="text" name="telephone"  class="form-control" placeholder="76 55 67 55" [(ngModel)]="telephone" required> </td>
+            </tr>
+
+            <tr>
+              <td><select class="slth" name="selection"  class="form-control"  [(ngModel)]="statutChoix">
+                  <!-- <option value="">--Statut--</option> -->
+                  <option *ngFor="let statuts of statut" class="form-control" [ngValue]="statuts.nom">{{statuts.nom}}
+                  </option>
+                </select></td>
+            </tr>
+            <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
+          </table>
+        </form>
+      </div>
     </div>
   </div>
 </ion-content>

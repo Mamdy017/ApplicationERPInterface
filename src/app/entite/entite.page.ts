@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Entite, Fichier } from '../modeles/entite';
-import { EntiteService } from '../Services/ajouter-activite/entite/entite.service';
+import { EntiteService } from '../Services/entite/entite.service';
 
 @Component({
   selector: 'app-entite',
