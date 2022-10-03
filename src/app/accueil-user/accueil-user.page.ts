@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Session } from 'protractor';
 import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
 
 @Component({

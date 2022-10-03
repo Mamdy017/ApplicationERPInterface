@@ -140,7 +140,11 @@ const routes: Routes = [
   {
     path: 'importer-participant',
     loadChildren: () => import('./importer-participant/importer-participant.module').then( m => m.ImporterParticipantPageModule)
+  },  {
+    path: 'accueil-user',
+    loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
+
 
 
 
