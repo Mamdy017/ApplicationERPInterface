@@ -108,7 +108,7 @@ const routes: Routes = [
   },
   {
     path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+    loadChildren: () => import('./).then( m => m.EntitePageModule)
   },
   {
     path: 'liste-tirage-nonvalide',
