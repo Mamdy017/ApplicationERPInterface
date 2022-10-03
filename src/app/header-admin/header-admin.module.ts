@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderAdminPageRoutingModule } from './header-admin-routing.module';
 
 import { HeaderAdminPage } from './header-admin.page';
+import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HeaderAdminPageRoutingModule
+    HeaderAdminPageRoutingModule,
+    NgChartsModule
   ],
   declarations: [HeaderAdminPage]
 })

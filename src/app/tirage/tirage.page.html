@@ -8,125 +8,74 @@
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
 
+      <ion-content>
+        <div class="container">
+          <div class="contain">
+            <div class="row">
 
-      
-      <div class="container">
-        <button type="button" class="btn" style="margin-left:92% ;">
-          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-              style="font-size:15px; background-color: #ff6600;">
-              99+
-            </span></i>
-        </button>
-        <div class="row">
-          <!-- la premiere partie -->
-          <div class="col-12 col-md-4 col-xs-6 py-3 text-center">
-            <form class="importContent">
-              <p>Importer un fichier</p>
+              <div class="col-12 col-md-3 text-center" part1>
+                <p> Statistiques</p>
+                <div class="card">
 
-              <div class="trait"></div>
+                  <div class="contenuCard text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600"
+                      class="bi bi-card-list" viewBox="0 0 16 16">
+                      <path
+                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                      <path
+                        d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                    </svg>
+                    <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">
+                      199</p>
+                    <p>Nombres Tirages</p>
+                  </div>
+                </div>
 
-
-
-              <div class=" mb-3 mt-3 bttn py-3">
-                <input type="libelle" class="form-control" id="libele" placeholder="libelle de la liste" name="libelle">
               </div>
 
-              <div class=" mb-3 mt-3 bttn py-3">
-                <input type="libelle" class="form-control" id="libele" placeholder="activite" name="libelle">
+              <div class="col-12 col-md-8 text-center" style="border-radius: 20px 20px 0px 0px;">
+                <p> La liste des tirages</p>
+                <!-- <div class="container"> -->
+
+                <div class="table-responsive ra py-5">
+                  <table class="table">
+                    <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                      <tr>
+                        <th scope="col" style="border-radius: 10px 0 0 0;">Liste</th>
+                        <th scope="col">Nombre Tiré</th>
+                        <th scope="col">Date du tirage</th>
+                        <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">Tirage01</td>
+                        <td scope="">7</td>
+                        <td>10/01/22</td>
+                        <td><a href="#">Voir Plus</a></td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Tirage02</td>
+                        <td scope="">7</td>
+                        <td>10/01/22</td>
+                        <td><a href="#">Voir Plus</a></td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                  <!-- <pagination-controls (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+
+                </div>
+
+                <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
               </div>
 
-              <div class=" mb-3 mt-3 bttn">
-                <input type="file" class="form-control" name="file" />
-              </div>
-
-              <button type="submit" class="btne">Importer</button>
-
-            </form>
-          </div>
-
-          <!-- la Deuxieme partie -->
-          <div class="col-md-1 col-xs-1 py-3"></div>
-          <div class="col-12 col-md-6 col-xs-6 text-center ">
-            <form class="tirageContent">
-
-              <p>Faire Tirage</p>
-
-              <div class="trait"></div><br>
-              <div class="row">
-                <div class="col-12 col-md-6 mb-3 mt-4 ">
-                  <input type="text" class="form-control" id="libele" placeholder="libelle du tirage"
-                    name="libelleTirage"  [(ngModel)]="libelleTirage">
-                </div>
-
-                <div class="col-12 col-md-6 mb-3 mt-3  ">
-                  <input type="number" class="form-control" id="libele" placeholder="nombre à tiré"
-                    name="nombrePostulantTire" [(ngModel)]="nombrePostulantTire">
-                </div>
-
-                <div class="col-12 col-md-6 mb-3 mt-4 " >
-                  <select class="form-select" name="libelleListe" [(ngModel)]="libelleListe">
-                    <option selected>--Choisir Liste--</option>
-                    <option *ngFor="let liste of liste$" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
-                  </select>
-                </div>
-
-                <div class="col-12 col-md-6 mb-3 mt-3">
-                  <select class="form-select" name="libelleActivite" [(ngModel)]="libelleActivite" >
-                    <option selected>--Choisir Activité--</option>
-                    <option *ngFor="let listeActivite of listeActivites$" [(ngValue)] = "listeActivite.nom">{{listeActivite.nom}}</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <p *ngIf="bool_erreur">{{erreurTirage}}</p>
-                </div>
-              </div>
-              <button type="submit" (click)="postTirage()" class="btn">Tirage</button>
-            </form>
-
+            </div>
+            <!-- </div> -->
           </div>
         </div>
-
-        <!-- la troisieme partie -->
-        <div class="row py-5">
-          <div class="col-11 col-md-11 text-center ">
-
-            <form class="forme">
-              <p>Faire Tirage sur une liste existante</p>
-              <div class="trait"></div><br><br>
-
-              <div class="row">
-
-                <div class="col-md-4 mb-3 mt-4">
-                  <select class="form-select">
-                    <option selected>--Choisir Liste--</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                  </select>
-                </div>
-
-                <div class="col-md-4 mb-3 mt-4">
-                  <select class="form-select">
-                    <option selected>--Choisir Liste--</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                  </select>
-                </div>
-
-                <div class="col-md-4 mb-3 mt-4">
-                  <input type="number" class="form-control" placeholder="Nombre à tirer" name="nbre">
-                </div>
-
-              </div>
-              <input type="submit" class="btn1 btnImporter">
-            </form>
-
-          </div>
-
-        </div>
-
-      </div>
+        <!-- </div> -->
+      </ion-content>
 
     </main>
   </div>

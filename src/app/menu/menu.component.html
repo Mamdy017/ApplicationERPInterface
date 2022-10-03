@@ -16,45 +16,54 @@ display: none;}
       <ul class=" nav nav-pills mb-sm-auto mb-0 min-vh100  ul align-items-sm-start"id="menu">
         <li class=" py-4">
           <div class="row px-2">
-              <div class="col">  <img src="../../assets/icon/favicon.png" alt=""></div>
-              <div class="col nom py-1">
-                  <span>Camara</span>
-                  <span>Camara</span>
+              <div class="col">  <img src="../../assets/images/img1.jpg" style="border-radius:100% ;height:120%; width:75%" alt=""></div>
+              <div class="col nom py-2">
+                  <span>CAMARA</span>
+                  <span>Mamady</span>
               </div>
           </div>
         </li>
-        <li class="li active">
-            <a href="admin-accueil" class="nav-link  align-middle li">
-                <i class="bi bi-house active"></i> <span class="ms-1  d-sm-inline light active px-3">Accueil</span></a>
+        <li [routerLinkActive]="'active'" class="li ">
+            <a routerLink="/admin-accueil" class="nav-link  align-middle li">
+                <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
         </li>
+<style>
+ion-item.active{
+ text-decoration:underline;
+ background:#933C53;
+}
 
-
-      <li class="li">
-          <a href="#" class="nav-link  align-middle li">
+</style>
+        
+      <li [routerLinkActive]="'active'" class="li">
+          <a routerLink="#" class="nav-link  align-middle li">
             <i class="bi bi-card-checklist"></i> <span class="ms-1  d-sm-inline light px-3">Listes</span></a>
       </li>
-      <li class="li">
-        <a href="liste-acteur" class="nav-link  align-middle li">
+      <li [routerLinkActive]="'active'" class="li">
+        <a routerLink="/liste-acteur" class="nav-link  align-middle li">
           <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Acteur</span></a>
     </li>
-    <li class="li">
-      <a href="#" class="nav-link  align-middle li">
-          <i class="fa-solid fa-database i"></i> <span class="ms-1  d-sm-inline light px-3">Entités</span></a>
+    <li [routerLinkActive]="'active'" class="li">
+      <a routerLink="#" class="nav-link  align-middle li">
+        <i class="bi bi-clipboard-data"></i><span class="ms-1  d-sm-inline light px-3">Entités</span></a>
   </li>
-    <li class="li">
-      <a href="liste-tirage" class="nav-link  align-middle li">
+    <li [routerLinkActive]="'active'" class="li">
+      <a routerLink="/tirage" class="nav-link  align-middle li">
           <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
   </li>
-      <li class="li">
-          <a href="activite" class="nav-link  align-middle li">
+      <li [routerLinkActive]="'active'" class="li">
+          <a routerLink="/activite" class="nav-link  align-middle li">
               <i class="bi bi-bar-chart-line"></i> <span class="ms-1  d-sm-inline light px-3">Activitées</span></a>
       </li>
-
-      <li class="li">
-        <a href="liste-utilisateur" class="nav-link  align-middle li">
+      <li [routerLinkActive]="'active'" class="li">
+        <a routerLink="/liste-utilisateur" class="nav-link  align-middle li">
             <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Utilisateurs</span></a>
     </li>
-      <li style="height: 150px;"></li>
+    <li [routerLinkActive]="'active'" class="li">
+      <a routerLink="/repording" class="nav-link  align-middle li">
+        <i class="bi bi-pc-display-horizontal"></i> <span class="ms-1  d-sm-inline light px-3">Repording</span></a>
+  </li>
+      <li style="height: 850px;"></li>
     </ul>
         </div>
     </div>

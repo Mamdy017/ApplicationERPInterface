@@ -16,6 +16,6 @@ import { MenuComponent } from '../menu/menu.component';
     IonicModule,
     AjouterParticipantPageRoutingModule
   ],
-  declarations: [AjouterParticipantPage,MenuComponent]
+  declarations: [AjouterParticipantPage]
 })
 export class AjouterParticipantPageModule {}

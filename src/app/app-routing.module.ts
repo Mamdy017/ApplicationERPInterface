@@ -55,7 +55,7 @@ const routes: Routes = [
   },
   {
     path: 'liste-tirage',
-    loadChildren:() => import('./liste-tirage/liste-tirage.module').then(m => m.ListeTiragePageModule)
+    loadChildren:() => import('./liste-tirage/liste-tirage-routing.module').then(m => m.ListeTiragePageRoutingModule)
   },
   {
     path: 'liste-user',
@@ -129,10 +129,10 @@ const routes: Routes = [
     path: 'reporting',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
   },
-
-  
-
-  
+  {
+    path: 'statistique',
+    loadChildren: () => import('./statistique/statistique.component').then( m => m.StatistiqueComponent)
+  },
 
 ];
 @NgModule({

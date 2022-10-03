@@ -7,6 +7,7 @@ import { AdminAccueilPageRoutingModule } from './admin-accueil-routing.module';
 import { AdminAccueilPage } from './admin-accueil.page';
 // import { SidebarPageModule } from '../sidebar/sidebar.module';
 import { MenuComponent } from '../menu/menu.component';
+import { StatistiqueComponent } from '../statistique/statistique.component';
 
 @NgModule({
   imports: [
@@ -14,8 +15,8 @@ import { MenuComponent } from '../menu/menu.component';
     FormsModule,
     IonicModule,
     AdminAccueilPageRoutingModule,
-    // SidebarPageModule
+    // SidebarPageModule,
   ],
-  declarations: [AdminAccueilPage,MenuComponent]
+  declarations: [AdminAccueilPage,MenuComponent,StatistiqueComponent]
 })
 export class AdminAccueilPageModule {}

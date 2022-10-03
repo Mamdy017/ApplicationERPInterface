@@ -15,7 +15,7 @@
 
   }
   .active{
-    background-color: white;
+    background-color: #FF6600;
     width: 250px;
     color:#202020;
   }
@@ -35,6 +35,7 @@
   .nom{
     color: white;
     display: flex;
+    margin-left: -15%;
     flex-direction: column;
   }
   .ul{
@@ -47,7 +48,7 @@
   .ul .li:hover{
     background-color: #FF6600;
     color:white;
-    width: 200px;
+    width: 205px;
   }
   a{
     color:white;
