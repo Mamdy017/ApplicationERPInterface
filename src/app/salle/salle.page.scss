@@ -13,7 +13,7 @@
 
 .container{
     padding: 12px;
-    margin-top: 80px;
+    margin-top: 3%;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
     padding: 25px;
@@ -45,7 +45,7 @@ label{
     margin-right: calc(-0.5 * var(--bs-gutter-x));
     margin-left: calc(-0.5 * var(--bs-gutter-x));
     justify-content: center;
-    flex-direction: row-reverse;}
+}
 .btnAjouter{
     background-color: #FF6600;
     color: white;
@@ -59,10 +59,10 @@ label{
 .btnAjouter:hover{
     background-color: black;
 }
-main
-{
-    overflow: scroll;
-}
+// main
+// {
+//     overflow: scroll;
+// }
 .btnCancel{
     background-color: black;
     color: white;

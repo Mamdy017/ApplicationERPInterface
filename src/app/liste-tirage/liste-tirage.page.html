@@ -1,160 +1,73 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ListeTirage</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
+      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
 
 
 <ion-content>
-<<<<<<< HEAD
-  <div class="tout">
-    <div id="statistiques">
-      <p> Statistiques</p> 
-      </div>
-      <div id="tirages">
-      <p> La liste des tirages</p></div>
-   
-   
-      <div class="contenugauche"> 
-      <div class="card">
-      
-        <div class="contenuCard">
-         
+ <div class="container">
+  <div class="contain">
+        <div class="row">
         
-=======
-  <div class="container">
-  <div class="row">
-    
-       <div class="col-12 col-md-4">
-        <p> Statistiques</p> 
-      <div class="card">
-       
-        <div class="contenuCard">
->>>>>>> 35b1aee502fd48fe5a00db9b913f73bcc3dc748a
-          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#FF6600" class="bi bi-card-list" viewBox="0 0 16 16">
-            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-          </svg>
-          <p class="nombreSurlaCard">199</p>
-          <p>Nombres Tirages</p>
-        
-        </div>
-      </div>
-    </div>
-<<<<<<< HEAD
-    <div class="contenudroite">
-      <!-- <div class="container"> -->
-        <div class="cont">
-         <table class="tab">
-           <thead class="head">
-             <!-- <th class="gauche">Nom</th> -->
-             <th class="gauche">Listes</th>
-             <th>Nombres Tirés</th>
-             <th>Date</th>
-             <th class="droite">Action</th>
-           </thead>
-    
-           <tr>
-             <td>Tirage Kalanso</td>
-             <td>7</td>
-             <td>25/09/2022</td>
-             <td><button type="submit">Voir +</button></td>
-           </tr>
-=======
-    <div class="col-12 col-md-8"  style="border-radius: 20px 20px 0px 0px;">
-      <p> La liste des tirages</p>
-      <!-- <div class="container"> -->
-       
-         <table class="table" style="border-radius: 20% 20% 0% 0%;">
+          <div class="col-12 col-md-3 text-center" part1>
+              <p> Statistiques</p> 
+              <div class="card">
+            
+                <div class="contenuCard text-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600" class="bi bi-card-list" viewBox="0 0 16 16">
+                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                    <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                  </svg>
+                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">{{totalTirage}}</p>
+                  <p>Nombres Tirages</p>
+                </div>
+            </div>
 
-           <thead class="thead-dark" >
-             <!-- <th class="gauche">Nom</th> -->
-             <tr>
-              <th class="td1">Listes</th>
-              <th>Nombres Tirés</th>
-              <th>Date</th>
-              <th>Action</th>
-             </tr>
-             
-           </thead>
-           <tbody>
-            <tr>
-              <td>Tirage Kalanso</td>
-              <td>7</td>
-              <td>25/09/2022</td>
-              <td><button type="submit" class="btn btnVoir">Voir +</button></td>
-            </tr>
-            <tr>
-              <td>Tirage Kalanso</td>
-               <td>7</td>
-               <td>25/09/2022</td>
-              <td><button type="submit" class="btn btnVoir">Voir +</button></td>
-            </tr>
-            <tr>
-              <td>Tirage Kalanso</td>
-               <td>7</td>
-               <td>25/09/2022</td>
-              <td><button type="submit" class="btn btnVoir">Voir +</button></td>
-            </tr>
-            <tr>
-              <td>Tirage Kalanso</td>
-               <td>7</td>
-               <td>25/09/2022</td>
-              <td><button type="submit" class="btn btnVoir">Voir +</button></td>
-            </tr>
-           </tbody>
-<!--     
-           
->>>>>>> 35b1aee502fd48fe5a00db9b913f73bcc3dc748a
-           <tr>
-            <td>Tirage Kalanso</td>
-             <td>7</td>
-             <td>25/09/2022</td>
-            <td><button type="submit">Voir +</button></td>
-          </tr>
-          <tr>
-            <td>Tirage Kalanso</td>
-             <td>7</td>
-             <td>25/09/2022</td>
-            <td><button type="submit">Voir +</button></td>
-          </tr>
-          <tr>
-            <td>Tirage Kalanso</td>
-             <td>7</td>
-             <td>25/09/2022</td>
-            <td><button type="submit">Voir +</button></td>
-          </tr>
-          <tr>
-            <td>Tirage Kalanso</td>
-            <td>7</td>
-            <td>25/09/2022</td>
-            <td><button type="submit">Voir +</button></td>
-          </tr>
-          <tr>
-            <td>Tirage Kalanso</td>
-             <td>7</td>
-             <td>25/09/2022</td>
-            <td class="voir"><button type="submit">Voir +</button></td>
-<<<<<<< HEAD
-          </tr>
-         </table>
+            </div>
+
+          <div class="col-12 col-md-8 text-center"  style="border-radius: 20px 20px 0px 0px;">
+            <p> La liste des tirages</p>
+            <!-- <div class="container"> -->
+            
+              <div class="table-responsive ra py-5">
+                <table class="table" >
+                  <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                    <tr>
+                      <th scope="col" style="border-radius: 10px 0 0 0;">Liste</th>
+                      <th scope="col">Nombre Tiré</th>
+                      <th scope="col">Date du tirage</th>
+                      <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let liste of listeTirages">
+                      <td scope="row">{{liste.libelleTirage}}</td>
+                      <td scope="">{{liste.nombrePostulantTire}}</td>
+                      <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
+                      <td><a href="{{liste.idtirage}}">Voir Plus</a></td>
+                    </tr>
+                                  
+                  </tbody>
+                </table>
+                  <!-- <pagination-controls (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+
+              </div>
         
-         <button type="submit" id="nouveau">Nouveau Tirage </button></div>
-=======
-          </tr> -->
-         </table>
-        
-         <button type="submit" class="btn btnNouveau">Nouveau Tirage </button></div>
->>>>>>> 35b1aee502fd48fe5a00db9b913f73bcc3dc748a
+         <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
+        </div>
      
-  
+     </div>
       <!-- </div> -->
     </div>
-  </div>
-<<<<<<< HEAD
-=======
+</div>
   <!-- </div> -->
->>>>>>> 35b1aee502fd48fe5a00db9b913f73bcc3dc748a
   </ion-content>
+
+    </main>
+  </div>
+</div>
   

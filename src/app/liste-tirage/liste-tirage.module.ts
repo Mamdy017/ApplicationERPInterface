@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListeTiragePageRoutingModule } from './liste-tirage-routing.module';
 
 import { ListeTiragePage } from './liste-tirage.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ListeTiragePage } from './liste-tirage.page';
     IonicModule,
     ListeTiragePageRoutingModule
   ],
-  declarations: [ListeTiragePage]
+  declarations: [ListeTiragePage,MenuComponent]
 })
 export class ListeTiragePageModule {}

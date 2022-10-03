@@ -1,84 +1,3 @@
-<<<<<<< HEAD
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
-      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
-  <div class="row flex-nowrap">
-    <div class="col-auto px-2">
-      <app-menu></app-menu>
-    </div>
-    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
-      <button type="button" class="btn py-1" style="margin-left:92% ;">
-        <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
-          99+
-        </span></i>
-      </button>
-      <div class="container py-3">
-        <div class="contain">
-          <div class="row boxShadow">
-            <!------------- Colonne Gauche---->
-            <div class="col-12 col-md-4 imgGauche align-self-center ">
-              <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
-            </div>
-      
-            <!------------- Colonne Droite ---->
-            <div class="col-12 col-md-8">
-              <form>
-                <fieldset>
-                  <legend class="display-6 text-center my-3"><b>Ajouter un participant</b></legend>
-                </fieldset>
-                <div class="trait"></div>
-                <div class="row col-12">
-                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                    <input type="text" name="name" id="name" placeholder="Nom" [(ngModel)]="nom_postulant" class="form form-control inputvalue">
-                    <label for="name">Nom</label>
-                  </div>
-                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                    <input type="text" name="firstname" id="firstname" [(ngModel)]="prenom_postulant" placeholder="Prénom" class="form form-control inputvalue">
-                    <label for="firstname">Prénom</label>
-                  </div>
-                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                    <input type="text" name="num" id="num" placeholder="Numéro" [(ngModel)]="numero_postulant" class="form form-control inputvalue">
-                    <label for="num">Numéro</label>
-                  </div>
-                  
-                  <div class="mb-4 col-12 col-md-6 form-row form-floating">
-                    <select name="sexe" id="sexe"  [(ngModel)]="genre" class="form-select form-control" >
-                        <option selected>Genre</option>
-                        <option> Homme</option>
-                        <option> Femme</option>
-                        <label for="sexe">Genre</label>
-                    </select>
-                    
-                  </div>
-                  <div class="mb-3 col-12 col-md-12 form-row form-floating">
-                    <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="email" class="form form-control inputvalue">
-                    <label for="email">Email</label>
-                  </div>
-                  <div class="mb-3 col-12 col-md-12 form-row form-floating">
-                    <select name="liste" id="liste" [(ngModel)]="liste" class="form-select form-control" >
-                        <option selected > Choisir une liste </option>
-                        <option *ngFor="let liste of listePostulant" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
-                        <label for="sexe">liste</label>
-                    </select>
-                  </div>
-
-                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
-                    <p >{{erreur}}</p>
-                  </div>
-
-                </div>
-                <button (click)="posterPostulant()" class="btn btnAjouter">Valider</button>
-      
-      
-              </form>
-      
-            </div>
-          </div>
-        </div>
-=======
-
-
 <ion-content>
 
   <div class="container">
@@ -110,36 +29,16 @@
               <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro" class="form form-control inputvalue">
               <label for="num">Numéro</label>
             </div>
-<<<<<<< HEAD
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="email" class="form form-control inputvalue">
-              <label for="email">Email</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" [(ngModel)]="genre" class="form-select form-control inputvalue" >
-                  <option selected> --- Genre ---</option>
-=======
             
             <div class="mb-4 col-12 col-md-6 form-row form-floating">
               <select name="sexe" id="sexe" class="form-select form-control" >
                   <option selected>Genre</option>
->>>>>>> Mahamadou
                   <option> Homme</option>
                   <option> Femme</option>
                   <label for="sexe">Genre</label>
               </select>
               
             </div>
-<<<<<<< HEAD
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="liste" id="liste" class="form-select form-control inputvalue" [(ngModel)]="liste">
-                  <option selected > --- à la liste ... ---</option>
-                  <option *ngFor="let liste of listePostulant" [(ngValue)] = "liste.libelleliste">{{liste.libelleliste}}</option>
-                  <option> Homme</option>
-                </select>
-            </div>
-          </div>
-=======
             <div class="mb-3 col-12 col-md-12 form-row form-floating">
               <input type="email" name="email" id="email" placeholder="email" class="form form-control inputvalue">
               <label for="email">Email</label>
@@ -154,7 +53,6 @@
             </div>
           </div>
           <button class="btn btnAjouter">Valider</button>
->>>>>>> Mahamadou
 
           <div class="erreurAjoutPost" *ngIf="bool_erreur">
             <p >{{erreur}}</p>
@@ -164,8 +62,6 @@
 
         </form>
 
->>>>>>> 53b2edcc61ca88cb757a11f52c928f8acdb4bf64
       </div>
-    </main>
   </div>
 </div>

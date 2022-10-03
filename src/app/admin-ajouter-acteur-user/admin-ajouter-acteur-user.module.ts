@@ -16,5 +16,5 @@ import { AdminAjouterActeurUserPage } from './admin-ajouter-acteur-user.page';
     AdminAjouterActeurUserPageRoutingModule
   ],
   declarations: [AdminAjouterActeurUserPage]
-})
+}) 
 export class AdminAjouterActeurUserPageModule {}

@@ -7,6 +7,10 @@
     </div>
 
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+
+
+      
       <div class="container">
         <button type="button" class="btn" style="margin-left:92% ;">
           <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
@@ -39,6 +43,26 @@
                     <label for="libele">Libelle de la liste </label>
                   </div>
                 </div>
+<<<<<<< HEAD
+
+                <div class="col-12 col-md-6 mb-3 mt-3  ">
+                  <input type="number" class="form-control" id="libele" placeholder="nombre à tiré"
+                    name="nombrePostulantTire" [(ngModel)]="nombrePostulantTire">
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 mt-4 " >
+                  <select class="form-select" name="libelleListe" [(ngModel)]="libelleListe">
+                    <option selected>--Choisir Liste--</option>
+                    <option *ngFor="let liste of liste$" [(ngValue )] = "liste.libelleliste">{{liste.libelleliste}}</option>
+                  </select>
+                </div>
+
+                <div class="col-12 col-md-6 mb-3 mt-3">
+                  <select class="form-select" name="libelleActivite" [(ngModel)]="libelleActivite" >
+                    <option selected>--Choisir Activité--</option>
+                    <option *ngFor="let listeActivite of listeActivites$" [(ngValue )] = "listeActivite.nom">{{listeActivite.nom}}</option>
+                  </select>
+=======
                 
   
                 <div class="col-12 col-md-12">
@@ -49,6 +73,7 @@
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
                   </div> 
+>>>>>>> 1e2fb34073503c18f9f5eee9dc27e479464f5c5e
                 </div>
                 
                 <div class="col-12 col-md-12">

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListeSallePageRoutingModule } from './liste-salle-routing.module';
 
 import { ListeSallePage } from './liste-salle.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ListeSallePage } from './liste-salle.page';
     IonicModule,
     ListeSallePageRoutingModule
   ],
-  declarations: [ListeSallePage]
+  declarations: [ListeSallePage,MenuComponent]
 })
 export class ListeSallePageModule {}
