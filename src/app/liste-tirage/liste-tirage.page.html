@@ -48,7 +48,9 @@
                       <td scope="row">{{liste.libelleTirage}}</td>
                       <td scope="">{{liste.nombrePostulantTire}}</td>
                       <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
-                      <td><a href="{{liste.idtirage}}">Voir Plus</a></td>
+                      <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
+
+                      <!-- {{liste.idtirage}} -->
                     </tr>
                                   
                   </tbody>

@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
   {
-    path: 'postulant-tire',
+    path: 'postulant-tire/:idtirage',
     loadChildren: () => import('./postulant-tire/postulant-tire.module').then( m => m.PostulantTirePageModule)
   },
   {
