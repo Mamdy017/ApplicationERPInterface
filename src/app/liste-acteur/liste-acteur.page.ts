@@ -65,7 +65,7 @@ export class ListeActeurPage implements OnInit {
 
   //le telechargement du fichier
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  name = 'ListePostulantTire.xlsx';
+  name = 'ListeActeurs.xlsx';
   exportToExcel(): void {
     const element = document.getElementById('season-tble');
     const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
