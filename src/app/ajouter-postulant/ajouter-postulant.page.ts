@@ -48,35 +48,38 @@ export class AjouterPostulantPage implements OnInit {
       })
     }
   
-    posterPostulant(){
+  
+  
+
+  posterPostulant(){
+    
+    this.postulant.nom_postulant = this.nom_postulant;
+    this.postulant.prenom_postulant = this.prenom_postulant;
+    this.postulant.numero_postulant = this.numero_postulant;
+    this.postulant.email = this.email;
+    this.postulant.genre = this.genre;
+
+    this.bool_erreur = true;
+
+    if(this.nom_postulant === "" || this.prenom_postulant === "" || this.email == "" || this.genre == "" || this.numero_postulant == ""){
       
-      this.postulant.nom_postulant = this.nom_postulant;
-      this.postulant.prenom_postulant = this.prenom_postulant;
-      this.postulant.numero_postulant = this.numero_postulant;
-      this.postulant.email = this.email;
-      this.postulant.genre = this.genre;
-  
-      this.bool_erreur = true;
-  
-      if(this.nom_postulant === "" || this.prenom_postulant === "" || this.email == "" || this.genre == "" || this.numero_postulant == ""){
-        
-        this.erreur = "Veuillez remplir tous les champs";
-  
-      }else{  
-       
-        this.ajouterPostulant.ajouterPostulant(this.liste, this.postulant).subscribe((data) =>{ 
-  
-          if(data == null){
-            this.erreur = "Ce postulant existe déjà";
-          }else{
-            this.erreur = "Postulant ajouté avec succes";
-          }
-  
-          })
-          console.log(this.erreur);
-      }
+      this.erreur = "Veuillez remplir tous les champs";
+
+    }else{  
+     
+      this.ajouterPostulant.ajouterPostulant(this.liste, this.postulant).subscribe((data) =>{ 
+
+        if(data == null){
+          this.erreur = "Ce postulant existe déjà";
+        }else{
+          this.erreur = "Postulant ajouté avec succes";
+        }
+
+        })
+        console.log(this.erreur);
     }
-  
-  
+  }
+
+
 
 }
