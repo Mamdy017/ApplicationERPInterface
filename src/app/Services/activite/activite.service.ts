@@ -12,7 +12,9 @@ export class ActiviteService {
 
   constructor(private http: HttpClient) { }
 
-  postActivite(idacteurs: string, idacteurInternes: string,  libelleEntite: string, typeAct: string, libelleSalle: string, activite:Activite):Observable<any>{
+  postActivite(idacteurs: string, idacteurInternes: string, libelleEntite: string, typeAct: string, libelleSalle: string, activite:Activite):Observable<any>{
+
+    console.log(`${this.api}/activite/ajouter/${idacteurs}/${idacteurInternes}/${libelleEntite}/${typeAct}/${libelleSalle}`, activite)
 
     return this.http.post(`${this.api}/activite/ajouter/${idacteurs}/${idacteurInternes}/${libelleEntite}/${typeAct}/${libelleSalle}`, activite);
   }

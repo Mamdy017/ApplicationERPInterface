@@ -33,7 +33,7 @@ export class ActivitePage implements OnInit {
   descpt:any;
   dateDebut:any;
   dateFin:any;
-  respns:any
+  respons:any
 
   activiteObjet: Activite = {
     nom: "",
@@ -88,6 +88,7 @@ export class ActivitePage implements OnInit {
     this.activiteObjet.description = this.descpt;
 
     console.log("les acteurs internes: " + this.users);
+    console.log("les acteurs internes: " + this.acteurs);
     console.log("Les acteurs externes" + this.salles)
     console.log("Les acteurs externes" + this.entites)
     console.log("Les acteurs externes" + this.acteurs)
@@ -96,8 +97,9 @@ export class ActivitePage implements OnInit {
     console.log("a" + this.dateDebut);
     console.log("da: "+ this.dateFin);
     console.log("type: " + this.typeActivites)
+    console.log("resp: " + this.respons)
 
-    this.activiteService.postActivite(this.users, this.acteurs, this.entites, this.typeActivites, this.salles, this.activiteObjet).subscribe((data) =>{
+    this.activiteService.postActivite(this.acteurs, this.users, this.entites, this.typeActivites, this.salles, this.activiteObjet).subscribe((data) =>{
       console.log("Donnée envoyé avec succes");
     });
   }
