@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AdminAjouterActeurUserPageRoutingModule } from './admin-ajouter-acteur-user-routing.module';
 
 import { AdminAjouterActeurUserPage } from './admin-ajouter-acteur-user.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AdminAjouterActeurUserPage } from './admin-ajouter-acteur-user.page';
     IonicModule,
     AdminAjouterActeurUserPageRoutingModule
   ],
-  declarations: [AdminAjouterActeurUserPage]
+  declarations: [AdminAjouterActeurUserPage, MenuComponent]
 }) 
 export class AdminAjouterActeurUserPageModule {}

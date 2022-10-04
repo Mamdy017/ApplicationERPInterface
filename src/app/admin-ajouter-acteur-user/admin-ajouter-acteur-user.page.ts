@@ -19,6 +19,14 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
  statutChoix:any;
+ menuBureau: boolean = true;
+ menuMobile: boolean = false;
+
+ afficheMenuMobile() {
+  this.menuBureau = true;
+  this.menuMobile = false;
+} 
+
 
 
   acteurs: Acteur = {

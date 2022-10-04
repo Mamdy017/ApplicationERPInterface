@@ -2,7 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { ListeUserService } from '../services/liste-user/liste-user.service';
-import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx'
 
 @Component({
   selector: 'app-liste-utilisateur',
