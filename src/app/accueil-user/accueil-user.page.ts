@@ -13,6 +13,9 @@ export class AccueilUserPage implements OnInit {
   totalApprrenant: any;
   apprenantsTotal: any;
   participantTotal: any;
+  nombreFormation:any;
+  nombreTalks:any;
+  nombreEvenements:any;
 
   nom: any;
   prenom: any;
@@ -52,6 +55,22 @@ export class AccueilUserPage implements OnInit {
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
+
+      //le nombre de formation
+      this.service.nombreFormation().subscribe(data=>{
+        this.nombreFormation = data
+
+      })
+
+      //le nombre de talks
+      this.service.nombreTalks().subscribe(data=>{
+        this.nombreTalks = data
+      })
+
+      //le nombre d'evenements
+      this.service.nombreEvenements().subscribe(data=>{
+        this.nombreEvenements = data
+      })
 
       // Ici on charge les sessions
 
