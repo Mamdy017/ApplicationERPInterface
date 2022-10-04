@@ -22,6 +22,7 @@ export class AdminAccueilPage implements OnInit {
   nom: any;
   prenom: any;
   nbre: any
+  role:any
 
 
   constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
@@ -71,7 +72,9 @@ export class AdminAccueilPage implements OnInit {
       // Ici on charge les sessions
 
       this.prenom = sessionStorage.getItem("prenom_users");
-      this.nom = sessionStorage.getItem("nom_users")
+      this.nom = sessionStorage.getItem("nom_users");
+      this.role = sessionStorage.getItem("role_users");
+      
 
     })
 

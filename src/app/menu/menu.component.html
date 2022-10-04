@@ -19,14 +19,19 @@
           <div class="col"> <img src="../../assets/images/img1.jpg" style="border-radius:100% ;height:120%; width:75%"
               alt=""></div>
           <div class="col nom py-2">
-            <span>{{nom}}</span>
-            <span>{{prenom}}</span>
+            <span>Admin</span>
+            <span>Center</span>
           </div>
         </div>
       </li>
       <li [routerLinkActive]=" 'active' " class="li ">
-        <a routerLink="/admin-accueil" class="nav-link  align-middle li">
+        <a routerLink="/accueil-user" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
+      </li>
+      <!--*ngIf="role==admin"-->
+      <li *ngIf="role=='admin'" [routerLinkActive]=" 'active' " class="li ">
+        <a routerLink="/admin-accueil" class="nav-link  align-middle li">
+          <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Dashboard</span></a>
       </li>
 
       <li [routerLinkActive]="'active'"  class="li">

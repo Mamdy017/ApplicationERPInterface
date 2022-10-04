@@ -28,7 +28,6 @@ export class AdminAjouterActeurUserPage implements OnInit {
 } 
 
 
-
   acteurs: Acteur = {
     nom: "",
     idActeur: null,

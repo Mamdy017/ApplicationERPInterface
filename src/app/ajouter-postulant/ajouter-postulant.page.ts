@@ -64,7 +64,7 @@ export class AjouterPostulantPage implements OnInit {
   
   
     getListePostulant(){
-      this.ajouterPostulant.recupererListePostulant().subscribe((data) =>{
+      this.ajouterPostulant.recupererListePostulantT().subscribe((data) =>{
         this.listePostulant = data;
       })
     }

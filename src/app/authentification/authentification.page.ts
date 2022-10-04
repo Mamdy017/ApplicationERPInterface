@@ -59,6 +59,7 @@ export class AuthentificationPage implements OnInit {
             sessionStorage.setItem("id_users", data.iduser);
             sessionStorage.setItem("nom_users", data.nom);
             sessionStorage.setItem("prenom_users", data.prenom);
+            sessionStorage.setItem("role_users", data.role.nom);
             sessionStorage.setItem("email_users", data.email);
             sessionStorage.setItem("numero_users", data.numero);
 

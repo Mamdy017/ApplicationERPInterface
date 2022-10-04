@@ -12,6 +12,13 @@
           <div class="col-4 "></div>
         </div>
         <form action="" class="container1 container py-5">
+
+          <div class=" mb-2 " *ngIf="bool_erreur">
+            <div class="col-12 alert alert-danger">
+              <span class="px-4 w-100" >{{erreur}}</span>
+            </div>
+            
+          </div>
           <div class="row">
             <div class="mb-3  col-12 col-md-12 viens2  form-row form-floating">
               <h1 >Créer une Activité</h1>
