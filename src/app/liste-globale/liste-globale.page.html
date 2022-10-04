@@ -47,7 +47,7 @@
                     <tr *ngFor="let liste of mesListe | paginate: { itemsPerPage: 5, currentPage: p}">
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
-                      <td>{{liste.activite  | date : 'd MMMM yyyy' }}</td>
+                      <td>{{liste.activite.nom}}</td>
                       <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
 
                     </tr>

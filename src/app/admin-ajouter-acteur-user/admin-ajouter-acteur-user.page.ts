@@ -32,6 +32,9 @@ export class AdminAjouterActeurUserPage implements OnInit {
   donner: any;
   erreur: any;
 
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
+
   constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
 
   ngOnInit() {
@@ -70,4 +73,8 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
   }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  } 
 }
