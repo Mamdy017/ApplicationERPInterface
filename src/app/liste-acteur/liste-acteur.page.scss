@@ -4,7 +4,7 @@
   border-radius: 20px;
 }
 input { outline-style:none; } 
-.btnAjouter{
+.btnAjouter {
 background-color: #ff6600;
 color: white;
 border-radius: 12px;
@@ -17,7 +17,22 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 .btnAjouter:hover{
 color: black;
 background-color: white;
-border: 2px solid #ff6600;
+border: 1px solid #ff6600;
+}
+.btnAjouter1 {
+  background-color: #ff6600;
+  color: white;
+  border-radius: 12px;
+  width: 200px;
+  height: 45px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+.btnAjouter1:hover{
+  color: black;
+  background-color: white;
+  border: 1px solid #ff6600;
 }
 .row h1{
 text-align: center;
