@@ -12,13 +12,6 @@ import { EntiteService } from '../Services/entite/entite.service';
   styleUrls: ['./entite.page.scss'],
 })
 export class EntitePage implements OnInit {
-<<<<<<< HEAD
-  nom: string;
-  description: string;
-  slogan: string;
-  image: string;
-  constructor() { }
-=======
 // ajouterEntite() {
 // throw new Error('Method not implemented.');
 // }
@@ -29,15 +22,8 @@ export class EntitePage implements OnInit {
     nom: '',
     description: '',
     slogant: ''
->>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
 
   }
-<<<<<<< HEAD
-  
-  creer(){
-    
-  }
-=======
 
   photo$!: Observable<any>;
   formmodule!:FormGroup;
@@ -137,5 +123,4 @@ resetForm(){
       this.menuBureau = true;
       this.menuMobile = false;
     }
->>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
 }
