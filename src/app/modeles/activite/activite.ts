@@ -5,13 +5,14 @@ import { Utilisateur } from "../utilisateur/utilisateur";
 
 export class Activite {
 
-  idactivite!: number;
+  // idactivite!: number;
   nom!: string;
   description!: string;
   dateDebut!: Date;
   dateFin!: Date;
-  acteur!: Acteur;
-  typeActivite!: TypeActivite;
-  utilisateur!: Utilisateur;
-  salle!: Salle;
+  // acteur!: Acteur;
+  nombrepersonnedemande!:number;
+  // typeActivite!: TypeActivite;
+  // utilisateur!: Utilisateur;
+  // salle!: Salle;
 }

@@ -1,127 +1,217 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>AccueilUser</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+      <div class="container">
 
-</ion-header> -->
-<ion-content>
-<div class="container py-3">
-  <div class="alert alarte">
-    <p class="display-5 text-center">Bienvenue ! {{nom}} {{prenom}}</p>
-    <p class="text-center">Sur la plateforme Orange Digital Center</p>
-    <p class="slogan">#Innovation - #Technologie - #Invention</p>
+        <div class="row py-3">
+          <div class="welcomeContainer py-2">
+            <p class="display-6 text-center"> Bienvenue ! {{nom}}</p>
+            <p class="text-center"> Sur la plateforme Orange Digital Center </p>
+            <p class="text-center slogan"> #Innovation - #Technologie - #Invention</p>
+          </div>
+        </div>
+
+        <div class="row cardContour">
+          <div class="col-6 col-md-4">
+            <div class="cardTop my-3 p-2">
+              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <p class="pContent1 text-center">{{totalSalleLibre}}</p>
+              <p class="pContent2 text-center">Salles disponibles</p>
+            </div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="cardTop my-3 p-2">
+              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <p class="pContent1 text-center">{{apprenantsTotal}}</p>
+              <p class="pContent2 text-center">Apprenants</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="cardTop my-3 p-2">
+              <i class="fa-solid fa-chalkboard-user i iconsHaut text-center"></i>
+              <p class="pContent1 text-center">{{participantTotal}}</p>
+              <p class="pContent2 text-center">Participants</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row cardContour my-3">
+          <div class="col-12 col-md-8">
+            <div class="statistique">
+              <img src="../../assets/images/img1.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-12 col-md-4 row">
+            <div class="col-md-2 col-2">
+              <div class="bar d-flex">
+                <div class="bar0"></div>
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </div>
+            <div class="events col-md-10 col-10">
+              <div class="itemsevents">
+                <div class="iconseventsTalk">
+                  <i class="bi bi-chat"></i>
+                </div>
+                <div class="textevents">
+                  <p class="eventTitle">Talks</p>
+                  <p class="eventNumberTalk">98</p>
+                </div>
+              </div>
+              <div class="itemsevents">
+                <div class="iconseventsEvent">
+                  <i class="bi bi-calendar-event-fill"></i>
+                </div>
+                <div class="textevents">
+                  <p class="eventTitle">Evénements</p>
+                  <p class="eventNumberEvent">203</p>
+                </div>
+              </div>
+              <div class="itemsevents">
+                <div class="iconseventsForm">
+                  <i class="bi bi-code-square"></i>
+                </div>
+                <div class="textevents">
+                  <p class="eventTitle">Formation</p>
+                  <p class="eventNumberForm">45</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row cardContour">
+          <div class="col-12 col-md-8">
+            <div class="cardContour my-3 py-2">
+              <h1 class="h3 text-center pt-3 display-5">Activités Récentes</h1>
+              <div class="trait"></div>
+              <p class="text-center">Merci de visionner nos activités récentes</p>
+
+              <div class="row py-3 ps-3 ContourArticle m-3">
+                <div class="col-12 col-md-6 p-2">
+                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="me-3">
+                    <h1 class="h5"><b>Formation Kalanso</b></h1>
+                    <p class="textArticle">
+                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
+                      et totalement gratuite pour les jeunes de 18 à 30 ans...
+                    </p>
+                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
+                    <button class="btn btnReadMore">Savoir Plus</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-3 ps-3 ContourArticle m-3">
+                <div class="col-12 col-md-6 p-2">
+                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="me-3">
+                    <h1 class="h5"><b>Formation Kalanso</b></h1>
+                    <p class="textArticle">
+                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
+                      et totalement gratuite pour les jeunes de 18 à 30 ans...
+                    </p>
+                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
+                    <button class="btn btnReadMore">Savoir Plus</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row py-3 ps-3 ContourArticle m-3">
+                <div class="col-12 col-md-6 p-2">
+                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="me-3">
+                    <h1 class="h5"><b>Formation Kalanso</b></h1>
+                    <p class="textArticle">
+                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
+                      et totalement gratuite pour les jeunes de 18 à 30 ans...
+                    </p>
+                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
+                    <button class="btn btnReadMore">Savoir Plus</button>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+
+          <div class="col-12 col-md-4 py-3">
+            <div class="row cardContour me-2">
+              <div class="me-3">
+                <h1 class="h4 text-center pt-3 display-6">Activités à venir</h1>
+                <div class="trait mb-4"></div>
+
+                <div class="ContourArticle py-2 m-2">
+                  <div class="col-12 col-md-12 p-3">
+                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="me-2">
+                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
+                      <p class="textArticle">
+                        Orange Digital Kalanso est la première école de formation aux métiers...
+                      </p>
+                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
+                      <button class="btn btnReadMore">Savoir Plus</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ContourArticle py-2 m-2">
+                  <div class="col-12 col-md-12 p-3">
+                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="me-2">
+                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
+                      <p class="textArticle">
+                        Orange Digital Kalanso est la première école de formation aux métiers...
+                      </p>
+                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
+                      <button class="btn btnReadMore">Savoir Plus</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ContourArticle py-2 m-2">
+                  <div class="col-12 col-md-12 p-3">
+                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                  </div>
+                  <div class="col-12 col-md-12">
+                    <div class="me-2">
+                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
+                      <p class="textArticle">
+                        Orange Digital Kalanso est la première école de formation aux métiers...
+                      </p>
+                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
+                      <button class="btn btnReadMore">Savoir Plus</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </main>
   </div>
 </div>
-
-<div class="row cardCenter py-1">
-    <div class="cardHome1 col-12 col-md-3">
-      <p class="pContent1 text-center">{{totalSalleLibre}}</p>
-      <p class="pContent2 text-center">Salles disponibles</p>
-    </div>
-    <div class="cardHome col-12 col-md-3">
-      <p class="pContent1 text-center">{{apprenantsTotal}}</p>
-      <p class="pContent2 text-center">Apprénnants</p>
-    </div>
-    <div class="cardHome col-12 col-md-3">
-      <p class="pContent1 text-center">{{participantTotal}}</p>
-      <p class="pContent2 text-center">Participants</p>
-    </div>
-</div>
-
-<!-- Section Articles Gauches -->
-<div class="row my-4">
-  <div class="activity col-12 col-md-8">
-    <h1 class="titleSectionActivity">Activitées récentes</h1>
-    <p class="text-center">Merci de visionner nos activites récentes</p>
-    <div class="row boxShadowArticle py-5">
-      <div class="col-12 col-md-4">
-        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
-      </div>
-      <div class="col-12 col-md-8">
-        <p class="h5">Formation - Le numérique</p>
-        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
-        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
-      </div>
-    </div>
-
-    <div class="row boxShadowArticle py-5">
-      <div class="col-12 col-md-4">
-        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
-      </div>
-      <div class="col-12 col-md-8">
-        <p class="h5">Formation - Le numérique</p>
-        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
-        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
-      </div>
-    </div>
-
-    <div class="row boxShadowArticle py-5">
-      <div class="col-12 col-md-4">
-        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
-      </div>
-      <div class="col-12 col-md-8">
-        <p class="h5">Formation - Le numérique</p>
-        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
-        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
-      </div>
-    </div>
-    <div class="row boxShadowArticle py-5">
-      <div class="col-12 col-md-4">
-        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
-      </div>
-      <div class="col-12 col-md-8">
-        <p class="h5">Formation - Le numérique</p>
-        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
-        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
-      </div>
-    </div>
-    <div class="row boxShadowArticle">
-      <div class="col-12 col-md-4">
-        <img src="../../assets/images/img1.jpg" alt="activites formation" class="img-fluid rounded">
-      </div>
-      <div class="col-12 col-md-8">
-        <p class="h5">Formation - Le numérique</p>
-        <p>Le FabLab Solidarity est un atelier de production numérique pour la création et le prototypage avec des équipements numériques, tels que des imprimantes...</p>
-        <p style="font-size: 0.9rem;">Créer par : <span><i>Jeremi KOLOMA</i></span></p>
-      </div>
-    </div>
-  </div>
-
-<!-- Section Articles Droite -->
-  <div class="activity col-12 col-md-4">
-    <div class="row">
-      <h1 class="actityAVenir my-3">Activitées à Venir</h1>
-      <p class="text-center">Merci de rester connecter à nous</p>
-      <div class="row">
-        <div class="boxShadowArticleAVenir">
-        <img src="../../assets/images/python.jpg" alt="formation en python à venir" class="img-fluid rounded">
-        <span class="h5 text-center ">Formation - Le numérique</span>
-        <span class="dateActivity py-1"><i>20-09-2022</i></span>
-        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
-        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
-      </div>
-      </div>
-
-
-      <div class="col-12 boxShadowArticleAVenir">
-        <img src="../../assets/images/aws.jpg" alt="formation en python à venir" class="img-fluid rounded">
-        <span class="h5 text-center">Formation - Le numérique</span>
-        <span class="dateActivity py-1"><i>20-09-2022</i></span>
-        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
-        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
-      </div>
-
-      <div class="col-12 boxShadowArticleAVenir">
-        <img src="../../assets/images/python.jpg" alt="formation en python à venir" class="img-fluid rounded">
-        <span class="h5 text-center ">Formation - Le numérique</span>
-        <span class="dateActivity py-1"><i>20-09-2022</i></span>
-        <span class="pActivityAVenir py-1">Python est un langage de programmation interprété, multiparadigme et multiplateformese programmation interprété,.</span>
-        <span class="auteurActivityAVenir">Créer par : <span><i>Jeremi KOLOMA</i></span></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-</ion-content>

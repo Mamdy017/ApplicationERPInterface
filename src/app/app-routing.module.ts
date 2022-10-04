@@ -1,13 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthentificationPageModule } from './authentification/authentification.module';
-
-
-
-
-
-
 
 const routes: Routes = [
   {
@@ -23,34 +16,31 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
+
   {
-    path: 'accueil-admin',
-    loadChildren: () => import('./accueil-admin/accueil-admin.module').then( m => m.AccueilAdminPageModule)
+    path: 'admin-accueil',
+    loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
   },
   {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then(m => m.EntitePageModule)
-  },
-  {
-    path: 'accueil-user',
-    loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
+    path: 'liste-utilisateur',
+    loadChildren:()=> import('./liste-utilisateur/liste-utilisateur.module').then(m => m.ListeUtilisateurPageModule)
   },
   {
     path: 'tirage',
     loadChildren: () => import('./tirage/tirage.module').then( m => m.TiragePageModule)
   },
   {
-    path: 'postulant-tire',
+    path: 'postulant-tire/:idtirage',
     loadChildren: () => import('./postulant-tire/postulant-tire.module').then( m => m.PostulantTirePageModule)
   },
   {
-    path: 'ajouter-postulant',
-    loadChildren: () => import('./ajouter-postulant/ajouter-postulant.module').then( m => m.AjouterPostulantPageModule)
+    path:'ajouter-postulant',
+    loadChildren:() => import('./ajouter-postulant/ajouter-postulant.module').then(m => m.AjouterPostulantPageModule)
   },
   {
     path: 'admin-ajouter-acteur-user',
     loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
-      m => m.AdminAjouterActeurUserPageModule)
+       m => m.AdminAjouterActeurUserPageModule)
   },
   {
     path: 'authentification',
@@ -58,7 +48,11 @@ const routes: Routes = [
   },
   {
     path: 'liste-acteur',
-    loadChildren: () => import('./liste-acteur/liste-acteur.module').then( m => m.ListeActeurPageModule)
+    loadChildren:() => import('./liste-acteur/liste-acteur.module').then(m => m.ListeActeurPageModule)
+  },
+  {
+    path: 'liste-tirage',
+    loadChildren:() => import('./liste-tirage/liste-tirage.module').then(m => m.ListeTiragePageModule)
   },
   {
     path: 'liste-user',
@@ -80,23 +74,82 @@ const routes: Routes = [
     path: 'ajouter-activate',
     loadChildren: () => import('./ajouter-activate/ajouter-activate.module').then( m => m.AjouterActivatePageModule)
   },
-  
+  {
+    path: 'salle',
+    loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
+  },
   {
     path: 'page-liste-suite',
-    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then(m => m.PageListeSuitePageModule)
+    loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
   },
   {
     path: 'page-liste-tirage',
     loadChildren: () => import('./page-liste-tirage/page-liste-tirage.module').then( m => m.PageListeTiragePageModule)
   },
   {
-    path: 'menu',
-    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+    path: 'liste-globale',
+    loadChildren: () => import('./liste-globale/liste-globale.module').then( m => m.ListeGlobalePageModule)
   },
   {
-    path: 'ajouter-acteur',
-    loadChildren: () => import('./ajouter-acteur/ajouter-acteur.module').then( m => m.AjouterActeurPageModule)
+    path: 'ajouter-participant',
+    loadChildren: () => import('./ajouter-participant/ajouter-participant.module').then( m => m.AjouterParticipantPageModule)
   },
+  {
+    path: 'profile-user-profile',
+    loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
+  },
+  {
+    path: 'ajouter-tache',
+    loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
+  },
+  {
+    path: 'liste-salle',
+    loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
+    path: 'liste-tirage-nonvalide',
+    loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
+  },
+  {
+    path: 'accueil-entite',
+    loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
+  },
+  {
+    path: 'changer-profile',
+    loadChildren: () => import('./changer-profile/changer-profile.module').then( m => m.ChangerProfilePageModule)
+  },
+  {
+    path: 'gestionentite',
+    loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
+  },
+  {
+    path: 'repording',
+    loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
+  },
+  {
+    path: 'importer-participant',
+    loadChildren: () => import('./importer-participant/importer-participant.module').then( m => m.ImporterParticipantPageModule)
+  },
+  {
+    path: 'accueil-user',
+    loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
+  },
+  {
+    path: 'details-activite',
+    loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
+  },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+
+
+
+
 
 ];
 @NgModule({

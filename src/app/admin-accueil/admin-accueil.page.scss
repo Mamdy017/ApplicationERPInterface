@@ -1,0 +1,80 @@
+*{
+  font-family: 'Poppins';
+}
+
+.welcomeP{
+  position: relative;
+  background-color: #E7EBED;
+  width: 50%;
+  border-radius: 0px 23px 23px 0px;
+  margin-left: 1000px;
+  padding: 5px;
+  margin-top: -10px;
+  font-size: 1rem;
+}
+.contourCard{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+.cardHome{
+background: #FFFFFF;
+box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+}
+.containerSearch{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.iconTop i{
+  position: relative;
+  color: #FF6600;
+  display: flex;
+  justify-content: center;
+  top: 10px;
+  font-size: 4rem;
+}
+
+.iconBas{
+  position: relative;
+  color: #FF6600;
+  display: flex;
+  justify-content: center;
+  top: 10px;
+  font-size: 3.8rem;
+}
+
+.pcardHome{
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: relative;
+  top: -14px;
+}
+
+.txtcardHome{
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  top: -38px;
+}
+
+.txtcardbottom{
+  text-align: center;
+  font-size: 1rem;
+  position: relative;
+  font-weight: 600;
+}
+.Filtree{
+  font-size: 3rem;
+  cursor: pointer;
+  
+}
+.toutFilter{
+  position: relative;
+  display: flex;
+  background-color: #E7EBED;
+  border-radius: 12px;
+} 
+.iputFilter{
+  position: relative;
+  top: 23px;
+}
