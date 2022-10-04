@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\liste-acteur",
+    "\\src\\app\\liste-salle",
     "\\src\\app\\modeles",
     "\\src\\app\\modeles\\activite",
     "\\src\\app\\modeles\\entite",
     "\\src\\app\\Services",
-    "\\src\\app\\Services\\liste-user",
+    "\\src\\app\\Services\\liste-acteur",
     "\\src\\app\\Services\\role"
   ],
-  "SelectedNode": "\\src\\app\\liste-utilisateur\\liste-utilisateur.page.ts",
+  "SelectedNode": "\\src\\app\\liste-salle\\liste-salle.page.html",
   "PreviewInSolutionExplorer": false
 }
