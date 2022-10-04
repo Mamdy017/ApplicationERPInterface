@@ -32,8 +32,9 @@ export class TiragePage implements OnInit {
     nombrePostulantTire: 0
   }
 
-  liste$!: any;
+  listes$!: any;
   listeActivites$!: any
+
   bool_erreur: boolean = false;
   bool_erreurImp: boolean = false;
   bool_erreurImpTrie: boolean = false;
@@ -50,13 +51,13 @@ export class TiragePage implements OnInit {
     erreurImportTrie:any;
 
     getListePostulant(){
-      this.ajoutPostulantService.recupererListePostulantT().subscribe((data) =>{
-        this.liste$ = data;
+      this.ajoutPostulantService.recupererListePostulant().subscribe((data) =>{
+        this.listes$ = data;
       })
     }
 
-    getListeActivite(){
-      this.activiteService.recupererListeActiviteT().subscribe((data) =>{
+    getListeActivite(){                                            
+      this.activiteService.recupererListeActivite().subscribe((data) =>{
         this.listeActivites$ = data;
       })
     }
@@ -74,19 +75,20 @@ export class TiragePage implements OnInit {
       
       this.tirageObjet.libelleTirage = this.libelleTirage;
       this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
+      console.log(this.libelleListe)
 
-      if(this.libelleTirage == "" || this.libelleActivite == "" || this.nombrePostulantTire == 0){
-        this.erreurTirage = "Veuillez tous champs";
+      if(this.libelleListe == "" || this.libelleTirage == "" || this.libelleActivite == "" || this.nombrePostulantTire == 0){
+        this.erreurTirage = "Veuillez renseigner tout les champs";
       }else{
         
         this.serviceTirage.postTirage(this.libelleListe, this.libelleActivite, this.tirageObjet).subscribe((data) =>{
           this.erreurTirage = data.contenu
           console.log("Donnée envoyé avec succes");
         });
-
-        this.resetTirageForm()
         
       }
+
+      this.resetTirageForm()
     }
 
 
@@ -252,6 +254,10 @@ export class TiragePage implements OnInit {
 
 
 actualise(): void {
+
+  this.getListePostulant();
+  this.getListeActivite();
+
   setInterval(
     () => {
     }, 100, clearInterval(1500));
@@ -270,8 +276,6 @@ actualise(): void {
           this.actualise();
         }
       });
-    this.getListePostulant();
-    this.getListeActivite();
   }
   afficheMenuMobile() {
     this.menuBureau = true;

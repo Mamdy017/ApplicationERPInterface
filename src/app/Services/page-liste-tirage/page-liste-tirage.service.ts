@@ -16,6 +16,10 @@ export class PageListeTirageService {
     return this.http.get("http://localhost:8080/tirage/AfficherTirageTotal");
   }
 
+  recupererLesTirageEnfonction(idListe:number):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/tirage/tirageParListe/${idListe}`)
+  }
+
 // ICI ON RECUPERE LES TIRAGES EFFECTUER 
 lesTirages():Observable<any>{
   return this.http.get("http://localhost:8080/tirage/afficher")
