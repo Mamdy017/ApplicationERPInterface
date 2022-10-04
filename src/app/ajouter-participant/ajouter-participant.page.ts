@@ -43,8 +43,6 @@ export class AjouterParticipantPage implements OnInit {
   constructor(private ajouterparticipantservice: AjouterParticipantService  ) { }
 
   ngOnInit() {
-    //this.getListePostulant();
-
       this.ajouterparticipantservice.recupererListePostulant().subscribe((data) => {
         this.reponse = data;
         
@@ -57,12 +55,19 @@ export class AjouterParticipantPage implements OnInit {
 
   ajouterParticipant() {
   
+    console.log("============================== "+this.nom_postulant)
+    console.log("============================== "+this.prenom_postulant)
+    console.log("============================== "+this.numero_postulant)
+    console.log("============================== "+this.email)
+    console.log("============================== "+this.genre)
 
     this.postulantparticipant.nom_postulant = this.nom_postulant;
     this.postulantparticipant.prenom_postulant = this.prenom_postulant;
     this.postulantparticipant.numero_postulant = this.numero_postulant;
     this.postulantparticipant.email = this.email;
     this.postulantparticipant.genre = this.genre;
+
+
 
     this.bool_erreur = true;
 
