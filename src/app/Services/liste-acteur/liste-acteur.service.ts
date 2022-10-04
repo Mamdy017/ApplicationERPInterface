@@ -28,6 +28,11 @@ afficherLesActeurs() :Observable<Acteur[]> {
 
 supprimerActeur(id : number) :Observable<any>{
   return this.http.delete(`http://localhost:8080/acteur/supprimer/${id}`);
-}
+  }
+
+  //afficher acteur et rôle
+  afficherActeurRole(): Observable<any> {
+    return this.http.get("http://localhost:8080/utilisateur/afficherAvecRole")
+  }
 
 }

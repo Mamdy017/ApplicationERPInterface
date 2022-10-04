@@ -48,16 +48,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let acteur of acteurs">
-              <td>{{acteur.prenom}}</td>
-              <td>{{acteur.nom}}</td>
-              <td>{{acteur.email}}</td>
-              <td>{{acteur.numero}}</td>
-              <td>Modérateur</td>
-              <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+            <tr *ngFor="let list of contenu ; let i = index">
+              <td scope="row">{{i+1}}</td>
+              <td>{{list[1]}}</td>
+              <td>{{list[2]}}</td>
+              <td>{{list[3]}}</td>
+              <td>{{list[4]}}</td>
+              <td>{{list[5]}}</td>
+              <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
             </tr>
-         </tbody>
-         <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
+          </tbody>
+          <!--  <h2 *ngIf="!contenu"> Aucun acteur dans la base de donnée !</h2>-->
         </table>
       </div>
     </div>

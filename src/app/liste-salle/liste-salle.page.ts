@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Salle } from '../modeles/salle/salle';
 import { SalleService } from '../services/salle';
 
 @Component({
@@ -8,7 +9,9 @@ import { SalleService } from '../services/salle';
 })
 export class ListeSallePage implements OnInit {
 
-  page:number=1
+  page: number = 1
+  disponible: any
+  salle: Salle
 
   maListes:any
   constructor(private serviceSalle:SalleService) { }
@@ -22,6 +25,12 @@ export class ListeSallePage implements OnInit {
     })
 
 
+  }
+
+  //Afficher par disponibilité
+  afficherDisponibilite(event) {
+    this.serviceSalle.afficherSalleParDisponibilite(event).subscribe(data =>
+      this.disponible = data)
   }
 
 }

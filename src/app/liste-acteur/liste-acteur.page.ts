@@ -12,13 +12,14 @@ export class ListeActeurPage implements OnInit {
   acteurs: Acteur[];
   reponse: any;
   role: Role;
+  contenu:any
 
   constructor(private serviceActeur : ListeActeurService) { }
 
   ngOnInit() {
-    this.serviceActeur.afficherLesActeurs().subscribe(data => {
-      this.acteurs = data;
-      console.table(this.acteurs);
+    this.serviceActeur.afficherActeurRole().subscribe(data => {
+      this.contenu = data;
+      console.table(this.contenu);
     })
   }
 

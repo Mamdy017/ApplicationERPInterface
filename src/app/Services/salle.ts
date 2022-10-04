@@ -30,4 +30,9 @@ export class SalleService {
 //   return this.http.post<Salle>(`http://localhost:8080/salle/ajouter/`,Salle);
 // }
 
+  //afficher Salle Par Disponibilité
+  afficherSalleParDisponibilite(disponibilite: boolean): Observable<Salle> {
+
+    return this.http.get<Salle>(`http://localhost:8080/salle/afficherDisponibilite/${disponibilite }`);
+  }
 }
