@@ -47,7 +47,7 @@
                 </tr>
 
 
-                <tr *ngFor="let uneSalle of maListes  let i = index | paginate: { itemsPerPage: 5, currentPage: p}">
+                <tr *ngFor="let uneSalle of maListes | paginate: { itemsPerPage: 5, currentPage: p} let i = index">
                   <td style="text-align:center ;">{{i+1}}</td>
                   <td style="text-align:center ;">{{uneSalle.nom}}</td>
                   <td style="text-align:center ;">{{uneSalle.etage}}</td>

@@ -2,6 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { ListeUserService } from '../services/liste-user/liste-user.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-liste-utilisateur',
@@ -10,7 +11,7 @@ import { ListeUserService } from '../services/liste-user/liste-user.service';
 })
 export class ListeUtilisateurPage implements OnInit {
 
-
+  p=1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   page:any;
@@ -24,6 +25,8 @@ export class ListeUtilisateurPage implements OnInit {
       }, 100, clearInterval(1500));
   }
 
+
+  
   ngOnInit() {
 
     this.breakpointObserver
@@ -51,6 +54,16 @@ export class ListeUtilisateurPage implements OnInit {
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
+  }
+  name = 'ListeActeurs.xlsx';
+  exportToExcel(): void {
+    const element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
 
 }

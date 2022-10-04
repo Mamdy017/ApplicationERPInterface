@@ -77,9 +77,9 @@
                   <th scope="col" style="text-align:center ;">Statut</th>
                   <th scope="col" style="text-align:center ;">Actions</th>
                 </tr>
+<!-- *ngFor=" paginate: { itemsPerPage: 5, currentPage: p}" -->
 
-
-                <tr>
+                <tr >
                   <td style="text-align:center ;">Liste2</td>
                   <td style="text-align:center ;">Kalanso</td>
                   <td style="text-align:center ;">Evenement</td>
@@ -137,6 +137,9 @@
                 </tr>
               </thead>
             </table>
+
+            <!-- <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>    -->
+
           </div>
         </div>
 
