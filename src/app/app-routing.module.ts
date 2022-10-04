@@ -148,7 +148,11 @@ const routes: Routes = [
   {
     path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
+  },  {
+    path: 'liste-participant',
+    loadChildren: () => import('./liste-participant/liste-participant.module').then( m => m.ListeParticipantPageModule)
   },
+
 
 
 
