@@ -129,6 +129,9 @@ const routes: Routes = [
     path: 'reporting',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
   },
+  
+  
+
 
   
 

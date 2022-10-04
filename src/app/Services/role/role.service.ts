@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GestionentiteService {
+export class RoleService {
 
   api = "http://localhost:8080/";
 
   constructor(private http: HttpClient) { }
+  //methode permettant de recuperer une liste postulant
 
-  //methode permettant de recuperer une liste entité
-
-  afficherEntite(): Observable<any> {
-    return this.http.get(`${this.api}entite/afficher`);
+  afficherRole(): Observable<any> {
+    return this.http.get(`${this.api}role/afficher`);
   }
 }

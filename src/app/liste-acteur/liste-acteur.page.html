@@ -21,45 +21,51 @@
     <h1>Liste des acteurs</h1>
     <div class="trait"></div>
     <div class="position">
-        <button class="btn btnAjouter">Exporter le fichier</button>
+      <button class="btn btnAjouter">Exporter le fichier</button>
 
-     <a href="ajouter-acteur"> <button class="btn btnAjouter1" style="border: 1px solid;"  >Ajouter un acteur</button></a>
+      <a href="ajouter-acteur"> <button class="btn btnAjouter1" style="border: 1px solid;">Ajouter un acteur</button></a>
       <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
+      <!-- <div class="btn btnAjouter c1 form-row form-floating">
+      <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control">
+        <option *ngFor="let listepostulants of reponse" [ngValue]="listepostulants.libelleliste"> {{listepostulants.libelleliste}}</option>
+        <label for="sexe">Filtré par Rôle</label>
+      </select>
+    </div>-->
       <form action="">
         <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
       </form>
     </div>
-    <div class="table-responsive ra py-5">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Prénom</th>
-            <th scope="col">nom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Numéro</th>
-            <th scope="col">Rôle</th>
-            <th scope="col" class="ra1">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let acteur of acteurs">
-            <td>{{acteur.prenom}}</td>
-            <td>{{acteur.nom}}</td>
-            <td>{{acteur.email}}</td>
-            <td>{{acteur.numero}}</td>
-            <td>Modérateur</td>
-            <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
-          </tr>
-       </tbody>
-       <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
-      </table>
+      <div class="table-responsive ra py-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Prénom</th>
+              <th scope="col">nom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Numéro</th>
+              <th scope="col">Rôle</th>
+              <th scope="col" class="ra1">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let acteur of acteurs">
+              <td>{{acteur.prenom}}</td>
+              <td>{{acteur.nom}}</td>
+              <td>{{acteur.email}}</td>
+              <td>{{acteur.numero}}</td>
+              <td>Modérateur</td>
+              <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+            </tr>
+         </tbody>
+         <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 
 
 
-</main>
-</div>
-</div>
+  </main>
+  </div>
+  </div>
 

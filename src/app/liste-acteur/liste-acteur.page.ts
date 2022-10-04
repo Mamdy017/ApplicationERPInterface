@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../modeles/acteur/acteur';
+import { Role } from '../modeles/role/role';
 import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.servic
   styleUrls: ['./liste-acteur.page.scss'],
 })
 export class ListeActeurPage implements OnInit {
-  acteurs : Acteur[];
+  acteurs: Acteur[];
+  reponse: any;
+  role: Role;
 
   constructor(private serviceActeur : ListeActeurService) { }
 
