@@ -134,7 +134,7 @@ const routes: Routes = [
     loadChildren: () => import('./gestionentite/gestionentite.module').then( m => m.GestionentitePageModule)
   },
   {
-    path: 'repording',
+    path: 'reporting',
     loadChildren: () => import('./reporting/reporting.module').then( m => m.ReportingPageModule)
   },
   {
