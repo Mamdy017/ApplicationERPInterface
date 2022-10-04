@@ -30,6 +30,8 @@
       </form>
     </div>
     <div class="table-responsive ra py-5">
+      <!-- button pour cacherAction -->
+      <button (click)="toogleTag()" class="btn btnAjouter" style="background-color:darkgray;margin-top: -2%;margin-left: 3.5%;font-size: 14px;">Exporter sans Action</button><br><br>
       <table id="season-tble" class="table">
         <thead>
           <tr>
@@ -38,7 +40,8 @@
             <th scope="col">Email</th>
             <th scope="col">Numéro</th>
             <th scope="col">Rôle</th>
-            <th scope="col" class="ra1">Action</th>
+            <!-- le reste de la cache cache -->
+            <th scope="col" class="ra1" *ngIf="cacherAction">Action</th>
           </tr>
         </thead>
         <tbody>

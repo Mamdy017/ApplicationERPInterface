@@ -6,7 +6,7 @@ import { Acteur } from '../modeles/acteur/acteur';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 // import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
 
-  import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-liste-acteur',
@@ -17,9 +17,10 @@ export class ListeActeurPage implements OnInit {
   acteurs: Acteur[];
   menuBureau = true;
   menuMobile = false;
-  p= 1;
+  p = 1;
 
-  constructor(private serviceActeur: ListeActeurService,public breakpointObserver: BreakpointObserver) { }
+
+  constructor(private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
 
   actualise(): void {
     setInterval(
@@ -44,15 +45,20 @@ export class ListeActeurPage implements OnInit {
           this.actualise();
         }
       });
+    // const myTimeout = setTimeout(this.AfficherAction, 5000);
+    // this.toogleTag()
+    this.fonction()
   }
 
-
-  supprimer(acteur: any){
+  AfficherAction() {
+    this.cacherAction = true
+  }
+  supprimer(acteur: any) {
     const confirmer = confirm('êtes-vous sûr de le supprimer ?');
     // eslint-disable-next-line eqeqeq
-    if(confirmer == false) {return;}
+    if (confirmer == false) { return; }
     this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
-      next : (data) => {
+      next: (data) => {
         console.log(acteur.id);
         const index = this.acteurs.indexOf(acteur);
         this.acteurs.splice(index, 1);
@@ -67,7 +73,12 @@ export class ListeActeurPage implements OnInit {
   //le telechargement du fichier
   // eslint-disable-next-line @typescript-eslint/member-ordering
   name = 'ListeActeurs.xlsx';
+  /*pour exporter sans un champ, on declarer la constante cacherAction*/
+  //showMe:boolean = false;
+  // showMe=true;
+  cacherAction = true;
   exportToExcel(): void {
+    // this.cacherAction = false
     const element = document.getElementById('season-tble');
     const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
@@ -75,7 +86,38 @@ export class ListeActeurPage implements OnInit {
     XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
 
     XLSX.writeFile(book, this.name);
+    
+    // this.showMe=true;
+    // setTimeout(()=>{
+    //   this.AfficherAction
+    // }, 1000);
+    // this.cacher = false;
+    /*pour exporter sans col action*/
+    this.fonction()
   }
+  /*Actualiser directement après export*/
+  fonction(){
+    setTimeout(()=>{
+      this.cacherAction = true
+    }, 100);
+  }
+
+  /* le reste pour exporter sans un champ*/
+  // actualiser(setTimeout(() => {
+
+  // }, 500);)
+
+  // setTimeout(() => {
+
+  // }, 500);
+
+  /*Méthode pour cacherAction en un clique*/
+  toogleTag() {
+    this.cacherAction = false
+    // this.showMe=true;
+    // this.fonction()
+  }
+
 
 
 }
