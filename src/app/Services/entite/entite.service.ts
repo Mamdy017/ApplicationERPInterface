@@ -25,4 +25,9 @@ export class EntiteService {
     data.append("slogant", slogant)
     return this.http.post<any>('http://localhost:8080/entite/ajouterE', data);
   }
+
+  // ===================== AFicher une entité =======================
+  afficherEntite():Observable<any>{
+    return this.http.get("http://localhost:8080/entite/afficher");
+  }
 }

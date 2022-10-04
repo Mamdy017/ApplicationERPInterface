@@ -1,3 +1,5 @@
+import { Entite } from "../entite";
+import { Role } from "../role/role";
 
 export class Utilisateur {
     iduser!:number;
@@ -6,6 +8,6 @@ export class Utilisateur {
     numero!:String;
     email!:String;
   password!: String;
- // role!: Role;
-  //entite!: Entite;
+ role!: Role;
+  entite!: Entite;
 }

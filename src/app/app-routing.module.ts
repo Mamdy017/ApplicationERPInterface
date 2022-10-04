@@ -146,6 +146,11 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+  {
+    path: 'ajouter_utilisateur',
+    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+  },
+
 
 
 
