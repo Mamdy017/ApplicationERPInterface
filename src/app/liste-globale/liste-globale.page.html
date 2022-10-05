@@ -30,16 +30,16 @@
             </div>
 
           <div class="col-12 col-md-8 text-center"  style="border-radius: 20px 20px 0px 0px;">
-            <p> Les listes tirer </p>
+            <p> Toutes les listes </p>
             <!-- <div class="container"> -->
             
               <div class="table-responsive ra py-5">
                 <table class="table" >
                   <thead style="background-color: #FF6600; color: white; border-bottom: none;">
                     <tr>
-                      <th scope="col" style="border-radius: 10px 0 0 0;">Liste</th>
+                      <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
                       <th scope="col">Nombre de Tirage</th>
-                      <th scope="col">Activite</th>
+                      <th scope="col">Activité</th>
                       <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
                     </tr>
                   </thead>
@@ -47,8 +47,8 @@
                     <tr *ngFor="let liste of mesListe">
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
-                      <td>{{liste.activite  | date : 'd MMMM yyyy' }}</td>
-                      <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
+                      <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.nom}}</a></td>
+                      <td><a [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
 
                     </tr>
                                   

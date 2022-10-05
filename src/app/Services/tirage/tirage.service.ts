@@ -19,4 +19,8 @@ export class TirageService {
 
     return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}/${libelleActivite}`, tirage);
    }
+
+   TrouverTirageParListe(idListe:number){
+    return this.http.get(`${this.api}/tirage/tirageParListe/${idListe}`);
+   }
 }
