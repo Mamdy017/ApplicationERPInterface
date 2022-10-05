@@ -48,13 +48,13 @@
                   <td>{{valeur.numero}}</td>
                   <td>{{valeur.role.nom}}</td>
                   <td>{{valeur.entite.nom}}</td>
-                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp;<i class="bi bi-trash-fill i"></i></td>
+                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp; <button><i class="bi bi-trash-fill i" ></i></button></td>
                 </tr>
-            
+            <!-- (click)="supprimer(user)" -->
               </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-  <!-- <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+  <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls>
           </div>
 
         </div>

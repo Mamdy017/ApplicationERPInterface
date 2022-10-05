@@ -7,7 +7,7 @@ export class Utilisateur {
     prenom!:String;
     numero!:String;
     email!:String;
-  password!: String;
- role!: Role;
-  entite!: Entite;
+    password!: String;
+    role!: Role;
+    entite!: Entite;
 }

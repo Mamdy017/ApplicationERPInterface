@@ -25,7 +25,7 @@ export class ListeActeurPage implements OnInit {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
-  }
+  } 
   ngOnInit() {
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;

@@ -100,7 +100,7 @@ export class AdminAccueilPage implements OnInit {
           label: "Kalanso",
           stack: "Base",
           backgroundColor: "#F3A774",
-          data: [10, 20, 30, 32, 7, 9, 5, 2, 8, 10, 11, 4],
+          data: [10, 20, 30, 50, 7, 9, 5, 2, 8, 10, 11, 4],
         }, {
           barPercentage: 0.8,
           barThickness: 'flex',
@@ -115,7 +115,7 @@ export class AdminAccueilPage implements OnInit {
           label: "Solidaire",
           stack: "Base3",
           backgroundColor: "#A2C07C",
-          data: [9, 5, 40, 12, 7, 9, 5, 2, 8, 10, 11, 4],
+          data: [9, 5],
         }
 
         ]

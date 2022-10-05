@@ -75,7 +75,8 @@ export class AuthentificationPage implements OnInit {
             }
             else {
               this.route.navigateByUrl('/admin-accueil');
-              console.log(data.contenu);             
+              console.log(data.contenu);       
+              this.erreur = "Utilisateur non géré !";      
             }
           }
         }

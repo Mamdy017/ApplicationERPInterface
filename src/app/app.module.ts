@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import{NgChartsModule} from 'ng2-charts'
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { NgModule } from '@angular/core';
     FormsModule,
     ReactiveFormsModule,
     RouterLinkActive,
+    NgChartsModule
 
     // LayoutModule,
   ],
