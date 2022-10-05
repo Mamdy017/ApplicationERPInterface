@@ -12,11 +12,11 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./liste-acteur.page.scss'],
 })
 export class ListeActeurPage implements OnInit {
-  acteurs : Acteur[];
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
+  acteurs: Acteur[];
+  menuBureau= true;
+  menuMobile= false;
 
-  constructor(private serviceActeur : ListeActeurService,public breakpointObserver: BreakpointObserver) { }
+  constructor(private serviceActeur: ListeActeurService,public breakpointObserver: BreakpointObserver) { }
 
   actualise(): void {
     setInterval(
@@ -44,16 +44,17 @@ export class ListeActeurPage implements OnInit {
   }
 
 
-  supprimer(acteur : any){
-    let confirmer = confirm("êtes-vous sûr de le supprimer ?");
-    if(confirmer == false) return;
+  supprimer(acteur: any){
+    const confirmer = confirm('êtes-vous sûr de le supprimer ?');
+    // eslint-disable-next-line eqeqeq
+    if(confirmer == false) {return;}
     this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
       next : (data) => {
-        console.log(acteur.id)
-        let index = this.acteurs.indexOf(acteur);
+        console.log(acteur.id);
+        const index = this.acteurs.indexOf(acteur);
         this.acteurs.splice(index, 1);
       }
-    })
+    });
   }
   afficheMenuMobile() {
     this.menuBureau = true;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../Modeles/acteur/acteur';
+import { Statut } from '../modeles/statut/statut';
 import { AdminActeurUserService } from '../services/admin-ajouter-acteur-user/admin-acteur-user.service';
 import { StatutService } from '../services/statutService';
 
@@ -10,33 +11,40 @@ import { StatutService } from '../services/statutService';
 })
 export class AdminAjouterActeurUserPage implements OnInit {
 
-  nom: any;
-  prenom: any;
-  email: any;
+  // nom: any;
+  // prenom: any;
+  // email: any;
   statut: any;
- 
-  telephone:any
+
+  // telephone:any
 
 
- statutChoix:any;
+ statutChoix: any;
 
 
   acteurs: Acteur = {
-    nom: "",
+    nom: '',
     idActeur: null,
     prenom: '',
     numero: '',
-    email: " ",
-    statut: undefined
-  }
+    email: '',
+    statut: Statut
+  };
+  nom = '';
+  prenom = '';
+  numero: '';
+  email: '';
+
+
+
   donner: any;
   erreur: any;
 
-  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
+  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut: StatutService) { }
 
   ngOnInit() {
-    // On recupere les statutd
-    this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data })
+    // On recupere les statut
+    this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
   }
 
 
@@ -45,26 +53,26 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
     // console.log("----------- "+this.statutChoix)
 
-    if (this.nom != " " && this.prenom != "" && this.email != "" && this.statutChoix != null && this.telephone != null) {
-      
+    if (this.nom != " " && this.prenom != '' && this.email != "" && this.statutChoix != null && this.numero != null) {
+
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      // this.acteurs.statut.idstatut = this.statutChoix;
-      this.acteurs.numero = this.telephone;
+      this.acteurs.statut.nom = this.statutChoix;
+      this.acteurs.numero = this.numero;
 
 
 
-      this.serviceActeur.ajouterActeur(this.acteurs).subscribe(data => {
-        this.donner = data
+      this.serviceActeur.ajouterActeur(this.acteurs, this.nom).subscribe(data => {
+        this.donner = data;
 
         console.log("--------- " + this.donner.contenu)
  })
     }
     else {
       this.erreur = " Veuillez remplir tous les champs !";
-     
-     
+
+
     }
 
 
