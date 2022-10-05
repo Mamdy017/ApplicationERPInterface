@@ -95,11 +95,11 @@
               <div class="trait"></div>
               <p class="text-center">Merci de visionner nos activités récentes</p>
 
-              <div class="row py-3 ps-3 ContourArticle m-3">
+              <div class="row py-3 ps-3 ContourArticle m-3"*ngFor="let activites of activiteRecent">
                 <div class="col-12 col-md-6 p-2">
                   <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                 </div>
-                <div class="col-12 col-md-6"*ngFor="let activites of activiteRecent">
+                <div class="col-12 col-md-6">
                   <div class="me-3" >
                     <h1 class="h5"><b>{{activites[0]}}</b></h1>
                     <p class="textArticle">
@@ -156,23 +156,22 @@
                 <h1 class="h4 text-center pt-3 display-6">Activités à venir</h1>
                 <div class="trait mb-4"></div>
 
-                <div class="ContourArticle py-2 m-2">
+                <div class="ContourArticle py-2 m-2" *ngFor="let activites of activiteAVenir">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                   </div>
                   <div class="col-12 col-md-12">
                     <div class="me-2">
-                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
+                      <h1 class="h5 text-center pt-1"><b>{{activites[0]}}</b></h1>
                       <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers...
-                      </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
+                        {{activites[1]}}                      </p>
+                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}} {{activites[3]}} </p>
                       <button class="btn btnReadMore">Savoir Plus</button>
                     </div>
                   </div>
                 </div>
 
-                <div class="ContourArticle py-2 m-2">
+                <!-- <div class="ContourArticle py-2 m-2">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                   </div>
@@ -186,9 +185,9 @@
                       <button class="btn btnReadMore">Savoir Plus</button>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
-                <div class="ContourArticle py-2 m-2">
+                <!-- <div class="ContourArticle py-2 m-2">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                   </div>
@@ -202,7 +201,7 @@
                       <button class="btn btnReadMore">Savoir Plus</button>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
               </div>
 
