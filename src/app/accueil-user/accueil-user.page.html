@@ -19,21 +19,22 @@
         <div class="row cardContour">
           <div class="col-6 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <!-- <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i> -->
+              <img src="../../assets/icon/ion_town.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{totalSalleLibre}}</p>
               <p class="pContent2 text-center">Salles disponibles</p>
             </div>
           </div>
           <div class="col-6 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <img src="../../assets/icon/🦆 icon _Graduation Cap_.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{apprenantsTotal}}</p>
               <p class="pContent2 text-center">Apprenants</p>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-chalkboard-user i iconsHaut text-center"></i>
+              <img src="../../assets/icon/🦆 icon _Chalkboard Teacher_.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{participantTotal}}</p>
               <p class="pContent2 text-center">Participants</p>
             </div>
@@ -62,7 +63,7 @@
                 </div>
                 <div class="textevents">
                   <p class="eventTitle">Talks</p>
-                  <p class="eventNumberTalk">98</p>
+                  <p class="eventNumberTalk">{{nombreTalks}}</p>
                 </div>
               </div>
               <div class="itemsevents">
@@ -71,7 +72,7 @@
                 </div>
                 <div class="textevents">
                   <p class="eventTitle">Evénements</p>
-                  <p class="eventNumberEvent">203</p>
+                  <p class="eventNumberEvent">{{nombreEvenements}}</p>
                 </div>
               </div>
               <div class="itemsevents">
@@ -79,8 +80,8 @@
                   <i class="bi bi-code-square"></i>
                 </div>
                 <div class="textevents">
-                  <p class="eventTitle">Formations</p>
-                  <p class="eventNumberForm">45</p>
+                  <p class="eventTitle">Formation</p>
+                  <p class="eventNumberForm">{{nombreFormation}}</p>
                 </div>
               </div>
             </div>
@@ -98,9 +99,25 @@
                 <div class="col-12 col-md-6 p-2">
                   <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                 </div>
+                <div class="col-12 col-md-6"*ngFor="let activites of activiteRecent">
+                  <div class="me-3" >
+                    <h1 class="h5"><b>{{activites[0]}}</b></h1>
+                    <p class="textArticle">
+                      {{activites[1]}}
+                    </p>
+                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}} {{activites[3]}}</p>
+                    <button class="btn btnReadMore">Savoir Plus</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row py-3 ps-3 ContourArticle m-3">
+                <div class="col-12 col-md-6 p-2">
+                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                </div>
                 <div class="col-12 col-md-6">
                   <div class="me-3">
-                    <h1 class="h5"><b>Formation Kalanso</b></h1>
+                    <h1 class="h5"><b>Formation Kalanso </b></h1>
                     <p class="textArticle">
                       Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
                       et totalement gratuite pour les jeunes de 18 à 30 ans...
@@ -109,8 +126,8 @@
                     <button class="btn btnReadMore">Savoir Plus</button>
                   </div>
                 </div>
-              </div>
-
+              </div> -->
+<!-- 
               <div class="row py-3 ps-3 ContourArticle m-3">
                 <div class="col-12 col-md-6 p-2">
                   <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
@@ -126,24 +143,7 @@
                     <button class="btn btnReadMore">Savoir Plus</button>
                   </div>
                 </div>
-              </div>
-
-              <div class="row py-3 ps-3 ContourArticle m-3">
-                <div class="col-12 col-md-6 p-2">
-                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="me-3">
-                    <h1 class="h5"><b>Formation Kalanso</b></h1>
-                    <p class="textArticle">
-                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
-                      et totalement gratuite pour les jeunes de 18 à 30 ans...
-                    </p>
-                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                    <button class="btn btnReadMore">Savoir Plus</button>
-                  </div>
-                </div>
-              </div>
+              </div> -->
 
 
             </div>

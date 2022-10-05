@@ -19,6 +19,26 @@ apprenantOUParticipant(decider:any){
   return this.http.get("http://localhost:8080/postulant/afficherNombreParticipantOuApprenant/"+`${decider}`)
 }
 
+//avoir le nombre de formation
+nombreFormation(){
+  return this.http.get("http://localhost:8080/activite/nombreFormation")
+}
 
+//le nombre de talks
+nombreTalks(){
+  return this.http.get("http://localhost:8080/activite/nombreTalks")
+}
+
+//le nombre d'evements
+nombreEvenements(){
+  return this.http.get("http://localhost:8080/activite/nombreEvenements")
 
 }
+
+
+  
+}
+
+
+
+
