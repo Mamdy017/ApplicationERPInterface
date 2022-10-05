@@ -1,10 +1,10 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Entite } from '../modeles/entite';
+import { Fichier } from '../modeles/entite';
 import { Observable } from 'rxjs';
-import { Entite, Fichier } from '../modeles/entite';
-import { EntiteService } from '../Services/entite.service';
+import { EntiteService } from '../Services/entite/entite.service';
 
 @Component({
   selector: 'app-entite',
@@ -38,6 +38,10 @@ export class EntitePage implements OnInit {
   
   message: string;
   contenu: string;
+
+
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
   constructor(private serviceEntite: EntiteService,
     private formB:FormBuilder,
@@ -113,5 +117,10 @@ resetForm(){
         })
         
         this.resetForm();
+    }
+
+    afficheMenuMobile() {
+      this.menuBureau = true;
+      this.menuMobile = false;
     }
 }

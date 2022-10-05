@@ -42,7 +42,8 @@ export class ListeGlobalePage implements OnInit {
     // ON RECUPERE LES LISTES
     this.serviceListe.mesListes().subscribe(data => {
       this.mesListe = data
-      // console.log("Activite "+this.mesListe.Activite)
+      //console.log("Activite "+ this.mesListe.activate.nom)
+      
     })
 
 

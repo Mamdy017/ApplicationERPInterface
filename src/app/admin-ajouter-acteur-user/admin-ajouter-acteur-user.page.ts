@@ -22,10 +22,7 @@ export class AdminAjouterActeurUserPage implements OnInit {
  menuBureau: boolean = true;
  menuMobile: boolean = false;
 
- afficheMenuMobile() {
-  this.menuBureau = true;
-  this.menuMobile = false;
-} 
+ 
 
 
   acteurs: Acteur = {
@@ -38,6 +35,8 @@ export class AdminAjouterActeurUserPage implements OnInit {
   }
   donner: any;
   erreur: any;
+
+ 
 
   constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
 
@@ -77,4 +76,8 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
   }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  } 
 }

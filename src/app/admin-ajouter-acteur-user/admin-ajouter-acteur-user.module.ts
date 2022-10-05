@@ -16,6 +16,6 @@ import { MenuComponent } from '../menu/menu.component';
     IonicModule,
     AdminAjouterActeurUserPageRoutingModule
   ],
-  declarations: [AdminAjouterActeurUserPage, MenuComponent]
+  declarations: [AdminAjouterActeurUserPage,MenuComponent]
 }) 
 export class AdminAjouterActeurUserPageModule {}

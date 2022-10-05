@@ -57,6 +57,7 @@ export class AuthentificationPage implements OnInit {
 
           if (this.typeUser != null) {
             sessionStorage.setItem("id_users", data.iduser);
+            sessionStorage.setItem("role_users", data.role.nom); 
             sessionStorage.setItem("nom_users", data.nom);
             sessionStorage.setItem("prenom_users", data.prenom);
             sessionStorage.setItem("role_users", data.role.nom);
@@ -70,7 +71,7 @@ export class AuthentificationPage implements OnInit {
               this.route.navigateByUrl('/admin-accueil');
             }
             else {
-              this.route.navigateByUrl('h');
+              this.route.navigateByUrl('/admin-accueil');
               console.log(data.contenu);             
             }
           }

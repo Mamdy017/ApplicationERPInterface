@@ -28,8 +28,10 @@
         <a routerLink="/accueil-user" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
       </li>
-      <!--*ngIf="role==admin"-->
-      <li *ngIf="role=='admin'" [routerLinkActive]=" 'active' " class="li ">
+      
+<!-- *ngIf="role = admin" -->
+
+      <li [routerLinkActive]=" 'active' " class="li ">
         <a routerLink="/admin-accueil" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Dashboard</span></a>
       </li>
@@ -67,7 +69,6 @@
         <a routerLink="/repording" class="nav-link  align-middle li">
           <i class="bi bi-pc-display-horizontal"></i> <span class="ms-1  d-sm-inline light px-3">Reporting</span></a>
       </li>
-      <li style="height: 850px;"></li>
     </ul>
   </div>
 </div>

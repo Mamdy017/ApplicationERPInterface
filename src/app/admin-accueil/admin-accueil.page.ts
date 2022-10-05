@@ -73,7 +73,7 @@ export class AdminAccueilPage implements OnInit {
 
       this.prenom = sessionStorage.getItem("prenom_users");
       this.nom = sessionStorage.getItem("nom_users");
-      this.role = sessionStorage.getItem("role_users");
+      this.role = sessionStorage.getItem("role_user")
       
 
     })
