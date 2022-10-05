@@ -17,7 +17,7 @@ export class TirageService {
 
    postTirage(libelleListe:string, libelleActivite:string, tirage:Tirage):Observable<any>{
 
-    console.log(`${this.api}/tirage/ajouter/${libelleListe}/${libelleActivite}`, tirage);
+    console.log(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
 
     return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}/${libelleActivite}`, tirage);
    }

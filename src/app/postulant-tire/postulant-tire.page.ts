@@ -52,6 +52,7 @@ export class PostulantTirePage implements OnInit {
     });
 
   }
+  
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
