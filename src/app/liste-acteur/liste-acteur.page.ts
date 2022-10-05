@@ -5,6 +5,9 @@ import { Acteur } from '../modeles/acteur/acteur';
 // import { Acteur } from '../modeles/acteur/acteur';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 // import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
+//filter de recherche;
+
+//import { FormsModule } from '@angular/forms';
 
 import * as XLSX from 'xlsx';
 
@@ -18,6 +21,20 @@ export class ListeActeurPage implements OnInit {
   menuBureau = true;
   menuMobile = false;
   p = 1;
+  searchTerm: string;
+  // acteurs: any;
+  
+  //recherche
+  // filterText:string = '';
+  //la recherche
+  // searchText: any;
+  // numeros= true;
+  //theme
+  // otherTheme: boolean = false;
+
+  // changeTheme() {
+  //   this.otherTheme = !this.otherTheme ;
+  // }
 
 
   constructor(private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
@@ -116,7 +133,16 @@ export class ListeActeurPage implements OnInit {
     this.cacherAction = false
     // this.showMe=true;
     // this.fonction()
+    this.fonction2()
+    
   }
+  fonction2(){
+    setTimeout(()=>{
+      this.cacherAction = true
+    }, 10000);
+  }
+
+
 
 
 
