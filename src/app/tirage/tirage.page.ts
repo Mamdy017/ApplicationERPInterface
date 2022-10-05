@@ -96,12 +96,12 @@ export class TiragePage implements OnInit {
     this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
 
 
-    if (this.libelleListet == "" || this.libelleTirage == "" || this.libelleActivite == "" || this.nombrePostulantTire == null) {
+    if (this.libelleListet == "" || this.libelleTirage == "" || this.nombrePostulantTire == null) {
       this.bool_erreurFr = true;
       this.bool_erreurBack = false;
       this.erreurTirageFr = "Veuillez renseigner tout les champs";
     } else {
-      this.serviceTirage.postTirage(this.libelleListet, this.libelleActivite, this.tirageObjet).subscribe((data) => {
+      this.serviceTirage.postTirage(this.libelleListet, this.tirageObjet).subscribe((data) => {
         this.erreurTirageBack = data
         if (data.status == true) {
           this.route.navigateByUrl("/liste-tirage")
@@ -187,6 +187,8 @@ export class TiragePage implements OnInit {
         .subscribe(res => {
 
           this.erreurImpBack = res;
+
+          console.log(res.status);
 
           if(res.status == true){
             this.route.navigateByUrl("/postulant-tire/")

@@ -10,24 +10,24 @@ import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste
 })
 export class ListeTiragePage implements OnInit {
 
-  p=1;
+  p = 1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
 
   select_liste!: any;
-  tirage_actuel!:any;
-  tiragePourUneListe!:any;
-  
-  lesListes$!:any;
-  uneListe!:any
+  tirage_actuel!: any;
+  tiragePourUneListe!: any;
 
-  constructor(private serviceTirage:PageListeTirageService,public breakpointObserver: BreakpointObserver, private ajouterPostulantService: AjouterPostulantService) { }
+  lesListes$!: any;
+  uneListe!: any
 
-  totalTirage:any
-  listeTirages:any
-  tirages$:any
-  
+  constructor(private serviceTirage: PageListeTirageService, public breakpointObserver: BreakpointObserver, private ajouterPostulantService: AjouterPostulantService) { }
+
+  totalTirage: any
+  listeTirages: any
+  tirages$: any
+
 
   actualise(): void {
     setInterval(
@@ -49,14 +49,18 @@ export class ListeTiragePage implements OnInit {
         }
       });
     // RECUPERATION DU NOMBRE DE TIRAGE
-    this.serviceTirage.totalTirage().subscribe(data=>{ this.totalTirage = data })
+    this.serviceTirage.totalTirage().subscribe(data => { this.totalTirage = data })
 
-    // ICI ON RECUPERE LA LISTE DE TOUTE LES TIRAGES
-    this.serviceTirage.lesTirages().subscribe(data=>{ this.listeTirages = data})
 
-    this.ajouterPostulantService.recupererListePostulant().subscribe((data =>{
-      this.lesListes$ = data;
-    }))
+
+    // ICI ON RECUPERE les validés
+    this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+
+
+
+    // this.ajouterPostulantService.recupererListePostulant().subscribe((data =>{
+    //   this.lesListes$ = data;
+    // }))
 
 
   }
@@ -65,24 +69,28 @@ export class ListeTiragePage implements OnInit {
     this.menuBureau = true;
     this.menuMobile = false;
   }
-  
+
 
   filtreUserParEntite(event) {
 
-    if(this.select_liste != "Filtre par Liste"){
+    if (event.target.value == "Tirage non valider") {
 
 
       console.log(event.target.value)
 
       this.tirage_actuel = event.target.value;
 
-     this.serviceTirage.recupererLesTirageEnfonction(this.select_liste).subscribe((data)=>{
+      //  this.serviceTirage.recupererLesTirageEnfonction(this.select_liste).subscribe((data)=>{
 
-      this.tiragePourUneListe = data;
+      //   this.tiragePourUneListe = data;
 
-     })
+      //  })
+
+      this.serviceTirage.recupererLesTirageNonValider().subscribe(data => { this.listeTirages = data })
 
 
+    } else {
+      this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
     }
 
 

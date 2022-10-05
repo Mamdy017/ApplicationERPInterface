@@ -45,6 +45,17 @@
                     </select>
                   </div> -->
 
+
+                  <div>
+                    <select name="tirage" id="tirage" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                      <option>Tirage valider</option>
+                      <option >Tirage non valider</option>
+                      <label for="tirage">Tirage</label>
+                    </select>
+                  </div>
+
+
+
             </div>
 
               <div class="table-responsive ra py-5">
@@ -58,7 +69,7 @@
                       <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody >
                     <tr *ngFor="let liste of listeTirages | paginate: { itemsPerPage: 5, currentPage: p}">
                       <td scope="row">{{liste.libelleTirage}}</td>
                       <td scope="">{{liste.nombrePostulantTire}}</td>
