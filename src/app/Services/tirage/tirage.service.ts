@@ -23,4 +23,6 @@ export class TirageService {
    TrouverTirageParListe(idListe:number){
     return this.http.get(`${this.api}/tirage/tirageParListe/${idListe}`);
    }
+
+  
 }

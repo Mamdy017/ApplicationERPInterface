@@ -47,7 +47,7 @@
                     <tr *ngFor="let liste of mesListe">
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
-                      <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.nom}}</a></td>
+                      <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a></td>
                       <td><a [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
 
                     </tr>

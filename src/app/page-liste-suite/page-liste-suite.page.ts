@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 import { TirageService } from '../Services/tirage/tirage.service';
 
 @Component({
@@ -12,7 +13,12 @@ export class PageListeSuitePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 ListeTirage:any;
-  constructor(public breakpointObserver: BreakpointObserver, private service: TirageService, private route:ActivatedRoute) { }
+//nombre de postulant tire par genre
+PostulantTireParGenre:any;
+
+  constructor(public breakpointObserver: BreakpointObserver, private service: TirageService, 
+              private route:ActivatedRoute, 
+              private servicePostulantTire:PostulantTireService) { }
   actualise(): void {
     setInterval(
       () => {
@@ -37,8 +43,19 @@ ListeTirage:any;
       const id_liste = +this.route.snapshot.params["idliste"];
       this.service.TrouverTirageParListe(id_liste).subscribe(data=>{
         this.ListeTirage=data
-        console.log(data);
-      })
+       
+    
+        
+
+   })       
+      //Recuperer les nombre de postulant tiré par genre sur un tirage
+
+      this.servicePostulantTire.TrouverNombrePostulantTireParGenre(this.PostulantTireParGenre.idtirage, this.PostulantTireParGenre.genre).subscribe(data=>{
+       
+        this.ListeTirage=this.PostulantTireParGenre.data
+        console.log("C'est quoi le probleme" +this.PostulantTireParGenre)
+
+    })
   }
 
   afficheMenuMobile() {

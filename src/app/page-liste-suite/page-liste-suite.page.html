@@ -64,8 +64,8 @@
                 <td scope="row">{{tire.libelleTirage}}}</td>
                   <td>{{tire.date | date : 'd MMMM yyyy'}}</td>
                   <td>{{tire.nombrePostulantTire}}</td>
-                  <td>{{tire.homme}}</td>
-                  <td>{{tire.femme}}</td>
+                   <td>{{tire.genre.genre[1]}}</td> 
+                  <td>{{tire.genre.Feminin}}</td> 
                   <td><a [routerLink]="['/page-liste-tire',tire.idTirage]"  >Voir Plus</a></td>
 
                 
