@@ -41,9 +41,10 @@ export class TiragePage implements OnInit {
 
 
     libelleTirage: ""
-    nombrePostulantTire: 0
+    nombrePostulantTire: number
     libelleActivite:""
     libelleListe:""
+    libelleListet:""
 
     formmodule!:FormGroup;
     erreurTirage: any;
@@ -66,7 +67,7 @@ export class TiragePage implements OnInit {
       this.libelleTirage,
       this.libelleListe = "",
       this.libelleActivite = "",
-      this.nombrePostulantTire = 0
+      this.nombrePostulantTire = null
     }
 
     postTirage(){
@@ -75,20 +76,22 @@ export class TiragePage implements OnInit {
       
       this.tirageObjet.libelleTirage = this.libelleTirage;
       this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
-      console.log(this.libelleListe)
+      //console.log(this.libelleListe)
 
-      if(this.libelleListe == "" || this.libelleTirage == "" || this.libelleActivite == "" || this.nombrePostulantTire == 0){
+      if(this.libelleListet == "" || this.libelleTirage == "" || this.libelleActivite == "" || this.nombrePostulantTire == null){
         this.erreurTirage = "Veuillez renseigner tout les champs";
       }else{
-        
-        this.serviceTirage.postTirage(this.libelleListe, this.libelleActivite, this.tirageObjet).subscribe((data) =>{
-          this.erreurTirage = data.contenu
+        alert("test");
+        console.log("maliste: "+ this.libelleListet)
+        console.log("Mon activite: " + this.libelleActivite)
+        this.serviceTirage.postTirage(this.libelleListet, this.libelleActivite, this.tirageObjet).subscribe((data) =>{
+          this.erreurTirage = data
           console.log("Donnée envoyé avec succes");
         });
-        
+        this.resetTirageForm()
       }
 
-      this.resetTirageForm()
+      
     }
 
 
