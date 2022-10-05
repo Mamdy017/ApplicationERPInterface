@@ -35,6 +35,11 @@ nombreEvenements(){
 
 }
 
+//Afficher Par Id
+AfficherParId(idactivite:number):Observable<any>{
+  return this.http.get(`http://localhost:8080/activite/afficherActiviteParId/${idactivite}`)
+}
+
 
   
 }
