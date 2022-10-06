@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import {NgxPaginationModule  } from "ngx-pagination";
+import {NgxPaginationModule  } from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent],

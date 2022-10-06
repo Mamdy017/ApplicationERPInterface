@@ -62,7 +62,7 @@
             </thead>
             <tbody>
                 
-              <tr *ngFor="let tire of ListeTirage | paginate:{itemsPerPage: 3, currentPage:page}">
+              <tr *ngFor='let tire of ListeTirage | paginate:{itemsPerPage:3, currentPage:page}'>
               
                 <td scope="row">{{tire.libelleTirage}}</td>
                   <td>{{tire.date | date : 'd MMMM yyyy'}}</td>

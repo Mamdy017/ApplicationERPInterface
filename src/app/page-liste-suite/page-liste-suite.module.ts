@@ -8,13 +8,15 @@ import { PageListeSuitePageRoutingModule } from './page-liste-suite-routing.modu
 
 import { PageListeSuitePage } from './page-liste-suite.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgxPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PageListeSuitePageRoutingModule
+    PageListeSuitePageRoutingModule, 
+    NgxPaginationModule
   ],
   declarations: [PageListeSuitePage,MenuComponent]
 })

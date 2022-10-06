@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 import { TirageService } from '../Services/tirage/tirage.service';
 import { ListePostulantService } from "../Services/liste-postulant.service";
+import {  } from "../";
 
 @Component({
   selector: 'app-page-liste-suite',
