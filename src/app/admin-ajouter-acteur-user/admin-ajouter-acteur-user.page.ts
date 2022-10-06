@@ -42,10 +42,10 @@ export class AdminAjouterActeurUserPage implements OnInit {
   donner: any;
   erreur: any;
 
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
+  menuBureau = true;
+  menuMobile = false;
 
-  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
+  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut: StatutService) { }
 
   ngOnInit() {
     // On recupere les statut
@@ -64,12 +64,12 @@ export class AdminAjouterActeurUserPage implements OnInit {
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      this.acteurs.statut = this.statutChoix;
+      this.acteurs.statut.statut_idStatut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
 
 
-      this.serviceActeur.ajouterActeur(this.acteurs, this.nom).subscribe(data => {
+      this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
         this.donner = data;
 
         console.log('--------- ' + this.donner.contenu);
@@ -80,6 +80,9 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
     }
+  }
+  stat(acteurs: Acteur, stat: any) {
+    throw new Error('Method not implemented.');
   }
   afficheMenuMobile() {
     this.menuBureau = true;

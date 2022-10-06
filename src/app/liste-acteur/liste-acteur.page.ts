@@ -64,11 +64,12 @@ export class ListeActeurPage implements OnInit {
       });
     // const myTimeout = setTimeout(this.AfficherAction, 5000);
     // this.toogleTag()
-    this.fonction()
+    this.fonction();
   }
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   AfficherAction() {
-    this.cacherAction = true
+    this.cacherAction = true;
   }
   supprimer(acteur: any) {
     const confirmer = confirm('êtes-vous sûr de le supprimer ?');
@@ -93,6 +94,7 @@ export class ListeActeurPage implements OnInit {
   /*pour exporter sans un champ, on declarer la constante cacherAction*/
   //showMe:boolean = false;
   // showMe=true;
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   cacherAction = true;
   exportToExcel(): void {
     // this.cacherAction = false
@@ -110,12 +112,12 @@ export class ListeActeurPage implements OnInit {
     // }, 1000);
     // this.cacher = false;
     /*pour exporter sans col action*/
-    this.fonction()
+    this.fonction();
   }
   /*Actualiser directement après export*/
   fonction(){
     setTimeout(()=>{
-      this.cacherAction = true
+      this.cacherAction = true;
     }, 100);
   }
 
@@ -130,15 +132,15 @@ export class ListeActeurPage implements OnInit {
 
   /*Méthode pour cacherAction en un clique*/
   toogleTag() {
-    this.cacherAction = false
+    this.cacherAction = false;
     // this.showMe=true;
     // this.fonction()
-    this.fonction2()
+    this.fonction2();
 
   }
   fonction2(){
     setTimeout(()=>{
-      this.cacherAction = true
+      this.cacherAction = true;
     }, 10000);
   }
 
