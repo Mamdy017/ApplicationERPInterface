@@ -1,30 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+// import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
 })
-export class MenuComponent implements OnInit {
+export class MenuPage implements OnInit {
+
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
   constructor() { }
 
-nom:any
-prenom:any
-role:any
+  actualise(): void{
+    setInterval(
+      ()=>{
+      },100, clearInterval(1500));
+  }
 
   ngOnInit() {
 
-   
-    this.nom =  sessionStorage.getItem("nom_users")
-    this.role =  sessionStorage.getItem("role_users")
-    this.prenom =  sessionStorage.getItem("prenom_users")
-    
-   
-   console.log("Je suis le role ========================== "+this.role)
+  //   this.breakpointObserver
+  //   .observe(['(max-width: 767px)'])
+  //   .subscribe((state: BreakpointState) => {
+  //     if (state.matches) {
+  //       this.menuBureau = false;
+  //       this.menuMobile = true;
+  //       this.actualise();
+  //     } else {
+  //       this.menuBureau = true;
+  //       this.menuMobile = false;
+  //       this.actualise();
+  //     }
+  //   });
+
+  // }
+
+  // afficheMenuMobile(){
+  //   this.menuBureau = true;
+  //   this.menuMobile = false;
+  // }
+
+  // cacherMenuMobile(){
+  //   this.menuBureau = false;
+  //   this.menuMobile = true;
+  // }
 
 
-   }
 
+}
 }

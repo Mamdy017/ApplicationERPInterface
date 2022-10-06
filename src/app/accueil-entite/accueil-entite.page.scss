@@ -1,6 +1,13 @@
 // .container{
 //     // padding-top: 40px;
 // }
+
+.haut {
+  background-color: #FF6600;
+  color: white;
+  height: 80px;
+}
+
 .card{
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     align-items: center;
@@ -46,13 +53,19 @@
     height: 100%;
     text-align: center;
 }
+
+
 h1{
     background-color: #FF6600;
     width: 50%;
    
 }
 h2{
-    text-align: center;
+  margin-top: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 22px;
+  text-align: center;
 }
 .a{
     text-align: center;

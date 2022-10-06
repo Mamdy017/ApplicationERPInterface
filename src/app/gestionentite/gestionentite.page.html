@@ -19,41 +19,23 @@
         <p class="p">Orange Digital Center</p>
       </div><br><br>
 
-      <div class="col-12" >
-        <a href="entite"><input type="button" value="Créer une entite" class="float-right bouton"></a><br><br><br>
+      <div class="bouton-div">
+        <a href="entite"><button class="bouton" >Ajouter une entité</button></a>
       </div>
+      
+      <!-- <div class="col-12" >
+        <a href="entite"><input type="button" value="Créer une entite" class="float-right bouton"></a><br><br><br>
+      </div> -->
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-6" *ngFor="let entite of entites">
           <div class="cardContent col-12 m-3">
               <div class="pContent">
                 <!-- <p  class="align center">Orange Digital Kalanso</p> -->
                   <p class="cardHoneContent text-center"><i class="bi bi-code-slash"></i></p>
-                 <a href="accueil-entite"> <p  class="pContent2">Ecole du code</p> </a>
+                 <a [routerLink]="['/accueil-entite', entite.idEntite]"> <p  class="pContent2">{{entite.nom}}</p> </a>
               </div>
-          </div>
-
-          <div class="cardContent col-12 m-3">
-              <div class="pContent">
-                  <p class="cardHoneContent text-center"><i class="bi bi-boxes"></i></p>
-                  <p  class="pContent2">Fablab Solidaire</p>
-              </div>
-          </div>
-      </div>
-      <div class="col-12 col-md-6">
-          <div class="cardContent col-12 m-3">
-            <div class="pContent">
-                <p class="cardHoneContent text-center"><img src="assets/images/orangeFabI.png" alt="" width="100" height="50" style="margin-left: 50px;"></p>
-                <p  class="pContent2">Orange Fab</p>
-            </div>
-          </div>
-
-          <div class="cardContent col-12 m-3">
-            <div class="pContent">
-                <p class="cardHoneContent text-center"><ion-icon name="server-outline"></ion-icon></p>
-                <p  class="pContent2">Orange Ventures</p>
-            </div>
           </div>
       </div>
   </div>

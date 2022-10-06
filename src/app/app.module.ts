@@ -18,6 +18,7 @@ import { NgModule } from '@angular/core';
 import{NgChartsModule} from 'ng2-charts'
 import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
