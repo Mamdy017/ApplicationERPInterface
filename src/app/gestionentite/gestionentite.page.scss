@@ -1,153 +1,153 @@
 
-.headContent{
-  width: 220px;
-  height: 45px;
-  position: absolute;
-  left: 0px;
-  background-color: #E7EBED;
-  top: 10px;
-  text-align: center;
-  padding-top: 8px;
-  border-radius: 0px 23px 23px 0px;
-}
-.p, .headContent p{
-  font-size: 22px;
-}
-
-.bouton{
-  background-color: #ff6600;
-  color: white;
-  border-radius: 12px;
-  width: 200px;
-  height: 45px;
-  border: none;
-  font-size: 20px;
-  box-shadow: 1px 1px 5px rgb(0 0 0 / 80%);
-}
-
-.bouton-div {
-  margin: 30px 25px;
-  display: flex;
-  justify-content: center;
-}
-
-
-.cardContent{
-  background: #ffffff;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-.cardHoneContent{
-  color: #EE5F00;
-  font-size: 4rem;
-  font-weight: bold;
-}
-.pContent{
-  display: flex;
-  flex-direction: column;
-}
-
-.pContent2{
-  color: black;
-  margin-top:-30px ;
-  position: relative;
-  font-size: 1.2rem;
-  text-align: center;
-}
-
-.head{
-  height: 80px;
-  background: #ffffff;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-
-
-
-// *{
-//   font-family: 'Poppins', sans-serif;
+// .headContent{
+//   width: 220px;
+//   height: 45px;
+//   position: absolute;
+//   left: 0px;
+//   background-color: #E7EBED;
+//   top: 10px;
+//   text-align: center;
+//   padding-top: 8px;
+//   border-radius: 0px 23px 23px 0px;
+// }
+// .p, .headContent p{
+//   font-size: 22px;
 // }
 
-
-
-// .contourCard{
-//   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-//   border-radius: 15px;
-// }
-
-// .AddEntity{
-//   background: #FF6600;
-//   color: #fff;
-//   padding: 10px;
+// .bouton{
+//   background-color: #ff6600;
+//   color: white;
+//   border-radius: 12px;
+//   width: 200px;
+//   height: 45px;
 //   border: none;
-// }
-// .AddEntity:hover{
-//   background: black;
-//   color: #fff;
+//   font-size: 20px;
+//   box-shadow: 1px 1px 5px rgb(0 0 0 / 80%);
 // }
 
-// .cardHome1{
-//   background: #0FAD61;
-//   text-align: center;
-//   border-radius: 15px;
-//   padding: 18px;
-//   color: white;
-// }
-
-// .cardHome2{
-//   background: #7F71B3;
-//   text-align: center;
-//   border-radius: 15px;
-//   padding: 18px;
-//   color: white;
+// .bouton-div {
+//   margin: 30px 25px;
+//   display: flex;
+//   justify-content: center;
 // }
 
 
-// .cardHome3{
-//   background: #9E9E9E;
-//   text-align: center;
-//   border-radius: 15px;
-//   padding: 18px;
+// .cardContent{
+//   background: #ffffff;
+//   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+// }
+
+// .cardHoneContent{
+//   color: #EE5F00;
+//   font-size: 4rem;
+//   font-weight: bold;
+// }
+// .pContent{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .pContent2{
 //   color: black;
-// }
-
-
-// .cardHome4{
-//   background: #068CC0;
-//   text-align: center;
-//   border-radius: 15px;
-//   padding: 18px;
-//   color: white;
-// }
-
-// .titleEntite{
-//   font-weight: 600;
-//   font-size: 1.4rem;
-// }
-
-// .txtEntite{
-//   color: #fff;
+//   margin-top:-30px ;
 //   position: relative;
-//   top: -15px;
-// }
-// .iconSize1{
-//   width: 70px;
-//   height: 70px;
-
+//   font-size: 1.2rem;
+//   text-align: center;
 // }
 
-// .iconSize2{
-//   width: 75px;
-//   height: 70px;
+// .head{
+//   height: 80px;
+//   background: #ffffff;
+//   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 // }
 
-// .iconSize3{
-//   width: 85px;
-//   height: 85px;
-// }
 
-// .iconSize4{
-//   width: 80px;
-//   height: 60px;
-//   margin: 13px;
-// }
+
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.contourCard{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+}
+
+.AddEntity{
+  background: #FF6600;
+  color: #fff;
+  padding: 10px;
+  border: none;
+}
+.AddEntity:hover{
+  background: black;
+  color: #fff;
+}
+
+.cardHome1{
+  background: #0FAD61;
+  text-align: center;
+  border-radius: 15px;
+  padding: 18px;
+  color: white;
+}
+
+.cardHome2{
+  background: #7F71B3;
+  text-align: center;
+  border-radius: 15px;
+  padding: 18px;
+  color: white;
+}
+
+
+.cardHome3{
+  background: #9E9E9E;
+  text-align: center;
+  border-radius: 15px;
+  padding: 18px;
+  color: black;
+}
+
+
+.cardHome4{
+  background: #068CC0;
+  text-align: center;
+  border-radius: 15px;
+  padding: 18px;
+  color: white;
+}
+
+.titleEntite{
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.txtEntite{
+  color: #fff;
+  position: relative;
+  top: -15px;
+}
+.iconSize1{
+  width: 70px;
+  height: 70px;
+
+}
+
+.iconSize2{
+  width: 75px;
+  height: 70px;
+}
+
+.iconSize3{
+  width: 85px;
+  height: 85px;
+}
+
+.iconSize4{
+  width: 80px;
+  height: 60px;
+  margin: 13px;
+}

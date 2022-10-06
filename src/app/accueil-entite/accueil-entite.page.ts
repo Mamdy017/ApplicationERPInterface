@@ -11,6 +11,9 @@ import { GestionentiteService } from '../Services/gestionentite/gestionentite.se
   styleUrls: ['./accueil-entite.page.scss'],
 })
 export class AccueilEntitePage implements OnInit {
+  nom_res : string;
+  prenom_res : string;
+  img_res : string;
   nom_entite : Entite;
   activite_encours : Activite [];
   activite_avenir : Activite [];
@@ -78,6 +81,30 @@ export class AccueilEntitePage implements OnInit {
   }  afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
+  }
+
+  responsable (entite : number){
+    if(entite == 1){
+      this.nom_res == "Diallo";
+      this.prenom_res == "Kaou";
+      this.img_res == "assets/icon/user.png";
+    }
+    if(entite == 2){
+      this.nom_res == "Maïga";
+      this.prenom_res == "Abdoulaziz";
+      this.img_res == "assets/icon/user.png";
+    }
+    if(entite == 3){
+      this.nom_res == "Koloma";
+      this.prenom_res == "Jeremi";
+      this.img_res == "assets/icon/user.png";
+    }
+    if(entite == 6){
+      this.nom_res == "Diarra";
+      this.prenom_res == "Diarra";
+      this.img_res == "assets/icon/user.png";
+    }
+    
   }
 
 }

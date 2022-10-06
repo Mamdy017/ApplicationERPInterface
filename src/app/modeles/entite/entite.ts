@@ -3,10 +3,11 @@ export class Entite {
     nom!: string;
     description!: string;
     slogant!: string;
-   
 }
-export class Fichier {
-
-    photoentite!: string;
-    file!:File;
-}
+    
+    export class Fichier {
+        
+        photoentite!: string;
+        file!:File;
+    }
+    
