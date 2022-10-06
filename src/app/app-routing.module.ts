@@ -150,6 +150,10 @@ const routes: Routes = [
     path: 'ajouter_utilisateur',
     loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
   },
+  // {
+  //   path: 'tirage-valide',
+  //   loadChildren: () => import('./tirage-valide/tirage-valide.component').then( m => m.TirageValideComponent)
+  // },
 
 
 
