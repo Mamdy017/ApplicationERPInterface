@@ -50,13 +50,13 @@
           <tr>
             <td><select class="slth" name="selection" [(ngModel)]="statutChoix">
               <!-- <option value="">--Statut--</option> -->
-              <option  *ngFor="let statuts of statut" class="form-control"  [ngValue] ="statut">{{statuts.nom}}</option>
+              <option  *ngFor="let statuts of statut" class="form-control"  [ngValue] ="statutChoix">{{statuts.nom}}</option>
             </select></td>
           </tr>
           <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
         </table>
       </form>
-      
+
     </div>
 
   </div>

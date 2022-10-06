@@ -35,7 +35,7 @@ export class AdminAjouterActeurUserPage implements OnInit {
   numero= '';
   email= '';
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  Statut: any;
+  // Statut: any;
 
 
 
@@ -45,11 +45,11 @@ export class AdminAjouterActeurUserPage implements OnInit {
   menuBureau = true;
   menuMobile = false;
 
-  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut: StatutService) { }
+  constructor(private serviceActeur: AdminActeurUserService, /*private serviceStatut: StatutService*/) { }
 
   ngOnInit() {
-    // On recupere les statut
-    this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
+    // // On recupere les statut
+    // this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
   }
 
 
@@ -59,12 +59,12 @@ export class AdminAjouterActeurUserPage implements OnInit {
     // console.log("-----------"+this.statutChoix)
 
     // eslint-disable-next-line eqeqeq
-    if (this.nom != '' && this.prenom != '' && this.email != '' && this.statutChoix != null && this.numero != null) {
+    if (this.nom != '' && this.prenom != '' && this.email != '' /*&& this.statutChoix != null && this.numero != null*/) {
 
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      this.acteurs.statut.statut_idStatut = this.statutChoix;
+      // this.acteurs.statut.statut_idStatut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
 
@@ -77,13 +77,11 @@ export class AdminAjouterActeurUserPage implements OnInit {
     }
     else {
       this.erreur = 'Veuillez remplir tous les champs !';
-
-
     }
   }
-  stat(acteurs: Acteur, stat: any) {
-    throw new Error('Method not implemented.');
-  }
+  // stat(acteurs: Acteur, stat: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
