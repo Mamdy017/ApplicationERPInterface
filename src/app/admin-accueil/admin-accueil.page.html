@@ -20,7 +20,7 @@
                 <i class="bi bi-filter Filtree mx-3 pt-2"></i>
                 <div class="iputFilter">
                   <select name="designation" id="designation" class="form-select form-control bi bi-filter-right">
-                    <option selected>Filtré par An</option>
+                    <option selected>Filtrer par An</option>
                     <option>2022</option>
                     <option>2021</option>
                     <option>2020</option>
@@ -58,16 +58,16 @@
 
           <!-- deuxième partie-->
           <div class="row">
-            <h2>Les entités d'orange</h2>
-            <div class="col-12 col-md-4">
+            <h2>Les entités d'Orange Digital Center</h2>
+            <div class="col-12 col-md-4" *ngFor="let entites of afficherEntiteAdmin">
               <div class="row">
                 <div class="cardHome col-6 col-md-6 py-3">
                   <div class="contourCard p-2">
                     <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">Orange Ventures</p>
+                    <p class="txtcardbottom">{{entites[1]}}</p>
                   </div>
                 </div>
-                <div class="cardHome col-6 col-md-6 py-3">
+                <!-- <div class="cardHome col-6 col-md-6 py-3">
                   <div class="contourCard p-2">
                     <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
                     <p class="txtcardbottom">Orange Fab</p>
@@ -80,7 +80,7 @@
                     <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
                     <p class="txtcardbottom">FabLab Solidaire</p>
                   </div>
-                </div>
+                </div> -->
                 <div class="cardHome col-6 col-md-6 py-3">
                   <a href="accueil-entite">
                     <div class="contourCard p-2">
@@ -93,9 +93,9 @@
               </div>
             </div>
             <div class="col-12 col-md-8">
-              <small>La barre horizontal correspond aux de d'acitivité se deroulant dans une entite pendant un mois </small>
+              <small>L'alignement vertical répresente le nombre d'activités par mois </small>
               <canvas #barCanvas style="position: relative; height: 10vh; width: 10vw;"></canvas>
-              <small>les 12 mois de l'année</small>
+              <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
             </div>
           </div>
         </main>

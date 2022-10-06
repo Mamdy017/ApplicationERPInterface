@@ -30,4 +30,6 @@ export class EntiteService {
   afficherEntite():Observable<any>{
     return this.http.get("http://localhost:8080/entite/afficher");
   }
+
+  
 }
