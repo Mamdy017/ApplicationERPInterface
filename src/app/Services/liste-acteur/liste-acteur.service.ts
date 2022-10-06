@@ -26,6 +26,9 @@ afficherLesActeurs() :Observable<Acteur[]> {
   return this.http.get<Acteur[]>("http://localhost:8080/acteur/afficher");
 }
 
+AfficherActeurParActivites() :Observable<Acteur[]> {
+  return this.http.get<Acteur[]>("http://localhost:8080/acteur/afficherActeurParActivite");
+}
 supprimerActeur(id : number) :Observable<any>{
   return this.http.delete(`http://localhost:8080/acteur/supprimer/${id}`);
 }
