@@ -27,6 +27,7 @@ export class AdminAccueilPage implements OnInit {
   role:any
   afficherEntiteAdmin:any;
   entite:Entite
+  afficheAnnee:any
 
 
   constructor(private service: ServicesService,
@@ -82,6 +83,11 @@ export class AdminAccueilPage implements OnInit {
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
+
+      //affiche année
+      this.serviceAccueil.afficherAnnee().subscribe(data => {
+        this.afficheAnnee= data
+      })
 
 
       // Ici on charge les sessions

@@ -17,6 +17,11 @@ export class AccueilAdminService {
     return this.http.get<Entite>("http://localhost:8080/entite/afficherEntiteAdmin");
   }
 
+  //afficher l'année
+  afficherAnnee():Observable<any>{
+    return this.http.get("http://localhost:8080/annee/affiche");
+  }
+
 
   
 }
