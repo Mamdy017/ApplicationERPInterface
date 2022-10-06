@@ -106,8 +106,8 @@ export class ActivitePage implements OnInit {
     nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
     nombrepersonnedemande: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    // datedeb: new FormControl('', [Validators.required]),
-    // datefin: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    datedeb: new FormControl('', [Validators.required]),
+    datefin: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurs: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurInternes: new FormControl('', [Validators.required, Validators.minLength(1)]),
     libelleEntite: new FormControl('', [Validators.required]),
@@ -156,8 +156,8 @@ export class ActivitePage implements OnInit {
     data.append("nom", this.myFormActivite.get('nom').value);
     data.append("description", this.myFormActivite.get('description').value);
     data.append("nombrepersonnedemande",this.myFormActivite.get('nombrepersonnedemande').value);
-    // data.append("datedeb",this.myFormActivite.get('datedeb').value );
-    // data.append("datefin", this.myFormActivite.get('description').value);
+    data.append("datedeb",this.myFormActivite.get('datedeb').value );
+    data.append("datefin", this.myFormActivite.get('datefin').value);
     data.append("idacteurs", this.myFormActivite.get('idacteurs').value);
     data.append("idacteurInternes", this.myFormActivite.get('idacteurInternes').value);
     data.append("libelleEntite", this.myFormActivite.get('libelleEntite').value);
@@ -175,8 +175,8 @@ export class ActivitePage implements OnInit {
    console.log(this.myFormActivite.get('nom').value)
    console.log(this.myFormActivite.get('description').value)
    console.log(this.myFormActivite.get('nombrepersonnedemande').value)
-  //  console.log(this.myFormActivite.get('datedeb').value)
-  //  console.log(this.myFormActivite.get('datefin').value)
+   console.log(this.myFormActivite.get('datedeb').value)
+   console.log(this.myFormActivite.get('datefin').value)
    console.log(this.myFormActivite.get('description').value)
    console.log(this.myFormActivite.get('idacteurInternes').value)
    console.log(this.myFormActivite.get('libelleEntite').value)
@@ -188,7 +188,7 @@ export class ActivitePage implements OnInit {
       
    console.log(`http://localhost:8080/activite/ajouter`, data);
      
-      this.http.post<any>("http://localhost:8080/activite/ajouter",data).subscribe(res => {
+      this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
 
           console.log(res);
 
