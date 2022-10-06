@@ -39,6 +39,7 @@
                   <option selected> --- salle ---</option>
                   <option *ngFor="let salle of salles$">{{salle.nom}}</option>
               </select>
+              <label for="salle">Salle</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
@@ -56,43 +57,44 @@
                   <option selected> --- entites ---</option>
                   <option *ngFor="let entite of entites$">{{entite.nom}}</option>
               </select>
+              <label for="entity">Entité</label>
             </div>
             
-            <div class="mb-5 col-12 viens1 form-row form-floating" >
+            <div class="mb-5 col-12 viens1 form-row form-floating">
                 <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" rows="3"></textarea>
               <label for="name">Description:</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select  id="sexe" formControlName="typeAct" class="form-select form-control inputvalue" [(ngModel)]="typeAct" >
-                  <option selected> Type activité</option>
+              <select  id="sexe" formControlName="typeAct" class="form-select form-control inputvalue" [(ngModel)]="typeAct">
+                <option selected> --- Type activité ---</option>
                   <option *ngFor="let typeActivite of typeActivites$">{{typeActivite.typeActivite}}</option>
               </select>
+              <label for="activity">Type activité</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating" >
-              
               <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"  placeholder="--Acteur interne---">
                 <ion-option selected> --- Acteur interne---</ion-option>
                 <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
-                <label >Acteur interne</label>
             </ion-select>
+            <label >Acteur interne</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">            
               <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs" [(ngModel)]="idacteurs" [multiple]="true"  placeholder="---Acteur externe---">
                   <ion-option selected> --- Acteur externe ---</ion-option>
                     <ion-select-option *ngFor = "let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}</ion-select-option>
-                  <label >Acteur externe</label>
               </ion-select>
+              <label >Acteur externe</label>
             </div>
             
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
               <select id="sexe"  class="form-select form-control inputvalue" formControlName="idresponsable" [(ngModel)]="idresponsable">
                   <option selected> --- Responsable ---</option>
                   <option *ngFor="let respon of respons$"  [(ngValue)]="respon.iduser">{{respon.nom}}</option>
-                  <label>Responsable</label>
               </select>
+              <label>Responsable</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating" >
