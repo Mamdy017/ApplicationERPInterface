@@ -19,15 +19,11 @@ export class AdminAjouterActeurUserPage implements OnInit {
   // telephone:any
 
 
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
-
-
+ statutChoix: any;
 
 
   acteurs: Acteur = {
-    nom: "",
-
+    nom: '',
 
     prenom: '',
     numero: '',
@@ -37,24 +33,24 @@ export class AdminAjouterActeurUserPage implements OnInit {
   };
   nom = '';
   prenom = '';
-  numero = '';
-  email = '';
+  numero= '';
+  email= '';
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  Statut: any;
-
-  statutChoix: any;
-
+  // Statut: any;
 
 
 
   donner: any;
   erreur: any;
 
-  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut: StatutService) { }
+  menuBureau = true;
+  menuMobile = false;
+
+  constructor(private serviceActeur: AdminActeurUserService, /*private serviceStatut: StatutService*/) { }
 
   ngOnInit() {
-    // On recupere les statut
-    this.serviceStatut.afficherToutesLesStatus().subscribe(data => { this.statut = data; });
+    // // On recupere les statut
+    // this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
   }
 
 
@@ -64,28 +60,29 @@ export class AdminAjouterActeurUserPage implements OnInit {
     // console.log("-----------"+this.statutChoix)
 
     // eslint-disable-next-line eqeqeq
-    if (this.nom != '' && this.prenom != '' && this.email != '' && this.statutChoix != null && this.numero != null) {
+    if (this.nom != '' && this.prenom != '' && this.email != '' /*&& this.statutChoix != null && this.numero != null*/) {
 
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      this.acteurs.statut = this.statutChoix;
+      // this.acteurs.statut.statut_idStatut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
 
 
-      this.serviceActeur.ajouterActeur(this.acteurs, this.nom).subscribe(data => {
+      this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
         this.donner = data;
 
         console.log('--------- ' + this.donner.contenu);
-      });
+ });
     }
     else {
       this.erreur = 'Veuillez remplir tous les champs !';
-
-
     }
   }
+  // stat(acteurs: Acteur, stat: any) {
+  //   throw new Error('Method not implemented.');
+  // }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;

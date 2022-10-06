@@ -12,6 +12,10 @@ import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 })
 export class ListeUtilisateurPage implements OnInit {
 
+
+  selection :any
+
+  searchText:any
   p=1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
