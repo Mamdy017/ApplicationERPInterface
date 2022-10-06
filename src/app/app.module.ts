@@ -15,7 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { NgChartsModule } from 'ng2-charts';
+import{NgChartsModule} from 'ng2-charts'
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,8 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule,
     RouterLinkActive,
-    NgChartsModule
+    NgChartsModule,
+    Ng2SearchPipeModule
 
     // LayoutModule,
   ],

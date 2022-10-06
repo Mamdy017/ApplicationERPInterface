@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
+* {
+    font-family:'Poppins', sans-serif;;
+}
+// .b{
+//    background: #ffffff;
+//    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+//    border-radius: 12px;
+//    border: none; 
+// }
+.imgGauche{
+    // background-color: black;
+    color: white;
+    border-radius: 12px;
+}
+
+.container{
+    margin-top: 2%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.8);
+    padding: 30px;
+}
+
+label{
+    margin-left: 10px;
+}
+img{
+        position: relative;
+        top: 10%;
+        margin-left: 10%;
+        display: flex;
+        align-items: center;
+    }
+    h2{
+       margin-top: 20%;
+        font-size: 20px;
+    }
+
+.imgGauche h6{
+          
+            margin-bottom: 1vh;
+            color: black;
+            font-size: 15px;
+            text-align: center;
+            justify-content: center;
+            
+        }
+
+.trait{
+            border: 2px solid #FF6600;
+            width: 150px;  
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+        }
+
+.btnAjouter{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    margin-left: 4%;
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-weight: bold;
+    background-color: #FF6600;
+}
+.btnAjouter:hover{
+     background-color: black;
+     color: #ffffff;
+ }
+
+
+ .btnAjouters{
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    margin-left: 4%;
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-weight: bold;
+    background-color: #FF6600;
+}
+.btnAjouter:hover{
+     background-color: black;
+     color: #ffffff;
+ }
+
+
+
+
+
+
+
+
+
+
+

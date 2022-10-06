@@ -115,7 +115,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
-    path: 'accueil-entite',
+    path: 'accueil-entite/:id',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },
   {
@@ -146,6 +146,15 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+  {
+    path: 'ajouter_utilisateur',
+    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+  },
+  // {
+  //   path: 'tirage-valide',
+  //   loadChildren: () => import('./tirage-valide/tirage-valide.component').then( m => m.TirageValideComponent)
+  // },
+
 
 
 

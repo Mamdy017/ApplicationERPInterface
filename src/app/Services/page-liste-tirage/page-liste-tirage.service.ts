@@ -33,7 +33,7 @@ lesTirages():Observable<any>{
   return this.http.get("http://localhost:8080/tirage/afficher")
 }
 
-// ICI ON RECUPERE LES PERSONNES D4UN TIRAGE PAR ID DE TIRAGE
+// ICI ON RECUPERE LES PERSONNES D'UN TIRAGE PAR ID DE TIRAGE
 
 postulantTirer(idTirage : number):Observable<any>{
 

@@ -27,7 +27,7 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
   acteurs: Acteur = {
     nom: "",
-    idActeur: null,
+    idacteur: null,
     prenom: '',
     numero: '',
     email: " ",

@@ -1,5 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Entite } from '../modeles/entite';
+import { GestionentiteService } from '../Services/gestionentite/gestionentite.service';
 
 @Component({
   selector: 'app-gestionentite',
@@ -7,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gestionentite.page.scss'],
 })
 export class GestionentitePage implements OnInit {
-
+  entites : Entite[];
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  constructor(public breakpointObserver: BreakpointObserver) { }
+  constructor(public breakpointObserver: BreakpointObserver, private serviceEntite : GestionentiteService, private router : Router) { }
 
   actualise(): void {
     setInterval(
@@ -31,10 +34,21 @@ export class GestionentitePage implements OnInit {
           this.actualise();
         }
       });
+
+      this.serviceEntite.afficherEntite().subscribe(data => {
+        this.entites = data;
+        console.table(this.entites[1]);
+      });
+
+      
   }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
+  }
+
+  versEntite(entite : Entite){
+    this.router.navigate(['/accueil-entite', entite.idEntite]);
   }
 
 }

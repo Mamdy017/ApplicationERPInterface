@@ -30,4 +30,7 @@ supprimerActeur(id : number) :Observable<any>{
   return this.http.delete(`http://localhost:8080/acteur/supprimer/${id}`);
 }
 
+supprimerUtilisateur( iduser: number) :Observable<any>{
+  return this.http.delete(`http://localhost:8080/utilisateur/supprimer/${iduser}`);
+}
 }

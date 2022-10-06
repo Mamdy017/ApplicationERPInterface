@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import { AuthentificationService } from '../Services/authentification/authentification.service';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 import { Router } from '@angular/router';
+import { Role } from '../modeles/role/role';
+import { Entite } from '../modeles/entite';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -25,6 +27,8 @@ export class AuthentificationPage implements OnInit {
     numero: '',
     email: '',
     password: '',
+    role: new Role,
+    entite: new Entite
   }
 
   bool_erreur: boolean = false;
@@ -72,7 +76,8 @@ export class AuthentificationPage implements OnInit {
             }
             else {
               this.route.navigateByUrl('/admin-accueil');
-              console.log(data.contenu);             
+              console.log(data.contenu);       
+              this.erreur = "Utilisateur non géré !";      
             }
           }
         }
