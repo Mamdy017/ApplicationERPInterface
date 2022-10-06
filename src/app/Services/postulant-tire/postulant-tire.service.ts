@@ -6,12 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class PostulantTireService {
 
-  api="http://localhost:8080";
+  constructor() { }
 
-  constructor(private http :HttpClient) { }
-
-  TrouverNombrePostulantTireParGenre(idtirage:number, genre:String){
-    return this.http.get(`${this.api}/postulanttire/nombrePostulantTireParGenre/${idtirage}/${genre}`);
-   }
-   
+ 
 }

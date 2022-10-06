@@ -34,8 +34,9 @@
   
           </div>
   
-          <div class="intermediare col-12">
-            <h1> Listes des tirages effectuées sur la liste 01 </h1>
+          <div class="intermediare col-12"  >
+
+            <h1> Listes des tirages effectuées sur la liste 01</h1>
           </div>
           <br><br>
           <div class="libelle col-12"> <p> </p></div>
@@ -54,26 +55,28 @@
                 <th class="gauche" scope="col">Tirage </th>
                 <th scope="col">Date </th>
                 <th scope="col">Nombre tiré</th>
-                <th scope="col">Homme </th>
-                <th scope="col">Femme</th>
+                <!-- <th scope="col">Homme </th>
+                <th scope="col">Femme</th> -->
                 <th class="droite"scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let tire of ListeTirage">
-                <td scope="row">{{tire.libelleTirage}}}</td>
+                
+              <tr *ngFor="let tire of ListeTirage | paginate:{itemsPerPage: 3, currentPage:page}">
+              
+                <td scope="row">{{tire.libelleTirage}}</td>
                   <td>{{tire.date | date : 'd MMMM yyyy'}}</td>
                   <td>{{tire.nombrePostulantTire}}</td>
-                   <td>{{tire.genre.genre[1]}}</td> 
-                  <td>{{tire.genre.Feminin}}</td> 
-                  <td><a [routerLink]="['/page-liste-tire',tire.idTirage]"  >Voir Plus</a></td>
-
+                 
+              
+            
+                  <td><a [routerLink]="['/postulant-tire',tire.idtirage]">Voir Plus</a></td>
                 
               </tr>
               
             </tbody>
           </table>
-  
+  <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant"></pagination-controls>
   
         <!-- </div>  -->
   </div>

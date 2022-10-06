@@ -13,7 +13,7 @@ export class ListeGlobalePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   constructor(private serviceListe: ListePostulantService, public breakpointObserver: BreakpointObserver) { }
-
+  liste: any
   listeTotal: any
   mesListe: any
   actualise(): void {

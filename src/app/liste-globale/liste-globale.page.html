@@ -35,7 +35,7 @@
             
               <div class="table-responsive ra py-5">
                 <table class="table" >
-                  <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                  <thead style="background-color: #FF6600; color: white; border-bottom: none; ">
                     <tr>
                       <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
                       <th scope="col">Nombre de Tirage</th>
@@ -48,7 +48,7 @@
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
                       <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a></td>
-                      <td><a [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
+                      <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
 
                     </tr>
                                   

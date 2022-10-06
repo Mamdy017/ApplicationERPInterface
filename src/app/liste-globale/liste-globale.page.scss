@@ -3,15 +3,28 @@
     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
   }
   p{
-    text-align: center;
+    // text-align: center;
+    // font-family: 'Poppins';
+    // font-size: 24px;
+    // font-weight: bold;
     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
-    font-weight: bold;
+    line-height: 60px;
   }
   .container{
     position: relative;
     top: 20%;
+   }
+   thead{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 60px;
   }
+ 
   .contain{
     background: #FFFFFF;
     box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.8);
@@ -31,15 +44,28 @@
   }
   td a{
     text-decoration: none;
-    border: 1px solid black;
-    font-size: 14px;
-    border-radius: 10px;
+    // // border: 1px solid black;
+    // font-size: 10px;
+    // border-radius: 0px 10px;
     
-    padding: 5px;
-    border: 1px solid #FF6600 ;
-    background-color: white;
-    color: black;
+    // padding: 5px;
+    // // border: 1px solid  white;
+    // background-color: #FF6600;
+    color:black;
+    
   }
+.voir{
+  text-decoration: none;
+  // border: 1px solid black;
+  font-size: 10px;
+  border-radius: 0px 10px;
+  padding: 5px;
+  // border: 1px solid  white;
+  background-color: #FF6600;
+  color: white;
+  
+
+}
   td a:hover{
     background-color: #FF6600;
     color: white;
@@ -55,6 +81,13 @@
       color: white;
       padding: 5px;
     }
+  }
+  tbody{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
   }
   
   
