@@ -45,7 +45,7 @@
             <th scope="col">nom</th>
             <th scope="col">Email</th>
             <th scope="col">Numéro</th>
-            <th scope="col">Rôle</th>
+            <!-- <th scope="col">Rôle</th> -->
             <!-- le reste de la cache cache -->
             <th scope="col" class="ra1" *ngIf="cacherAction">Action</th>
           </tr>
@@ -57,7 +57,7 @@
             <td>{{acteur.nom}}</td>
             <td>{{acteur.email}}</td>
             <td>{{acteur.numero}}</td>
-            <td>{{acteur.statut.nom}}</td>
+            <!-- <td>{{acteur.statut.nom}}</td> -->
             <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
           </tr>
        </tbody>

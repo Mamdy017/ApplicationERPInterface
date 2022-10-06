@@ -8,7 +8,7 @@ import { Postulant } from 'src/app/modeles/postulant/postulant';
 })
 export class AjouterPostulantService {
 
-  api="http://localhost:8080";
+  api='http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -19,9 +19,9 @@ export class AjouterPostulantService {
   recupererListePostulantT():Observable<any>{
     return this.http.get(`${this.api}/listepostulant/afficher`);
   }
-  
+
     //methode permettant d'ajouter un postulant
-    ajouterPostulant(libelleListe: string, postulant: Postulant):Observable<any>{
+    ajouterPostulant(libelleListe: string, postulant: Postulant): Observable<any>{
       return this.http.post<Postulant>(`${this.api}/postulant/ajouter/${libelleListe}`, postulant);
     }
 
