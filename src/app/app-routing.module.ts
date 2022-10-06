@@ -47,6 +47,10 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
+    path: 'detail-activite',
+    loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
+  },
+  {
     path: 'liste-acteur',
     loadChildren:() => import('./liste-acteur/liste-acteur.module').then(m => m.ListeActeurPageModule)
   },
@@ -115,7 +119,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
-    path: 'accueil-entite/:id',
+    path: 'accueil-entite/:accueil-entite',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },
   {
@@ -139,7 +143,8 @@ const routes: Routes = [
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
-    path: 'details-activite/:details-activite',
+    // :details-activite
+    path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
   {

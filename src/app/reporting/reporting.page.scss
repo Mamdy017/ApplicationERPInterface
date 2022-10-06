@@ -2,9 +2,10 @@ table{
   overflow: scroll;
 
 }
-.row{
+.ro{
     box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
     border-radius: 20px;
+    // border: 5px solid black;
   }
   input { outline-style:none; } 
   .btnAjouter{
@@ -22,7 +23,7 @@ table{
   background-color: white;
   border: 2px solid #ff6600;
   }
-  .row h1{
+  .ro h1{
   text-align: center;
   }
   .c1,.recherche{
@@ -70,8 +71,8 @@ table{
         margin-left: -90%;
     }
     .r{
-        background-color: #FF6600;
-        color: #FFFFFF;
+        // background-color: #FF6600;
+        color: #000000;
         text-align: center;
     }
   i{

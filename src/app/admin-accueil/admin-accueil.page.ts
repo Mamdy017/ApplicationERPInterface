@@ -23,6 +23,45 @@ export class AdminAccueilPage implements OnInit {
   prenom: any;
   nbre: any
   role:any
+  KalansoJanvier:any;
+  KalansoFe:any;
+  KalansoMa:any;
+  KalansoAv:any;
+  KalansoMai:any;
+  KalansoJuin:any;
+  KalansoJuil:any;
+  KalansoAout:any;
+  KalansoSep:any;
+  KalansoOct:any;
+  KalansoNo:any;
+  KalansoDe:any;
+
+  fabJanvier:any;
+  fabFe:any;
+  fabMa:any;
+  fabAv:any;
+  fabMai:any;
+  fabJuin:any;
+  fabJuil:any;
+  fabAout:any;
+  fabSep:any;
+  fabOct:any;
+  fabNo:any;
+  fabDe:any;
+
+  fablabJanvier:any;
+  fablabFe:any;
+  fablabMa:any;
+  fablabAv:any;
+  fablabMai:any;
+  fablabJuin:any;
+  fablabJuil:any;
+  fablabAout:any;
+  fablabSep:any;
+  fablabOct:any;
+  fablabNo:any;
+  fablabDe:any;
+
 
 
   constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
@@ -56,6 +95,142 @@ export class AdminAccueilPage implements OnInit {
     this.totalUtilisateur = this.serviceActeur.utilisateurTotal().subscribe(data => {
       this.nbre = data
     })
+
+  // le statistique de kalanso
+
+      this.KalansoJanvier=this.serviceActeur.KalansoJanvier().subscribe(data => {
+        this.KalansoJanvier=data
+      })
+
+      this.KalansoFe=this.serviceActeur.KalansoFevier().subscribe(data => {
+        this.KalansoFe=data
+      })
+
+      this.KalansoMa=this.serviceActeur.KalansoMars().subscribe(data => {
+        this.KalansoMa=data
+      })
+      this.KalansoAv=this.serviceActeur.KalansoAvril().subscribe(data => {
+        this.KalansoAv=data
+      })
+      this.KalansoMai=this.serviceActeur.KalansoMai().subscribe(data => {
+        this.KalansoMai=data
+      })
+      this.KalansoJuin=this.serviceActeur.KalansoJuin().subscribe(data =>{
+        this.KalansoJuin=data
+      })
+      this.KalansoJuil=this.serviceActeur.KalansoJuillet().subscribe(data =>{
+        this.KalansoJuil=data
+      })
+      this.KalansoAout=this.serviceActeur.KalansoAout().subscribe(data =>{
+        this.KalansoAout=data
+      })
+      this.KalansoSep=this.serviceActeur.KalansoSep().subscribe(data =>{
+        this.KalansoSep=data
+      })
+      this.KalansoOct=this.serviceActeur.KalansoOct().subscribe(data=>{
+        this.KalansoOct=data
+      })
+      this.KalansoNo=this.serviceActeur.KalansoNo().subscribe(data =>{
+        this.KalansoNo=data
+      })
+      this.KalansoDe=this.serviceActeur.KalansoDe().subscribe(data=>{
+        this.KalansoDe=data
+      })
+
+  // fin du stistique de kalanso
+
+
+
+  // le statistique de fab
+
+  this.fabJanvier=this.serviceActeur.fabJanvier().subscribe(data => {
+    this.fabJanvier=data
+  })
+
+  this.fabFe=this.serviceActeur.fabFevier().subscribe(data => {
+    this.fabFe=data
+  })
+
+  this.fabMa=this.serviceActeur.fabMars().subscribe(data => {
+    this.fabMa=data
+  })
+  this.fabAv=this.serviceActeur.fabAvril().subscribe(data => {
+    this.fabAv=data
+  })
+  this.fabMai=this.serviceActeur.fabMai().subscribe(data => {
+    this.fabMai=data
+  })
+  this.fabJuin=this.serviceActeur.fabJuin().subscribe(data =>{
+    this.fabJuin=data
+  })
+  this.fabJuil=this.serviceActeur.fabJuillet().subscribe(data =>{
+    this.fabJuil=data
+  })
+  this.fabAout=this.serviceActeur.fabAout().subscribe(data =>{
+    this.fabAout=data
+  })
+  this.fabSep=this.serviceActeur.fabSep().subscribe(data =>{
+    this.fabSep=data
+  })
+  this.fabOct=this.serviceActeur.fabOct().subscribe(data=>{
+    this.fabOct=data
+  })
+  this.fabNo=this.serviceActeur.fabNo().subscribe(data =>{
+    this.fabNo=data
+  })
+  this.fabDe=this.serviceActeur.fabDe().subscribe(data=>{
+    this.fabDe=data
+  })
+
+// fin du stistique de fab
+
+
+// le statistique de fablab
+
+this.fablabJanvier=this.serviceActeur.fablabJanvier().subscribe(data => {
+  this.fablabJanvier=data
+})
+
+this.fablabFe=this.serviceActeur.fablabFevier().subscribe(data => {
+  this.fablabFe=data
+})
+
+this.fablabMa=this.serviceActeur.fablabMars().subscribe(data => {
+  this.fablabMa=data
+})
+this.fablabAv=this.serviceActeur.fablabAvril().subscribe(data => {
+  this.fablabAv=data
+})
+this.fablabMai=this.serviceActeur.fablabMai().subscribe(data => {
+  this.fablabMai=data
+})
+this.fablabJuin=this.serviceActeur.fablabJuin().subscribe(data =>{
+  this.fablabJuin=data
+})
+this.fablabJuil=this.serviceActeur.fablabJuillet().subscribe(data =>{
+  this.fablabJuil=data
+})
+this.fablabAout=this.serviceActeur.fablabAout().subscribe(data =>{
+  this.fablabAout=data
+})
+this.fablabSep=this.serviceActeur.fablabSep().subscribe(data =>{
+  this.fablabSep=data
+})
+this.fablabOct=this.serviceActeur.fablabOct().subscribe(data=>{
+  this.fablabOct=data
+})
+this.fablabNo=this.serviceActeur.fablabNo().subscribe(data =>{
+  this.fablabNo=data
+})
+this.fablabDe=this.serviceActeur.fablabDe().subscribe(data=>{
+  this.fablabDe=data
+})
+
+// fin du stistique de fablab
+
+
+
+
 
     //    Chargement du nombre de salle disponoble
     this.service.totalSallesDisponible().subscribe(data => {
@@ -100,14 +275,18 @@ export class AdminAccueilPage implements OnInit {
           label: "Kalanso",
           stack: "Base",
           backgroundColor: "#F3A774",
-          data: [10, 20, 30, 50, 7, 9, 5, 2, 8, 10, 11, 4],
+          data: [this.KalansoJanvier,this.KalansoFe,this.KalansoMa,this.KalansoAv, 
+            this.KalansoMai, this.KalansoJuin, this.KalansoJuil,this.KalansoAout, 
+            this.KalansoSep, this.KalansoOct,this.KalansoNo, this.KalansoDe],
         }, {
           barPercentage: 0.8,
           barThickness: 'flex',
           label: "Fab",
           stack: "Base2",
           backgroundColor: "#A9A3A3",
-          data: [9, 5, 40, 12, 7, 9, 5, 2, 8, 10, 11, 4],
+          data:[this.fabJanvier,this.fabFe,this.fabMa,this.fabAv, 
+            this.fabMai, this.fabJuin, this.fabJuil,this.fabAout, 
+            this.fabSep, this.fabOct,this.fabNo, this.fabDe],
         },
         {
           barPercentage: 0.8,
@@ -115,7 +294,9 @@ export class AdminAccueilPage implements OnInit {
           label: "Solidaire",
           stack: "Base3",
           backgroundColor: "#A2C07C",
-          data: [9, 5],
+          data: [this.fablabJanvier,this.fablabFe,this.fablabMa,this.fablabAv, 
+            this.fablabMai, this.fablabJuin, this.fablabJuil,this.fablabAout, 
+            this.fablabSep, this.fablabOct,this.fablabNo, this.fablabDe],
         }
 
         ]
