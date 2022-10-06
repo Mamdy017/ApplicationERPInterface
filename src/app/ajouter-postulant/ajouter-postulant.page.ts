@@ -9,6 +9,7 @@ import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-p
   styleUrls: ['./ajouter-postulant.page.scss'],
 })
 export class AjouterPostulantPage implements OnInit {
+  
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
@@ -18,6 +19,7 @@ export class AjouterPostulantPage implements OnInit {
     numero_postulant: "",
     email: "",
     genre: ""
+
     }
   
     nom_postulant: string = '';
@@ -26,7 +28,7 @@ export class AjouterPostulantPage implements OnInit {
     email: string = '';
     genre: string = '';
   
-    listePostulant = "";
+    listePostulant:any;
   
     liste:any;
   
@@ -44,6 +46,8 @@ export class AjouterPostulantPage implements OnInit {
         }, 100, clearInterval(1500));
     }
     ngOnInit() {
+
+      this.getListePostulant();
   
       this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -58,7 +62,6 @@ export class AjouterPostulantPage implements OnInit {
           this.actualise();
         }
       });
-      this.getListePostulant();
   
     }
   

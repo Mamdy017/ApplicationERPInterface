@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Entite } from 'src/app/modeles/entite/entite';
+import { Entite } from 'src/app/modeles/entite';
 import { Observable, throwError } from 'rxjs';
 
 @Injectable({

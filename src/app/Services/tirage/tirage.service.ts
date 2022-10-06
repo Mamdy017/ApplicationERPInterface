@@ -15,8 +15,10 @@ export class TirageService {
   constructor(private http: HttpClient) {
    }
 
-   postTirage(libelleListe:string, libelleActivite:string, tirage:Tirage):Observable<any>{
+   postTirage(libelleListe:string, tirage:Tirage):Observable<any>{
 
-    return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}/${libelleActivite}`, tirage);
+    console.log(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
+
+    return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
    }
 }

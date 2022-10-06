@@ -36,6 +36,9 @@ export class ActivitePage implements OnInit {
   respons:any
   nombrepersonnedemande:any;
 
+  bool_erreur:boolean = false
+  erreur:any
+
 
   activiteObjet: Activite = {
     nom: "",
@@ -86,6 +89,7 @@ export class ActivitePage implements OnInit {
   }
 
   postActivite(){
+    this.bool_erreur = true
     this.activiteObjet.nom = this.titre;
     this.activiteObjet.dateDebut = this.dateDebut;
     this.activiteObjet.dateFin = this.dateFin;
@@ -104,10 +108,17 @@ export class ActivitePage implements OnInit {
     console.log("type: " + this.typeActivites)
     console.log("resp: " + this.respons)
 
+   if(this.acteurs == "" || this.users == "" || this.entites == "" || this.typeActivites == "" || this.activiteObjet == null){
+      this.erreur = "Veuillez remplir tous les champ obligatoire";
+   }else{
     this.activiteService.postActivite(this.acteurs, this.users, this.entites, this.typeActivites, this.salles, this.activiteObjet).subscribe((data) =>{
+      this.erreur = data.contenu
       console.log("Donnée envoyé avec succes");
     });
   }
+   }
+
+  
   
 
   ngOnInit() {
