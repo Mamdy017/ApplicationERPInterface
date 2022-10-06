@@ -17,20 +17,21 @@
     </span></i>
   </button>
   <br><br>
-  <div class="row ro py-3">
+  <div class="row ro py-31">
     <h1>Liste des acteurs</h1>
     <div class="trait"></div>
     <div class="position">
         <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
 
-     <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter1" style="border: 1px solid;"  >Ajouter un acteur</button></a>
+     <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter" style="border: 1px solid;"  >Ajouter un acteur</button></a>
       <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
       <form action="">
-        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" (input)="Search()" style="border: hidden; border: 0; background: transparent;"></button>
       </form>
     </div>
     <div class="table-responsive ra py-5">
       <table id="season-tble" class="table">
+      
         <thead>
           <tr>
             <th scope="col">Prénom</th>
@@ -38,8 +39,11 @@
             <th scope="col">Email</th>
             <th scope="col">Numéro</th>
             <th scope="col">Rôle</th>
-            <th scope="col" class="ra1">Action</th>
+            <th  scope="col" class="ra1" ng-hide="cacher">Action</th>                                              
+            <!-- <th  scope="col" class="ra1" ng-show="cacher">Action</th>-->
+          
           </tr>
+          <!-- *ngIf="cacher" -->
         </thead>
         <tbody>
           <tr *ngFor="let acteur of acteurs | paginate: { itemsPerPage: 5, currentPage: p}">
@@ -48,7 +52,8 @@
             <td>{{acteur.email}}</td>
             <td>{{acteur.numero}}</td>
             <td>Modérateur</td>
-            <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+            <td ng-hide="cacher"><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+            <td ng-show="cacher"><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td> 
           </tr>
        </tbody>
        <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
@@ -65,3 +70,29 @@
 </div>
 </div>
 
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-button (click)="switchTheme()">
+  Switch Theme
+</ion-button>
+  <h2>
+    Current Theme:{{theme}}
+  </h2>
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div>
+  
+</ion-content> -->

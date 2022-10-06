@@ -18,6 +18,7 @@ export class ListeActeurPage implements OnInit {
   menuBureau = true;
   menuMobile = false;
   p= 1;
+  nom:String;
 
   constructor(private serviceActeur: ListeActeurService,public breakpointObserver: BreakpointObserver) { }
 
@@ -67,6 +68,7 @@ export class ListeActeurPage implements OnInit {
   //le telechargement du fichier
   // eslint-disable-next-line @typescript-eslint/member-ordering
   name = 'ListeActeurs.xlsx';
+  cacher = false;
   exportToExcel(): void {
     const element = document.getElementById('season-tble');
     const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
@@ -75,7 +77,18 @@ export class ListeActeurPage implements OnInit {
     XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
 
     XLSX.writeFile(book, this.name);
+    this.cacher=true;
   }
-
-
+  Search(){
+    this.acteurs=this.acteurs.filter(res=>{
+      return res.nom.toLocaleLowerCase().match(this.nom.toLocaleLowerCase());
+    })
+  }
+  darkmode=false;
+// theme:String="light";
+  // constructor() { }
+  modetoggle(){
+    this.darkmode=!this.darkmode;
+    document.documentElement.setAttribute('data-theme',this.darkmode ? "dark" : "light");
+  }
 }

@@ -21,6 +21,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
   }
+  darkmode=false;
+  modetoggle(){
+    this.darkmode=!this.darkmode;
+    document.documentElement.setAttribute('data-theme',this.darkmode ? "dark" : "light");
+  }
 /*
   afficheMenuMobile(){
     this.menuBureau = true;

@@ -56,6 +56,7 @@ export class ListeUtilisateurPage implements OnInit {
     this.menuMobile = false;
   }
   name = 'ListeActeurs.xlsx';
+  cacher =true;
   exportToExcel(): void {
     const element = document.getElementById('season-tble');
     const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
@@ -64,6 +65,7 @@ export class ListeUtilisateurPage implements OnInit {
     XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
 
     XLSX.writeFile(book, this.name);
+    this.cacher=false;
   }
 
 }
