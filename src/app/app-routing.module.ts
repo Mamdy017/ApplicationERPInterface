@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authentification',
+    redirectTo: /*'authentification'*/ 'splash-screen',
     pathMatch: 'full'
   },
   {
@@ -146,6 +146,12 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+  {
+    path: 'splash-screen',
+    loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
+  },
+
+
 
 
 
