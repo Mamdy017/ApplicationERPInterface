@@ -15,14 +15,20 @@
 }
 
 .bouton{
-  position: relative;
-  width: 170px;
-  height: 50px;
-  font-size: 20px;
-  top: 15px;
-  background: #202020;
-  border-radius: 11px 0px;
+  background-color: #ff6600;
   color: white;
+  border-radius: 12px;
+  width: 200px;
+  height: 45px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 80%);
+}
+
+.bouton-div {
+  margin: 30px 25px;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -57,3 +63,91 @@
 
 
 
+
+// *{
+//   font-family: 'Poppins', sans-serif;
+// }
+
+
+
+// .contourCard{
+//   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+//   border-radius: 15px;
+// }
+
+// .AddEntity{
+//   background: #FF6600;
+//   color: #fff;
+//   padding: 10px;
+//   border: none;
+// }
+// .AddEntity:hover{
+//   background: black;
+//   color: #fff;
+// }
+
+// .cardHome1{
+//   background: #0FAD61;
+//   text-align: center;
+//   border-radius: 15px;
+//   padding: 18px;
+//   color: white;
+// }
+
+// .cardHome2{
+//   background: #7F71B3;
+//   text-align: center;
+//   border-radius: 15px;
+//   padding: 18px;
+//   color: white;
+// }
+
+
+// .cardHome3{
+//   background: #9E9E9E;
+//   text-align: center;
+//   border-radius: 15px;
+//   padding: 18px;
+//   color: black;
+// }
+
+
+// .cardHome4{
+//   background: #068CC0;
+//   text-align: center;
+//   border-radius: 15px;
+//   padding: 18px;
+//   color: white;
+// }
+
+// .titleEntite{
+//   font-weight: 600;
+//   font-size: 1.4rem;
+// }
+
+// .txtEntite{
+//   color: #fff;
+//   position: relative;
+//   top: -15px;
+// }
+// .iconSize1{
+//   width: 70px;
+//   height: 70px;
+
+// }
+
+// .iconSize2{
+//   width: 75px;
+//   height: 70px;
+// }
+
+// .iconSize3{
+//   width: 85px;
+//   height: 85px;
+// }
+
+// .iconSize4{
+//   width: 80px;
+//   height: 60px;
+//   margin: 13px;
+// }

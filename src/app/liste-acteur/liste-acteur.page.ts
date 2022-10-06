@@ -1,9 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { Acteur } from '../modeles/acteur/acteur';
-import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
-=======
 // import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../modeles/acteur/acteur';
 // import { Acteur } from '../modeles/acteur/acteur';
@@ -11,7 +7,6 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
 // import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
 
   import * as XLSX from 'xlsx';
->>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
 
 @Component({
   selector: 'app-liste-acteur',
@@ -19,18 +14,12 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./liste-acteur.page.scss'],
 })
 export class ListeActeurPage implements OnInit {
-<<<<<<< HEAD
-  acteurs : Acteur[];
-
-  constructor(private serviceActeur : ListeActeurService) { }
-=======
   acteurs: Acteur[];
   menuBureau = true;
   menuMobile = false;
   p= 1;
 
   constructor(private serviceActeur: ListeActeurService,public breakpointObserver: BreakpointObserver) { }
->>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
 
   actualise(): void {
     setInterval(
@@ -41,22 +30,6 @@ export class ListeActeurPage implements OnInit {
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;
       console.table(this.acteurs);
-<<<<<<< HEAD
-    })
-  }
-
-
-  supprimer(acteur : any){
-    let confirmer = confirm("êtes-vous sûr de le supprimer ?");
-    if(confirmer == false) return;
-    this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
-      next : (data) => {
-        console.log(acteur.id)
-        let index = this.acteurs.indexOf(acteur);
-        this.acteurs.splice(index, 1);
-      }
-    })
-=======
     });
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -89,7 +62,6 @@ export class ListeActeurPage implements OnInit {
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
->>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
   }
 
   //le telechargement du fichier

@@ -115,7 +115,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
-    path: 'accueil-entite',
+    path: 'accueil-entite/:id',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },
   {
