@@ -14,7 +14,7 @@ export class GestionentiteService {
   }
 
   nombreFormation(idEntite : number) :Observable<any>{
-    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formation/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formations/${idEntite}`)
   }
   nombreTalk(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talks/${idEntite}`)

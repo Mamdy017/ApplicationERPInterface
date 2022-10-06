@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../Modeles/acteur/acteur';
+import { Statut } from '../modeles/statut/statut';
 import { AdminActeurUserService } from '../services/admin-ajouter-acteur-user/admin-acteur-user.service';
 import { StatutService } from '../services/statutService';
 
@@ -10,74 +11,83 @@ import { StatutService } from '../services/statutService';
 })
 export class AdminAjouterActeurUserPage implements OnInit {
 
-  nom: any;
-  prenom: any;
-  email: any;
+  // nom: any;
+  // prenom: any;
+  // email: any;
   statut: any;
- 
-  telephone:any
+
+  // telephone:any
 
 
- statutChoix:any;
- menuBureau: boolean = true;
- menuMobile: boolean = false;
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
- 
+
 
 
   acteurs: Acteur = {
     nom: "",
-    idacteur: null,
+
+
     prenom: '',
     numero: '',
-    email: " ",
-    statut: undefined
-  }
+    email: '',
+    statut: Statut,
+    idacteur: 0
+  };
+  nom = '';
+  prenom = '';
+  numero = '';
+  email = '';
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Statut: any;
+
+  statutChoix: any;
+
+
+
+
   donner: any;
   erreur: any;
 
- 
-
-  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
+  constructor(private serviceActeur: AdminActeurUserService, private serviceStatut: StatutService) { }
 
   ngOnInit() {
-    // On recupere les statutd
-    this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data })
+    // On recupere les statut
+    this.serviceStatut.afficherToutesLesStatus().subscribe(data => { this.statut = data; });
   }
 
 
 
   ajouterUtilisateur() {
 
-    // console.log("----------- "+this.statutChoix)
+    // console.log("-----------"+this.statutChoix)
 
-    if (this.nom != " " && this.prenom != "" && this.email != "" && this.statutChoix != null && this.telephone != null) {
-      
+    // eslint-disable-next-line eqeqeq
+    if (this.nom != '' && this.prenom != '' && this.email != '' && this.statutChoix != null && this.numero != null) {
+
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      // this.acteurs.statut.idstatut = this.statutChoix;
-      this.acteurs.numero = this.telephone;
+      this.acteurs.statut = this.statutChoix;
+      this.acteurs.numero = this.numero;
 
 
 
-      this.serviceActeur.ajouterActeur(this.acteurs).subscribe(data => {
-        this.donner = data
+      this.serviceActeur.ajouterActeur(this.acteurs, this.nom).subscribe(data => {
+        this.donner = data;
 
-        console.log("--------- " + this.donner.contenu)
- })
+        console.log('--------- ' + this.donner.contenu);
+      });
     }
     else {
-      this.erreur = " Veuillez remplir tous les champs !";
-     
-     
+      this.erreur = 'Veuillez remplir tous les champs !';
+
+
     }
-
-
-
   }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
-  } 
+  }
 }

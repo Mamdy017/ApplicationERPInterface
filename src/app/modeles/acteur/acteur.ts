@@ -8,5 +8,6 @@ export class Acteur {
   numero!: string;
   // activite!: Activite;
   email!:any;
-  statut!: Statut;
+  statut: any;
+  // statut!: Statut;
 }
