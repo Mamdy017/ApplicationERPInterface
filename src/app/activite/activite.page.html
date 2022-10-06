@@ -11,7 +11,10 @@
           <div class="col-8"></div>
           <div class="col-4 "></div>
         </div>
-        <form action="" class="container1 container py-5">
+
+        <!-- file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid -->
+
+        <form [formGroup]="myFormActivite" (ngSubmit)="submitActivite()" action="" class="container1 container py-5">
 
           <div class=" mb-2 " *ngIf="bool_erreur">
             <div class="col-12 alert alert-danger">
@@ -27,41 +30,41 @@
 
           <div class="row">
             <div class="mb-3 col-12 col-md-6 viens  form-row form-floating">
-              <input type="text" name="titre" id="name" [(ngModel)]="titre" placeholder="Nom" class="form form-control inputvalue">
+              <input type="text" id="name" formControlName="nom" placeholder="Nom" class="form form-control inputvalue">
               <label for="name">Titre:</label>
             </div>
 
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="salles" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="salles" >
+            <div class="mb-3 col-12 col-md-6 form-row form-floating" >
+              <select  id="sexe" class="form-select form-control inputvalue" formControlName="libelleSalle" [(ngModel)]="libelleSalle" >
                   <option selected> --- salle ---</option>
                   <option *ngFor="let salle of salles$">{{salle.nom}}</option>
               </select>
             </div>
 
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="dateDebut" id="name" [(ngModel)]="dateDebut" placeholder="Nom" class="form form-control inputvalue">
+            <!-- <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="text" formControlName="datedeb" id="name" [(ngModel)]="datedeb" placeholder="Nom" class="form form-control inputvalue">
               <label for="name">Date début:</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="dateFin" [(ngModel)]="dateFin" id="name" placeholder="Nom" class="form form-control inputvalue">
+              <input type="text"  formControlName="datefin" id="name" placeholder="Nom" class="form form-control inputvalue">
               <label for="name">Date fin:</label>
-            </div>
+            </div> -->
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="entites" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="entites" >
+              <select  id="sexe" formControlName="libelleEntite" class="form-select form-control inputvalue" [(ngModel)]="libelleEntite" >
                   <option selected> --- entites ---</option>
                   <option *ngFor="let entite of entites$">{{entite.nom}}</option>
               </select>
             </div>
             
             <div class="mb-5 col-12 viens1 form-row form-floating" >
-                <textarea class="form-control" name="descpt" [(ngModel)]="descpt" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1" rows="3"></textarea>
               <label for="name">Description:</label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="typeActivite" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="typeActivites" >
+              <select  id="sexe" formControlName="typeAct" class="form-select form-control inputvalue" [(ngModel)]="typeAct" >
                   <option selected> Type activité</option>
                   <option *ngFor="let typeActivite of typeActivites$">{{typeActivite.typeActivite}}</option>
               </select>
@@ -69,47 +72,43 @@
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating" >
               
-              <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="users" [multiple]="true"  placeholder="--Acteur interne---">
+              <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"  placeholder="--Acteur interne---">
                 <ion-option selected> --- Acteur interne---</ion-option>
-                <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}}</ion-select-option>
+                <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
                 <label >Acteur interne</label>
             </ion-select>
             </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-             
-              <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="acteurs" [multiple]="true"  placeholder="---Acteur externe---">
+
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">            
+              <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs" [(ngModel)]="idacteurs" [multiple]="true"  placeholder="---Acteur externe---">
                   <ion-option selected> --- Acteur externe ---</ion-option>
-                    <ion-select-option *ngFor = "let acteur of acteurs$" [value]="acteur.idacteur"> {{acteur.nom}}</ion-select-option>
+                    <ion-select-option *ngFor = "let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}</ion-select-option>
                   <label >Acteur externe</label>
               </ion-select>
             </div>
             
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control inputvalue" [(ngModel)]="respons">
+              <select id="sexe"  class="form-select form-control inputvalue" formControlName="idresponsable" [(ngModel)]="idresponsable">
                   <option selected> --- Responsable ---</option>
-                  <option *ngFor="let respon of respons$" > {{respon.nom}}</option>
+                  <option *ngFor="let respon of respons$"  [(ngValue)]="respon.iduser">{{respon.nom}}</option>
                   <label>Responsable</label>
               </select>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating" >
-    <input type="number" name="name" id="name"  [(ngModel)]="nombrepersonnedemande" placeholder="Nom" class="form form-control inputvalue">
+    <input type="number" id="name" formControlName="nombrepersonnedemande" placeholder="Nom" class="form form-control inputvalue">
               <label for="name">Objectif Visé</label>
-            </div>
+            </div>           
 
             
-
-            <!--
               <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                          <input type="file" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-                          <label for="name">Image</label>
-                        </div>
-            -->
+                    <input type="file" formControlName="file" (change)="onFileChangeActivite($event)" placeholder="Nom" class="form form-control inputvalue">
+                    <label for="name">Image</label>
+              </div>
            
-
             <div class="row">
               <div class="col-6">
-                <button class="btn b1" (click)="postActivite()">Créer</button>
+                <button class="btn b1">Créer</button>
               </div>
 
               <div class="col-6">

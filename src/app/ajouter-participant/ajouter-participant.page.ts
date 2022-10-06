@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 
 @Component({
   selector: 'app-ajouter-participant',
@@ -10,7 +11,18 @@ export class AjouterParticipantPage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  constructor( public breakpointObserver: BreakpointObserver) { }
+  
+
+  listes$!:any
+  listes!:any
+
+  constructor( public breakpointObserver: BreakpointObserver,
+    private ajouterPostulant: AjouterPostulantService) { }
+
+
+    // posterParticipant(){
+    //   this.
+    // }
 
   actualise(): void {
     setInterval(
@@ -31,7 +43,19 @@ export class AjouterParticipantPage implements OnInit {
           this.actualise();
         }
       });
+
+      this.recupererListePostulant();
   }
+
+
+
+
+  recupererListePostulant(){
+    this.ajouterPostulant.recupererListePostulant().subscribe((data =>{
+      this.listes$ = data;
+    }))
+  }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;

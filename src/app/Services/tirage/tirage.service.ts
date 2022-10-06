@@ -21,4 +21,5 @@ export class TirageService {
 
     return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
    }
+   
 }
