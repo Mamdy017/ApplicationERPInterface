@@ -2,6 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ServicesService } from '../services.service';
+import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { SalleService } from '../services/salle';
 
@@ -23,9 +24,13 @@ export class AdminAccueilPage implements OnInit {
   prenom: any;
   nbre: any
   role:any
+  afficherEntiteAdmin:any;
 
 
-  constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private service: ServicesService,
+     private serviceActeur: ListeActeurService,
+     private serviceAdminaccueil: AccueilAdminService,
+     public breakpointObserver: BreakpointObserver) { }
   actualise(): void {
     setInterval(
       () => {
@@ -57,6 +62,12 @@ export class AdminAccueilPage implements OnInit {
       this.nbre = data
     })
 
+    //Afficher les entités de l'admin
+    this.serviceAdminaccueil.afficherEntiteAdmin().subscribe(data =>{
+      this.afficherEntiteAdmin = data
+    })
+
+
     //    Chargement du nombre de salle disponoble
     this.service.totalSallesDisponible().subscribe(data => {
       this.totalSalleLibre = data
@@ -68,6 +79,7 @@ export class AdminAccueilPage implements OnInit {
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
+
 
       // Ici on charge les sessions
 
