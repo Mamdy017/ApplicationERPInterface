@@ -9,6 +9,7 @@ import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste
 })
 export class ListeTiragePage implements OnInit {
 
+  p=1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   constructor(private serviceTirage:PageListeTirageService,public breakpointObserver: BreakpointObserver) { }
@@ -38,7 +39,7 @@ export class ListeTiragePage implements OnInit {
     // RECUPERATION DU NOMBRE DE TIRAGE
     this.serviceTirage.totalTirage().subscribe(data=>{ this.totalTirage = data })
 
-    // ICI ON RECUPERE LA LISTE DE TOUTE LES TIRAGES 
+    // ICI ON RECUPERE LA LISTE DE TOUTE LES TIRAGES
     this.serviceTirage.lesTirages().subscribe(data=>{ this.listeTirages = data})
 
   }

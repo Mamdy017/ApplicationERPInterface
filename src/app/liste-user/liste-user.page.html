@@ -20,7 +20,7 @@
             <h1>Liste des utilisateurs</h1>
             <div class="trait"></div>
             <div class="position">
-              <button class="btn btnAjouter">Exporter le fichier</button>
+              <button (click)="exportToExcel()"  class="btn btnAjouter">Exporter le fichier</button>
               <form action="">
                 <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
                     type="text" style="border: hidden; border: 0; background: transparent;"></button>
@@ -29,7 +29,7 @@
               <button class="btn btnAjouter">Ajouter un utilisateur</button>
             </div>
             <div class="table-responsive ra py-5">
-              <table class="table">
+              <table id="season-tble" class="table">
                 <thead>
                   <tr>
                     <th scope="col" class="ra">Nom</th>
@@ -73,6 +73,7 @@
                   </tr>
                 </tbody>
               </table>
+              <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
             </div>
           </div>
 

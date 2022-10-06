@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" >
   <a href="#" data-bs-target="#sidebar"  data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
 <div class="row flex-nowrap">
   <div class="col-auto px-2" *ngIf="menuBureau">
@@ -9,7 +9,12 @@
   <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
 
 
-<div class="container">
+<div class="container" >
+  <!-- changer theme -->
+  <!-- <section class="example-card">
+  <button (click)="changeTheme" mat-raised-button color="primary">Change Theme</button>
+</section> -->
+
   <button type="button" class="btn" style="margin-left:92% ;">
     <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
@@ -21,16 +26,19 @@
     <h1>Liste des acteurs</h1>
     <div class="trait"></div>
     <div class="position">
-        <button class="btn btnAjouter">Exporter le fichier</button>
+        <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
 
-     <a href="ajouter-acteur"> <button class="btn btnAjouter1" style="border: 1px solid;"  >Ajouter un acteur</button></a>
-      <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
+     <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter1"  >Ajouter un acteur</button></a>
+      <button class="btn btnAjouter c1">filtrer par Statut<i class="bi bi-filter-right"></i></button>
       <form action="">
-        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1" style="padding:5px"></i> <input type="text" name="search" style="border: hidden; border: 0; background: transparent;" placeholder="--Rechercher" [(ngModel)]="searchTerm "></button>
       </form>
     </div>
     <div class="table-responsive ra py-5">
-      <table class="table">
+      <!-- button pour cacherAction -->
+      <!-- *ngFor="let numero of numeros | filter:searchText" -->
+      <button (click)="toogleTag()" class="btn btnAjouter" style="background-color:darkgray;margin-top: -2%;margin-left: 3.5%;font-size: 14px;">Exporter sans Action</button><br><br>
+      <table id="season-tble" class="table" >
         <thead>
           <tr>
             <th scope="col">Prénom</th>
@@ -38,11 +46,13 @@
             <th scope="col">Email</th>
             <th scope="col">Numéro</th>
             <th scope="col">Rôle</th>
-            <th scope="col" class="ra1">Action</th>
+            <!-- le reste de la cache cache -->
+            <th scope="col" class="ra1" *ngIf="cacherAction">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let acteur of acteurs">
+          <tr *ngFor="let acteur of acteurs | paginate: { itemsPerPage: 5, currentPage: p} | filter:searchTerm">
+
             <td>{{acteur.prenom}}</td>
             <td>{{acteur.nom}}</td>
             <td>{{acteur.email}}</td>
@@ -53,6 +63,8 @@
        </tbody>
        <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
       </table>
+      <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+
     </div>
   </div>
 </div>

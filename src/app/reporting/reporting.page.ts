@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ReportingPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+p:1
+
   constructor(public breakpointObserver: BreakpointObserver) { }
 
   actualise(): void {

@@ -16,10 +16,7 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
-  {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
-  },
+
   {
     path: 'admin-accueil',
     loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
@@ -27,10 +24,6 @@ const routes: Routes = [
   {
     path: 'liste-utilisateur',
     loadChildren:()=> import('./liste-utilisateur/liste-utilisateur.module').then(m => m.ListeUtilisateurPageModule)
-  },
-  {
-    path: 'accueil-user',
-    loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
     path: 'tirage',
@@ -114,7 +107,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
   },
   {
-    path: 'ajouter-entite',
+    path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
   {
@@ -149,6 +142,11 @@ const routes: Routes = [
     path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+
 
 
 

@@ -8,13 +8,15 @@ import { PostulantTirePageRoutingModule } from './postulant-tire-routing.module'
 
 import { PostulantTirePage } from './postulant-tire.page';
 import { MenuComponent } from '../menu/menu.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PostulantTirePageRoutingModule
+    PostulantTirePageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [PostulantTirePage,MenuComponent]
 })

@@ -12,11 +12,11 @@
  <div class="container">
   <div class="contain">
         <div class="row">
-        
+
           <div class="col-12 col-md-3 text-center" part1>
-              <p> Statistiques</p> 
+              <p> Statistiques</p>
               <div class="card">
-            
+
                 <div class="contenuCard text-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600" class="bi bi-card-list" viewBox="0 0 16 16">
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -32,7 +32,7 @@
           <div class="col-12 col-md-8 text-center"  style="border-radius: 20px 20px 0px 0px;">
             <p> Les listes tirer </p>
             <!-- <div class="container"> -->
-            
+
               <div class="table-responsive ra py-5">
                 <table class="table" >
                   <thead style="background-color: #FF6600; color: white; border-bottom: none;">
@@ -44,22 +44,24 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let liste of mesListe">
+                    <tr *ngFor="let liste of mesListe | paginate: { itemsPerPage: 5, currentPage: p}">
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
-                      <td>{{liste.activite  | date : 'd MMMM yyyy' }}</td>
+                      <td>{{liste.activite.nom}}</td>
                       <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
 
                     </tr>
-                                  
+
                   </tbody>
                 </table>
+                <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+
 
               </div>
-        
+
          <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->
         </div>
-     
+
      </div>
       <!-- </div> -->
     </div>
@@ -70,4 +72,4 @@
     </main>
   </div>
 </div>
-  
+
