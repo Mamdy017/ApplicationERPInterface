@@ -1,10 +1,11 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Entite } from '../modeles/entite';
 import { ServicesService } from '../services.service';
 import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
+import { EntiteService } from '../Services/entite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
-import { SalleService } from '../services/salle';
 
 @Component({
   selector: 'app-admin-accueil',
@@ -25,11 +26,12 @@ export class AdminAccueilPage implements OnInit {
   nbre: any
   role:any
   afficherEntiteAdmin:any;
+  entite:Entite
 
 
   constructor(private service: ServicesService,
      private serviceActeur: ListeActeurService,
-     private serviceAdminaccueil: AccueilAdminService,
+     private serviceAccueil: AccueilAdminService,
      public breakpointObserver: BreakpointObserver) { }
   actualise(): void {
     setInterval(
@@ -63,8 +65,9 @@ export class AdminAccueilPage implements OnInit {
     })
 
     //Afficher les entités de l'admin
-    this.serviceAdminaccueil.afficherEntiteAdmin().subscribe(data =>{
+    this.serviceAccueil.afficherEntiteAdmin().subscribe(data =>{
       this.afficherEntiteAdmin = data
+      console.log(this.afficherEntiteAdmin+"dvvvvvvvvvv")
     })
 
 
