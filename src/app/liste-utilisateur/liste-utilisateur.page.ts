@@ -17,7 +17,7 @@ export class ListeUtilisateurPage implements OnInit {
   menuMobile: boolean = false;
   page:any;
   maListes:any
-  donnees : any
+  donnees!: any
   user: Utilisateur
   
 
