@@ -95,6 +95,12 @@ export class TiragePage implements OnInit {
     this.tirageObjet.libelleTirage = this.libelleTirage;
     this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
 
+console.log("Libelle "+this.libelleListet)
+console.log("Libelle Tirage "+this.libelleTirage)
+console.log("Nobre "+this.nombrePostulantTire)
+
+
+
 
     if (this.libelleListet == "" || this.libelleTirage == "" || this.nombrePostulantTire == null) {
       this.bool_erreurFr = true;
