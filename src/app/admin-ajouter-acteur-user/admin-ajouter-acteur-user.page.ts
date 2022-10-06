@@ -32,8 +32,10 @@ export class AdminAjouterActeurUserPage implements OnInit {
   };
   nom = '';
   prenom = '';
-  numero: '';
-  email: '';
+  numero= '';
+  email= '';
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  Statut: any;
 
 
 
@@ -51,14 +53,15 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
   ajouterUtilisateur() {
 
-    // console.log("----------- "+this.statutChoix)
+    // console.log("-----------"+this.statutChoix)
 
-    if (this.nom != " " && this.prenom != '' && this.email != "" && this.statutChoix != null && this.numero != null) {
+    // eslint-disable-next-line eqeqeq
+    if (this.nom != '' && this.prenom != '' && this.email != '' && this.statutChoix != null && this.numero != null) {
 
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      this.acteurs.statut.nom = this.statutChoix;
+      this.acteurs.statut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
 
@@ -66,16 +69,13 @@ export class AdminAjouterActeurUserPage implements OnInit {
       this.serviceActeur.ajouterActeur(this.acteurs, this.nom).subscribe(data => {
         this.donner = data;
 
-        console.log("--------- " + this.donner.contenu)
- })
+        console.log('--------- ' + this.donner.contenu);
+ });
     }
     else {
-      this.erreur = " Veuillez remplir tous les champs !";
+      this.erreur = 'Veuillez remplir tous les champs !';
 
 
     }
-
-
-
   }
 }
