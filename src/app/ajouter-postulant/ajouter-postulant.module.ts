@@ -1,12 +1,15 @@
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
 
 import { AjouterPostulantPageRoutingModule } from './ajouter-postulant-routing.module';
 
 import { AjouterPostulantPage } from './ajouter-postulant.page';
+import { MenuComponent } from '../menu/menu.component';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { AjouterPostulantPage } from './ajouter-postulant.page';
     IonicModule,
     AjouterPostulantPageRoutingModule
   ],
-  declarations: [AjouterPostulantPage]
+  declarations: [AjouterPostulantPage,MenuComponent]
 })
 export class AjouterPostulantPageModule {}

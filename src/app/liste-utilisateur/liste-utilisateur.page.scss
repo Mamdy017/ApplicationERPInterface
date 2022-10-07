@@ -1,0 +1,74 @@
+.ro{
+    box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
+    border-radius: 20px;
+  }
+  input { outline-style:none; } 
+  .btnAjouter{
+  background-color: #ff6600;
+  color: white;
+  border-radius: 12px;
+  width: 200px;
+  height: 45px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .btnAjouter1{
+  background-color: #ff6600;
+  color: white;
+  border-radius: 12px;
+  width: 200px;
+  height: 45px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  }
+  .btnAjouter:hover{
+  color: black;
+  background-color: white;
+  border: 2px solid #ff6600;
+  }
+  .ro h1{
+  text-align: center;
+  }
+  .c1,.recherche{
+  background-color: #ededed;
+  color: black;
+  }
+  .position{
+  display: flex;
+  justify-content: space-around;
+  }
+  @media screen and (max-width:768px) {
+  .position{
+    display: block;
+  }
+  .btnAjouter{
+    width: 100%;
+    margin-top: 2%;
+  }
+  }
+  .trait{
+  border: 2px solid #FF6600;
+  width: 150px;  
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  }
+  .i{
+  color:#FF6600;
+  }
+  th{
+  background-color: #FF6600;
+  color: white;
+  }
+  .ra{
+  border-radius: 12px 0 0 0;
+  }
+  .ra1{
+  border-radius: 0 12px 0 0;
+  }
+  main{
+    overflow: scroll;
+  }

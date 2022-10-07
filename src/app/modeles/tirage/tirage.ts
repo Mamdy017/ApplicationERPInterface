@@ -4,12 +4,8 @@ import { Utilisateur } from "../utilisateur/utilisateur";
 
 export class Tirage {
 
-  id!: number;
-  LibelleTirage!: string;
+  libelleTirage!: string;
   nombrePostulantTire!: number;
-  date!: Date;
-  utilisateur!: Utilisateur;
-  listepostulant!: ListePostulant;
-  activite!:Activite;
+ 
 
 }

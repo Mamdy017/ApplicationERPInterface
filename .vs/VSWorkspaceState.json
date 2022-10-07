@@ -3,8 +3,29 @@
     "",
     "\\src",
     "\\src\\app",
+<<<<<<< HEAD
     "\\src\\app\\liste-acteur"
   ],
   "SelectedNode": "\\package-lock.json",
+=======
+<<<<<<< HEAD
+    "\\src\\app\\liste-acteur",
+    "\\src\\app\\liste-utilisateur",
+    "\\src\\app\\modeles",
+    "\\src\\app\\Services",
+    "\\src\\app\\Services\\ajouter-participant",
+    "\\src\\app\\Services\\liste-acteur",
+    "\\src\\app\\Services\\role"
+  ],
+  "SelectedNode": "\\src\\app\\liste-utilisateur\\liste-utilisateur.page.ts",
+=======
+    "\\src\\app\\ajouter-participant",
+    "\\src\\app\\home",
+    "\\src\\app\\Services",
+    "\\src\\app\\Services\\accueil-admin"
+  ],
+  "SelectedNode": "\\src\\app\\ajouter-participant\\ajouter-participant.page.ts",
+>>>>>>> e9eafdfcbe493253c3622b3b35493e12abfafd51
+>>>>>>> e436e8a92b13020c98593231858879b30807b023
   "PreviewInSolutionExplorer": false
 }

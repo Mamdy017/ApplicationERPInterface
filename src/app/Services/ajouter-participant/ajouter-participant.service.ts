@@ -22,4 +22,5 @@ export class AjouterParticipantService {
   recupererListePostulant(): Observable<any> {
     return this.http.get(`${this.api}listepostulant/afficher`);
   }
+
 }

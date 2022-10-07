@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ListeSallePageRoutingModule } from './liste-salle-routing.module';
 
 import { ListeSallePage } from './liste-salle.page';
+import { MenuComponent } from '../menu/menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeSallePageRoutingModule
+    ListeSallePageRoutingModule,
+    NgxPaginationModule
   ],
-  declarations: [ListeSallePage]
+  declarations: [ListeSallePage,MenuComponent]
 })
 export class ListeSallePageModule {}

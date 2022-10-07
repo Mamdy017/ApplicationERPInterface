@@ -1,82 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
 
 *{
   font-family: 'Poppins', sans-serif;
 }
 
-.alarte{
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+.welcomeContainer{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
-.cardHome{
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-
-}
-.cardHome1{
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-}
-.cardCenter{
-  justify-content: space-around;
-}
-.pContent1{
-  font-size: 3rem;
-  font-weight: 600;
+.iconSize{
+  width: 50px;
+  height: 45px;
   position: relative;
-  top: 15px;
-}
-.pContent2{
-  top: -20px;
-  position: relative;
+  top: 20px;
 }
 .slogan{
   color: #FF6600;
-  text-align: center;
-  font-size: 1.3rem;
-  position: relative;
-  top: -15px;
-}
-
-.activity{
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-}
-* {
-  font-family: 'Poppins' sans-serif;
-}
-
-.boxShadow{
-  padding: 15px;
-}
-.boxShadowArticle{
-  box-shadow: rgba(0, 0, 0, 0.20) 1.95px 1.95px 2.6px;
-  padding-top: 15px;
-}
-.titleSectionActivity{
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-}
-.actityAVenir{
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-}
-.dateActivity{
-  text-align: center;
-  font-size: 1rem;
+  font-weight: 300;
   position: relative;
   top: -10px;
+  font-style: italic;
 }
-.pActivityAVenir{
+.cardTop{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+.iconsHaut{
+  font-size: 4rem;
+  color: #FF6600;
+  padding-top: 10px;
+
+}
+.cardContour{
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.pContent1{
+  font-size: 2.2rem;
+  font-weight: bold;
+  top: 18px;
   position: relative;
-  top: -20px;
 }
-.auteurActivityAVenir{
-  position: relative;
-  font-size: 1rem;
-  top: -30px;
-}
-.boxShadowArticleAVenir{
+.pContent2{
+    font-size: 1rem;
+    position: relative;
+    top: -5px;
+    
+  }
+  .talks{
+  
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  left: 8%;
+  top: 5%;
+  
+  background: #F58220;
+  }
+.itemsevents{
   display: flex;
+  flex-wrap: wrap;
+  // flex-direction: column;
+}
+.itemsevents{
+ margin: 10px;
+}
+.itemsevents .iconsevents,.textevents{
+  display: flex;
+  justify-content: center;
+  align-content: center;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.20) 1.95px 1.95px 2.6px;
-  padding-bottom: 0;
+}
+
+.iconseventsTalk{
+  background: #24BB9D;
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+  margin-right: 20px;
+}
+.iconseventsEvent{
+  background: #FF6600;
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+  margin-right: 20px;
+}
+.iconseventsForm{
+  background: #202020;
+  width: 70px;
+  height: 70px;
+  border-radius: 5px;
+  position: relative;
+  top: 20px;
+  margin-right: 20px;
+}
+.eventTitle{
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 0;
+  margin-left: -20px;
+  
+}
+.eventNumberTalk{
+  font-size: 2rem;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 0;
+  color: #24BB9D;
+}
+.eventNumberEvent{
+  font-size: 2rem;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 0;
+  color: #FF6600;
+}.eventNumberForm{
+  font-size: 2rem;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 0;
+  color: #202020;
+}
+.iconseventsTalk,.iconseventsEvent,.iconseventsForm i{
+  color: #fff;
+  font-size: 2.3rem;
+  display: flex;
+  position: relative;
+  padding-top: 10px;
+  justify-content: center;
+}
+
+.bar div{
+ margin: 2px;
+}
+.bar0{
+  background-color: #FF6600;
+  width: 3px;
+  height: 350px;
+}
+.bar1{
+  background-color: #24BB9D;
+  width: 3px;
+  height: 350px;
+}
+.bar2{
+  background-color: #FFEA01;
+  width: 3px;
+  height: 350px;
+}
+.bar3{
+  background-color: #54C5F1;
+  width: 3px;
+  height: 350px;
+}
+.trait{
+  background: #FF6600;
+ padding: 1px;
+ width: 110px;
+ margin-left: 40%;
+ position: relative;
+ top: -5px;
+}
+
+.textArticle{
+  font-size: .9rem;
+}
+
+.btnReadMore{
+  background: #FF6600;
+  color: #FFFFFF;
+  border: none;
+}
+
+.btnReadMore:hover{
+  background: #202020;
+  color: #FFFFFF;
+}
+
+.autorArticle{
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.ContourArticle{
+  background: #FFFFFF;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.autorArticle i{
+  color: #948B8B;
+}
+main{
+  overflow: scroll;
+}
+main::-webkit-scrollbar {
+  display: none;
 }

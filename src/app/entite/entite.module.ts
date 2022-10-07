@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { EntitePageRoutingModule } from './entite-routing.module';
 
 import { EntitePage } from './entite.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EntitePageRoutingModule
+    EntitePageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [EntitePage]
+  declarations: [EntitePage,MenuComponent]
 })
 export class EntitePageModule {}

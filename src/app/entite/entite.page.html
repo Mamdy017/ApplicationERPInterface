@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <ion-content>
 
 <<<<<<< HEAD
@@ -151,3 +152,85 @@
 </div>
 >>>>>>> 9a7dd4a223d711897825d4d78332544ce5daf781
 </ion-content>
+=======
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+
+
+      <ion-content>
+
+        <div class="container">
+          <div class="row boxShadow">
+            <!------------- Colonne Gauche---->
+            <div class="col-12 col-md-4 imgGauche">
+              <img src="assets/images/logo.png" alt="">
+              <h2 class="display-6 text-center" style="font-weight: bold;">Bienvenue</h2>
+              <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+            </div>
+
+            <!------------- Colonne Droite ---->
+            <div class="col-12 col-md-8">
+
+              <form [formGroup]="formmodule" (ngSubmit)="creerEntite()">
+                <fieldset>
+                  <legend class="display-6 text-center my-3"><b>Ajouter une entite</b></legend>
+                </fieldset>
+
+                <div class="trait"></div>
+
+                <div class="row col-12">
+
+                  <div *ngIf="contenu" class="alert alert-success" role="alert">
+                    <strong>{{contenu}}</strong>
+                  </div>
+
+
+
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                    <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
+                      class="form form-control inputvalue">
+                    <label for="name">Nom</label>
+                  </div>
+
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                    <input type="text" name="slogant" formControlName="slogant" id="firstname" placeholder="Prénom"
+                      class="form form-control inputvalue">
+                    <label for="firstname">Slogan</label>
+                  </div>
+
+                  <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                    <textarea type="text" name="description" formControlName="description" id="num" placeholder="Numéro"
+                      class="form form-control inputvalue"></textarea>
+                    <label for="num">Description</label>
+                  </div>
+
+                  <div class="mb-3 col-12 col-md-12 ">
+                    <!-- <input type="file" name="file" id="file"  class="form form-control inputvalue"> -->
+                    <ion-input type="file" name="file" formControlName="file" class="input"
+                      (change)="fileChang($event)"><img class="image" src="../assets/icon/camera0.svg" alt="logo"
+                        srcset="" placeholder="logo" width="8%">Logo</ion-input>
+                  </div>
+
+                </div>
+                <button class="btn btnAjouter" value="Ajout">Creer</button>
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </ion-content>
+
+    </main>
+  </div>
+</div>
+>>>>>>> e436e8a92b13020c98593231858879b30807b023
