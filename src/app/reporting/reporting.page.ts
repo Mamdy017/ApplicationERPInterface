@@ -23,7 +23,11 @@ lesActivites:any
 searchText: any;
 lesEntites : any;
 lesPersonnesTirer:any;
-elementVide:any
+elementVide:any;
+filtreEntite:any;
+select_liste:String;
+evenement:any;
+reponse:any
 
   constructor(public breakpointObserver: BreakpointObserver,
               private serviceReporting:ReportingService,
@@ -52,6 +56,20 @@ elementVide:any
           this.actualise();
         }
       });
+
+      /*this.servicelisteutilisateur.filtreParTout().subscribe((data)=>{
+  
+      // console.log(this.select_liste)
+  
+      this.ods = data
+  
+      console.log(this.ods)*/ 
+      //affichage 
+      this.serviceReporting.afficheReporting().subscribe((data)=>{
+
+        this.filtreEntite = data
+        console.log(this.filtreEntite)
+      })
 
 
       // =========================================== RECURATION : Activités =======================================
@@ -137,6 +155,47 @@ exportToExcel(): void {
   XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
   XLSX.writeFile(book, this.name);
 }
+
+  //======================Filtrer par entite=================
+  // filtrerParEntite(event){
+  //   if(this.select_liste!= "Filtre par Entite"){
+  //     console.log(event.target.value+"hbhbhhjjbhhbbb")
+  //     this.evenement = event.target.value
+  //     this.serviceReporting.filtrerParEntite(this.select_liste).subscribe((data)=>{
+  //     this.filtreEntite=data
+  //     console.log(this.filtreEntite+"vfgvggggggggg")
+     
+
+      
+  //      } )
+  //   }
+    
+  // }
+
+  filtreUserParEntite(event) {
+
+    if(this.select_liste != "Filtre par Entité"){
+
+
+      console.log(event.target.value)
+
+      // console.log(this.ev)
+      
+      this.evenement = event.target.value
+    
+     this.serviceReporting.filtrerParEntite(this.select_liste).subscribe((data)=>{
+  
+      // console.log(this.select_liste)
+  
+      this.filtreEntite = data
+  
+      console.log(this.filtreEntite)
+     })
+    }
+  }
+
+
+    
 
 }
 
