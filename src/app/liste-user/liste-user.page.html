@@ -1,64 +1,75 @@
 <ion-content>
-  <div class="container">
-    <button type="button" class="btn" style="margin-left:92% ;">
-      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
-        99+
-      </span></i>
-    </button>
-    <br><br>
-    <div class="row py-3">
-      <h1>Liste des utilisateurs</h1>
-      <div class="trait"></div>
-      <div class="position">
-          <button class="btn btnAjouter">Exporter le fichier</button>
-          <form action="">
-            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
-          </form>
-        <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
-        <button class="btn btnAjouter">Ajouter un utilisateur</button>
+  <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+      style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
       </div>
-      <div class="table-responsive ra py-5">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" class="ra">Nom</th>
-              <th scope="col">Prénom</th>
-              <th scope="col">Email</th>
-              <th scope="col">Numéro</th>
-              <th scope="col">Rôle</th>
-              <th scope="col">Entité</th>
-              <th scope="col" class="ra1">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td scope="row">Camara</td>
-              <td>Mamady</td>
-              <td>Mamdy017@gmail.com</td>
-              <td>9122889</td>
-              <td>Responsable</td>
-              <td>Kalanso</td>
-              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
-            </tr>
-            <tr>
-              <td scope="row">Camara</td>
-              <td>Mamady</td>
-              <td>Mamdy017@gmail.com</td>
-              <td>9122889</td>
-              <td>Responsable</td>
-              <td>Kalanso</td>
-              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+      <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+        <div class="container">
+          <button type="button" class="btn" style="margin-left:92% ;">
+            <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                style="font-size:15px;  background-color: #ff6600;">
+                99+
+              </span></i>
+          </button>
+          <br><br>
+          <div class="row py-3">
+            <h1>Liste des utilisateurs</h1>
+            <div class="trait"></div>
+            <div class="position">
+              <button (click)="exportToExcel()"  class="btn btnAjouter">Exporter le fichier</button>
+              <form action="">
+                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
+                    type="text" style="border: hidden; border: 0; background: transparent;"></button>
+              </form>
+              <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
+              <button class="btn btnAjouter">Ajouter un utilisateur</button>
+            </div>
+            <div class="table-responsive ra py-5">
+              <table id="season-tble" class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="ra">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Numéro</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col">Entité</th>
+                    <th scope="col" class="ra1">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">Camara</td>
+                    <td>Mamady</td>
+                    <td>Mamdy017@gmail.com</td>
+                    <td>9122889</td>
+                    <td>Responsable</td>
+                    <td>Kalanso</td>
+                    <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+                  </tr>
+                  <tr>
+                    <td scope="row">Camara</td>
+                    <td>Mamady</td>
+                    <td>Mamdy017@gmail.com</td>
+                    <td>9122889</td>
+                    <td>Responsable</td>
+                    <td>Kalanso</td>
+                    <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
 
+<<<<<<< HEAD
             </tr>
             <tr>
               <td scope="row">Camara</td>
               <td>Mamady</td>
               <td>Mamdy017@gmail.com</td>
-              <td>9122889</td>
+              <td>00000000</td>
               <td>Responsable</td>
               <td>Kalanso</td>
-              <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+              <td><button><i class="bi bi-pencil-square i"></i></button> <button><i class="bi bi-trash-fill i"></i></button> </td>
 
             </tr>
           </tbody>
@@ -66,10 +77,29 @@
       </div>
     </div>
 
-
   </div>
+=======
+                  </tr>
+                  <tr>
+                    <td scope="row">Camara</td>
+                    <td>Mamady</td>
+                    <td>Mamdy017@gmail.com</td>
+                    <td>9122889</td>
+                    <td>Responsable</td>
+                    <td>Kalanso</td>
+                    <td><i class="bi bi-pencil-square i"></i><i class="bi bi-trash-fill i"></i></td>
+>>>>>>> e71fb2394032ce888cfb97cefa42eb57085dcc62
 
-<ion-content>
+                  </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+            </div>
+          </div>
 
 
-
+        </div>
+      </main>
+    </div>
+  </div>
+  <ion-content>

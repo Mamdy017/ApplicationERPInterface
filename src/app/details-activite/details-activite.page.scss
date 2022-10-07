@@ -1,0 +1,29 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+  }
+
+.cardContour{
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .ContourArticle{
+    background: #FFFFFF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .btnReadMore{
+    background: #FF6600;
+    color: #FFFFFF;
+    border: none;
+  }
+  
+  .btnReadMore:hover{
+    background: #202020;
+    color: #FFFFFF;
+  }
+
+  .autorArticle{
+    font-size: .8rem;
+    font-style: italic;
+  }

@@ -19,11 +19,15 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
  statutChoix:any;
+ menuBureau: boolean = true;
+ menuMobile: boolean = false;
+
+ 
 
 
   acteurs: Acteur = {
     nom: "",
-    idActeur: null,
+    idacteur: null,
     prenom: '',
     numero: '',
     email: " ",
@@ -31,6 +35,8 @@ export class AdminAjouterActeurUserPage implements OnInit {
   }
   donner: any;
   erreur: any;
+
+ 
 
   constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
 
@@ -70,4 +76,8 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
   }
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  } 
 }

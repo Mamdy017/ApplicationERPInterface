@@ -1,13 +1,13 @@
 <div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
       class="bi bi-list py-2 p-1 " style="color:black"></i></a>
   <div class="row flex-nowrap">
-    <div class="col-auto px-2">
+    <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
 
-      
+
       <div class="container">
         <button type="button" class="btn" style="margin-left:92% ;">
           <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
@@ -33,7 +33,7 @@
 
 
 
-          <a href="salle">  <button class="btn btnAjouter">Ajouter une salle</button></a>  
+          <a href="salle">  <button class="btn btnAjouter">Ajouter une salle</button></a>
           </div>
           <div class="table-responsive ra py-5">
             <table class="table">
@@ -45,9 +45,9 @@
                   <th scope="col" style="text-align:center ;">Nombre de place</th>
                   <th scope="col" style="text-align:center ;">Etat de disponibilité</th>
                 </tr>
-             
-             
-                <tr *ngFor="let uneSalle of maListes  let i = index">
+
+
+                <tr *ngFor="let uneSalle of maListes | paginate: { itemsPerPage: 5, currentPage: p} let i = index">
                   <td style="text-align:center ;">{{i+1}}</td>
                   <td style="text-align:center ;">{{uneSalle.nom}}</td>
                   <td style="text-align:center ;">{{uneSalle.etage}}</td>
@@ -55,14 +55,15 @@
                   <td style="text-align:center ;">
                     <i class="bi bi-check-circle i"></i>
                   </td>
-                </tr>              
+                </tr>
               </thead>
             </table>
-           
-                
+            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+
+
           </div>
         </div>
-    
+
       </div>
     </main>
   </div>

@@ -1,4 +1,4 @@
-
+import { Activite } from "../activite/activite"
 
 export class Postulant {
 
@@ -7,5 +7,5 @@ export class Postulant {
     numero_postulant!: string
     email!: string
     genre!: string
-    
+    // activite!: 
 }

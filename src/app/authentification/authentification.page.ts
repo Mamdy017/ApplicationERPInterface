@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import { AuthentificationService } from '../Services/authentification/authentification.service';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 import { Router } from '@angular/router';
+import { Role } from '../modeles/role/role';
+import { Entite } from '../modeles/entite';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -25,6 +27,8 @@ export class AuthentificationPage implements OnInit {
     numero: '',
     email: '',
     password: '',
+    role: new Role,
+    entite: new Entite
   }
 
   bool_erreur: boolean = false;
@@ -43,12 +47,7 @@ export class AuthentificationPage implements OnInit {
       this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
     } 
-    // else if(this.email != this.utilisateur.email)
-    // {
-    //       this.erreur = data.contenu
-
-    //     console.log("VVVVVVVV "+this.erreur)
-    // }    
+   
     else {
       this.service.seConnecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
@@ -62,20 +61,23 @@ export class AuthentificationPage implements OnInit {
 
           if (this.typeUser != null) {
             sessionStorage.setItem("id_users", data.iduser);
+            sessionStorage.setItem("role_users", data.role.nom); 
             sessionStorage.setItem("nom_users", data.nom);
             sessionStorage.setItem("prenom_users", data.prenom);
+            sessionStorage.setItem("role_users", data.role.nom);
             sessionStorage.setItem("email_users", data.email);
             sessionStorage.setItem("numero_users", data.numero);
 
             if (this.typeUser == "user") {
-              this.route.navigateByUrl('/user-accueil');
+              this.route.navigateByUrl('/accueil-user');
             }
             else if (this.typeUser == "admin") {
               this.route.navigateByUrl('/admin-accueil');
             }
             else {
-              this.route.navigateByUrl('h');
-              console.log(data.contenu);             
+              this.route.navigateByUrl('/admin-accueil');
+              console.log(data.contenu);       
+              this.erreur = "Utilisateur non géré !";      
             }
           }
         }

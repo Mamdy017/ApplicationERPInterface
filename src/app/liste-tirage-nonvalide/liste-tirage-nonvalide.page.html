@@ -1,103 +1,123 @@
 <ion-content>
-  <div class="container">
-    <button type="button" class="btn" style="margin-left:92% ;">
-      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:15px;">
-        99+
-      </span></i>
-    </button>
-    <br><br>
-    <div class="row py-3">
-      <h1>Liste des tirages non valide </h1>
-      <p>Vous pouvez voir le reste de la liste en cliquant sur suivant. </p>
+  <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+      style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
+      </div>
+      <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+        <div class="container">
+          <button type="button" class="btn" style="margin-left:92% ;">
+            <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="font-size:15px;">
+                99+
+              </span></i>
+          </button>
+          <br><br>
+          <div class="row py-3">
+            <h1>Liste des tirages non valide </h1>
+            <p>Vous pouvez voir le reste de la liste en cliquant sur suivant. </p>
 
-      <div class="trait"></div>
-      <div class="position">
-        <div class="mb-3 col-12 col-md-2 form-row form-floating">
-          <select name="designation" id="designation"  class="form-select form-control bi bi-filter-right"  >
-              <option selected>Filtré par entité</option>
-              <option>Kalanso</option>
-              <option>Orange FabLab</option>
-              <option>Orange Fab</option>
-          </select>
+            <div class="trait"></div>
+            <div class="position">
+              <div class="mb-3 col-12 col-md-2 form-row form-floating">
+                <select name="designation" id="designation" class="form-select form-control bi bi-filter-right">
+                  <option selected>Filtré par entité</option>
+                  <option>Kalanso</option>
+                  <option>Orange FabLab</option>
+                  <option>Orange Fab</option>
+                </select>
+              </div>
+              <form>
+                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
+                    type="text" style=" border: 0; background: transparent;"></button>
+              </form>
+            </div>
+            <div class="table-responsive ra py-5">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="ra" style="text-align:center ;">Libelle liste</th>
+                    <th scope="col" style="text-align:center ;">Libelle tirage</th>
+                    <th scope="col" style="text-align:center ;">Date tirage</th>
+                    <th scope="col" style="text-align:center ;">Nombre tiré</th>
+                    <th scope="col" style="text-align:center ;">Actions</th>
+                  </tr>
+
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 2</td>
+                    <td style="text-align:center ;">Tirage 2</td>
+                    <td style="text-align:center ;">02/08/2022</td>
+                    <td style="text-align:center ;">09</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 3</td>
+                    <td style="text-align:center ;">Tirage 4</td>
+                    <td style="text-align:center ;">03/09/2022</td>
+                    <td style="text-align:center ;">05</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 2</td>
+                    <td style="text-align:center ;">Tirage 1</td>
+                    <td style="text-align:center ;">12/09/2022</td>
+                    <td style="text-align:center ;">2</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 1</td>
+                    <td style="text-align:center ;">Tirage 10</td>
+                    <td style="text-align:center ;">22/09/2022</td>
+                    <td style="text-align:center ;">20</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 4</td>
+                    <td style="text-align:center ;">Tirage 7</td>
+                    <td style="text-align:center ;">22/01/2022</td>
+                    <td style="text-align:center ;">16</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+                  <tr>
+                    <td style="text-align:center ;">Liste 1</td>
+                    <td style="text-align:center ;">Tirage 8</td>
+                    <td style="text-align:center ;">22/05/2022</td>
+                    <td style="text-align:center ;">13</td>
+                    <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i> <i
+                        class="bi bi-trash3"></i></td>
+                  </tr>
+
+
+                </thead>
+              </table>
+              <pagination-controls class="text-center" (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+          </div>
+
         </div>
-      <form>
-        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style=" border: 0; background: transparent;"></button>
-      </form>
-      </div>
-      <div class="table-responsive ra py-5">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" class="ra" style="text-align:center ;">Libelle liste</th>
-              <th scope="col" style="text-align:center ;">Libelle tirage</th>
-              <th scope="col" style="text-align:center ;">Date tirage</th>
-              <th scope="col" style="text-align:center ;">Nombre tiré</th>
-              <th scope="col" style="text-align:center ;">Actions</th>
-            </tr>
-         
-         
-            <tr>
-              <td style="text-align:center ;">Liste 2</td>
-              <td style="text-align:center ;">Tirage 2</td>
-              <td style="text-align:center ;">02/08/2022</td>
-              <td style="text-align:center ;">09</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            <tr>
-              <td style="text-align:center ;">Liste 3</td>
-              <td style="text-align:center ;">Tirage 4</td>
-              <td style="text-align:center ;">03/09/2022</td>
-              <td style="text-align:center ;">05</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            
-            <tr>
-              <td style="text-align:center ;">Liste 2</td>
-              <td style="text-align:center ;">Tirage 1</td>
-              <td style="text-align:center ;">12/09/2022</td>
-              <td style="text-align:center ;">2</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            
-            <tr>
-              <td style="text-align:center ;">Liste 1</td>
-              <td style="text-align:center ;">Tirage 10</td>
-              <td style="text-align:center ;">22/09/2022</td>
-              <td style="text-align:center ;">20</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            
-            <tr>
-              <td style="text-align:center ;">Liste 4</td>
-              <td style="text-align:center ;">Tirage 7</td>
-              <td style="text-align:center ;">22/01/2022</td>
-              <td style="text-align:center ;">16</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            <tr>
-              <td style="text-align:center ;">Liste 1</td>
-              <td style="text-align:center ;">Tirage 8</td>
-              <td style="text-align:center ;">22/05/2022</td>
-              <td style="text-align:center ;">13</td>
-              <td style="text-align:center ;"><i class="bi bi-check-circle i px-4"></i>  <i class="bi bi-trash3"></i></td>
-            </tr>
-           
-            
-          </thead>
-        </table>
-      </div>
+
+
+
+      </main>
     </div>
-
   </div>
-
-
-
-
 
 </ion-content>

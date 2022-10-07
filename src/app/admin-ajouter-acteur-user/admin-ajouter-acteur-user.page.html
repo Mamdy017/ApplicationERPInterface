@@ -1,39 +1,65 @@
-<ion-content>
-  <div class="container">
-
-
-    <div class="left" style="position: absolute; left: 0;">
-      <h2>Formulaire Acteur</h2>
-      <div class="trait"></div>
-
-      <form>
-        <div *ngIf="erreur">
-              {{erreur}}
-        </div>
-        <table>
-          <tr>
-            <td><input type="text" name="nom" placeholder="Saisir Nom"  [(ngModel)]="nom"required></td>
-          </tr>
-          <tr>
-            <td><input type="text" name="prenom" placeholder="Saisir Prenom"   [(ngModel)]="prenom" required></td>
-          </tr>
-          <tr>
-            <td><input type="email" name="email" placeholder="Saisir Email"  [(ngModel)]="email" required></td>
-          </tr>
-
-          <tr>
-            <td><input type="text" name="telephone" placeholder="76 55 67 55"  [(ngModel)]="telephone" required></td>
-          </tr>
-
-          <tr>
-            <td><select class="slth" name="selection" [(ngModel)]="statutChoix">
-              <!-- <option value="">--Statut--</option> -->
-              <option  *ngFor="let statuts of statut" class="form-control"  [ngValue] ="statuts.nom">{{statuts.nom}}</option>
-            </select></td>
-          </tr>
-          <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
-        </table>
-      </form>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+
+      <div class="container row">
+
+        <!-- =============================  L'image  ============================== -->
+        <div class="col-lg-4 col-md-6 xs-6 droit">
+          <img src="../../assets/ajouterM.png" width="100%">
+        </div>
+
+        <!-- =============================  Formulaire  ============================== -->
+
+        <div class="col-lg-8 col-md-6 xs-6">
+
+          <div class="left" style="left: 0; align-items: center;">
+
+            <h2>Formulaire Acteur</h2>
+            <div class="trait"></div>
+
+            <form class="form">
+              <table>
+                <tr>
+                  <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom" [(ngModel)]="nom"
+                      required> </td>
+                </tr>
+
+                <tr>
+                  <td> <input type="text" name="prenom" class="form-control" class="form-control"
+                      placeholder="Saisir Prenom" [(ngModel)]="prenom" required> </td>
+                </tr>
+
+                <tr>
+                  <td> <input type="email" name="email" class="form-control" placeholder="Saisir Email"
+                      [(ngModel)]="email" required> </td>
+                </tr>
+
+                <tr>
+                  <td><input type="text" name="telephone" class="form-control" placeholder="76 55 67 55"
+                      [(ngModel)]="telephone" required> </td>
+                </tr>
+
+                <tr>
+                  <td><select class="slth" name="selection" class="form-control" [(ngModel)]="statutChoix">
+                      <!-- <option value="">--Statut--</option> -->
+                      <option *ngFor="let statuts of statut" class="form-control" [ngValue]="statuts.nom">
+                        {{statuts.nom}}
+                      </option>
+                    </select></td>
+                </tr>
+                <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
+              </table>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-</ion-content>
+</div>

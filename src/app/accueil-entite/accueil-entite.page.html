@@ -1,10 +1,19 @@
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
 <ion-content>
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-9  ">
-      <div class="col-12 col-md-12 t1 " >
-        <h1>Bienvenue sur la page de l’entité</h1>
-        <h2>Kalanso</h2>
+      <div class="col-12 col-md-12 t1 " class="haut">
+        <!-- <!-- <h1>Bienvenue sur la page de l’entité</h1> -->
+        <h2>{{nom_entite}}</h2> 
       </div>
 <!--La section pour les statistiques formations apprenants et evenements-->
       
@@ -12,22 +21,22 @@
         <div class="col-6 col-md-4 pt-3">
           <div class="card">
             <span class="icon"><i class="bi bi-mortarboard"></i></span>
-            <p class="pcard">100</p>
-            <p class="textcard">Apprenants</p>
+            <p class="pcard">{{nombre_formation}}</p>
+            <p class="textcard">Formations</p>
           </div>
         </div>
         <div class="col-6 col-md-4 pt-3">
           <div class="card">
             <span class="icon"><i class="bi bi-mortarboard"></i></span>
-            <p class="pcard">100</p>
-            <p class="textcard">Formations</p>
+            <p class="pcard">{{nombre_talk}}</p>
+            <p class="textcard">Talks</p>
           </div>
           
         </div>
         <div class="col-6 col-md-4 pt-3">
           <div class="card">
             <span class="icon"><i class="bi bi-mortarboard"></i></span>
-            <p class="pcard">100</p>
+            <p class="pcard">{{nombre_evennement}}</p>
             <p class="textcard">Evenements</p>
           </div>
           
@@ -49,8 +58,8 @@
   <div class="col-12 col-md-9">
     <div class="card1">
       <ul class="chart">
-        <li>
-          <span style="height:50%" title="Janvier"></span>
+        <li >
+          <span style="height:50%" title="Janvier" class="color-li"></span>
         </li>
         <li>
           <span style="height:70%" title="Fevrier"></span>
@@ -89,15 +98,15 @@
       <br><br>
       <h2 class="a">Données Statistiques</h2>
     </div>
+    <!--La section pour les activites à venir-->
   </div>
   <div class="col-12 col-md-3 t2">
     <div class="card1">
       <h2>Activités a venir</h2>
-      <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-      <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-      <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-      <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-    </div>
+      <div *ngFor="let a of activite_avenir">
+        <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
+      </div>
+     </div>
   </div>
 </section>
 <!--La section pour les activites encours-->
@@ -106,29 +115,15 @@
     <div class="card1">
       <h2>Activités encours</h2>
       <div  class="row py-3">
-        <div class="col-12 col-md-4">
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
+        <div class="col-12 col-md-4"  *ngFor="let a of activite_encours">
+          <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
         </div>
-        <div class="col-12 col-md-4">
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-        </div>
-        <div class="col-12 col-md-4">
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-          <p><i class="bi bi-bar-chart"></i>Titre activite 1</p>
-        </div>
-      
-      </div>
+     
+    </div>
     </div>
   </div>
 </section>
  
 </div>
 </ion-content>
+    </main></div></div>

@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ListePostulant } from '../modeles/liste-postulant/liste-postulant';
 import { Postulant } from '../modeles/postulant/postulant';
@@ -40,6 +41,11 @@ export class AjouterParticipantPage implements OnInit {
 
   constructor(private ajouterparticipantservice: AjouterParticipantService  ) { }
 
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
   ngOnInit() {
     //this.getListePostulant();
 

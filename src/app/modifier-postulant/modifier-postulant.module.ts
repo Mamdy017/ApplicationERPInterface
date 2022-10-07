@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ModifierPostulantPageRoutingModule } from './modifier-postulant-routing.module';
 
 import { ModifierPostulantPage } from './modifier-postulant.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { ModifierPostulantPage } from './modifier-postulant.page';
     IonicModule,
     ModifierPostulantPageRoutingModule
   ],
-  declarations: [ModifierPostulantPage]
+  declarations: [ModifierPostulantPage,MenuComponent]
 })
 export class ModifierPostulantPageModule {}

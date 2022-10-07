@@ -35,4 +35,7 @@ supprimerActeur(id : number) :Observable<any>{
     return this.http.get("http://localhost:8080/utilisateur/afficherAvecRole")
   }
 
+supprimerUtilisateur( iduser: number) :Observable<any>{
+  return this.http.delete(`http://localhost:8080/utilisateur/supprimer/${iduser}`);
+}
 }
