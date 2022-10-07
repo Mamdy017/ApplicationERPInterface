@@ -24,11 +24,15 @@ export class GestionentiteService {
   }
 
   activiteEnCours(idEntite : number) :Observable<any> {
-    return this.http.get(`${this.api}/activite/parEntiteEtEtat/En Cours/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parEntiteEtEtat/encours/${idEntite}`)
   }
   
   activiteAvenir(idEntite : number) :Observable<any> {
-    return this.http.get(`${this.api}activite/parEntiteEtEtat/à Venir/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parEntiteEtEtat/avenir/${idEntite}`)
+  }
+
+  responsableEntite(idEntite : number) :Observable<any> {
+    return this.http.get(`${this.api}/utilisateur/responsableParEntite/Responsable/${idEntite}`)
   }
 }
   

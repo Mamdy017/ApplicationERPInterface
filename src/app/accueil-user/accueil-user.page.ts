@@ -20,6 +20,7 @@ export class AccueilUserPage implements OnInit {
   nombreEvenements:any;
   activiteRecent:any;
   activiteAVenir:any;
+  activiteParId:any
   activite:Activite;
 
 
@@ -99,6 +100,10 @@ export class AccueilUserPage implements OnInit {
         this.activiteAVenir= data
         console.log(this.activiteAVenir)
       })
+
+     
+
+        
       // Ici on charge les sessions
 
     this.iduser =  sessionStorage.getItem("id_users");
@@ -121,6 +126,16 @@ export class AccueilUserPage implements OnInit {
 
   }
 
+   //Redirection pour afficher par id activité
+   ActiciteParId(idActivite:number){
+    this.service.AfficherParId(idActivite).subscribe(data=>{
+      this.activiteParId = data
+  
+    })
+
+   }
+
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
@@ -130,5 +145,6 @@ export class AccueilUserPage implements OnInit {
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
     }
+
 
 }

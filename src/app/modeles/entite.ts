@@ -3,6 +3,7 @@ export class Entite {
     nom!: string;
     description!: string;
     slogant!: string;
+    photoentite!: string;
    
 }
 export class Fichier {

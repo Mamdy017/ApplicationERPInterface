@@ -13,6 +13,7 @@ import { GestionentiteService } from '../Services/gestionentite/gestionentite.se
 export class AccueilEntitePage implements OnInit {
 
 
+
 // /==============================================================================SESSION==========
 iduser:any;
 roles:any;
@@ -26,6 +27,14 @@ numero_users: string;
   nom_res : string;
   prenom_res : string;
   img_res : string;
+
+  responsables : any;
+  encours : boolean = false;
+  avenir : boolean = false;
+  nom_responsable : string;
+  prenom_responsable : string;
+  img_responsable : string;
+
   nom_entite : Entite;
   activite_encours : Activite [];
   activite_avenir : Activite [];
@@ -76,7 +85,6 @@ this.numero_users = sessionStorage.getItem("numero_users");
         for (const entie of data) {
           if(entie.idEntite == id){
             this.nom_entite = entie.nom;
-            console.table(this.nom_entite)
           }
         }
       });
@@ -91,19 +99,35 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
       this.serviceEntite.nombreEvennement(id).subscribe(data => {
         this.nombre_evennement = data;
-      })
+      });
+      
+      this.serviceEntite.activiteAvenir(id).subscribe(data => {
+        this.activite_avenir = data;
+        if(this.activite_avenir.length == 0){
+          this.avenir = true;
+        };
+      });
 
       this.serviceEntite.activiteEnCours(id).subscribe(data => {
         this.activite_encours = data;
-      })
-      this.serviceEntite.activiteAvenir(id).subscribe(data => {
-        this.activite_avenir = data;
+        if(this.activite_encours.length == 0){
+          this.encours = true;
+        };
+      });
+
+      this.serviceEntite.responsableEntite(id).subscribe(data => {
+        this.responsable = data;
+        this.nom_responsable = this.responsable[0][0];
+        this.prenom_responsable = this.responsable[0][1];
+        this.img_responsable = this.responsable[0][2]
+        console.table("==============  " + this.responsable[0][2])
       })
 
   }  afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+
 
   responsable (entite : number){
     if(entite == 1){
@@ -133,4 +157,5 @@ this.numero_users = sessionStorage.getItem("numero_users");
     console.log('je suis le log')
     this.routes.navigateByUrl('/authentification');
     }
+
 }

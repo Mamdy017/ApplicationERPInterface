@@ -2,9 +2,12 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
+import { Entite } from '../modeles/entite';
 import { ServicesService } from '../services.service';
+import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
+import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
+import { EntiteService } from '../Services/entite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
-import { SalleService } from '../services/salle';
 
 @Component({
   selector: 'app-admin-accueil',
@@ -74,10 +77,14 @@ export class AdminAccueilPage implements OnInit {
   fablabOct:any;
   fablabNo:any;
   fablabDe:any;
+  afficheAnnee: any;
 
 
 
-  constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver, private route:Router) { }
+  constructor(private service: ServicesService, private serviceActeur: ListeActeurService,
+              public breakpointObserver: BreakpointObserver, private route:Router,
+              private serviceAccueil :AccueilUserService
+              ) { }
   actualise(): void {
     setInterval(
       () => {
@@ -275,6 +282,12 @@ this.fablabDe=this.serviceActeur.fablabDe().subscribe(data=>{
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
+
+      //affiche année
+      // this.serviceAccueil.afficherAnnee().subscribe(data => {
+      //   this.afficheAnnee= data
+      // })
+
 
       // Ici on charge les sessions
 

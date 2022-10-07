@@ -28,12 +28,11 @@ numero_users: string;
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   entiteobjet: Entite = {
-
     idEntite: 0,
     nom: '',
     description: '',
-    slogant: ''
-
+    slogant: '',
+    photoentite: ''
   }
 
   photo$!: Observable<any>;
