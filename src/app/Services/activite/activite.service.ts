@@ -43,6 +43,9 @@ recupererListeAnne():Observable<any>{
   return this.http.get(`${this.api}/annee/afficher`)
 }
 
+afficherActiviter():Observable<any[]>{
+  return this.http.get<any[]>(`${this.api}/activite/afficher`)
+}
 
 
 

@@ -9,12 +9,12 @@
       <main class="col ps-md-2 pt-2  " style=" height: 100vh ; overflow: scroll;">
         <div class="container">
 
-          <div class="row">
+          <div class="row" *ngFor="let a of od">
 
             <span class="text-center py-5"><a href="activite"><button class=" btn btnReadMore">Ajouter une Activité</button></a></span>
             <div class="col-12 col-ms-12 col-md-6">
               <div class="cardContour my-3 py-2">
-                <h1 class="h3 text-center pt-3 display-6">Activités en cours</h1>
+                <h1 class="h3 text-center pt-3 display-6"></h1>
                 <div class="trait"></div>
                 <p class="text-center">Merci de visionner nos activités récentes</p>
 
