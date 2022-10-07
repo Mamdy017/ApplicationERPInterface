@@ -1,5 +1,5 @@
 
-  <div class="container row">
+  <div class="container row" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
 
     <!-- =============================  L'image  ============================== -->
     <div class="col-lg-4 col-md-6 xs-6 droit">
@@ -49,4 +49,30 @@
 </div>
 
 </div>
+  </div>
+
+
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div >
+      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover{
+          background-color:black ;
+          border:2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+        .img button a{
+          background-color:#ff6600 ;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>
 

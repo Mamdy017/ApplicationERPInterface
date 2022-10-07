@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // import { Component, OnInit } from '@angular/core';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
@@ -12,6 +13,16 @@ export class AjouterPostulantPage implements OnInit {
   
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+
+  // /==============================================================================SESSION==========
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
   postulant: Postulant = {
     nom_postulant: "",
@@ -38,7 +49,7 @@ export class AjouterPostulantPage implements OnInit {
   
     constructor(
       private ajouterPostulant : AjouterPostulantService, public breakpointObserver: BreakpointObserver
-    ) { }
+    ,private route:Router) { }
   
     actualise(): void {
       setInterval(
@@ -46,6 +57,16 @@ export class AjouterPostulantPage implements OnInit {
         }, 100, clearInterval(1500));
     }
     ngOnInit() {
+
+
+
+      // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
 
       this.getListePostulant();
   
@@ -108,6 +129,10 @@ export class AjouterPostulantPage implements OnInit {
     this.menuBureau = true;
     this.menuMobile = false;
   }
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 
 }

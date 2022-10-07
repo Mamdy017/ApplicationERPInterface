@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 import { ServicesService } from '../services.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
@@ -18,6 +19,18 @@ export class AdminAccueilPage implements OnInit {
   totalUtilisateur: any;     // Nomre total d'utilisateurs 
   apprenantsTotal: any;     // Nomre total d'apprenants
   participantTotal: any;    // Nomre total des participants
+// /==============================================================================SESSION==========
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
 
   nom: any;
   prenom: any;
@@ -64,7 +77,7 @@ export class AdminAccueilPage implements OnInit {
 
 
 
-  constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver, private route:Router) { }
   actualise(): void {
     setInterval(
       () => {
@@ -88,6 +101,25 @@ export class AdminAccueilPage implements OnInit {
           this.actualise();
         }
       });
+
+// ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
+
+
+
+
+
+
+
+
+
+
+
 
     // Ici on recupere le nombre total d'utilisateurs
 
@@ -311,4 +343,9 @@ this.fablabDe=this.serviceActeur.fablabDe().subscribe(data=>{
       }
     })
   }
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 }

@@ -5,6 +5,7 @@ import { Entite } from '../modeles/entite';
 import { Fichier } from '../modeles/entite';
 import { Observable } from 'rxjs';
 import { EntiteService } from '../Services/entite/entite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entite',
@@ -15,6 +16,16 @@ export class EntitePage implements OnInit {
 // ajouterEntite() {
 // throw new Error('Method not implemented.');
 // }
+
+
+// /==============================================================================SESSION==========
+iduser:any;
+roles:any;
+noms_users:any;
+prenom_users:any;
+email_users: string;
+numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   entiteobjet: Entite = {
 
@@ -44,12 +55,20 @@ export class EntitePage implements OnInit {
   menuMobile: boolean = false;
 
   constructor(private serviceEntite: EntiteService,
-    private formB:FormBuilder,
+    private formB:FormBuilder, private route:Router
     // private serviceq:EntiteService,
     // private servicez:
     ) { }
 
     ngOnInit(): void {
+
+      // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
    
       this.formmodule=this.formB.group({
         nom:["",Validators.required],
@@ -123,4 +142,9 @@ resetForm(){
       this.menuBureau = true;
       this.menuMobile = false;
     }
+    deconnexion(){
+      sessionStorage.clear();
+      console.log('je suis le log')
+      this.route.navigateByUrl('/authentification');
+      }
 }

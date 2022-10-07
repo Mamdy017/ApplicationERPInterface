@@ -31,7 +31,8 @@ import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     ReactiveFormsModule,
     RouterLinkActive,
-    // Ng2SearchPipeModule,
+    Ng2SearchPipeModule,
+    NgChartsModule
     // FilterPipe
 
     // LayoutModule,

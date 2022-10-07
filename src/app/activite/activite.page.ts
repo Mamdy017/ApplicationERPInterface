@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { TypeActivite } from '../modeles/type-activite/type-activite';
 import { ActiviteService } from '../Services/activite/activite.service';
@@ -12,7 +13,7 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
 export class ActivitePage implements OnInit {
 
   constructor(private activiteService : ActiviteService,
-    private utilisateurs: ListeActeurService) { }
+    private utilisateurs: ListeActeurService, private route:Router) { }
 
 
   salles$:any;
@@ -131,7 +132,11 @@ export class ActivitePage implements OnInit {
     this.getActeurs();
 
   }
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
  
 
 }

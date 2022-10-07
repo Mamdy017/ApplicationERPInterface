@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authentification',
+    redirectTo: /*'authentification'*/ 'splash-screen',
     pathMatch: 'full'
   },
   {
@@ -152,13 +152,10 @@ const routes: Routes = [
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
   {
-    path: 'ajouter_utilisateur',
-    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+    path: 'splash-screen',
+    loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
   },
-  // {
-  //   path: 'tirage-valide',
-  //   loadChildren: () => import('./tirage-valide/tirage-valide.component').then( m => m.TirageValideComponent)
-  // },
+
 
 
 

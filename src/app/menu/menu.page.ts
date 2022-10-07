@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route } from '@angular/router';
 // import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
@@ -11,7 +12,16 @@ export class MenuPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
-  constructor() { }
+  constructor(private route:Route) { }
+  // /==============================================================================SESSION==========
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
   actualise(): void{
     setInterval(
@@ -21,33 +31,17 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
 
-  //   this.breakpointObserver
-  //   .observe(['(max-width: 767px)'])
-  //   .subscribe((state: BreakpointState) => {
-  //     if (state.matches) {
-  //       this.menuBureau = false;
-  //       this.menuMobile = true;
-  //       this.actualise();
-  //     } else {
-  //       this.menuBureau = true;
-  //       this.menuMobile = false;
-  //       this.actualise();
-  //     }
-  //   });
-
-  // }
-
-  // afficheMenuMobile(){
-  //   this.menuBureau = true;
-  //   this.menuMobile = false;
-  // }
-
-  // cacherMenuMobile(){
-  //   this.menuBureau = false;
-  //   this.menuMobile = true;
-  // }
-
-
+    // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
 
 }
+
+  // ===========================================================================SESSION VALEURS================================================
+
+
 }

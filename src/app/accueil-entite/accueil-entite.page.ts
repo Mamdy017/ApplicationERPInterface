@@ -1,6 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { Entite } from '../modeles/entite';
 import { GestionentiteService } from '../Services/gestionentite/gestionentite.service';
@@ -11,6 +11,18 @@ import { GestionentiteService } from '../Services/gestionentite/gestionentite.se
   styleUrls: ['./accueil-entite.page.scss'],
 })
 export class AccueilEntitePage implements OnInit {
+
+
+// /==============================================================================SESSION==========
+iduser:any;
+roles:any;
+noms_users:any;
+prenom_users:any;
+email_users: string;
+numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
   nom_res : string;
   prenom_res : string;
   img_res : string;
@@ -25,7 +37,7 @@ export class AccueilEntitePage implements OnInit {
 
   constructor( public breakpointObserver: BreakpointObserver,
      private serviceEntite : GestionentiteService,
-     private route : ActivatedRoute) { }
+     private route : ActivatedRoute , private routes:Router) { }
 
 
   actualise(): void {
@@ -35,6 +47,16 @@ export class AccueilEntitePage implements OnInit {
   }
   
   ngOnInit() {
+
+
+    // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
+
     const id = this.route.snapshot.params['id']
     this.breakpointObserver
     .observe(['(max-width: 767px)'])
@@ -106,5 +128,9 @@ export class AccueilEntitePage implements OnInit {
     }
     
   }
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.routes.navigateByUrl('/authentification');
+    }
 }

@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { AccueilUserService } from '../Services/accueil-user/accueil-user.service';
 import { ActiviteService } from '../Services/activite/activite.service';
@@ -21,14 +22,23 @@ export class AccueilUserPage implements OnInit {
   activiteAVenir:any;
   activite:Activite;
 
-  nom: any;
-  prenom: any;
+
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+
+
+
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+ 
 
   constructor(private service: AccueilUserService,
      public breakpointObserver: BreakpointObserver,
-     public activiteService: ActiviteService) { }
+     public activiteService: ActiviteService, private route:Router) { }
 
   actualise(): void {
     setInterval(
@@ -91,10 +101,23 @@ export class AccueilUserPage implements OnInit {
       })
       // Ici on charge les sessions
 
-      this.prenom = sessionStorage.getItem("prenom_users");
-      this.nom = sessionStorage.getItem("nom_users")
+    this.iduser =  sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users"); 
+    this.noms_users =  sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
+
 
     })
+
+
+   
+
+
+
+
+
 
   }
 
@@ -102,5 +125,10 @@ export class AccueilUserPage implements OnInit {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 
 }

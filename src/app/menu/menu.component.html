@@ -68,10 +68,12 @@
         <a routerLink="/liste-salle" class="nav-link  align-middle li">
           <i class="bi bi-pc-display-horizontal"></i> <span class="ms-1  d-sm-inline light px-3">Salles</span></a>
       </li>
+
       <li [routerLinkActive]="'active'" class="li">
         <a routerLink="/repording" class="nav-link  align-middle li">
           <i class="bi bi-pc-display-horizontal"></i> <span class="ms-1  d-sm-inline light px-3">Reporting</span></a>
-      </li>
+          <button (click)="deconnexion()">Deconnexion</button>
+
     </ul>
   </div>
-</div>
+</div> 

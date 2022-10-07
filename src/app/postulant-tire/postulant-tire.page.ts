@@ -1,7 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
 
@@ -11,12 +11,24 @@ import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste
   styleUrls: ['./postulant-tire.page.scss'],
 })
 export class PostulantTirePage implements OnInit {
+
+// /==============================================================================SESSION==========
+iduser:any;
+roles:any;
+noms_users:any;
+prenom_users:any;
+email_users: string;
+numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
   menuBureau= true;
   menuMobile= false;
   p=1;
 
   // eslint-disable-next-line max-len
-  constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute, public breakpointObserver: BreakpointObserver) { }
+  constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute, 
+    public breakpointObserver: BreakpointObserver, private routes:Router) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   lesPersonnesTirees: any;
@@ -27,6 +39,14 @@ export class PostulantTirePage implements OnInit {
   }
   // id_tirage : any
   ngOnInit() {
+
+    // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
 
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -71,5 +91,9 @@ export class PostulantTirePage implements OnInit {
     XLSX.writeFile(book, this.name);
   }
 
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.routes.navigateByUrl('/authentification');
+    }
 }
