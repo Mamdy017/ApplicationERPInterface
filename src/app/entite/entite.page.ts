@@ -1,9 +1,9 @@
 import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Entite } from '../modeles/entite';
+import { Fichier } from '../modeles/entite';
 import { Observable } from 'rxjs';
-import { Entite, Fichier } from '../modeles/entite/Entite';
 import { EntiteService } from '../Services/entite/entite.service';
 
 @Component({

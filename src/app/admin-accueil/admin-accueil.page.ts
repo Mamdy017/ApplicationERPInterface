@@ -1,9 +1,11 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Entite } from '../modeles/entite';
 import { ServicesService } from '../services.service';
+import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
+import { EntiteService } from '../Services/entite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
-import { SalleService } from '../services/salle';
 
 @Component({
   selector: 'app-admin-accueil',
@@ -23,9 +25,15 @@ export class AdminAccueilPage implements OnInit {
   prenom: any;
   nbre: any
   role:any
+  afficherEntiteAdmin:any;
+  entite:Entite
+  afficheAnnee:any
 
 
-  constructor(private service: ServicesService, private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private service: ServicesService,
+     private serviceActeur: ListeActeurService,
+     private serviceAccueil: AccueilAdminService,
+     public breakpointObserver: BreakpointObserver) { }
   actualise(): void {
     setInterval(
       () => {
@@ -57,6 +65,13 @@ export class AdminAccueilPage implements OnInit {
       this.nbre = data
     })
 
+    //Afficher les entités de l'admin
+    this.serviceAccueil.afficherEntiteAdmin().subscribe(data =>{
+      this.afficherEntiteAdmin = data
+      console.log(this.afficherEntiteAdmin+"dvvvvvvvvvv")
+    })
+
+
     //    Chargement du nombre de salle disponoble
     this.service.totalSallesDisponible().subscribe(data => {
       this.totalSalleLibre = data
@@ -68,6 +83,12 @@ export class AdminAccueilPage implements OnInit {
     // Ici on charge le nombre total des Participants
     this.service.apprenantOUParticipant("participant").subscribe(data => {
       this.participantTotal = data
+
+      //affiche année
+      this.serviceAccueil.afficherAnnee().subscribe(data => {
+        this.afficheAnnee= data
+      })
+
 
       // Ici on charge les sessions
 
@@ -100,7 +121,7 @@ export class AdminAccueilPage implements OnInit {
           label: "Kalanso",
           stack: "Base",
           backgroundColor: "#F3A774",
-          data: [10, 20, 30, 32, 7, 9, 5, 2, 8, 10, 11, 4],
+          data: [10, 20, 30, 50, 7, 9, 5, 2, 8, 10, 11, 4],
         }, {
           barPercentage: 0.8,
           barThickness: 'flex',
@@ -115,7 +136,7 @@ export class AdminAccueilPage implements OnInit {
           label: "Solidaire",
           stack: "Base3",
           backgroundColor: "#A2C07C",
-          data: [9, 5, 40, 12, 7, 9, 5, 2, 8, 10, 11, 4],
+          data: [9, 5],
         }
 
         ]

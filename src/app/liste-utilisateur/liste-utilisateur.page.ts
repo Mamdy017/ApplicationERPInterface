@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { ListeUserService } from '../services/liste-user/liste-user.service';
 import * as XLSX from 'xlsx';
+import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 
 @Component({
   selector: 'app-liste-utilisateur',
@@ -16,9 +17,11 @@ export class ListeUtilisateurPage implements OnInit {
   menuMobile: boolean = false;
   page:any;
   maListes:any
-  donnees : any
+  donnees!: any
+  user: Utilisateur
+  
 
-  constructor(private serviceUtilisateur:ListeActeurService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private serviceUtilisateur:ListeActeurService,private serveiceUtilisateur:ListeUserService,  public breakpointObserver: BreakpointObserver) { }
   actualise(): void {
     setInterval(
       () => {
@@ -45,7 +48,7 @@ export class ListeUtilisateurPage implements OnInit {
     this.serviceUtilisateur.lesUtilisateurs().subscribe(data=>{
 
       this.donnees = data
-      console.log("--------------- "+this.donnees.nom)
+      // console.log("--------------- "+this.donnees.nom)
 
     })
 
@@ -66,4 +69,16 @@ export class ListeUtilisateurPage implements OnInit {
     XLSX.writeFile(book, this.name);
   }
 
+
+  // supprimer (Utilisateur:any){
+  //   const confirmer = confirm('Êtes-vous sûr de supprimer cet utilisateur ?');
+  //   if(confirmer==false){return;}
+  //   this.serveiceUtilisateur.supprimerUtilisateur(Utilisateur.iduser).subscribe({
+  //     next:(data)=>{
+  //       console.log(Utilisateur.iduser);
+  //       const index = this.user.indexOf(Utilisateur);
+  //       this.user.splice(index,1)
+  //     }
+  //   })
+  // }
 }

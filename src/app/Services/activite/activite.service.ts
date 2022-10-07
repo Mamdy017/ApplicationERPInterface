@@ -12,7 +12,7 @@ export class ActiviteService {
 
   constructor(private http: HttpClient) { }
 
-  recupererListeActiviteT():Observable<any>{
+  recupererListeActivite():Observable<any>{
     return this.http.get(`${this.api}/activite/afficher`);
   }
 
@@ -42,6 +42,17 @@ recupererListeTypeActivite():Observable<any>{
 recupererListeAnne():Observable<any>{
   return this.http.get(`${this.api}/annee/afficher`)
 }
+
+  //les trois activité recente
+  activiteRecente(): Observable <Activite> {
+    return this.http.get<Activite>(`${this.api}/activite/afficherTroisActiviteRecente`)
+  }
+
+  //les trois activites à venir
+  activiteAvenir(): Observable <Activite>{
+    return this.http.get<Activite>(`${this.api}/activite/afficherActiviteAvenir`)
+  }
+
 
 
 

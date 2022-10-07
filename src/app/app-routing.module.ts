@@ -139,13 +139,22 @@ const routes: Routes = [
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
-    path: 'details-activite',
+    path: 'details-activite/:details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
   {
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+  {
+    path: 'ajouter_utilisateur',
+    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+  },
+  // {
+  //   path: 'tirage-valide',
+  //   loadChildren: () => import('./tirage-valide/tirage-valide.component').then( m => m.TirageValideComponent)
+  // },
+
 
 
 

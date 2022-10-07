@@ -6,8 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ListeUserService {
+  http: any;
 
-  constructor(private http : HttpClient) { }
-
+  constructor() { }
+  supprimerUtilisateur(iduser: number) :Observable<any>{
+    return this.http.delete(`http://localhost:8080/acteur/supprimer/${iduser}`);
+  }
 
 }

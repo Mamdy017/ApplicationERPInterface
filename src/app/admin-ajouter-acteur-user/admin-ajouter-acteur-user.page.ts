@@ -19,6 +19,10 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
 
  statutChoix:any;
+ menuBureau: boolean = true;
+ menuMobile: boolean = false;
+
+ 
 
 
   acteurs: Acteur = {
@@ -32,8 +36,7 @@ export class AdminAjouterActeurUserPage implements OnInit {
   donner: any;
   erreur: any;
 
-  menuBureau: boolean = true;
-  menuMobile: boolean = false;
+ 
 
   constructor(private serviceActeur: AdminActeurUserService, private serviceStatut:StatutService) { }
 

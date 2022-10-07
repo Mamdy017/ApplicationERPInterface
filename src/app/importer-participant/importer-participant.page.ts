@@ -28,7 +28,7 @@ export class ImporterParticipantPage implements OnInit {
 
 
   getListeActivite(){
-    this.activiteService.recupererListeActiviteT().subscribe((data) =>{
+    this.activiteService.recupererListeActivite().subscribe((data) =>{
       this.libelleActivites$ = data;
     })
   }
