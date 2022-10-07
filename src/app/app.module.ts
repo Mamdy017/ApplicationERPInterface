@@ -14,8 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
+
+// import { IgxExcelExporterService } from 'igniteui-angular';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { FilterPipe } from './filter.pipe';
+
 
 
 @NgModule({
@@ -33,7 +36,7 @@ import { NgModule } from '@angular/core';
 
     // LayoutModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
   bootstrap: [AppComponent],
 })
 export class AppModule {

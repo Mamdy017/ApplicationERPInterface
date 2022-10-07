@@ -6,7 +6,9 @@ import { Acteur } from '../modeles/acteur/acteur';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 // import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
 //filter de recherche;
-
+// import { sampleData } from './datasource';
+//import { ToolbarItems } from '@syncfusion/ej2-Acteur';
+//import { IgxColimnComponent } from 'igniteui-angular';
 //import { FormsModule } from '@angular/forms';
 
 import * as XLSX from 'xlsx';
@@ -18,12 +20,21 @@ import * as XLSX from 'xlsx';
 })
 export class ListeActeurPage implements OnInit {
   acteurs: Acteur[];
+  // columns: any[];
+  // footerData: any[][] = [];
+  // totalSalesAmount = 0;
+
+
   menuBureau = true;
   menuMobile = false;
   p = 1;
   searchTerm: string;
   // acteurs: any;
-  
+
+  // pager: Acteur[];
+  // treeGirdObj: TreeGridComponent;
+  // toolbarOptions: Toolbarltems[];
+
   //recherche
   // filterText:string = '';
   //la recherche
@@ -45,6 +56,9 @@ export class ListeActeurPage implements OnInit {
       }, 100, clearInterval(1500));
   }
   ngOnInit() {
+
+
+
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;
       console.table(this.acteurs);
@@ -64,7 +78,12 @@ export class ListeActeurPage implements OnInit {
       });
     // const myTimeout = setTimeout(this.AfficherAction, 5000);
     // this.toogleTag()
-    this.fonction()
+    // this.fonction()
+
+    // this.data = sampleData;
+    // this.pager = { pageSize: 7 };
+    // this.toolbarOptions = ['ExcelExport'];
+
   }
 
   AfficherAction() {
@@ -95,28 +114,41 @@ export class ListeActeurPage implements OnInit {
   // showMe=true;
   cacherAction = true;
   exportToExcel(): void {
-    // this.cacherAction = false
-    const element = document.getElementById('season-tble');
-    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    this.cacherAction = false
+    // const element = document.getElementById('season-tble');
+    // const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
-    const book: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+    // const book: XLSX.WorkBook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
 
-    XLSX.writeFile(book, this.name);
-    
+    // XLSX.writeFile(book, this.name);
+    // let cols: Col[] = this.acteurs;
+    // cols[6].visible = false;
+    // this.exportToExcel();
+
+
+
+
     // this.showMe=true;
-    // setTimeout(()=>{
+    // setTimeout(() => {
     //   this.AfficherAction
     // }, 1000);
     // this.cacher = false;
     /*pour exporter sans col action*/
-    this.fonction()
+     this.fonction()
   }
   /*Actualiser directement après export*/
-  fonction(){
-    setTimeout(()=>{
+  fonction() {
+    setTimeout(() => {
+      const element = document.getElementById('season-tble');
+      const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+      const book: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+      XLSX.writeFile(book, this.name);
       this.cacherAction = true
-    }, 100);
+    }, 0);
   }
 
   /* le reste pour exporter sans un champ*/
@@ -129,18 +161,24 @@ export class ListeActeurPage implements OnInit {
   // }, 500);
 
   /*Méthode pour cacherAction en un clique*/
-  toogleTag() {
-    this.cacherAction = false
-    // this.showMe=true;
-    // this.fonction()
-    this.fonction2()
-    
-  }
-  fonction2(){
-    setTimeout(()=>{
-      this.cacherAction = true
-    }, 10000);
-  }
+  // toogleTag() {
+  //   this.cacherAction = false
+  //   // this.showMe=true;
+  //   // this.fonction()
+  //   this.fonction2()
+
+  // }
+  // fonction2() {
+  //   setTimeout(() => {
+  //     this.cacherAction = true
+  //   }, 10000);
+  // }
+
+  // public onColumnInit(column: IgxColimnComponent): void {
+  //   if (column.field === 'RegistererDate') {
+  //     column.formatter = (date => date.toLocaleString());
+  //   }
+  // }
 
 
 
