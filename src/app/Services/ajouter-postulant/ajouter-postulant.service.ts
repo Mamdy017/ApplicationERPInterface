@@ -21,8 +21,9 @@ export class AjouterPostulantService {
   }
 
     //methode permettant d'ajouter un postulant
-    ajouterPostulant(libelleListe: string, postulant: Postulant): Observable<any>{
-      return this.http.post<Postulant>(`${this.api}/postulant/ajouter/${libelleListe}`, postulant);
+    ajouterPostulant(libelleListe: string, postulant: Postulant):Observable<any>{
+      console.log(`${this.api}/postulant/ajouter/${libelleListe}`, postulant);
+      return this.http.post(`${this.api}/postulant/ajouter/${libelleListe}`, postulant);
     }
 
 

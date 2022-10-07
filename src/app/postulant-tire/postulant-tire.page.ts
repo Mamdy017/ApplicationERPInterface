@@ -19,12 +19,15 @@ noms_users:any;
 prenom_users:any;
 email_users: string;
 numero_users: string;
+
+
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
   menuBureau= true;
   menuMobile= false;
   p=1;
+searchText: any;
 
   // eslint-disable-next-line max-len
   constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute, 

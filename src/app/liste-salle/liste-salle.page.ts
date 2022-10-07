@@ -2,6 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SalleService } from '../services/salle';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-liste-salle',
@@ -25,6 +26,7 @@ numero_users: string;
   maListes: any;
   menuBureau= true;
   menuMobile= false;
+searchText: any;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route:Router) { }
 
   actualise(): void {
@@ -73,6 +75,16 @@ this.numero_users = sessionStorage.getItem("numero_users");
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
+    }
+    name = 'ListeDesSalles.xlsx';
+    exportToExcel(): void {
+      const element = document.getElementById('season-tble');
+      const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+  
+      const book: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+  
+      XLSX.writeFile(book, this.name);
     }
 
 }

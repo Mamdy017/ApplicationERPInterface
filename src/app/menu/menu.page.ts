@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
 // import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
@@ -12,7 +12,7 @@ export class MenuPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
-  constructor(private route:Route) { }
+  constructor(private route:Router) { }
   // /==============================================================================SESSION==========
   iduser:any;
   roles:any;

@@ -28,9 +28,10 @@ export class ImporterParticipantPage implements OnInit {
   constructor(private http: HttpClient,
     private activiteService: ActiviteService, public breakpointObserver: BreakpointObserver, private route: Router) { }
 
-  libelleListe: any
-  libelleActivite: ""
-  libelleActivites$: any
+    libelleListe:any
+
+    libelleActivite:""
+    libelleActivites$:any
 
   erreurImport: any;
   bool_erreurImp: boolean = false;
@@ -140,15 +141,18 @@ export class ImporterParticipantPage implements OnInit {
           this.actualise();
         }
       });
+      this.getListeActivite();
   }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+
   deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
   }
+
 }
 

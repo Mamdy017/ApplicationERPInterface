@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Tirage } from '../modeles/tirage/tirage';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
 
@@ -25,7 +26,6 @@ numero_users: string;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
-
   select_liste!: any;
   tirage_actuel!: any;
   tiragePourUneListe!: any;
@@ -40,12 +40,12 @@ numero_users: string;
   listeTirages: any
   tirages$: any
 
-
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
+
   ngOnInit() {
 
 
@@ -77,7 +77,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
 
     // ICI ON RECUPERE les validés
-    this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+    //this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+
+    //lesTirages
+
+    this.serviceTirage.lesTirages().subscribe(data => { this.listeTirages = data })
 
 
 
@@ -91,6 +95,14 @@ this.numero_users = sessionStorage.getItem("numero_users");
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
+  }
+
+  validerTirage(tirage:any){
+
+    this.serviceTirage.validerTirage(tirage.idtirage, tirage).subscribe(data =>{
+      
+    })
+    console.log(tirage);
   }
 
 
@@ -112,8 +124,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
       this.serviceTirage.recupererLesTirageNonValider().subscribe(data => { this.listeTirages = data })
 
 
-    } else {
+    } else if(event.target.value == "Tirage valider"){
       this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+    }else{
+      this.serviceTirage.lesTirages().subscribe(data => { this.listeTirages = data });
+
     }
 
 
@@ -126,4 +141,6 @@ this.numero_users = sessionStorage.getItem("numero_users");
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
     }
+
+    
 }

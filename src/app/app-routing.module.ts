@@ -155,7 +155,10 @@ const routes: Routes = [
     path: 'splash-screen',
     loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
   },
-
+  {
+    path: 'ajouter_utilisateur',
+    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+  },
 
 
 

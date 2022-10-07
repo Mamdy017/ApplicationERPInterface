@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
 #sidebar-nav {
     width: 190px;
-    animation: sidebar-nav-load var(--sidebar-nav-load-time) ease-out ;
+    // animation: sidebar-nav-load var(--sidebar-nav-load-time) ease-out ;
   }
   *{
     font-family: 'Poppins', sans-serif;
-    --sidebar-nav-load-time: 1000ms;
+    // --sidebar-nav-load-time: 1000ms;
   }
 .offcanvas-header img{
     width: 65%;
@@ -31,12 +31,12 @@
     width: 60px;
     padding: 1px;
 
-    animation-name: sidebar-nav-link-load;
-    animation-duration: 1000ms;
-    animation-timing-function: ease-in;
-    animation-delay: var(--sidebar-nav-load-time);
-    transform: scale(0);
-    animation-fill-mode: forwards;
+    // animation-name: sidebar-nav-link-load;
+    // animation-duration: 1000ms;
+    // animation-timing-function: ease-in;
+    // animation-delay: var(--sidebar-nav-load-time);
+    // transform: scale(0);
+    // animation-fill-mode: forwards;
 
     
   }
@@ -49,12 +49,12 @@
     margin-left: -15%;
     flex-direction: column;
 
-    animation-name: sidebar-nav-link-load;
-    animation-duration: 1000ms;
-    animation-timing-function: ease-in;
-    animation-delay: var(--sidebar-nav-load-time);
-    transform: scale(0);
-    animation-fill-mode: forwards;
+    // animation-name: sidebar-nav-link-load;
+    // animation-duration: 1000ms;
+    // animation-timing-function: ease-in;
+    // animation-delay: var(--sidebar-nav-load-time);
+    // transform: scale(0);
+    // animation-fill-mode: forwards;
   }
   .ul{
     border-radius: 0 90px 0 0;
@@ -71,12 +71,12 @@
   }
 
   .li{
-    animation-name: sidebar-nav-link-load;
-    animation-duration: 1000ms;
-    animation-timing-function: ease-in;
-    animation-delay: var(--sidebar-nav-load-time);
-    transform: scale(0);
-    animation-fill-mode: forwards;
+    // animation-name: sidebar-nav-link-load;
+    // animation-duration: 1000ms;
+    // animation-timing-function: ease-in;
+    // animation-delay: var(--sidebar-nav-load-time);
+    // transform: scale(0);
+    // animation-fill-mode: forwards;
   }
 
   
@@ -108,26 +108,26 @@
         top: 20%;
     }
 
-    @keyframes sidebar-nav-load{
-      0%{
-        transform: translateY(-100%);
-      }
-      100%{
-        transform: translateY(0);
-      }
-    }
+    // @keyframes sidebar-nav-load{
+    //   0%{
+    //     transform: translateY(-100%);
+    //   }
+    //   100%{
+    //     transform: translateY(0);
+    //   }
+    // }
 
-    @keyframes sidebar-nav-link-load{
-      0%{
-        transform: scale(0);
-      }
-      90%{
-        transform: scale(1.1);
-      }
-      100%{
-        transform: scale(1);
-      }
-    } 
+    // @keyframes sidebar-nav-link-load{
+    //   0%{
+    //     transform: scale(0);
+    //   }
+    //   90%{
+    //     transform: scale(1.1);
+    //   }
+    //   100%{
+    //     transform: scale(1);
+    //   }
+    // } 
 
     // Le debut du media screen
   @media screen and (max-width:767px) {
@@ -144,6 +144,7 @@
     overflow-x: hidden; 
     height: 75vh;
   }
+  
   ul::-webkit-scrollbar {
     display: none;
   }

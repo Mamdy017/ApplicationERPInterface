@@ -64,8 +64,8 @@
 
 
                   <div>
-                    <select name="tirage" id="tirage" class="form-select form-control"
-                      (change)="filtreUserParEntite($event)">
+                    <select name="tirage" id="tirage" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                      <option selected>Tout</option>
                       <option>Tirage valider</option>
                       <option>Tirage non valider</option>
                       <label for="tirage">Tirage</label>
@@ -74,36 +74,34 @@
 
 
 
-                </div>
+                </div>                         
 
-                <div class="table-responsive ra py-5">
-                  <table class="table">
-                    <thead style="background-color: #FF6600; color: white; border-bottom: none;">
-                      <tr>
-                        <th scope="col" style="border-radius: 10px 0 0 0;">Libelle tirage</th>
-                        <th scope="col">Nombre Tiré</th>
-                        <th scope="col">Date du tirage</th>
-                        <th scope="col">Activité</th>
-                        <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let liste of listeTirages | paginate: { itemsPerPage: 5, currentPage: p}">
-                        <td scope="row">{{liste.libelleTirage}}</td>
-                        <td scope="">{{liste.nombrePostulantTire}}</td>
-                        <td>{{liste.date | date : 'd MMMM yyyy' }}</td>
-                        <td scope="">{{liste.activite.nom}}</td>
-                        <td><a [routerLink]="['/postulant-tire',liste.idtirage]">Voir Plus</a></td>
+              <div class="table-responsive ra py-5">
+                <table class="table" >
+                  <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                    <tr>
+                      <th scope="col" style="border-radius: 10px 0 0 0;">Libelle tirage</th>
+                      <th scope="col">Nombre Tiré</th>
+                      <th scope="col">Date du tirage</th>
+                      <th scope="col">Activité</th>
+                      <th scope="col" colspan="2" style="border-radius: 0 10px 0 0;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody >
+                    <tr *ngFor="let liste of listeTirages | paginate: { itemsPerPage: 5, currentPage: p}">
+                      <td scope="row">{{liste.libelleTirage}}</td>
+                      <td scope="">{{liste.nombrePostulantTire}}</td>
+                      <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
+                      <td scope="">{{liste.activite.nom}}</td>
+                      <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
+                      <td (click)="validerTirage(liste)"><a>Valider</a></td>
 
-                        <!-- {{liste.idtirage}} -->
-                      </tr>
+                      <!-- {{liste.idtirage}} -->
+                    </tr>
 
-                    </tbody>
-                  </table>
-                  <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent"
-                    nexLabel="Suivant"> </pagination-controls>
-
-                </div>
+                  </tbody>
+                </table>
+                  <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls>
 
                 <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
               </div>
@@ -113,7 +111,7 @@
           </div>
         </div>
         <!-- </div> -->
-      </ion-content>
+          </div></ion-content>
 
     </main>
   </div>

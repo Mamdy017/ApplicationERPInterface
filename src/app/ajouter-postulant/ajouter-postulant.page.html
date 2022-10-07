@@ -34,6 +34,9 @@
               <!------------- Colonne Droite ---->
               <div class="col-12 col-md-8">
                 <form>
+                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
+                    <p>{{erreur}}</p>
+                  </div>
                   <fieldset>
                     <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
                   </fieldset>
@@ -69,20 +72,27 @@
                         class="form form-control inputvalue">
                       <label for="email">Email</label>
                     </div>
-                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                    
+                    <!-- <div class="mb-3 col-12 col-md-12 form-row form-floating">
                       <select name="liste" id="liste" class="form-select form-control">
                         <option selected> Choisir une liste </option>
                         <option> Liste1</option>
                         <option> Liste2</option>
                         <label for="sexe">liste</label>
                       </select>
-                    </div>
-                  </div>
-                  <button class="btn btnAjouter">Valider</button>
+                    </div> -->
 
-                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
-                    <p>{{erreur}}</p>
+                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                      <select id="liste" class="form-select form-control"  name="listes" [(ngModel)]="listes">
+                        <option selected> Choisir une liste </option>
+                        <option *ngFor="let liste of listePostulant" >{{liste.libelleliste}}</option>
+                        <label for="sexe">liste</label>
+                      </select>
+                    </div>
+
+
                   </div>
+                  <!-- <button class="btn btnAjouter">Valider</button> -->
 
                   <button (click)="posterPostulant()" class="btn btnAjouter">Ajouter</button>
 

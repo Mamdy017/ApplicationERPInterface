@@ -95,9 +95,9 @@ export class TiragePage implements OnInit {
     this.tirageObjet.libelleTirage = this.libelleTirage;
     this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
 
-console.log("Libelle "+this.libelleListet)
-console.log("Libelle Tirage "+this.libelleTirage)
-console.log("Nobre "+this.nombrePostulantTire)
+    console.log("Libelle " + this.libelleListet)
+    console.log("Libelle Tirage " + this.libelleTirage)
+    console.log("Nobre " + this.nombrePostulantTire)
 
 
 
@@ -111,6 +111,7 @@ console.log("Nobre "+this.nombrePostulantTire)
         this.erreurTirageBack = data
         if (data.status == true) {
           this.route.navigateByUrl("/liste-tirage")
+          this.actualise();
         } else {
 
           this.bool_erreurFr = false
@@ -136,7 +137,7 @@ console.log("Nobre "+this.nombrePostulantTire)
     setInterval(
       () => {
       }, 100, clearInterval(1500));
-  } 
+  }
 
   resetImportForm() {
     this.libelleListe = "",
@@ -185,7 +186,9 @@ console.log("Nobre "+this.nombrePostulantTire)
 
     formData.append('file', this.myForm.get('fileSource').value);
 
+
     //console.log(`http://localhost:8080/postulant/import/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+
 
     if (this.myForm.get('libelleListe').value.length > 0 && this.myForm.get('libelleActivite').value.length > 0 && formData != null) {
       this.http.post<any>(`http://localhost:8080/postulant/import/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
@@ -196,15 +199,16 @@ console.log("Nobre "+this.nombrePostulantTire)
 
           console.log(res.status);
 
-          if(res.status == true){
+          if (res.status == true) {
             this.route.navigateByUrl("/postulant-tire/")
-          }else{            
+            this.actualise();
+          } else {
             this.bool_erreurImpFr = false;
             this.bool_erreurImpBack = true;
           }
 
           console.log(res);
-         
+
 
 
         })
@@ -290,21 +294,7 @@ console.log("Nobre "+this.nombrePostulantTire)
     }
 
 
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   actualise(): void {
 
@@ -337,5 +327,9 @@ console.log("Nobre "+this.nombrePostulantTire)
 
 
 
-
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+  }
 }
