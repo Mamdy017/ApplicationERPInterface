@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { TypeActivite } from '../modeles/type-activite/type-activite';
 import { ActiviteService } from '../Services/activite/activite.service';
@@ -12,10 +13,15 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./activite.page.scss'],
 })
 export class ActivitePage implements OnInit {
+  erreurImpTrieBack: any;
+  bool_erreurImpTrieBack: boolean;
+  bool_erreurImpTrieFr: boolean;
+  erreurImpTrieFr: string;
 
   constructor(private activiteService : ActiviteService,
     private utilisateurs: ListeActeurService,
-    private http: HttpClient) {}
+    private http: HttpClient,
+    private route: Router) {}
 
   salles$:any;
   annees$:any;
@@ -25,18 +31,18 @@ export class ActivitePage implements OnInit {
   acteurs$:any;
   respons$:any
 
-  titre:any
-  salles:any;
+  titre:string
+  salles:string;
   annees:any;
-  typeActivites:any;
-  entites:any;
+  typeActivites:string;
+  entites:string;
   users:any;
-  acteurs:any;
-  descpt:any;
-  dateDebut:any;
-  dateFin:any;
-  respons:any
-  nombrepersonnedemande:any;
+  acteurs:string;
+  descpt:string;
+  dateDebut:string;
+  dateFin:string;
+  respons:string
+  nombrepersonnedemande:string;
 
   bool_erreur:boolean = false
   erreur:any
@@ -53,6 +59,13 @@ export class ActivitePage implements OnInit {
     dateFin: new Date(),
   nombrepersonnedemande:0
 
+  }
+
+
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
   }
 
  
@@ -106,7 +119,7 @@ export class ActivitePage implements OnInit {
     nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
     nombrepersonnedemande: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    datedeb: new FormControl('', [Validators.required]),
+    datedeb: new FormControl('', [Validators.required, , Validators.minLength(1)]),
     datefin: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurs: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurInternes: new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -169,45 +182,68 @@ export class ActivitePage implements OnInit {
 
         //file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid
 
-   // if (this.myFormActivite.get('file').value.length > 0 && this.myFormActivite.get('nom').value.length > 0 && this.myFormActivite.get('description').value.length > 0 && this.myFormActivite.get('nombrepersonnedemande').value.length  > 0 && this.myFormActivite.get('datedeb').value.length  > 0 && this.myFormActivite.get('datefin').value.length  > 0 && this.myFormActivite.get('idacteurs').value.length  > 0 && this.myFormActivite.get('idacteurInternes').value.length  > 0 && this.myFormActivite.get('libelleEntite').value.length  > 0 && this.myFormActivite.get('typeAct').value.length  > 0 && this.myFormActivite.get('libelleSalle').value.length  > 0 && this.myFormActivite.get('idresponsable').value.length  > 0 && this.myFormActivite.get('idresponsable').value.length  > 0)  {
-   
-   console.log(this.myFormActivite.get('file').value)
-   console.log(this.myFormActivite.get('nom').value)
-   console.log(this.myFormActivite.get('description').value)
-   console.log(this.myFormActivite.get('nombrepersonnedemande').value)
-   console.log(this.myFormActivite.get('datedeb').value)
-   console.log(this.myFormActivite.get('datefin').value)
-   console.log(this.myFormActivite.get('description').value)
-   console.log(this.myFormActivite.get('idacteurInternes').value)
-   console.log(this.myFormActivite.get('libelleEntite').value)
-   console.log(this.myFormActivite.get('typeAct').value)
-   console.log(this.myFormActivite.get('libelleSalle').value)
-   console.log(this.myFormActivite.get('idresponsable').value)
-   console.log(userid)
+        // if(typeof this.myFormActivite.get('datedeb').value === 'undefined'){
+        //   alert("alerte")
+        //   this.myFormActivite.get('datedeb').setValue("");
+        //   this.myFormActivite.get('idacteurInternes').setValue("")
+        // }
 
-      
-   console.log(`http://localhost:8080/activite/ajouter`, data);
+        // if(this.myFormActivite.get('nom').value.length == 0){
+        //   alert("faut pas")
+        // }
+
+        console.log("file" + this.myFormActivite.get('file').value)
+        console.log("nom" +this.myFormActivite.get('nom').value)
+        console.log("description" +this.myFormActivite.get('description').value)
+        console.log("nombrepersonnedemande" +this.myFormActivite.get('nombrepersonnedemande').value)
+        console.log("datedeb " +this.myFormActivite.get('datedeb').value)
+        console.log("datefin " +this.myFormActivite.get('datefin').value)
+        //console.log("" +this.myFormActivite.get('description').value)
+        console.log("idacteurInternes" +this.myFormActivite.get('idacteurInternes').value)
+        console.log("libelleEntite" +this.myFormActivite.get('libelleEntite').value)
+        console.log("typeAct" +this.myFormActivite.get('typeAct').value)
+        console.log("libelleSalle" +this.myFormActivite.get('libelleSalle').value)
+        console.log("idresponsable" +this.myFormActivite.get('idresponsable').value)
+        console.log("userid" +userid)
+
+
+        if (this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0|| typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length  == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length  == 0 ||  typeof this.myFormActivite.get('libelleEntite').value  === 'undefined' || typeof this.myFormActivite.get('typeAct').value  === 'undefined')  {
+   //this.myFormActivite.get('filesource').value !=  null  || 
+          //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
+          this.bool_erreurImpTrieFr = true;
+          this.bool_erreurImpTrieBack = false;
+          this.erreurImpTrieFr = "Veuillez remplir tous les champs";
+   
+   } else {
+
+    if(typeof this.myFormActivite.get('idacteurs').value  === 'undefined'){
+      //  this.myFormActivite.get('libelleSalle').value.length
+      this.myFormActivite.get('idacteurs').setValue("");
+
+    }else if(typeof this.myFormActivite.get('libelleSalle').value === 'undefined'){
+      this.myFormActivite.get('libelleSalle').setValue("");
+    } else if(typeof this.myFormActivite.get('idacteurInternes').value === 'undefined'){
+      this.myFormActivite.get('idacteurInternes').setValue("");
+    }
+    console.log(`http://localhost:8080/activite/ajouter`, data);
      
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
 
           console.log(res);
 
-          // this.erreurImpTrieBack = res;
-          // this.bool_erreurImpTrieBack = true;
-          // this.bool_erreurImpTrieFr = false;
+         this.erreurImpTrieBack = res;
+         this.bool_erreurImpTrieBack = true;
+          this.bool_erreurImpTrieFr = false;
+         
+          if(res.status == true){
+            alert("activité ajouté avec succes");
+            this.route.navigateByUrl("/details-activite");
+          }
+
         });
 
-   // } else {
 
-      // this.bool_erreurImpTrieFr = true;
-      // this.bool_erreurImpTrieBack = false;
-      // this.erreurImpTrieFr = "Veuillez remplir tous les champs";
-
-
-
-  //  }
-
-
+   }
 
   }
 
@@ -255,6 +291,8 @@ export class ActivitePage implements OnInit {
   
 
   ngOnInit() {
+
+    this.myFormActivite
 
     this.getListeSalle();
     this.getListeEntite();

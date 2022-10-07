@@ -105,6 +105,7 @@ export class TiragePage implements OnInit {
         this.erreurTirageBack = data
         if (data.status == true) {
           this.route.navigateByUrl("/liste-tirage")
+          this.actualise();
         } else {
 
           this.bool_erreurFr = false
@@ -194,6 +195,7 @@ export class TiragePage implements OnInit {
 
           if(res.status == true){
             this.route.navigateByUrl("/postulant-tire/")
+            this.actualise();
           }else{            
             this.bool_erreurImpFr = false;
             this.bool_erreurImpBack = true;
