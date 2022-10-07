@@ -11,6 +11,7 @@ import { GestionentiteService } from '../Services/gestionentite/gestionentite.se
 })
 export class GestionentitePage implements OnInit {
   entites : Entite[];
+  img : string = "../../assets/icon/";
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   constructor(public breakpointObserver: BreakpointObserver, private serviceEntite : GestionentiteService, private router : Router) { }
@@ -37,7 +38,6 @@ export class GestionentitePage implements OnInit {
 
       this.serviceEntite.afficherEntite().subscribe(data => {
         this.entites = data;
-        console.table(this.entites[1]);
       });
 
       

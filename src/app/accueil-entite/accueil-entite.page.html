@@ -45,9 +45,9 @@
     </div>
     <div class="col-12 col-md-3 t2 ">
       <div class="card1">
-        <img src="assets/icon/user.png" alt="">
-        <p class="profil">{{nom_res}}</p>
-        <p  class="statut">TOURE</p>
+        <img src="assets/icon/{{img_responsable}}" alt="">
+        <p class="profil">{{prenom_responsable}}</p>
+        <p  class="statut">{{nom_responsable}}</p>
         <p  class="statut">Responsable</p>
         <button class="btn btnModify"><a href="changer-profile">Modifier</a></button>
       </div>
@@ -103,8 +103,9 @@
   <div class="col-12 col-md-3 t2">
     <div class="card1">
       <h2>Activités a venir</h2>
+      <h3 *ngIf="avenir">Aucune activité à venir</h3>
       <div *ngFor="let a of activite_avenir">
-        <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
+        <p><i class="bi bi-bar-chart"></i>{{a[0]}}</p>
       </div>
      </div>
   </div>
@@ -115,8 +116,9 @@
     <div class="card1">
       <h2>Activités encours</h2>
       <div  class="row py-3">
+        <h3 *ngIf="encours">Aucune activité encours</h3>
         <div class="col-12 col-md-4"  *ngFor="let a of activite_encours">
-          <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
+          <p><i class="bi bi-bar-chart"></i>{{a[0]}}</p>
         </div>
      
     </div>

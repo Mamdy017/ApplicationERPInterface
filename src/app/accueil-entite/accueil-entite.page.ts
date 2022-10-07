@@ -11,9 +11,12 @@ import { GestionentiteService } from '../Services/gestionentite/gestionentite.se
   styleUrls: ['./accueil-entite.page.scss'],
 })
 export class AccueilEntitePage implements OnInit {
-  nom_res : string;
-  prenom_res : string;
-  img_res : string;
+  responsable : any;
+  encours : boolean = false;
+  avenir : boolean = false;
+  nom_responsable : string;
+  prenom_responsable : string;
+  img_responsable : string;
   nom_entite : Entite;
   activite_encours : Activite [];
   activite_avenir : Activite [];
@@ -54,7 +57,6 @@ export class AccueilEntitePage implements OnInit {
         for (const entie of data) {
           if(entie.idEntite == id){
             this.nom_entite = entie.nom;
-            console.table(this.nom_entite)
           }
         }
       });
@@ -69,42 +71,33 @@ export class AccueilEntitePage implements OnInit {
 
       this.serviceEntite.nombreEvennement(id).subscribe(data => {
         this.nombre_evennement = data;
-      })
+      });
+      
+      this.serviceEntite.activiteAvenir(id).subscribe(data => {
+        this.activite_avenir = data;
+        if(this.activite_avenir.length == 0){
+          this.avenir = true;
+        };
+      });
 
       this.serviceEntite.activiteEnCours(id).subscribe(data => {
         this.activite_encours = data;
-      })
-      this.serviceEntite.activiteAvenir(id).subscribe(data => {
-        this.activite_avenir = data;
+        if(this.activite_encours.length == 0){
+          this.encours = true;
+        };
+      });
+
+      this.serviceEntite.responsableEntite(id).subscribe(data => {
+        this.responsable = data;
+        this.nom_responsable = this.responsable[0][0];
+        this.prenom_responsable = this.responsable[0][1];
+        this.img_responsable = this.responsable[0][2]
+        console.table("==============  " + this.responsable[0][2])
       })
 
   }  afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
-  }
-
-  responsable (entite : number){
-    if(entite == 1){
-      this.nom_res == "Diallo";
-      this.prenom_res == "Kaou";
-      this.img_res == "assets/icon/user.png";
-    }
-    if(entite == 2){
-      this.nom_res == "Maïga";
-      this.prenom_res == "Abdoulaziz";
-      this.img_res == "assets/icon/user.png";
-    }
-    if(entite == 3){
-      this.nom_res == "Koloma";
-      this.prenom_res == "Jeremi";
-      this.img_res == "assets/icon/user.png";
-    }
-    if(entite == 6){
-      this.nom_res == "Diarra";
-      this.prenom_res == "Diarra";
-      this.img_res == "assets/icon/user.png";
-    }
-    
   }
 
 }
