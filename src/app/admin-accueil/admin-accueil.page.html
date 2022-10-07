@@ -61,14 +61,12 @@
             <h2>Les entités d'Orange Digital Center</h2>
             <div class="col-12 col-md-4">
               <div class="row">
-                
-                <div class="cardHome col-6 col-md-6 py-3">
+                <div class="cardHome col-6 col-md-6 py-3" *ngFor="let entites of afficherEntiteAdmin">
                   <div class="contourCard p-2">
                     <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">Kalanso</p>
+                    <p class="txtcardbottom">{{entites[0]}}</p>
                   </div>
                 </div>
-
               </div>
             </div>
             <div class="col-12 col-md-8">
