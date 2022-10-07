@@ -19,27 +19,46 @@
 
 }
 
+.icons {
+  width: 60px;
+  padding-top: 22px;
+}
+.icons2 {
+  width: 60px;
+  padding-top: 1px;
+}
+.icons3 {
+  width: 40px;
+  padding-top: 17px;
+}
+
 .t1{
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
    
   
 }
 .btnModify{
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);
     background-color: #FF6600;
     text-decoration: none;
     border: none;
+    margin-top: -15px;
+
 }
 
 .pcard{
-    font-weight: bold;
-    font-size: 30px;
+  vertical-align: inherit;
+  font-size: 3rem;
+  font-weight: bold;
 }
 .statut{
     font-weight: bold;
     font-size: 20px;
     text-align: center;
 
+}
+
+.textcard {
+  margin-top: -25px;
 }
 // .profil{
 //     text-align: center;
@@ -66,6 +85,8 @@ h2{
   font-weight: bold;
   padding: 22px;
   text-align: center;
+  padding-top: 12px;
+
 }
 .a{
     text-align: center;
