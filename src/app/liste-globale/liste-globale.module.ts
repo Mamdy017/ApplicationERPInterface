@@ -14,8 +14,7 @@ import { MenuComponent } from '../menu/menu.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeGlobalePageRoutingModule,
-    NgxPaginationModule
+    ListeGlobalePageRoutingModule
   ],
   declarations: [ListeGlobalePage,MenuComponent]
 })
