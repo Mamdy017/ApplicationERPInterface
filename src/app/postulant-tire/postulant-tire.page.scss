@@ -2,6 +2,9 @@
   box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
   border-radius: 20px;
 }
+.a1{
+  padding: 0;
+}
 input { outline-style:none; } 
 .btnAjouter{
 background-color: #ff6600;
@@ -75,8 +78,10 @@ margin-top: 2%;
     }
      .card img{
     
-      width: 100px;
-      height: 80px;
-      padding-top: 10px;
+      width: 90px;
+      height: 90px;
+      padding-top: 5px;
+      
     }
+
 

@@ -11,52 +11,23 @@
 <ion-content>
   <div class="container">
         <div class="row col-12 py-3">
-          <div class=" entete row  col-12 ">
-                <div class="col-md-6 " >
-                  <div class="side" style="background-color: #ff6600">
-                  <h1 class="py-3 px-3">Bienvenue ! TOURÉ</h1>
-  
-                  </div>
-                    <div class="col-md-12">
-                  <h2 class="entete-h4">Gestion Orange Digital Center</h2>
-               </div>
-                </div>
-  
-                <!-- <div class="search col-md-6 py-4 "><ion-searchbar class="search--"></ion-searchbar></div> -->
-                  
-                <!-- <div class=" col py-2">
-                   
-                </div> -->
-             
-               
-  
-                  
-  
-          </div>
-  
-          <div class="intermediare col-12"  >
+          
+          <div class="intermediare col-12">
 
-            <h1> Listes des tirages effectuées sur la liste 01</h1>
+            <h1 > Listes des tirages effectuées sur la "" {{ libele_liste }} ""</h1>
           </div>
           <br><br>
           <div class="libelle col-12"> <p> </p></div>
   
           <div class="trait"></div>
-          <!-- <div class="container col-md-12"> -->
           <table class="table thead-dark ">
             <thead class="thead-dark ">
-              <style>
-                th, td{
-                  width: 5%;
-                }
-  
-              </style>
+             
               <tr>
                 <th class="gauche" scope="col">Tirage </th>
                 <th scope="col">Date </th>
                 <th scope="col">Nombre tiré</th>
-                <!-- <th scope="col">Homme </th>
-                <th scope="col">Femme</th> -->
+                
                 <th class="droite"scope="col">Actions</th>
               </tr>
             </thead>
@@ -76,123 +47,10 @@
               
             </tbody>
           </table>
-  <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant"></pagination-controls>
+  <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant" ></pagination-controls>
   
-        <!-- </div>  -->
   </div>
-        <!-- <table class="table">
-          <thead class="thead-dark tab col-12 ">
-            <tr>
-              <th class="gauche" scope="col">Nom</th>
-              <th scope="col">Prenom</th>
-              <th scope="col">Email</th>
-              <th scope="col">Numéro</th>
-              <th scope="col">Genre</th>
-              <th  class="droite" scope="col-12">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Diarra</th>
-              
-              <td>Diaraba Idrissa</td>
-              <td>diarradiaraba9@gmail.com</td>
-              <td>78204039</td>
-              <td>Masculin</td>
-              <td>
-                <a>icone </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Diarra</th>
-              <td>Diaraba Idrissa</td>
-              <td>diarradiaraba9@gmail.com</td>
-              <td>78204039</td>
-              <td>Masculin</td>
-              <td>
-                <a>icone </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">Diarra</th>
-              <td>Diaraba Idrissa</td>
-              <td>diarradiaraba9@gmail.com</td>
-              <td>78204039</td>
-              <td>Masculin</td>
-              <td>
-                <a>icone </a>
-              </td>
-            </tr>
-          </tbody>
-        </table> -->
-  
-          <!-- <table class="table responsive">
-            <thead class="thead-dark">
-              <tr>
-                <th>Prenom</th>
-                <th>Email</th>
-                <th>Numéro</th>
-                <th>Genre</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Diarra</td>
-                <td>Diaraba Idrissa</td>
-                <td>diarradiaraba9@gmail.com</td>
-                <td>78204039</td>
-              </tr>
-              <tr>
-                <td>Durand</td>
-                <td>Victor</td>
-                <td>26</td>
-                <td>27</td>
-              </tr>
-              <tr>
-                <td>Joly</td>
-                <td>Julia</td>
-                <td>27</td>
-                <td>27</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        </div>
-          
-            -->
-  
-          
-          <!-- <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table> -->
+       
   </div>
   </ion-content>
 </main>

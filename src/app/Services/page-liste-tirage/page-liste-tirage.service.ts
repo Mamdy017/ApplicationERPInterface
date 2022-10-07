@@ -28,4 +28,8 @@ postulantTirer(idTirage : number):Observable<any>{
   return this.http.get<any>(`http://localhost:8080/postulanttire/PostulantTireParTirage/${idTirage}`)
 }
 
+NombreMasculin(idTirage: number):Observable<any>{
+  return this.http.get(`http://localhost:8080/postulanttire/nombrePostulantTireParGenre/Masculin/${idTirage}`)
+}
+
 }

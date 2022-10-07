@@ -27,5 +27,7 @@ export class TirageService {
    TrouverNombrePostulantTireParGenre(idtirage:number, genre:String){
     return this.http.get(`${this.api}/postulanttire/nombrePostulantTireParGenre/${idtirage}/${genre}`);
    }
+
+   NombreMasculin
   
 }

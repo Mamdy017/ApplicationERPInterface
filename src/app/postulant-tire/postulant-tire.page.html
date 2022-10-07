@@ -16,7 +16,7 @@
       </button>
       <div class="container">
        <div class="row">
-        <div class="col-12  col-md-2 ">
+        <div class="col-12  col-md-2 a1 ">
           
           <h1> Statistiques</h1> 
           <div class=" col-12 col-md-12 py-4 ">
@@ -24,7 +24,7 @@
         
             <div class="contenuCard text-center">
            <img src="../assets/icon/man.png" alt="">
-              <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">20</p>
+              <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">{{nombre_homme}}</p>
               <p>Hommes</p>
             </div>
         </div>
@@ -35,7 +35,7 @@
         
           <div class="contenuCard text-center">
           <img src="../assets/icon/girl.png" alt="">
-          <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">10</p>
+          <p  class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">{{nombre_femme}}</p>
             <p>Femmes</p>
           </div>
       </div>
@@ -70,7 +70,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let personnes of lesPersonnesTirees ;let i = index ">
+                <tr *ngFor="let personnes of lesPersonnesTirees  | paginate:{itemsPerPage: 4, currentPage:page}; let i = index">
                   <td scope="row">{{i+1}}</td>
                   <td>{{personnes.nom_postulant}}</td>
                   <td>{{personnes.prenom_postulant}}</td>
@@ -83,6 +83,8 @@
     
               </tbody>
             </table>
+            <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant"></pagination-controls>
+  
           </div>
         </div>
       </div>

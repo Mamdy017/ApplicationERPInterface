@@ -8,7 +8,7 @@ import { PageListeSuitePageRoutingModule } from './page-liste-suite-routing.modu
 
 import { PageListeSuitePage } from './page-liste-suite.page';
 import { MenuComponent } from '../menu/menu.component';
-import { NgxPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [

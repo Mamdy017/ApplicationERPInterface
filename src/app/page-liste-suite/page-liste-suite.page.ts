@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 import { TirageService } from '../Services/tirage/tirage.service';
 import { ListePostulantService } from "../Services/liste-postulant.service";
-import {  } from "../";
+
 
 @Component({
   selector: 'app-page-liste-suite',
@@ -20,9 +20,13 @@ PostulantTireParGenre:any;
 page:number=1;
 liste: any
 mesListe:any
+nomliste:any
+idTirage: any
+libelleliste:any
+libele_liste : string;
   constructor(public breakpointObserver: BreakpointObserver, private service: TirageService, 
               private route:ActivatedRoute, 
-              private servicePostulantTire:PostulantTireService, private serviceListe: ListePostulantService) { }
+              private servicePostulantTire:PostulantTireService, private serviceListe: ListePostulantService, private servicenom:ListePostulantService) { }
   actualise(): void {
     setInterval(
       () => {
@@ -50,30 +54,20 @@ mesListe:any
       this.service.TrouverTirageParListe(id_liste).subscribe(data=>{
         this.ListeTirage=data
     
-        this.service.TrouverNombrePostulantTireParGenre(this.PostulantTireParGenre.idtirage, this.PostulantTireParGenre.genre).subscribe(data=>{
-          this.PostulantTireParGenre=data
-          this.ListeTirage=this.PostulantTireParGenre.lenght;
-          console.log("C'est quoi le probleme" + this.PostulantTireParGenre)
-    })
+      //STATISTIQUES PAR GENRE
         this.serviceListe.mesListes().subscribe(data => {
-          this.mesListe = data
-          // console.log("Activite "+this.mesListe.Activite)
-        })
-        // this.PostulantTireParGenre=this.ListeTirage
-        // console.log("C'est quoi le probleme" +this.PostulantTireParGenre)
-    //  this.service.TrouverNombrePostulantTireParGenre(this.PostulantTireParGenre.tirage_idtirage, this.PostulantTireParGenre.genre).subscribe(data=>{
-       
-    //     this.ListeTirage=this.PostulantTireParGenre.data
-    //     console.log("C'est quoi le probleme" +this.PostulantTireParGenre)
-
-    // })   
+          this.mesListe = data;
+          console.table(this.mesListe)
+          for (const liste of this.mesListe) {
+            if(liste.idliste == id_liste){
+              this.libele_liste = liste.libelleliste;
+            }
+          }
+          
+        })  
 
    })   
 
-      // Recuperer les nombre de postulant tiré par genre sur un tirage
-      // const id_tirage = +this.route.snapshot.params["idtirage"];
-      // console.log(id_tirage)
-      
   
       
   }

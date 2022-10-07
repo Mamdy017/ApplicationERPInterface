@@ -16,6 +16,7 @@ export class ListeGlobalePage implements OnInit {
   liste: any
   listeTotal: any
   mesListe: any
+  page:number=1;
   actualise(): void {
     setInterval(
       () => {

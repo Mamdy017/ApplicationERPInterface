@@ -44,7 +44,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let liste of mesListe">
+                    <tr *ngFor="let liste of mesListe | paginate:{itemsPerPage:3, currentPage:page}">
                       <td scope="row">{{liste.libelleliste}}</td>
                       <td scope="">{{liste.nombretirage}}</td>
                       <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a></td>
@@ -54,17 +54,15 @@
                                   
                   </tbody>
                 </table>
+                <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant" ></pagination-controls>
 
               </div>
         
-         <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->
         </div>
      
      </div>
-      <!-- </div> -->
     </div>
 </div>
-  <!-- </div> -->
   </ion-content>
 
     </main>
