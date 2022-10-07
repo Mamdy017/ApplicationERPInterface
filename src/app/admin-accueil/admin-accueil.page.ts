@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { Annee } from '../modeles/annee/annee';
 import { Entite } from '../modeles/entite';
 import { ServicesService } from '../services.service';
 import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
@@ -28,6 +29,8 @@ export class AdminAccueilPage implements OnInit {
   afficherEntiteAdmin:any;
   entite:Entite
   afficheAnnee:any
+  nombreApprenants:any
+  annee:Annee
 
 
   constructor(private service: ServicesService,
@@ -77,18 +80,19 @@ export class AdminAccueilPage implements OnInit {
       this.totalSalleLibre = data
     })
     // Ici on charge le nombre total des Apprenants
-    this.service.apprenantOUParticipant("apprenant").subscribe(data => {
+    this.service.apprenantOUParticipant("Apprenants").subscribe(data => {
       this.apprenantsTotal = data
     })
     // Ici on charge le nombre total des Participants
-    this.service.apprenantOUParticipant("participant").subscribe(data => {
+    this.service.apprenantOUParticipant("participants").subscribe(data => {
       this.participantTotal = data
 
-      //affiche année
-      this.serviceAccueil.afficherAnnee().subscribe(data => {
-        this.afficheAnnee= data
-      })
+      
 
+      //le nombre d'apprenants
+      this.service.nombreApprenant().subscribe(data =>{
+        this.nombreApprenants = data
+      })
 
       // Ici on charge les sessions
 
@@ -97,6 +101,14 @@ export class AdminAccueilPage implements OnInit {
       this.role = sessionStorage.getItem("role_user")
       
 
+    })
+
+    //affiche année
+    this.serviceAccueil.afficherAnnee().subscribe(data => {
+      this.afficheAnnee = data
+      alert(this.afficheAnnee+"hgjghhghhh vvvvv")
+
+ 
     })
 
   }
