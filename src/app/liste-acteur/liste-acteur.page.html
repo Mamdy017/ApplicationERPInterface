@@ -25,7 +25,7 @@
   <div class="row ro py-3">
     <h1>Liste des acteurs</h1>
     <div class="trait"></div>
-    <div class="position">
+    <div class="position" >
         <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
 
      <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter1"  >Ajouter un acteur</button></a>
@@ -58,7 +58,7 @@
             <td>{{acteur.email}}</td>
             <td>{{acteur.numero}}</td>
             <!-- <td>{{acteur.statut.nom}}</td> -->
-            <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
+            <td><a [routerLink]="['/modifier-acteur', acteur.idacteur]"><i class="bi bi-pencil-square i"></i></a>&nbsp; &nbsp; &nbsp;<button ><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
           </tr>
        </tbody>
        <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>

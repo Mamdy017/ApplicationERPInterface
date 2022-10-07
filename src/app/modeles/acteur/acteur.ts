@@ -9,5 +9,7 @@ export class Acteur {
   // activite!: Activite;
   email!:any;
   statut: any;
+  static id: number;
+  static idacteur: number;
   // statut!: Statut;
 }

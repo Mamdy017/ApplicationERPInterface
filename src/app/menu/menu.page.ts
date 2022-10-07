@@ -16,13 +16,13 @@ role:any
 
   ngOnInit() {
 
-   
+
     this.nom =  sessionStorage.getItem("nom_users")
     this.role =  sessionStorage.getItem("role_users")
     this.prenom =  sessionStorage.getItem("prenom_users")
-    
-   
-   console.log("Je suis le role ========================== "+this.role)
+
+
+   console.log("Je suis le role ========================== "+this.role);
 
 
    }

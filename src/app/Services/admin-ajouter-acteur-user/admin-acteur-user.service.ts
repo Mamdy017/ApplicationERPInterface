@@ -21,4 +21,9 @@ ajouterActeur(Acteur: Acteur, stat: string): Observable<Acteur>{
   return this.http.post<Acteur>(`http://localhost:8080/acteur/ajouter/${stat}`, Acteur);
 }
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+modifierActeur(acteur: Acteur, idacteur: number): Observable<Acteur>{
+  return this.http.put<Acteur>(`http://localhost:8080/acteur/modifier/${idacteur}`, acteur);
+}
+
 }

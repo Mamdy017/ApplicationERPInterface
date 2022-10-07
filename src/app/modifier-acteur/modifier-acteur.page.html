@@ -12,37 +12,31 @@
 
       <div class="left" style="left: 0; align-items: center;">
 
-        <h2>Formulaire Acteur</h2>
+        <h2>Modifier Acteur</h2>
         <div class="trait"></div>
 
         <form class="form">
           <table>
             <tr>
-              <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom"
-                  required> </td>
+              <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom" [(ngModel)]="nom"
+                  required></td>
             </tr>
 
             <tr>
               <td> <input type="text" name="prenom" class="form-control" class="form-control"
-                  placeholder="Saisir Prenom" required> </td>
+                  placeholder="Saisir Prenom" [(ngModel)]="prenom" required></td>
             </tr>
 
             <tr>
               <td> <input type="email" name="email" class="form-control" placeholder="Saisir Email"
-                 required> </td>
+                [(ngModel)]="email" required></td>
             </tr>
 
       <tr>
-        <td><input type="text" name="telephone" placeholder="76 55 67 55" required></td>
+        <td><input type="text" name="telephone" placeholder="76 55 67 55" [(ngModel)]="numero" required></td>
       </tr>
 
-      <tr>
-        <td><select class="slth" name="selection">
-          <!-- <option value="">--Statut--</option> -->
-          <option  class="form-control" ></option>
-        </select></td>
-      </tr>
-      <input type="submit" class="bouton1" value="Envoyer">
+      <input (click)="saveActeur()" type="submit" class="bouton1" value="Envoyer">
     </table>
   </form>
 

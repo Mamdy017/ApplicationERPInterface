@@ -10,6 +10,9 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
 //import { FormsModule } from '@angular/forms';
 
 import * as XLSX from 'xlsx';
+import { RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-liste-acteur',
@@ -37,7 +40,12 @@ export class ListeActeurPage implements OnInit {
   // }
 
 
-  constructor(private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver) { }
+  constructor(private serviceActeur: ListeActeurService, private route: ActivatedRoute, public breakpointObserver: BreakpointObserver) { }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+
+
+
 
   actualise(): void {
     setInterval(
@@ -45,6 +53,14 @@ export class ListeActeurPage implements OnInit {
       }, 100, clearInterval(1500));
   }
   ngOnInit() {
+
+    const id = +this.route.snapshot.paramMap.get('idacteur');
+
+   this.route.paramMap.subscribe(params =>{
+    const id = +params.get('idacteur');
+   });
+
+
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;
       console.table(this.acteurs);
@@ -113,6 +129,9 @@ export class ListeActeurPage implements OnInit {
     // this.cacher = false;
     /*pour exporter sans col action*/
     this.fonction();
+    this.toogleTag();
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    this.cacherAction;
   }
   /*Actualiser directement après export*/
   fonction(){
@@ -136,8 +155,8 @@ export class ListeActeurPage implements OnInit {
     // this.showMe=true;
     // this.fonction()
     this.fonction2();
-
   }
+
   fonction2(){
     setTimeout(()=>{
       this.cacherAction = true;

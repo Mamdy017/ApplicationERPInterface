@@ -145,8 +145,9 @@ const routes: Routes = [
   {
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
-  },  {
-    path: 'modifier-acteur',
+  },
+  {
+    path: 'modifier-acteur/:idacteur',
     loadChildren: () => import('./modifier-acteur/modifier-acteur.module').then( m => m.ModifierActeurPageModule)
   },
 

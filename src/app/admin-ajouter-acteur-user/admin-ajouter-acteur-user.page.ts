@@ -3,6 +3,7 @@ import { Acteur } from '../Modeles/acteur/acteur';
 import { Statut } from '../modeles/statut/statut';
 import { AdminActeurUserService } from '../services/admin-ajouter-acteur-user/admin-acteur-user.service';
 import { StatutService } from '../services/statutService';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-ajouter-acteur-user',
@@ -16,7 +17,7 @@ export class AdminAjouterActeurUserPage implements OnInit {
   // email: any;
   statut: any;
 
-  // telephone:any
+  telephone: any;
 
 
  statutChoix: any;
@@ -41,16 +42,22 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
   donner: any;
   erreur: any;
+  modif: any
 
   menuBureau = true;
   menuMobile = false;
 
-  constructor(private serviceActeur: AdminActeurUserService, /*private serviceStatut: StatutService*/) { }
+  constructor(private serviceActeur: AdminActeurUserService, private route: ActivatedRoute /*private serviceStatut: StatutService*/) { }
 
   ngOnInit() {
     // // On recupere les statut
     // this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
+    // let id_acteur = +this.route.snapshot.params["idActeur"];
+    // this.serviceActeur.modifierActeur().subscribe(data=>{
+    //   this.modif= data;
+    // })
   }
+
 
 
 
