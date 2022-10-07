@@ -41,3 +41,11 @@ span{
    
     color: #FF6600;
 }
+
+@media only screen and (min-width: 375px) {
+    .conteneur{
+      font-size: .9rem;
+      margin-left: -5%;
+      position: relative;
+    }
+  }
