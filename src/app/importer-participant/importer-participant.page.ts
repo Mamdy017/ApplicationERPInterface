@@ -18,6 +18,7 @@ export class ImporterParticipantPage implements OnInit {
     private activiteService: ActiviteService,public breakpointObserver: BreakpointObserver) { }
 
     libelleListe:any
+
     libelleActivite:""
     libelleActivites$:any
 
@@ -119,10 +120,13 @@ export class ImporterParticipantPage implements OnInit {
           this.actualise();
         }
       });
+      this.getListeActivite();
   }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+
+  
 
 }

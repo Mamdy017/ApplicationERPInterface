@@ -55,6 +55,31 @@ recupererListeAnne():Observable<any>{
 
 
 
+ajouterActivite(file:File, nom:string, description:string, nombrepersonnedemande:string, datedeb:string, datefin:string, idacteurs:string, idacteurInternes:string, libelleEntite:string, typeAct:string, libelleSalle:string, idresponsable:string, userid:string):Observable<any>{
+  //file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid
+  
+  let data = new FormData();
+  
+
+  data.append("file",file);
+  data.append("nom", nom);
+  data.append("description", description);
+  data.append("nombrepersonnedemande", nombrepersonnedemande);
+  data.append("datedeb", datedeb);
+  data.append("datefin", description);
+  data.append("idacteurs",idacteurs);
+  data.append("idacteurInternes", idacteurInternes);
+  data.append("idacteurInternes", idacteurInternes);
+  data.append("libelleEntite", libelleEntite);
+  data.append("typeAct", typeAct);
+  data.append("libelleSalle",libelleSalle);
+  data.append("idresponsable", idresponsable);
+  data.append("userid", userid);
+
+  return this.http.post<any>('http://localhost:8080/activite/ajouter', data);
+}
+
+
 
 
 }

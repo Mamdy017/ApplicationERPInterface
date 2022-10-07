@@ -31,7 +31,7 @@ export class AjouterPostulantPage implements OnInit {
     listePostulant:any;
   
     liste:any;
-  
+    listes:any
     erreur: any;
     bool_erreur: boolean = false;
   
@@ -62,6 +62,8 @@ export class AjouterPostulantPage implements OnInit {
           this.actualise();
         }
       });
+
+      this.getListePostulant();
   
     }
   
@@ -85,6 +87,11 @@ export class AjouterPostulantPage implements OnInit {
 
     this.bool_erreur = true;
 
+    console.log(this.nom_postulant)
+    console.log(this.prenom_postulant)
+    console.log(this.numero_postulant)
+    console.log(this.postulant)
+
     if(this.nom_postulant === "" || this.prenom_postulant === "" || this.email == "" || this.genre == "" || this.numero_postulant == ""){
       
       this.erreur = "Veuillez remplir tous les champs";
@@ -93,11 +100,7 @@ export class AjouterPostulantPage implements OnInit {
      
       this.ajouterPostulant.ajouterPostulant(this.liste, this.postulant).subscribe((data) =>{ 
 
-        if(data == null){
-          this.erreur = "Ce postulant existe déjà";
-        }else{
-          this.erreur = "Postulant ajouté avec succes";
-        }
+       this.erreur = data
 
         })
         console.log(this.erreur);

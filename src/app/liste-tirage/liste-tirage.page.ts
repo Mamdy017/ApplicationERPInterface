@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Tirage } from '../modeles/tirage/tirage';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
 
@@ -14,7 +15,6 @@ export class ListeTiragePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
-
   select_liste!: any;
   tirage_actuel!: any;
   tiragePourUneListe!: any;
@@ -28,12 +28,12 @@ export class ListeTiragePage implements OnInit {
   listeTirages: any
   tirages$: any
 
-
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
+
   ngOnInit() {
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -54,7 +54,11 @@ export class ListeTiragePage implements OnInit {
 
 
     // ICI ON RECUPERE les validés
-    this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+    //this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+
+    //lesTirages
+
+    this.serviceTirage.lesTirages().subscribe(data => { this.listeTirages = data })
 
 
 
@@ -68,6 +72,14 @@ export class ListeTiragePage implements OnInit {
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
+  }
+
+  validerTirage(tirage:any){
+
+    this.serviceTirage.validerTirage(tirage.idtirage, tirage).subscribe(data =>{
+      
+    })
+    console.log(tirage);
   }
 
 
@@ -89,8 +101,11 @@ export class ListeTiragePage implements OnInit {
       this.serviceTirage.recupererLesTirageNonValider().subscribe(data => { this.listeTirages = data })
 
 
-    } else {
+    } else if(event.target.value == "Tirage valider"){
       this.serviceTirage.recupererLesTirageValider().subscribe(data => { this.listeTirages = data })
+    }else{
+      this.serviceTirage.lesTirages().subscribe(data => { this.listeTirages = data });
+
     }
 
 
