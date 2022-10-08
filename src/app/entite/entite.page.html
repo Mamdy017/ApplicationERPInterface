@@ -55,26 +55,26 @@ position:relative; left:80% ;
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
                     <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
                       class="form form-control inputvalue">
-                    <label for="name">Nom</label>
+                    <label for="name">Nom de l'entité<span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
                     <input type="text" name="slogant" formControlName="slogant" id="firstname" placeholder="Prénom"
                       class="form form-control inputvalue">
-                    <label for="firstname">Slogan</label>
+                    <label for="firstname">Slogan<span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-12 form-row form-floating">
                     <textarea type="text" name="description" formControlName="description" id="num" placeholder="Numéro"
                       class="form form-control inputvalue"></textarea>
-                    <label for="num">Description</label>
+                    <label for="num">Description <span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-12 ">
                     <!-- <input type="file" name="file" id="file"  class="form form-control inputvalue"> -->
                     <ion-input type="file" name="file" formControlName="file" class="input"
                       (change)="fileChang($event)"><img class="image" src="../assets/icon/camera0.svg" alt="logo"
-                        srcset="" placeholder="logo" width="8%">Logo</ion-input>
+                        srcset="" placeholder="logo" width="8%">Logo<span style="color: red;">*</span></ion-input>
                   </div>
 
                 </div>

@@ -76,7 +76,7 @@ export class PostulantTirePage implements OnInit {
     this.servicePostulant.postulantTirer(id_tirages).subscribe(data => {
       this.lesPersonnesTirees = data;
 
-      console.log('Les personnes tirées lors du tirage 1' + this.lesPersonnesTirees.nom_postulant);
+      console.log('Les personnes tirées lors du tirage 1' + this.lesPersonnesTirees);
 
 
     })
