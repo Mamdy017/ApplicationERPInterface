@@ -1,109 +1,48 @@
-.container{
-    position: absolute;
-    margin: 5vh;
-    right: 0;
-    width: 70vw;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    border-radius: 3rem;
-    align-content: center;
+.conteneur{
+    position: relative;
+    top: 10%;
     border-radius: 12px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.8);
-}
-
-.left{
-    margin: 10px;
-    align-items: center;
-
-}
-
-
-h2{
-    margin-top: 10px;
-    text-align: center;
-    margin-left: 0%;
-    margin-right: 0%;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-
-.trait
-{
-    border: 3px solid #FF6600;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-}
-
-input, select{
-    // width: 250px;
-    // height: 50px;
-    border-radius: 12px;
-    border: 1px solid white;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-
-
-
-td{
     padding: 10px;
+    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.2);
 }
-td .eml{
-    width: 520px;
+main{
+  overflow: scroll;
 }
-.slt{
-    width: 250px;
-    height: 50px ;
-    margin-left: 150px;
-
+.droit{
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.bouton2{
-    background-color: black;
-    color: white;
-    border-radius: 12px;
-    margin-top: 5%;
-    margin-left: 160px;
+.bttn {
+  background-color: #ff6600;
+  color: white;
+  border-radius: 12px;
+  width: 200px;
+  height: 45px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
-
-.bouton1{
-    background-color: black;
-    color: white;
-    border-radius: 12px;
-    margin-left: 5%;
+.bttn:hover{
+  color: black;
+  background-color: white;
+  border: 1px solid #ff6600;
 }
-
-
-@media screen and (min-width: 768px) and (max-width: 1330px) { 
-    /* STYLES HERE */
-    .container{
-
-        width: 80vw;
-    }
-    input, select{
-        width: 200px;
-        height: 30px;
-        border-radius: 12px;
-        border: 1px solid white;
-        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    }
-    .slt{
-        width: 150px;
-        height: 30px ;
-        margin-left:50%;
-    
-    }
-    .bouton2{
-
-        margin-left: 25%;
-    }
-
+input:hover{
+  color: black;
+  background-color: white;
+  border: 1px solid #ff6600;
 }
-
-
-
-
-
+.err{
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}
+.valider{
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+}

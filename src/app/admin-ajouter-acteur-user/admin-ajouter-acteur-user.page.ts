@@ -11,16 +11,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./admin-ajouter-acteur-user.page.scss'],
 })
 export class AdminAjouterActeurUserPage implements OnInit {
-
-  // nom: any;
-  // prenom: any;
-  // email: any;
   statut: any;
 
   telephone: any;
 
 
- statutChoix: any;
+  statutChoix: any;
 
 
   acteurs: Acteur = {
@@ -31,31 +27,30 @@ export class AdminAjouterActeurUserPage implements OnInit {
     email: '',
     statut: Statut
   };
-  nom = '';
-  prenom = '';
-  numero= '';
-  email= '';
+    nom = '';
+    prenom = '';
+    numero= '';
+    email= '';
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  // Statut: any;
-
 
 
   donner: any;
   erreur: any;
-  modif: any
+  modif: any;
 
   menuBureau = true;
   menuMobile = false;
 
-  constructor(private serviceActeur: AdminActeurUserService, private route: ActivatedRoute /*private serviceStatut: StatutService*/) { }
+  constructor(private serviceActeur: AdminActeurUserService) { }
 
   ngOnInit() {
-    // // On recupere les statut
-    // this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
-    // let id_acteur = +this.route.snapshot.params["idActeur"];
-    // this.serviceActeur.modifierActeur().subscribe(data=>{
-    //   this.modif= data;
-    // })
+
+  }
+  resetForm(){
+    this.nom = '';
+    this.prenom = '';
+    this.numero= '';
+    this.email= '';
   }
 
 
@@ -63,32 +58,27 @@ export class AdminAjouterActeurUserPage implements OnInit {
 
   ajouterUtilisateur() {
 
-    // console.log("-----------"+this.statutChoix)
 
     // eslint-disable-next-line eqeqeq
-    if (this.nom != '' && this.prenom != '' && this.email != '' /*&& this.statutChoix != null && this.numero != null*/) {
+    if (this.nom != '' && this.prenom != '' && this.email != '') {
 
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      // this.acteurs.statut.statut_idStatut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
-
-
       this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
-        this.donner = data;
-
+      this.donner = data;
+      this.modif = 'Acteur ajouter avec succes';
+      this.resetForm();
         console.log('--------- ' + this.donner.contenu);
- });
+      });
     }
     else {
+      console.log('--------- ERREUR!');
       this.erreur = 'Veuillez remplir tous les champs !';
     }
   }
-  // stat(acteurs: Acteur, stat: any) {
-  //   throw new Error('Method not implemented.');
-  // }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
