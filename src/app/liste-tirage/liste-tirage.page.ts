@@ -80,6 +80,7 @@ export class ListeTiragePage implements OnInit {
       
     })
     console.log(tirage);
+    this.actualise();
   }
 
 

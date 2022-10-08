@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
-import { TypeActivite } from '../modeles/type-activite/type-activite';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 
@@ -13,6 +12,19 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./activite.page.scss'],
 })
 export class ActivitePage implements OnInit {
+  
+
+  // @ViewChild(IonContent) content: IonContent;
+
+  // scrollToTop() {
+  //   this.content.scrollToTop(400);
+  // }
+  // ionViewDidEnter(){
+  //   this.scrollToTop();
+  // }
+
+
+
   erreurImpTrieBack: any;
   bool_erreurImpTrieBack: boolean;
   bool_erreurImpTrieFr: boolean;
@@ -47,6 +59,7 @@ export class ActivitePage implements OnInit {
   bool_erreur:boolean = false
   erreur:any
 
+
   id:any = 1;
 
   fichier:File
@@ -65,7 +78,7 @@ export class ActivitePage implements OnInit {
   actualise(): void {
     setInterval(
       () => {
-      }, 100, clearInterval(1500));
+      }, 100, clearInterval(1000));
   }
 
  
@@ -121,9 +134,21 @@ export class ActivitePage implements OnInit {
     nombrepersonnedemande: new FormControl('', [Validators.required, Validators.minLength(3)]),
     datedeb: new FormControl('', [Validators.required, , Validators.minLength(1)]),
     datefin: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    libelleEntite: new FormControl('', [Validators.required]),
+
     idacteurs: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurInternes: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    libelleEntite: new FormControl('', [Validators.required]),
+
+    idacteursOrg: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesOrg: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+    idacteursInterv: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesInterv: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+    idacteursLead: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesLead: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+    
     typeAct: new FormControl('', [Validators.required, Validators.minLength(1)]),
     libelleSalle: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idresponsable: new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -165,18 +190,6 @@ export class ActivitePage implements OnInit {
     
    let userid:any = 1;
 
-    data.append("file",this.myFormActivite.get('fileSource').value);
-    data.append("nom", this.myFormActivite.get('nom').value);
-    data.append("description", this.myFormActivite.get('description').value);
-    data.append("nombrepersonnedemande",this.myFormActivite.get('nombrepersonnedemande').value);
-    data.append("datedeb",this.myFormActivite.get('datedeb').value );
-    data.append("datefin", this.myFormActivite.get('datefin').value);
-    data.append("idacteurs", this.myFormActivite.get('idacteurs').value);
-    data.append("idacteurInternes", this.myFormActivite.get('idacteurInternes').value);
-    data.append("libelleEntite", this.myFormActivite.get('libelleEntite').value);
-    data.append("typeAct", this.myFormActivite.get('typeAct').value);
-    data.append("libelleSalle", this.myFormActivite.get('libelleSalle').value);
-    data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
     data.append("userid", userid);
 
 
@@ -207,24 +220,103 @@ export class ActivitePage implements OnInit {
         console.log("userid" +userid)
 
 
-        if (this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0|| typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length  == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length  == 0 ||  typeof this.myFormActivite.get('libelleEntite').value  === 'undefined' || typeof this.myFormActivite.get('typeAct').value  === 'undefined')  {
+        if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0|| typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length  == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length  == 0 ||  typeof this.myFormActivite.get('libelleEntite').value  === 'undefined' || typeof this.myFormActivite.get('typeAct').value  === 'undefined')  {
    //this.myFormActivite.get('filesource').value !=  null  || 
           //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
           this.bool_erreurImpTrieFr = true;
           this.bool_erreurImpTrieBack = false;
           this.erreurImpTrieFr = "Veuillez remplir tous les champs";
    
-   } else {
+   } else if(this.myFormActivite.get('datedeb').value > this.myFormActivite.get('datefin').value){
+    this.bool_erreurImpTrieFr = true;
+    this.bool_erreurImpTrieBack = false;
+    this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
+   }
+   else {
 
-    if(typeof this.myFormActivite.get('idacteurs').value  === 'undefined'){
-      //  this.myFormActivite.get('libelleSalle').value.length
-      this.myFormActivite.get('idacteurs').setValue("");
+    // console.log("avant change: " + this.myFormActivite.get('idacteurs').value)
 
-    }else if(typeof this.myFormActivite.get('libelleSalle').value === 'undefined'){
-      this.myFormActivite.get('libelleSalle').setValue("");
-    } else if(typeof this.myFormActivite.get('idacteurInternes').value === 'undefined'){
-      this.myFormActivite.get('idacteurInternes').setValue("");
-    }
+    // this.myFormActivite.get('idacteurs').setValue("null");
+
+    // console.log("apres change: " + this.myFormActivite.get('idacteurs').value)
+    
+
+    // if(typeof this.myFormActivite.get('idacteurs').value  === 'undefined'){        
+    //   //  this.myFormActivite.get('libelleSalle').value.length
+    //   this.myFormActivite.get('idacteurs').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteurs').value)
+      
+    // }
+    //  if(typeof this.myFormActivite.get('idacteurInternes').value === 'undefined'){
+    //   this.myFormActivite.get('idacteurInternes').setValue("null");
+    //  // console.log(this.myFormActivite.get('idacteurInternes').value);
+    //  alert("hello word:  " + this.myFormActivite.get('idacteurInternes').value)  
+
+    // }
+
+    // if(typeof this.myFormActivite.get('idacteursOrg').value  === 'undefined'){     
+    //   //  this.myFormActivite.get('libelleSalle').value.length
+    //   this.myFormActivite.get('idacteursOrg').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteursOrg').value)
+    // }
+    //  if(typeof this.myFormActivite.get('idacteurInternesOrg').value === 'undefined'){
+    //   this.myFormActivite.get('idacteurInternesOrg').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteurInternesOrg').value);
+    // }
+
+    // if(typeof this.myFormActivite.get('idacteursInterv').value  === 'undefined'){     
+    //   //  this.myFormActivite.get('libelleSalle').value.length
+    //   this.myFormActivite.get('idacteursInterv').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteursInterv').value)
+    // }
+
+    //  if(typeof this.myFormActivite.get('idacteurInternesInterv').value === 'undefined'){
+    //   this.myFormActivite.get('idacteurInternesInterv').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteurInternesInterv').value);
+    // }
+
+    // if(typeof this.myFormActivite.get('idacteursLead').value  === 'undefined'){     
+    //   //  this.myFormActivite.get('libelleSalle').value.length
+    //   this.myFormActivite.get('idacteursLead').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteursLead').value)
+    // }
+    //  if(typeof this.myFormActivite.get('idacteurInternesLead').value === 'undefined'){
+    //   this.myFormActivite.get('idacteurInternesLead').setValue("null");
+    //   console.log(this.myFormActivite.get('idacteurInternesLead').value);
+    // }
+
+
+    // if(typeof this.myFormActivite.get('libelleSalle').value === 'undefined'){
+    //   this.myFormActivite.get('libelleSalle').setValue("");
+    // } 
+   
+
+
+    data.append("file",this.myFormActivite.get('fileSource').value);
+    data.append("nom", this.myFormActivite.get('nom').value);
+    data.append("description", this.myFormActivite.get('description').value);
+    data.append("nombrepersonnedemande",this.myFormActivite.get('nombrepersonnedemande').value);
+    data.append("datedeb",this.myFormActivite.get('datedeb').value );
+    data.append("datefin", this.myFormActivite.get('datefin').value);
+
+    data.append("idacteurs", this.myFormActivite.get('idacteurs').value);
+    data.append("idacteurInternes", this.myFormActivite.get('idacteurInternes').value);
+
+    data.append("idacteursOrg", this.myFormActivite.get('idacteursOrg').value);
+    data.append("idacteurInternesOrg", this.myFormActivite.get('idacteurInternesOrg').value);
+
+    data.append("idacteursInterv", this.myFormActivite.get('idacteursInterv').value);
+    data.append("idacteurInternesInterv", this.myFormActivite.get('idacteurInternesInterv').value);
+
+    data.append("idacteursLead", this.myFormActivite.get('idacteursLead').value);
+    data.append("idacteurInternesLead", this.myFormActivite.get('idacteurInternesLead').value);
+
+
+    data.append("libelleEntite", this.myFormActivite.get('libelleEntite').value);
+    data.append("typeAct", this.myFormActivite.get('typeAct').value);
+    data.append("libelleSalle", this.myFormActivite.get('libelleSalle').value);
+    data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
+
     console.log(`http://localhost:8080/activite/ajouter`, data);
      
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
@@ -236,13 +328,12 @@ export class ActivitePage implements OnInit {
           this.bool_erreurImpTrieFr = false;
          
           if(res.status == true){
+            this.bool_erreurImpTrieBack = false;
             alert("activité ajouté avec succes");
             this.route.navigateByUrl("/details-activite");
+            this.actualise();
           }
-
         });
-
-
    }
 
   }
@@ -286,7 +377,6 @@ export class ActivitePage implements OnInit {
   //   });
   // }
   //  }
-
   
   
 

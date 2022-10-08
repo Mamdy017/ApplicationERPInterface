@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { ActiviteService } from '../Services/activite/activite.service';
 
 @Component({
   selector: 'app-details-activite',
@@ -10,13 +11,29 @@ export class DetailsActivitePage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  constructor(public breakpointObserver: BreakpointObserver) { }
+  message: boolean = true;
+  activites$: any;
+  imgSrc:string = "assets/images";
+
+  constructor(public breakpointObserver: BreakpointObserver,
+    private activiteService: ActiviteService) { }
 
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
+
+  recupererToutesLesActivites(){
+    this.activiteService.recupererListeActivite().subscribe((data) =>{
+      this.activites$ = data
+     // this.imgSrc = data.photoactivite;
+      console.log(data);
+    })
+  }
+
+ 
+
   ngOnInit() {
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -31,11 +48,17 @@ export class DetailsActivitePage implements OnInit {
           this.actualise();
         }
       });
+
+      this.recupererToutesLesActivites();
   }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+
+  //recuperation des activité
+
+ 
 
 
 }
