@@ -23,7 +23,7 @@ email_users: string;
 numero_users: string;
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+p = 1;
   nom_res : string;
   prenom_res : string;
   img_res : string;
@@ -66,7 +66,7 @@ this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
 
-    const id = this.route.snapshot.params['id']
+    const id = this.route.snapshot.params['id_entite']
     this.breakpointObserver
     .observe(['(max-width: 767px)'])
     .subscribe((state: BreakpointState) => {
@@ -85,8 +85,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
         for (const entie of data) {
           if(entie.idEntite == id){
             this.nom_entite = entie.nom;
+            console.log("Bonjours ici dans la boucle "+data)
           }
         }
+        console.log("Bonjours ici apres la boucle "+data)
+
       });
       
       this.serviceEntite.nombreFormation(id).subscribe(data => {

@@ -13,6 +13,12 @@ position:relative; left:80% ;
   left:50% ;
 }
 }
+
+  .collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+  }
 </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
@@ -57,7 +63,9 @@ position:relative; left:80% ;
         <div class="row cardContour my-3">
           <div class="col-12 col-md-8">
             <div class="statistique">
-              <img src="../../assets/images/img1.jpg" alt="">
+              <small>L'alignement vertical répresente le nombre d'activités par mois </small>
+              <canvas #barCanvas style="position: relative; height: 10vh; width: 10vw;"></canvas>
+              <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
             </div>
           </div>
           <div class="col-12 col-md-4 row">

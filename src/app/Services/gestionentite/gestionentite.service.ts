@@ -14,10 +14,10 @@ export class GestionentiteService {
   }
 
   nombreFormation(idEntite : number) :Observable<any>{
-    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formations/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formation/${idEntite}`)
   }
   nombreTalk(idEntite : number) :Observable<any>{
-    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talks/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talk/${idEntite}`)
   }
   nombreEvennement(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Evennement/${idEntite}`)
@@ -32,7 +32,7 @@ export class GestionentiteService {
   }
 
   responsableEntite(idEntite : number) :Observable<any> {
-    return this.http.get(`${this.api}/utilisateur/responsableParEntite/Responsable/${idEntite}`)
+    return this.http.get(`${this.api}/utilisateur/responsableParEntite/responsable/${idEntite}`)
   }
 }
   
