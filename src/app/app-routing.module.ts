@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'admin',
+    path: 'admin/:idtirage',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
 
@@ -83,7 +83,7 @@ const routes: Routes = [
     loadChildren: () => import('./salle/salle.module').then( m => m.SallePageModule)
   },
   {
-    path: 'page-liste-suite',
+    path: 'page-liste-suite/:idliste',
     loadChildren: () => import('./page-liste-suite/page-liste-suite.module').then( m => m.PageListeSuitePageModule)
   },
   {

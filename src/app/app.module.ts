@@ -13,13 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+
 import{NgChartsModule} from 'ng2-charts'
 import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 // import { FilterPipe } from './filter.pipe';
-
 
 @NgModule({
   declarations: [AppComponent],

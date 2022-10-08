@@ -40,6 +40,7 @@ postulantTirer(idTirage : number):Observable<any>{
   return this.http.get<any>(`http://localhost:8080/postulanttire/PostulantTireParTirage/${idTirage}`)
 }
 
+
 validerTirage(idtirage:number, tirage:any):Observable<any>{
   
   console.log("je suis pas d'accord");
@@ -47,6 +48,10 @@ validerTirage(idtirage:number, tirage:any):Observable<any>{
   console.log(`http://localhost:8080/tirage/valider/${idtirage}`, tirage);
 
   return this.http.put<any>(`http://localhost:8080/tirage/valider/${idtirage}`, tirage);
+}
+NombreMasculin(idTirage: number):Observable<any>{
+  return this.http.get(`http://localhost:8080/postulanttire/nombrePostulantTireParGenre/Masculin/${idTirage}`)
+
 }
 
 }

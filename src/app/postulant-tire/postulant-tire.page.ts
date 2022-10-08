@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
+import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 
 @Component({
   selector: 'app-postulant-tire',
@@ -12,29 +13,33 @@ import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste
 })
 export class PostulantTirePage implements OnInit {
 
-// /==============================================================================SESSION==========
-iduser:any;
-roles:any;
-noms_users:any;
-prenom_users:any;
-email_users: string;
-numero_users: string;
+  // /==============================================================================SESSION==========
+  iduser: any;
+  roles: any;
+  noms_users: any;
+  prenom_users: any;
+  email_users: string;
+  numero_users: string;
 
+  // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-  menuBureau= true;
-  menuMobile= false;
-  p=1;
-searchText: any;
-
+  menuBureau = true;
+  menuMobile = false;
+  p = 1;
+  searchText: any;
   // eslint-disable-next-line max-len
-  constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute, 
-    public breakpointObserver: BreakpointObserver, private routes:Router) { }
+  constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute,
+    public breakpointObserver: BreakpointObserver, private routes: Router, private service: PostulantTireService) { }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   lesPersonnesTirees: any;
+
+  page: number = 1
+
+  nombre_homme: number = 0;
+  nombre_femme: number = 0;
+  genre: any
+  idTirage: any
   actualise(): void {
     setInterval(
       () => {
@@ -44,12 +49,12 @@ searchText: any;
   ngOnInit() {
 
     // ===========================================================================SESSION VALEURS================================================
-this.iduser =  sessionStorage.getItem("id_users");
-this.roles = sessionStorage.getItem("role_users"); 
-this.noms_users =  sessionStorage.getItem("nom_users");
-this.prenom_users = sessionStorage.getItem("prenom_users",);
-this.email_users = sessionStorage.getItem("email_users");
-this.numero_users = sessionStorage.getItem("numero_users");
+    this.iduser = sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users");
+    this.noms_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
 
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -64,25 +69,46 @@ this.numero_users = sessionStorage.getItem("numero_users");
           this.actualise();
         }
       });
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    const id_tirage = +this.route.snapshot.params.idtirage;
 
-    this.servicePostulant.postulantTirer(id_tirage).subscribe(data=>{
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    const id_tirages = +this.route.snapshot.params.idtirage;
+
+    this.servicePostulant.postulantTirer(id_tirages).subscribe(data => {
       this.lesPersonnesTirees = data;
 
-      console.log('Les personnes tirées lors du tirage 1'+this.lesPersonnesTirees.nom_postulant);
+      console.log('Les personnes tirées lors du tirage 1' + this.lesPersonnesTirees.nom_postulant);
+
+
+    })
+
+    const id_tirage = +this.route.snapshot.params["idtirage"];
+
+    this.servicePostulant.postulantTirer(id_tirage).subscribe(data => {
+      this.lesPersonnesTirees = data
+      // this.Nombre=this.lesPersonnesTirees.lenght
+      for (const pt of this.lesPersonnesTirees) {
+        if (pt.genre == "Masculin") {
+          this.nombre_homme += 1;
+        }
+        else {
+          this.nombre_femme += 1;
+        }
+      }
+
 
     });
 
+
+
+
   }
-  
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
 
-  //le telechargement du fichier
-  // eslint-disable-next-line @typescript-eslint/member-ordering
+
   name = 'ListePostulantTire.xlsx';
   exportToExcel(): void {
     const element = document.getElementById('season-tble');
@@ -94,9 +120,9 @@ this.numero_users = sessionStorage.getItem("numero_users");
     XLSX.writeFile(book, this.name);
   }
 
-  deconnexion(){
+  deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
     this.routes.navigateByUrl('/authentification');
-    }
+  }
 }

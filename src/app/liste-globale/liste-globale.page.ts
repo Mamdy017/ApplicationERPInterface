@@ -11,6 +11,7 @@ import { ListePostulantService } from '../Services/liste-postulant.service';
 })
 export class ListeGlobalePage implements OnInit {
 
+
   // /==============================================================================SESSION==========
   iduser:any;
   roles:any;
@@ -24,12 +25,15 @@ export class ListeGlobalePage implements OnInit {
 
 
   p =1;
+  
   menuBureau = true;
   menuMobile = false;
   constructor(private serviceListe: ListePostulantService, public breakpointObserver: BreakpointObserver,private route:Router) { }
 
+
   listeTotal: any
   mesListe: any
+  page:number=1;
   actualise(): void {
     setInterval(
       () => {
