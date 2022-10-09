@@ -13,6 +13,7 @@ export class AjouterPostulantPage implements OnInit {
   
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+  status: boolean = false;
 
   // /==============================================================================SESSION==========
   iduser:any;
@@ -28,8 +29,8 @@ export class AjouterPostulantPage implements OnInit {
     nom_postulant: "",
     prenom_postulant: "",
     numero_postulant: "",
-    email: "",
-    genre: ""
+    email: " ",
+    genre: " "
 
     }
   
@@ -43,8 +44,10 @@ export class AjouterPostulantPage implements OnInit {
   
     liste:any;
     listes:any
-    erreur: any;
+    erreurs: any;
     bool_erreur: boolean = false;
+    bool_erreurFr: boolean = false;
+  errors: string;
   
   
     constructor(
@@ -55,6 +58,18 @@ export class AjouterPostulantPage implements OnInit {
       setInterval(
         () => {
         }, 100, clearInterval(1500));
+    }
+
+
+    resetForm(){
+
+         
+   this.nom_postulant = "";
+   this.prenom_postulant = "";
+    this.numero_postulant = "";
+   this.email = " ";
+ this.genre = " ";
+
     }
     ngOnInit() {
 
@@ -106,26 +121,47 @@ this.numero_users = sessionStorage.getItem("numero_users");
     this.postulant.email = this.email;
     this.postulant.genre = this.genre;
 
-    this.bool_erreur = true;
+    
 
-    console.log(this.nom_postulant)
-    console.log(this.prenom_postulant)
-    console.log(this.numero_postulant)
-    console.log(this.postulant)
-
-    if(this.nom_postulant === "" || this.prenom_postulant === "" || this.email == "" || this.genre == "" || this.numero_postulant == ""){
+    if(this.nom_postulant.length != 0 || this.prenom_postulant.length != 0 || this.email.length != 0 || this.genre.length != 0 || this.numero_postulant.length != 0){
       
-      this.erreur = "Veuillez remplir tous les champs";
+
+      this.ajouterPostulant.ajouterPostulant(this.listes, this.postulant).subscribe((data) =>{ 
+        console.log(data.contenu);
+
+        if(data == null){
+          this.erreurs = "Ce postulant existe déjà"
+          this.status = false;
+        }else{
+          this.erreurs = "Postulant ajouté avec succès"
+         
+          this.status = true;
+           this.resetForm()
+        }
+      
+      
+      })
+
+     
+      this.bool_erreur = true;
+      this.bool_erreurFr = false
+
+  
 
     }else{  
      
-      this.ajouterPostulant.ajouterPostulant(this.liste, this.postulant).subscribe((data) =>{ 
-
-       this.erreur = data
-
-        })
-        console.log(this.erreur);
+      console.log("vvvv   " +this.nom_postulant)
+    console.log("bbbb   " +this.prenom_postulant)
+    console.log("bbbb   " +this.numero_postulant)
+    console.log("bbb    " +this.postulant)
+      this.bool_erreurFr = true;
+      this.bool_erreur = false;
+      this.erreurs = "Veuillez remplir tous les champs";
+   
+       
     }
+
+   
   }
 
   afficheMenuMobile() {

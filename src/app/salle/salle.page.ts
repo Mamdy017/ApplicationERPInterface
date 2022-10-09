@@ -112,7 +112,16 @@ export class SallePage implements OnInit {
       console.log("Les données: " + this.salles)
       this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data => {
         if (data.status == true) {
-          this.route.navigateByUrl("/liste-salle")
+          // this.route.navigateByUrl("/liste-salle") 
+          // Swal.fire({
+          //   title: 'Custom animation with Animate.css',
+          //   showClass: {
+          //     popup: 'animate__animated animate__fadeInDown'
+          //   },
+          //   hideClass: {
+          //     popup: 'animate__animated animate__fadeOutUp'
+          //   }
+          // })
         }
          else {
           this.messageRetour = data.contenu;
@@ -128,6 +137,18 @@ export class SallePage implements OnInit {
 
 
   }
+
+// Retour sur la page de liste des salles
+
+retournerListeSalles(){
+  this.route.navigateByUrl("/liste-salle") 
+}
+
+
+// 
+
+
+
 
   deconnexion() {
     sessionStorage.clear();

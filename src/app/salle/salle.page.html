@@ -63,7 +63,7 @@
                   <!-- <input type="text" name="etage" id="etage" [(ngModel)]="etage" placeholder="etage" -->
 
                 
-                  <select [(ngModel)]="etage" (change)="filtreUserParEntite($event)" class="form form-control inputvalue">
+                  <select [(ngModel)]="etage" name="etage" (change)="filtreUserParEntite($event)" class="form form-control inputvalue">
                     <option selected>Tout</option>
                     <option>Etage 1</option>
                     <option>Etage 2</option>
@@ -85,7 +85,7 @@
               <div class="mb-3 col-12 col-md-12">
                 <button (click)="ajouterSalle()" class="btn btnAjouter my-3">Valider</button>
                 <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
-                <a href="liste-salle"> <button class="btn btnCancel my-3">Annuler</button> </a>
+                <button class="btn btnCancel my-3" (click)="retournerListeSalles()">Annuler</button>
               </div>
 
             </form>
