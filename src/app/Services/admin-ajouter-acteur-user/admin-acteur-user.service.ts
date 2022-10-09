@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Acteur } from 'src/app/Modeles/acteur/acteur';
@@ -22,13 +22,13 @@ ajouterActeur(Acteur: Acteur, stat: string): Observable<Acteur>{
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-modifierActeur(acteur: Acteur, idacteur: number): Observable<Acteur>{
-  return this.http.put<Acteur>(`http://localhost:8080/acteur/modifier/${idacteur}`, acteur);
+modifierActeur(acteur: Acteur, idacteur: number): Observable<any>{
+  return this.http.put<void>(`http://localhost:8080/acteur/modifier/${idacteur}`, acteur);
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-trouverparId(idacteur: number): Observable<Object>{
-  return this.http.get(`http://localhost:8080/acteur/unacteur/${idacteur}`);
+trouverparId(idacteur: number): Observable<Acteur>{
+  return this.http.get<Acteur>(`http://localhost:8080/acteur/unacteur/${idacteur}`);
 }
 
 }

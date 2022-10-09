@@ -107,9 +107,7 @@ export class ListeActeurPage implements OnInit {
   //le telechargement du fichier
   // eslint-disable-next-line @typescript-eslint/member-ordering
   name = 'ListeActeurs.xlsx';
-  /*pour exporter sans un champ, on declarer la constante cacherAction*/
-  //showMe:boolean = false;
-  // showMe=true;
+
   // eslint-disable-next-line @typescript-eslint/member-ordering
   cacherAction = true;
   exportToExcel(): void {
@@ -122,12 +120,7 @@ export class ListeActeurPage implements OnInit {
 
     XLSX.writeFile(book, this.name);
 
-    // this.showMe=true;
-    // setTimeout(()=>{
-    //   this.AfficherAction
-    // }, 1000);
-    // this.cacher = false;
-    /*pour exporter sans col action*/
+
     this.fonction();
     this.toogleTag();
     // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -139,15 +132,6 @@ export class ListeActeurPage implements OnInit {
       this.cacherAction = true;
     }, 100);
   }
-
-  /* le reste pour exporter sans un champ*/
-  // actualiser(setTimeout(() => {
-
-  // }, 500);)
-
-  // setTimeout(() => {
-
-  // }, 500);
 
   /*Méthode pour cacherAction en un clique*/
   toogleTag() {

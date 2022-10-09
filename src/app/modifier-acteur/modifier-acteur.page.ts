@@ -59,17 +59,15 @@ export class ModifierActeurPage implements OnInit {
     });
 
     this.route.paramMap.subscribe(params =>{
-       this.id = +params.get('idacteur');
+       this.id = params.get('idacteur');
       console.log('id');
     });
 
     this.service.trouverparId(this.id).subscribe(data =>
       {
         this.acteurModif = data;
+
         console.log(this.acteurModif);
-        this.editForm.patchValue({
-          nom: this.acteurModif.nom
-        });
       });
   }
   resetForm(){
