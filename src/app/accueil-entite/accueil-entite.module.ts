@@ -8,13 +8,16 @@ import { AccueilEntitePageRoutingModule } from './accueil-entite-routing.module'
 
 import { AccueilEntitePage } from './accueil-entite.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AccueilEntitePageRoutingModule
+    AccueilEntitePageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [AccueilEntitePage,MenuComponent]
 })

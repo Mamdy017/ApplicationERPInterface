@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ActiviteService } from '../Services/activite/activite.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-activite',
@@ -9,6 +10,16 @@ import { ActiviteService } from '../Services/activite/activite.service';
 })
 export class DetailsActivitePage implements OnInit {
 
+  // /==============================================================================SESSION==========
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   message: boolean = true;
@@ -16,7 +27,8 @@ export class DetailsActivitePage implements OnInit {
   imgSrc:string = "assets/images";
 
   constructor(public breakpointObserver: BreakpointObserver,
-    private activiteService: ActiviteService) { }
+    private activiteService: ActiviteService,
+    private route: Router) { }
 
   actualise(): void {
     setInterval(
@@ -35,6 +47,15 @@ export class DetailsActivitePage implements OnInit {
  
 
   ngOnInit() {
+
+    // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
+
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
       .subscribe((state: BreakpointState) => {
@@ -56,9 +77,9 @@ export class DetailsActivitePage implements OnInit {
     this.menuMobile = false;
   }
 
-  //recuperation des activité
-
- 
-
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 }

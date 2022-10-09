@@ -1,6 +1,23 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="roles == 'admin' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+.deconnexion{
+  left:50% ;
+}
+}
+.collapsing {
+    -webkit-transition: none;
+    transition: none;
+    display: none;
+  }
+</style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -25,7 +42,7 @@
 
               <form [formGroup]="formmodule" (ngSubmit)="creerEntite()">
                 <fieldset>
-                  <legend class="display-6 text-center my-3"><b>Ajouter une entite</b></legend>
+                  <legend class="display-6 text-center my-3"><b>Ajouter une entité</b></legend>
                 </fieldset>
 
                 <div class="trait"></div>
@@ -35,32 +52,29 @@
                   <div *ngIf="contenu" class="alert alert-success" role="alert">
                     <strong>{{contenu}}</strong>
                   </div>
-
-
-
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
                     <input type="text" name="nom" formControlName="nom" id="name" placeholder="Nom"
                       class="form form-control inputvalue">
-                    <label for="name">Nom</label>
+                    <label for="name">Nom de l'entité<span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
                     <input type="text" name="slogant" formControlName="slogant" id="firstname" placeholder="Prénom"
                       class="form form-control inputvalue">
-                    <label for="firstname">Slogan</label>
+                    <label for="firstname">Slogan<span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-12 form-row form-floating">
                     <textarea type="text" name="description" formControlName="description" id="num" placeholder="Numéro"
                       class="form form-control inputvalue"></textarea>
-                    <label for="num">Description</label>
+                    <label for="num">Description <span style="color: red;">*</span></label>
                   </div>
 
                   <div class="mb-3 col-12 col-md-12 ">
                     <!-- <input type="file" name="file" id="file"  class="form form-control inputvalue"> -->
                     <ion-input type="file" name="file" formControlName="file" class="input"
                       (change)="fileChang($event)"><img class="image" src="../assets/icon/camera0.svg" alt="logo"
-                        srcset="" placeholder="logo" width="8%">Logo</ion-input>
+                        srcset="" placeholder="logo" width="8%">Logo<span style="color: red;">*</span></ion-input>
                   </div>
 
                 </div>
@@ -78,3 +92,27 @@
     </main>
   </div>
 </div>
+
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div >
+      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover{
+          background-color:black ;
+          border:2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+        .img button a{
+          background-color:#ff6600 ;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

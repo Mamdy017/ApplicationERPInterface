@@ -1,7 +1,18 @@
 <div class="container-fluid">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i>
-  </a>
+  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+.deconnexion{
+  left:50% ;
+}
+}
+</style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -51,7 +62,7 @@
                     <select [(ngModel)]="libelleActivite" id="choice" class="form-select form-control inputvalue"
                       formControlName="libelleActivite">
                       <option selected>--Choisir Activité--</option>
-                      <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                      <option *ngFor="let listeActivites of activitesSansListes$" [(ngValue)]="listeActivites.nom">
                         {{listeActivites.nom}}</option>
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
@@ -112,25 +123,12 @@
                         <select name="libelleListet" [(ngModel)]="libelleListet"
                           class="form-select form-control inputvalue">
                           <option selected>--Choisir Liste--</option>
-                          <option *ngFor="let liste of listes$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
+                          <option *ngFor="let liste of listeSansTirageValides$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
                           </option>
                         </select>
                         <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
                       </div>
                     </div>
-<!--
-   <div class="col-12 col-md-6">
-                      <div class="mb-3 form-row form-floating ">
-                        <select name="libelleActivite" [(ngModel)]="libelleActivite"
-                          class="form-select form-control inputvalue">
-                          <option selected>--Choisir Activité--</option>
-                          <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
-                            {{listeActivites.nom}}</option>
-                        </select>
-                        <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
-                      </div>
-                    </div>
--->
                    
 
                   </div>

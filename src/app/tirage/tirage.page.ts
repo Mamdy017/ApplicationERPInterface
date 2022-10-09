@@ -11,6 +11,7 @@ import { TirageService } from '../Services/tirage/tirage.service';
 import { Tirage } from '../modeles/tirage/tirage';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { ListePostulantService } from '../Services/liste-postulant.service';
 
 
 @Component({
@@ -22,11 +23,16 @@ export class TiragePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
+  activitesSansListes$:any;
+
+
+
   //tirage
   bool_erreurBack: boolean;
   bool_erreurFr: boolean;
   erreurTirageFr: string;
   erreurTirageBack: string;
+  
 
   //importation
   bool_erreurImpFr: boolean;
@@ -43,6 +49,7 @@ export class TiragePage implements OnInit {
   constructor(private serviceTirage: TirageService,
     private ajoutPostulantService: AjouterPostulantService,
     private activiteService: ActiviteService,
+    private listePostulantService: ListePostulantService,
     private http: HttpClient, public breakpointObserver: BreakpointObserver,
     private route: Router) { }
 
@@ -54,6 +61,8 @@ export class TiragePage implements OnInit {
 
   listes$!: any;
   listeActivites$!: any
+
+  listeSansTirageValides$!: any;
 
   bool_erreur: boolean = false;
   bool_erreurImp: boolean = false;
@@ -68,6 +77,17 @@ export class TiragePage implements OnInit {
 
   formmodule!: FormGroup;
 
+  getActiviteSansListe(){
+    this.activiteService.recupererActiviteSansListe().subscribe((data) =>{
+      this.activitesSansListes$ = data;
+    })
+  }
+
+  getListeSansTirageValide(){
+    this.listePostulantService.recupererListeAvecTirageNonValide().subscribe((data) => {
+      this.listeSansTirageValides$ = data;
+    })
+  }
 
   getListePostulant() {
     this.ajoutPostulantService.recupererListePostulant().subscribe((data) => {
@@ -94,6 +114,12 @@ export class TiragePage implements OnInit {
 
     this.tirageObjet.libelleTirage = this.libelleTirage;
     this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
+
+    console.log("Libelle " + this.libelleListet)
+    console.log("Libelle Tirage " + this.libelleTirage)
+    console.log("Nobre " + this.nombrePostulantTire)
+
+
 
 
     if (this.libelleListet == "" || this.libelleTirage == "" || this.nombrePostulantTire == null) {
@@ -131,7 +157,7 @@ export class TiragePage implements OnInit {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
-  } 
+  }
 
   resetImportForm() {
     this.libelleListe = "",
@@ -180,7 +206,7 @@ export class TiragePage implements OnInit {
 
     formData.append('file', this.myForm.get('fileSource').value);
 
-    
+
     //console.log(`http://localhost:8080/postulant/import/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
 
 
@@ -193,16 +219,16 @@ export class TiragePage implements OnInit {
 
           console.log(res.status);
 
-          if(res.status == true){
+          if (res.status == true) {
             this.route.navigateByUrl("/postulant-tire/")
             this.actualise();
-          }else{            
+          } else {
             this.bool_erreurImpFr = false;
             this.bool_erreurImpBack = true;
           }
 
           console.log(res);
-         
+
 
 
         })
@@ -288,21 +314,7 @@ export class TiragePage implements OnInit {
     }
 
 
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   actualise(): void {
 
@@ -327,6 +339,9 @@ export class TiragePage implements OnInit {
           this.actualise();
         }
       });
+
+      this.getActiviteSansListe();
+      this.getListeSansTirageValide();
   }
   afficheMenuMobile() {
     this.menuBureau = true;
@@ -335,5 +350,9 @@ export class TiragePage implements OnInit {
 
 
 
-
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+  }
 }

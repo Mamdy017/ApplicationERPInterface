@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import { AuthentificationService } from '../Services/authentification/authentification.service';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 import { Router } from '@angular/router';
+import { Role } from '../modeles/role/role';
+import { Entite } from '../modeles/entite';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -25,6 +27,8 @@ export class AuthentificationPage implements OnInit {
     numero: '',
     email: '',
     password: '',
+    role: new Role,
+    entite: new Entite
   }
 
   bool_erreur: boolean = false;
@@ -37,9 +41,9 @@ export class AuthentificationPage implements OnInit {
   }
 
   Connexion() {
-    this.bool_erreur = true;
+   
     if (typeof this.email === 'undefined' || typeof this.password === 'undefined') {
-
+      this.bool_erreur = true;
       this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
     } 
@@ -47,7 +51,6 @@ export class AuthentificationPage implements OnInit {
     else {
       this.service.seConnecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
-      
 
         // console.log("session "+data);
 
@@ -64,7 +67,10 @@ export class AuthentificationPage implements OnInit {
             sessionStorage.setItem("email_users", data.email);
             sessionStorage.setItem("numero_users", data.numero);
 
+           
+
             if (this.typeUser == "user") {
+              
               this.route.navigateByUrl('/accueil-user');
             }
             else if (this.typeUser == "admin") {
@@ -72,11 +78,13 @@ export class AuthentificationPage implements OnInit {
             }
             else {
               this.route.navigateByUrl('/admin-accueil');
-              console.log(data.contenu);             
+              console.log(data.contenu);       
+              this.erreur = "Utilisateur non géré !";      
             }
           }
         }
         else{
+          this.bool_erreur = true;
       this.erreur = data.contenu
       console.log("VVVVVVVV "+this.erreur)
         }

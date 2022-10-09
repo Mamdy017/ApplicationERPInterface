@@ -1,10 +1,22 @@
 
 
-<ion-content>
+<ion-content *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
 
   <div class="container-fluid">
-    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse"  (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
-        class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+  position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+  .deconnexion{
+    left:50% ;
+  }
+}
+</style>
     <div class="row flex-nowrap">
       <div class="col-auto px-2" *ngIf="menuBureau">
         <app-menu></app-menu>
@@ -30,7 +42,7 @@
               <div class="col-12 col-md-8">
                 <form [formGroup]="myForm" (ngSubmit)="submit()">
                   <fieldset>
-                    <legend class="display-6 text-center my-3"><b>Importer une liste Participants</b></legend>
+                    <legend class="display-6 text-center my-3"><b>Importer une liste participant/apprenant</b></legend>
                   </fieldset>
                   <div class="trait"></div>
                   <div class="row col-12">
@@ -56,7 +68,7 @@
                     <div class="mb-4 col-12 col-md-12 form-row form-floating">
                       <select id="libelleActivite" class = "form-select form-control"[(ngModel)]="libelleActivite" formControlName="libelleActivite">
                           <option selected>--Choisir Activivité--</option>
-                          <option *ngFor="let libelleAct of libelleActivites$" [(ngValue)] = "libelleAct.nom">{{libelleAct.nom}}</option>
+                          <option *ngFor="let libelleAct of libelleActivites$" [(ngValue)]="libelleAct.nom">{{libelleAct.nom}}</option>
                           <label for="activité">Activite</label>
                       </select>
                       
@@ -78,3 +90,26 @@
   
 
 </ion-content>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div >
+      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover{
+          background-color:black ;
+          border:2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+        .img button a{
+          background-color:#ff6600 ;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

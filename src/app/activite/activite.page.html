@@ -1,17 +1,25 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
-      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid ">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2">
       <app-menu></app-menu>
     </div>
-
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4 "></div>
-        </div>
+      <div class="container">
 
         <!-- file, nom, description, nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid -->
 
@@ -23,7 +31,7 @@
                 {{erreurImpTrieFr}}</p>
               <p *ngIf="bool_erreurImpTrieBack"
                 [ngClass]="erreurImpTrieBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
-                style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieBack.contenu}}</p>
+                style="font-size: 1.2rem; font-weight: bold; text-align: center;">{{erreurImpTrieBack.contenu}}</p>
             </div>
 
           </div>
@@ -77,7 +85,8 @@
               <select id="sexe" formControlName="typeAct" class="form-select form-control inputvalue"
                 [(ngModel)]="typeAct">
                 <option selected disabled> --- Type activité ---</option>
-                <option *ngFor="let typeActivite of typeActivites$" [(ngValue)]="typeActivite.typeActivite">{{typeActivite.typeActivite}}</option>
+                <option *ngFor="let typeActivite of typeActivites$" [(ngValue)]="typeActivite.typeActivite">
+                  {{typeActivite.typeActivite}}</option>
               </select>
               <label for="activity">Type activité<span style="color: red;">*</span></label>
             </div>

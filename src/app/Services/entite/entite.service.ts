@@ -7,6 +7,9 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class EntiteService {
+
+  api="http://localhost:8080/";
+
   entitecreer() {
     throw new Error('Method not implemented.');
   }
@@ -14,6 +17,15 @@ export class EntiteService {
   file:any;
   constructor(private http:HttpClient) { }
 
+    // ===================== AFicher une entité =======================
+    afficherEntite() :Observable<any>{
+      return this.http.get("http://localhost:8080/entite/afficher");
+    }
+  
+    //  // ===================== Afficher les  entité de l'admin=======================
+    //  afficherEntiteAdmin() :Observable<Entite>{
+    //   return this.http.get<Entite>(`${this.api}/entite/afficherEntiteAdmin`);
+    // }
 
   //======================Ajouter entite=================
 
@@ -25,4 +37,8 @@ export class EntiteService {
     data.append("slogant", slogant)
     return this.http.post<any>('http://localhost:8080/entite/ajouterE', data);
   }
+
+
+
+  
 }

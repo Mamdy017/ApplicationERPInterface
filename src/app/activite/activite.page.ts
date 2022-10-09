@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
@@ -30,39 +31,41 @@ export class ActivitePage implements OnInit {
   bool_erreurImpTrieFr: boolean;
   erreurImpTrieFr: string;
 
-  constructor(private activiteService : ActiviteService,
+  constructor (public breakpointObserver: BreakpointObserver,private activiteService: ActiviteService,
     private utilisateurs: ListeActeurService,
     private http: HttpClient,
-    private route: Router) {}
+    private route: Router, ) { }
 
-  salles$:any;
-  annees$:any;
-  typeActivites$:any;
-  entites$:any;
-  users$:any;
-  acteurs$:any;
-  respons$:any
+  salles$: any;
+  annees$: any;
+  typeActivites$: any;
+  entites$: any;
+  users$: any;
+  acteurs$: any;
+  respons$: any;
+  activitesSansListes$: any;
 
-  titre:string
-  salles:string;
-  annees:any;
-  typeActivites:string;
-  entites:string;
-  users:any;
-  acteurs:string;
-  descpt:string;
-  dateDebut:string;
-  dateFin:string;
-  respons:string
-  nombrepersonnedemande:string;
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
 
-  bool_erreur:boolean = false
-  erreur:any
+  titre: string
+  salles: string;
+  annees: any;
+  typeActivites: string;
+  entites: string;
+  users: any;
+  acteurs: string;
+  descpt: string;
+  dateDebut: string;
+  dateFin: string;
+  respons: string
+  nombrepersonnedemande: string;
 
+  bool_erreur: boolean = false
+  erreur: any
+  id: any = 1;
 
-  id:any = 1;
-
-  fichier:File
+  fichier: File
 
 
   activiteObjet: Activite = {
@@ -70,10 +73,9 @@ export class ActivitePage implements OnInit {
     description: "",
     dateDebut: new Date(),
     dateFin: new Date(),
-  nombrepersonnedemande:0
+    nombrepersonnedemande: 0
 
   }
-
 
   actualise(): void {
     setInterval(
@@ -81,22 +83,22 @@ export class ActivitePage implements OnInit {
       }, 100, clearInterval(1000));
   }
 
- 
 
-  getListeEntite(){
-    this.activiteService.recupererListeEntite().subscribe((data) =>{
+
+  getListeEntite() {
+    this.activiteService.recupererListeEntite().subscribe((data) => {
       this.entites$ = data;
     })
   }
 
-  getListeSalle(){
-    this.activiteService.recupererListeSalle().subscribe((data) =>{
+  getListeSalle() {
+    this.activiteService.recupererListeSalle().subscribe((data) => {
       this.salles$ = data;
     })
   }
 
-  getListeTypeActivite(){
-    this.activiteService.recupererListeTypeActivite().subscribe((data) =>{
+  getListeTypeActivite() {
+    this.activiteService.recupererListeTypeActivite().subscribe((data) => {
       this.typeActivites$ = data
     })
   }
@@ -107,28 +109,28 @@ export class ActivitePage implements OnInit {
   //   })
   // }
 
-  getListeUsers(){
-    this.utilisateurs.lesUtilisateurs().subscribe((data) =>{
+  getListeUsers() {
+    this.utilisateurs.lesUtilisateurs().subscribe((data) => {
       this.users$ = data
       this.respons$ = data
     })
   }
 
-  getActeurs(){
-    this.utilisateurs.afficherLesActeurs().subscribe((data) =>{ 
+  getActeurs() {
+    this.utilisateurs.afficherLesActeurs().subscribe((data) => {
       this.acteurs$ = data;
     })
   }
 
 
-//ajout de l'activité
+  //ajout de l'activité
 
 
   myFormActivite = new FormGroup({
 
     //file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid
 
-    
+
     nom: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
     nombrepersonnedemande: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -152,7 +154,7 @@ export class ActivitePage implements OnInit {
     typeAct: new FormControl('', [Validators.required, Validators.minLength(1)]),
     libelleSalle: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idresponsable: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    
+
 
     file: new FormControl('', [Validators.required]),
     fileSource: new FormControl('', [Validators.required])
@@ -185,39 +187,10 @@ export class ActivitePage implements OnInit {
 
   submitActivite() {
 
-  
+
+    let userid: any = 1;
+
     let data = new FormData();
-    
-   let userid:any = 1;
-
-    data.append("userid", userid);
-
-
-        //file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid
-
-        // if(typeof this.myFormActivite.get('datedeb').value === 'undefined'){
-        //   alert("alerte")
-        //   this.myFormActivite.get('datedeb').setValue("");
-        //   this.myFormActivite.get('idacteurInternes').setValue("")
-        // }
-
-        // if(this.myFormActivite.get('nom').value.length == 0){
-        //   alert("faut pas")
-        // }
-
-        console.log("file" + this.myFormActivite.get('file').value)
-        console.log("nom" +this.myFormActivite.get('nom').value)
-        console.log("description" +this.myFormActivite.get('description').value)
-        console.log("nombrepersonnedemande" +this.myFormActivite.get('nombrepersonnedemande').value)
-        console.log("datedeb " +this.myFormActivite.get('datedeb').value)
-        console.log("datefin " +this.myFormActivite.get('datefin').value)
-        //console.log("" +this.myFormActivite.get('description').value)
-        console.log("idacteurInternes" +this.myFormActivite.get('idacteurInternes').value)
-        console.log("libelleEntite" +this.myFormActivite.get('libelleEntite').value)
-        console.log("typeAct" +this.myFormActivite.get('typeAct').value)
-        console.log("libelleSalle" +this.myFormActivite.get('libelleSalle').value)
-        console.log("idresponsable" +this.myFormActivite.get('idresponsable').value)
-        console.log("userid" +userid)
 
 
         if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0|| typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length  == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length  == 0 ||  typeof this.myFormActivite.get('libelleEntite').value  === 'undefined' || typeof this.myFormActivite.get('typeAct').value  === 'undefined')  {
@@ -233,65 +206,6 @@ export class ActivitePage implements OnInit {
     this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
    }
    else {
-
-    // console.log("avant change: " + this.myFormActivite.get('idacteurs').value)
-
-    // this.myFormActivite.get('idacteurs').setValue("null");
-
-    // console.log("apres change: " + this.myFormActivite.get('idacteurs').value)
-    
-
-    // if(typeof this.myFormActivite.get('idacteurs').value  === 'undefined'){        
-    //   //  this.myFormActivite.get('libelleSalle').value.length
-    //   this.myFormActivite.get('idacteurs').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteurs').value)
-      
-    // }
-    //  if(typeof this.myFormActivite.get('idacteurInternes').value === 'undefined'){
-    //   this.myFormActivite.get('idacteurInternes').setValue("null");
-    //  // console.log(this.myFormActivite.get('idacteurInternes').value);
-    //  alert("hello word:  " + this.myFormActivite.get('idacteurInternes').value)  
-
-    // }
-
-    // if(typeof this.myFormActivite.get('idacteursOrg').value  === 'undefined'){     
-    //   //  this.myFormActivite.get('libelleSalle').value.length
-    //   this.myFormActivite.get('idacteursOrg').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteursOrg').value)
-    // }
-    //  if(typeof this.myFormActivite.get('idacteurInternesOrg').value === 'undefined'){
-    //   this.myFormActivite.get('idacteurInternesOrg').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteurInternesOrg').value);
-    // }
-
-    // if(typeof this.myFormActivite.get('idacteursInterv').value  === 'undefined'){     
-    //   //  this.myFormActivite.get('libelleSalle').value.length
-    //   this.myFormActivite.get('idacteursInterv').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteursInterv').value)
-    // }
-
-    //  if(typeof this.myFormActivite.get('idacteurInternesInterv').value === 'undefined'){
-    //   this.myFormActivite.get('idacteurInternesInterv').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteurInternesInterv').value);
-    // }
-
-    // if(typeof this.myFormActivite.get('idacteursLead').value  === 'undefined'){     
-    //   //  this.myFormActivite.get('libelleSalle').value.length
-    //   this.myFormActivite.get('idacteursLead').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteursLead').value)
-    // }
-    //  if(typeof this.myFormActivite.get('idacteurInternesLead').value === 'undefined'){
-    //   this.myFormActivite.get('idacteurInternesLead').setValue("null");
-    //   console.log(this.myFormActivite.get('idacteurInternesLead').value);
-    // }
-
-
-    // if(typeof this.myFormActivite.get('libelleSalle').value === 'undefined'){
-    //   this.myFormActivite.get('libelleSalle').setValue("");
-    // } 
-   
-
-
     data.append("file",this.myFormActivite.get('fileSource').value);
     data.append("nom", this.myFormActivite.get('nom').value);
     data.append("description", this.myFormActivite.get('description').value);
@@ -341,45 +255,6 @@ export class ActivitePage implements OnInit {
 
 
 
-
-
-
-
-
-
-
-  // postActivite(){
-  //   this.bool_erreur = true
-  //   this.activiteObjet.nom = this.titre;
-  //   this.activiteObjet.dateDebut = this.dateDebut;
-  //   this.activiteObjet.dateFin = this.dateFin;
-  //   this.activiteObjet.description = this.descpt;
-  //   this.activiteObjet.nombrepersonnedemande = this.nombrepersonnedemande;
-
-  //   console.log("les acteurs internes: " + this.users);
-  //   console.log("les acteurs internes: " + this.acteurs);
-  //   console.log("Les acteurs externes" + this.salles)
-  //   console.log("Les acteurs externes" + this.entites)
-  //   console.log("Les acteurs externes" + this.acteurs)
-  //   console.log("Les acteurs externes" + this.descpt)
-  //   console.log("titre: " + this.titre);
-  //   console.log("a" + this.dateDebut);
-  //   console.log("da: "+ this.dateFin);
-  //   console.log("type: " + this.typeActivites)
-  //   console.log("resp: " + this.respons)
-
-  //  if(this.acteurs == "" || this.users == "" || this.entites == "" || this.typeActivites == "" || this.activiteObjet == null){
-  //     this.erreur = "Veuillez remplir tous les champ obligatoire";
-  //  }else{
-  //   this.activiteService.postActivite(this.acteurs, this.users, this.entites, this.typeActivites, this.salles, this.activiteObjet).subscribe((data) =>{
-  //     this.erreur = data.contenu
-  //     console.log("Donnée envoyé avec succes");
-  //   });
-  // }
-  //  }
-  
-  
-
   ngOnInit() {
 
     this.myFormActivite
@@ -387,12 +262,38 @@ export class ActivitePage implements OnInit {
     this.getListeSalle();
     this.getListeEntite();
     this.getListeTypeActivite();
-    // this.getListeAnnee();
     this.getListeUsers();
     this.getActeurs();
 
+    this.breakpointObserver
+    
+    .observe(['(max-width: 767px)'])
+    .subscribe((state: BreakpointState) => {
+      if (state.matches) {
+        this.menuBureau = false;
+        this.menuMobile = true;
+        this.actualise();
+      } else {
+        this.menuBureau = true;
+        this.menuMobile = false;
+        this.actualise();
+      }
+    });
+    
+
   }
 
- 
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+  }
+
+
+  afficheMenuMobile() {
+    this.menuBureau = true;
+    this.menuMobile = false;
+  } 
 
 }
+

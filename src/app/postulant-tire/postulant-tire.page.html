@@ -1,69 +1,132 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
-      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
-
+      <button type="button" class="btn" style="margin-left:92% ;">
+        <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+            style="font-size:15px; background-color: #ff6600;">
+            99+
+          </span></i>
+      </button>
       <div class="container">
-        <button type="button" class="btn" style="margin-left:92% ;">
-          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-              style="font-size:15px; background-color: #ff6600;">
-              99+
-            </span></i>
-        </button>
-        <br><br>
-        <div class="row ro py-3">
-          <h1>Liste des postulant-tirés</h1>
-          <div class="trait"></div>
-          <div class="position">
-            <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
-            <form action="">
-              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
-                  type="text" style="border: hidden; border: 0; background: transparent;"></button>
-            </form>
-            <button class="btn btnAjouter c1"><i class="bi bi-filter-right"></i>Filtrer par Genre</button>
-            <button class="btn btnAjouter c1">Valider</button>
-          </div>
-          <div class="table-responsive ra py-5">
-            <table id="season-tble" class="table">
-              <thead>
-                <tr>
-                  <th scope="col" class="ra">N°</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Prénom</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Numéro</th>
-                  <th scope="col">Genre</th>
-                  <th scope="col">Activité</th>
-                  <th scope="col" class="ra1">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let personnes of lesPersonnesTirees ;let i = index ">
-                  <td scope="row">{{i+1}}</td>
-                  <td>{{personnes.nom_postulant}}</td>
-                  <td>{{personnes.prenom_postulant}}</td>
-                  <td>{{personnes.email}}</td>
-                  <td>{{personnes.numero_postulant}}</td>
-                  <td>{{personnes.genre}}</td>
-                  <td>{{personnes.activite}}</td>
-                  <td><i class="bi bi-pencil-square i"></i>&nbsp;&nbsp;<i class="bi bi-trash-fill i"></i></td>
-                </tr>
+        <div class="row">
+          <div class="col-12  col-md-2 a1 ">
 
-              </tbody>
-            </table>
-            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+            <h1> Statistiques</h1>
+            <div class=" col-12 col-md-12 py-4 ">
+              <div class="card b">
+
+                <div class="contenuCard text-center">
+                  <img src="../assets/icon/man.png" alt="">
+                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">
+                    {{nombre_homme}}</p>
+                  <p>Hommes</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 ">
+              <div class="card b ">
+
+
+                <div class="contenuCard text-center">
+                  <img src="../assets/icon/girl.png" alt="">
+                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">
+                    {{nombre_femme}}</p>
+                  <p>Femmes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12  col-md-10 ">
+            <div class="row ro py-1">
+              <h1>Liste des postulants-tirés</h1>
+              <div class="trait"></div>
+              <div class="position">
+                <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
+                <form action="">
+                  <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search "></i> <input
+                      type="text" style=" border: 0; background: transparent; font-size: 12px; " name="searchText"
+                      [(ngModel)]="searchText"></button>
+                </form>
+                <button class="btn btnAjouter c1"><i class="bi bi-filter-right"></i>Filtrer par Genre</button>
+              </div>
+              <div class="table-responsive ra py-3">
+                <table id="season-tble" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="ra">N°</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Prénom</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Numéro</th>
+                      <th scope="col">Genre</th>
+                      <th scope="col">Activité</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      *ngFor="let personnes of lesPersonnesTirees  | paginate:{itemsPerPage: 5, currentPage:page} |  filter:searchText let i = index">
+                      <td scope="row">{{i+1}}</td>
+                      <td>{{personnes.nom_postulant}}</td>
+                      <td>{{personnes.prenom_postulant}}</td>
+                      <td>{{personnes.email}}</td>
+                      <td>{{personnes.numero_postulant}}</td>
+                      <td>{{personnes.genre}}</td>
+                      <td>{{personnes.activite}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+                </pagination-controls>
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
-
-
     </main>
   </div>
 </div>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

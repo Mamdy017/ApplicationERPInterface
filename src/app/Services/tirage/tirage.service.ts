@@ -22,4 +22,15 @@ export class TirageService {
     return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
    }
    
+
+   TrouverTirageParListe(idListe:number){
+    return this.http.get(`${this.api}/tirage/tirageParListe/${idListe}`);
+   }
+
+   TrouverNombrePostulantTireParGenre(idtirage:number, genre:String){
+    return this.http.get(`${this.api}/postulanttire/nombrePostulantTireParGenre/${idtirage}/${genre}`);
+   }
+
+   NombreMasculin
+  
 }

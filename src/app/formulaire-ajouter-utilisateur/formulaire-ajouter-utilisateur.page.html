@@ -1,0 +1,141 @@
+<ion-content *ngIf="roles == 'admin' && iduser  else erreur">
+  <div class="container-fluid">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+  position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+  .deconnexion{
+    left:50% ;
+  }
+}
+</style>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
+      </div>
+      <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+        <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+          <div class="container">
+            <div class="row boxShadow">
+              <!------------- Colonne Gauche---->
+              <div class="col-12 col-md-4 imgGauche">
+                <img src="../../assets/images/Add-user-icon.png" alt="image ajouter un postulatn"
+                  class="img-fluid rounded">
+                <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
+                <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
+              </div>
+
+              <!------------- Colonne Droite ---->
+              <div class="col-12 col-md-8">
+                <form>
+                  <fieldset>
+                    <legend class="display-6 text-center my-3"><b>Ajouter un utilisateur</b></legend>
+                  </fieldset>
+                  <div class="trait"></div>
+                  <!-- ==============================Retour de message =================================================== -->
+
+
+
+
+                  <div class="row col-12">
+                    <div *ngIf="info" class="alert alert-info" role="alert">
+                      {{info}}
+                    </div>
+
+
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="user_nom" [(ngModel)]="user_nom" id="name" placeholder="Nom"
+                        class="form form-control inputvalue">
+                      <label for="name">Nom</label>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="prenom_utilisateur" [(ngModel)]="prenom_utilisateur" id="firstname"
+                        placeholder="Prénom" class="form form-control inputvalue">
+                      <label for="prenom_utilisateur">Prénom</label>
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="text" name="num" id="num" [(ngModel)]="numero_utilisateur" placeholder="Numéro"
+                        class="form form-control inputvalue">
+                      <label for="num">Numéro</label>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="email" name="email_utilisateur" id="num" [(ngModel)]="email_utilisateur"
+                        placeholder="Email" class="form form-control inputvalue">
+                      <label for="email_utilisateur">Email</label>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="password" name="passe1_utilisateur" id="num" [(ngModel)]="passe1_utilisateur"
+                        placeholder="mot de passe" class="form form-control inputvalue">
+                      <label for="passe1_utilisateur">Passe </label>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <input type="password" name="passe2_utilisateur" id="num" [(ngModel)]="passe2_utilisateur"
+                        placeholder="Numéro" class="form form-control inputvalue">
+                      <label for="passe2_utilisateur">Confirmer mot de passe </label>
+                    </div>
+
+                    <div class="mb-4 col-12 col-md-6 form-row form-floating">
+                      <select name="ID_ENTITE" id="ID_ENTITE" class="form-select form-control" [(ngModel)]="ID_ENTITE">
+                        <option selected>Entité</option>
+                        <option *ngFor="let entite of mesEntites" value="{{entite.idEntite}}"> {{entite.nom}}</option>
+                        <label for="entite">Enitite </label>
+
+                      </select>
+
+                    </div>
+                    <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                      <select name="liste" id="liste" class="form-select form-control" [(ngModel)]="ID_ROLE">
+                        <option selected> Choisir un rôle </option>
+                        <option *ngFor="let role of mesRoles" value="{{role.idrole}}"> {{role.nom}}</option>
+
+                      </select>
+                    </div>
+                  </div>
+                  <button class="btn btnAjouters">Annuler</button>
+                  <!-- 
+                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
+                    <p>{{erreur}}</p>
+                  </div> -->
+
+                  <button (click)="ajouterUtilisateurs()" class="btn btnAjouter">Ajouter</button>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </main>
+      </main>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div >
+      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover{
+          background-color:black ;
+          border:2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+        .img button a{
+          background-color:#ff6600 ;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

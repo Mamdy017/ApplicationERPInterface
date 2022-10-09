@@ -33,12 +33,13 @@ lesTirages():Observable<any>{
   return this.http.get("http://localhost:8080/tirage/afficher")
 }
 
-// ICI ON RECUPERE LES PERSONNES D4UN TIRAGE PAR ID DE TIRAGE
+// ICI ON RECUPERE LES PERSONNES D'UN TIRAGE PAR ID DE TIRAGE
 
 postulantTirer(idTirage : number):Observable<any>{
 
   return this.http.get<any>(`http://localhost:8080/postulanttire/PostulantTireParTirage/${idTirage}`)
 }
+
 
 validerTirage(idtirage:number, tirage:any):Observable<any>{
   
@@ -47,6 +48,10 @@ validerTirage(idtirage:number, tirage:any):Observable<any>{
   console.log(`http://localhost:8080/tirage/valider/${idtirage}`, tirage);
 
   return this.http.put<any>(`http://localhost:8080/tirage/valider/${idtirage}`, tirage);
+}
+NombreMasculin(idTirage: number):Observable<any>{
+  return this.http.get(`http://localhost:8080/postulanttire/nombrePostulantTireParGenre/Masculin/${idTirage}`)
+
 }
 
 }
