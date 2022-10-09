@@ -34,26 +34,37 @@
               <!------------- Colonne Droite ---->
               <div class="col-12 col-md-8">
                 <form>
-                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
-                    <p>{{erreur}}</p>
-                  </div>
+                 
                   <fieldset>
                     <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
                   </fieldset>
                   <div class="trait"></div>
+<!-- =========================================  Retour de message d'erreur ou success  ========================================== -->
+                
+                <div class="mb-4 altert " style="border-radius:10px;">
+                  <div align="center">
+                    <p *ngIf="bool_erreurFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
+                      {{erreurs}}</p>
+                    <p *ngIf="bool_erreur"
+                      [ngClass]="status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                      style="font-size: 1.2rem; font-weight: bold;">{{erreurs}}</p>
+                  </div>
+                </div>
+
+
                   <div class="row col-12">
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="name" [(ngModel)]="nom_postulant" id="name" placeholder="Nom"
+                      <input type="text" name="nom_postulan" [(ngModel)]="nom_postulant" id="name" placeholder="Nom"
                         class="form form-control inputvalue">
                       <label for="name">Nom</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="firstname" [(ngModel)]="prenom_postulant" id="firstname"
+                      <input type="text" name="prenom_postulant" [(ngModel)]="prenom_postulant" id="firstname"
                         placeholder="Prénom" class="form form-control inputvalue">
                       <label for="firstname">Prénom</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro"
+                      <input type="text" name="numero_postulant" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro"
                         class="form form-control inputvalue">
                       <label for="num">Numéro</label>
                     </div>
@@ -85,7 +96,7 @@
                     <div class="mb-3 col-12 col-md-12 form-row form-floating">
                       <select id="liste" class="form-select form-control"  name="listes" [(ngModel)]="listes">
                         <option selected> Choisir une liste </option>
-                        <option *ngFor="let liste of listePostulant" >{{liste.libelleliste}}</option>
+                        <option *ngFor="let liste of listePostulant" [(ngValue)]="liste.libelleliste" >{{liste.libelleliste}}</option>
                         <label for="sexe">liste</label>
                       </select>
                     </div>
@@ -94,7 +105,7 @@
                   </div>
                   <!-- <button class="btn btnAjouter">Valider</button> -->
 
-                  <button (click)="posterPostulant()" class="btn btnAjouter">Ajouter</button>
+                  <button (click)="posterPostulant()" class="btn btnAjouter" >Ajouter</button>
 
                 </form>
 
