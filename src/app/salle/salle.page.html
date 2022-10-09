@@ -64,14 +64,14 @@
 
                 
                   <select [(ngModel)]="etage" name="etage" (change)="filtreUserParEntite($event)" class="form form-control inputvalue">
-                    <option selected>Tout</option>
                     <option>Etage 1</option>
                     <option>Etage 2</option>
                     <option>Etage 3</option>
+                    <option>Autre</option>
                     <label for="etage">Etage</label>
                   
                 </select>
-                <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                <label style="font-size: 1.2rem; color: black;">Choisir un niveau </label>
                 </div>
                 <div class="mb-3 col-12 col-md-12 form-row form-floating">
                   <input type="number" name="nbreplace" min="1" [(ngModel)]="nbreplace" placeholder="Nombre de Place"

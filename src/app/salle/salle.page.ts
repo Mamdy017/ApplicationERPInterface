@@ -123,6 +123,7 @@ export class SallePage implements OnInit {
           //     popup: 'animate__animated animate__fadeOutUp'
           //   }
           // })
+          this.messageRetour = data.contenu;
         }
          else {
           this.messageRetour = data.contenu;
