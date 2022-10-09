@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 // import {NgxPaginationModule} from 'ngx-pagination';
 
-
+import { createPopperLite as createPopper } from '@popperjs/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +32,9 @@ import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
     ReactiveFormsModule,
     RouterLinkActive,
     Ng2SearchPipeModule,
-    NgChartsModule
+    NgChartsModule,
+    
+
     // FilterPipe
 
     // LayoutModule,

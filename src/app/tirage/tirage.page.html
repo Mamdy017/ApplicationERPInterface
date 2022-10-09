@@ -62,7 +62,7 @@ position:relative; left:80% ;
                     <select [(ngModel)]="libelleActivite" id="choice" class="form-select form-control inputvalue"
                       formControlName="libelleActivite">
                       <option selected>--Choisir Activité--</option>
-                      <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                      <option *ngFor="let listeActivites of activitesSansListes$" [(ngValue)]="listeActivites.nom">
                         {{listeActivites.nom}}</option>
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
@@ -123,25 +123,12 @@ position:relative; left:80% ;
                         <select name="libelleListet" [(ngModel)]="libelleListet"
                           class="form-select form-control inputvalue">
                           <option selected>--Choisir Liste--</option>
-                          <option *ngFor="let liste of listes$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
+                          <option *ngFor="let liste of listeSansTirageValides$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
                           </option>
                         </select>
                         <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
                       </div>
                     </div>
-<!--
-   <div class="col-12 col-md-6">
-                      <div class="mb-3 form-row form-floating ">
-                        <select name="libelleActivite" [(ngModel)]="libelleActivite"
-                          class="form-select form-control inputvalue">
-                          <option selected>--Choisir Activité--</option>
-                          <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
-                            {{listeActivites.nom}}</option>
-                        </select>
-                        <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
-                      </div>
-                    </div>
--->
                    
 
                   </div>

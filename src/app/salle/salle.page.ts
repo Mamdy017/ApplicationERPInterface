@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Salle } from '../modeles/salle/salle';
 import { SalleService } from '../services/salle';
-
 // import { SalleService } from '../services/salle'
 
 @Component({
@@ -164,6 +163,18 @@ export class SallePage implements OnInit {
     }
 
   }
+
+// Retour sur la page de liste des salles
+
+retournerListeSalles(){
+  this.route.navigateByUrl("/liste-salle") 
+}
+
+
+// 
+
+
+
 
   deconnexion() {
     sessionStorage.clear();

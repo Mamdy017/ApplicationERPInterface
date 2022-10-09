@@ -84,7 +84,7 @@
                       <th scope="col" style="width:20% ;">Nombre Tiré</th>
                       <th scope="col">Date du tirage</th>
                       <th scope="col">Activité</th>
-                      <th scope="col" colspan="2" style="border-radius: 0 10px 0 0; width: 20%;">Action</th>
+                      <th scope="col" style="border-radius: 0 10px 0 0;" colspan="2">Action</th>
                     </tr>
                   </thead>
                   <tbody >
@@ -94,7 +94,7 @@
                       <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
                       <td scope="">{{liste.activite.nom}}</td>
                       <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
-                      <td (click)="validerTirage(liste)"><a>Valider</a></td>
+                      <td *ngIf="liste.validite == false" (click)="validerTirage(liste)"><a>Valider</a></td>
 
                       <!-- {{liste.idtirage}} -->
                     </tr>

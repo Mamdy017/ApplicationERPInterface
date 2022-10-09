@@ -100,9 +100,15 @@ this.numero_users = sessionStorage.getItem("numero_users");
   validerTirage(tirage:any){
 
     this.serviceTirage.validerTirage(tirage.idtirage, tirage).subscribe(data =>{
-      
+      console.log(data)
+      if(data.status == false){
+        alert("Cette liste est déjà validé")
+      }else{
+      alert("Tirage validé avec succès");
+    }
     })
     console.log(tirage);
+    this.actualise();
   }
 
 
@@ -114,12 +120,6 @@ this.numero_users = sessionStorage.getItem("numero_users");
       console.log(event.target.value)
 
       this.tirage_actuel = event.target.value;
-
-      //  this.serviceTirage.recupererLesTirageEnfonction(this.select_liste).subscribe((data)=>{
-
-      //   this.tiragePourUneListe = data;
-
-      //  })
 
       this.serviceTirage.recupererLesTirageNonValider().subscribe(data => { this.listeTirages = data })
 

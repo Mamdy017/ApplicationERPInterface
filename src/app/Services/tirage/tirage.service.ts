@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Tirage } from 'src/app/modeles/tirage/tirage';
-import {Observable} from 'rxjs'
+import { Observable } from 'rxjs'
 
 
 @Injectable({

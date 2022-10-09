@@ -24,7 +24,10 @@
     font-size: 18px;
     line-height: 35px;
   }
- 
+ .ajouter
+ {
+  color: #FFFFFF; font-weight: bold;
+ }
   .contain{
     background: #FFFFFF;
     box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.8);
@@ -59,21 +62,28 @@
   
 
 }
+
+
   td a:hover{
     background-color: #FF6600;
     color: white;
   }
   
-  @media (max-width: 900px ) {
-    td a{
-      text-decoration: none;
-      border : 1px solid black;
-      font-size: 8px;
-      border-radius: 10px;
-      background-color: #FF6600;
-      color: white;
-      padding: 5px;
+  @media only screen and  (max-width: 767px ) {
+    // td a{
+    //   text-decoration: none;
+    //   border : 1px solid black;
+    //   font-size: 8px;
+    //   border-radius: 10px;
+    //   background-color: #FF6600;
+    //   color: white;
+    //   padding: 5px;
+    // }
+    td, th{
+      font-size: 10px;
     }
+   
+
   }
   tbody{
     font-family: 'Poppins';

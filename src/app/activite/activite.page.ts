@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
-import { TypeActivite } from '../modeles/type-activite/type-activite';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 
@@ -14,15 +13,28 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./activite.page.scss'],
 })
 export class ActivitePage implements OnInit {
+
+
+  // @ViewChild(IonContent) content: IonContent;
+
+  // scrollToTop() {
+  //   this.content.scrollToTop(400);
+  // }
+  // ionViewDidEnter(){
+  //   this.scrollToTop();
+  // }
+
+
+
   erreurImpTrieBack: any;
   bool_erreurImpTrieBack: boolean;
   bool_erreurImpTrieFr: boolean;
   erreurImpTrieFr: string;
 
-  constructor (public breakpointObserver: BreakpointObserver,private activiteService: ActiviteService,
+  constructor(public breakpointObserver: BreakpointObserver, private activiteService: ActiviteService,
     private utilisateurs: ListeActeurService,
     private http: HttpClient,
-    private route: Router, ) { }
+    private route: Router,) { }
 
   salles$: any;
   annees$: any;
@@ -31,6 +43,7 @@ export class ActivitePage implements OnInit {
   users$: any;
   acteurs$: any;
   respons$: any;
+  activitesSansListes$: any;
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
@@ -50,7 +63,6 @@ export class ActivitePage implements OnInit {
 
   bool_erreur: boolean = false
   erreur: any
-
   id: any = 1;
 
   fichier: File
@@ -68,7 +80,7 @@ export class ActivitePage implements OnInit {
   actualise(): void {
     setInterval(
       () => {
-      }, 100, clearInterval(1500));
+      }, 100, clearInterval(1000));
   }
 
 
@@ -124,9 +136,21 @@ export class ActivitePage implements OnInit {
     nombrepersonnedemande: new FormControl('', [Validators.required, Validators.minLength(3)]),
     datedeb: new FormControl('', [Validators.required, , Validators.minLength(1)]),
     datefin: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    libelleEntite: new FormControl('', [Validators.required]),
+
     idacteurs: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idacteurInternes: new FormControl('', [Validators.required, Validators.minLength(1)]),
-    libelleEntite: new FormControl('', [Validators.required]),
+
+    idacteursOrg: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesOrg: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+    idacteursInterv: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesInterv: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+    idacteursLead: new FormControl('', [Validators.required, Validators.minLength(1)]),
+    idacteurInternesLead: new FormControl('', [Validators.required, Validators.minLength(1)]),
+
+
     typeAct: new FormControl('', [Validators.required, Validators.minLength(1)]),
     libelleSalle: new FormControl('', [Validators.required, Validators.minLength(1)]),
     idresponsable: new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -164,70 +188,49 @@ export class ActivitePage implements OnInit {
   submitActivite() {
 
 
-    let data = new FormData();
-
     let userid: any = 1;
 
-    data.append("file", this.myFormActivite.get('fileSource').value);
-    data.append("nom", this.myFormActivite.get('nom').value);
-    data.append("description", this.myFormActivite.get('description').value);
-    data.append("nombrepersonnedemande", this.myFormActivite.get('nombrepersonnedemande').value);
-    data.append("datedeb", this.myFormActivite.get('datedeb').value);
-    data.append("datefin", this.myFormActivite.get('datefin').value);
-    data.append("idacteurs", this.myFormActivite.get('idacteurs').value);
-    data.append("idacteurInternes", this.myFormActivite.get('idacteurInternes').value);
-    data.append("libelleEntite", this.myFormActivite.get('libelleEntite').value);
-    data.append("typeAct", this.myFormActivite.get('typeAct').value);
-    data.append("libelleSalle", this.myFormActivite.get('libelleSalle').value);
-    data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
-    data.append("userid", userid);
+    let data = new FormData();
 
 
-    //file, nom, description,nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid
-
-    // if(typeof this.myFormActivite.get('datedeb').value === 'undefined'){
-    //   alert("alerte")
-    //   this.myFormActivite.get('datedeb').setValue("");
-    //   this.myFormActivite.get('idacteurInternes').setValue("")
-    // }
-
-    // if(this.myFormActivite.get('nom').value.length == 0){
-    //   alert("faut pas")
-    // }
-
-    // console.log("file" + this.myFormActivite.get('file').value)
-    // console.log("nom" + this.myFormActivite.get('nom').value)
-    // console.log("description" + this.myFormActivite.get('description').value)
-    // console.log("nombrepersonnedemande" + this.myFormActivite.get('nombrepersonnedemande').value)
-    // console.log("datedeb " + this.myFormActivite.get('datedeb').value)
-    // console.log("datefin " + this.myFormActivite.get('datefin').value)
-    // //console.log("" +this.myFormActivite.get('description').value)
-    // console.log("idacteurInternes" + this.myFormActivite.get('idacteurInternes').value)
-    // console.log("libelleEntite" + this.myFormActivite.get('libelleEntite').value)
-    // console.log("typeAct" + this.myFormActivite.get('typeAct').value)
-    // console.log("libelleSalle" + this.myFormActivite.get('libelleSalle').value)
-    // console.log("idresponsable" + this.myFormActivite.get('idresponsable').value)
-    // console.log("userid" + userid)
-
-
-    if (this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
+    if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
       //this.myFormActivite.get('filesource').value !=  null  || 
       //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
       this.erreurImpTrieFr = "Veuillez remplir tous les champs";
 
-    } else {
+    } else if (this.myFormActivite.get('datedeb').value > this.myFormActivite.get('datefin').value) {
+      this.bool_erreurImpTrieFr = true;
+      this.bool_erreurImpTrieBack = false;
+      this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
+    }
+    else {
+      data.append("file", this.myFormActivite.get('fileSource').value);
+      data.append("nom", this.myFormActivite.get('nom').value);
+      data.append("description", this.myFormActivite.get('description').value);
+      data.append("nombrepersonnedemande", this.myFormActivite.get('nombrepersonnedemande').value);
+      data.append("datedeb", this.myFormActivite.get('datedeb').value);
+      data.append("datefin", this.myFormActivite.get('datefin').value);
 
-      if (typeof this.myFormActivite.get('idacteurs').value === 'undefined') {
-        //  this.myFormActivite.get('libelleSalle').value.length
-        this.myFormActivite.get('idacteurs').setValue("");
+      data.append("idacteurs", this.myFormActivite.get('idacteurs').value);
+      data.append("idacteurInternes", this.myFormActivite.get('idacteurInternes').value);
 
-      } else if (typeof this.myFormActivite.get('libelleSalle').value === 'undefined') {
-        this.myFormActivite.get('libelleSalle').setValue("");
-      } else if (typeof this.myFormActivite.get('idacteurInternes').value === 'undefined') {
-        this.myFormActivite.get('idacteurInternes').setValue("");
-      }
+      data.append("idacteursOrg", this.myFormActivite.get('idacteursOrg').value);
+      data.append("idacteurInternesOrg", this.myFormActivite.get('idacteurInternesOrg').value);
+
+      data.append("idacteursInterv", this.myFormActivite.get('idacteursInterv').value);
+      data.append("idacteurInternesInterv", this.myFormActivite.get('idacteurInternesInterv').value);
+
+      data.append("idacteursLead", this.myFormActivite.get('idacteursLead').value);
+      data.append("idacteurInternesLead", this.myFormActivite.get('idacteurInternesLead').value);
+
+
+      data.append("libelleEntite", this.myFormActivite.get('libelleEntite').value);
+      data.append("typeAct", this.myFormActivite.get('typeAct').value);
+      data.append("libelleSalle", this.myFormActivite.get('libelleSalle').value);
+      data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
+
       console.log(`http://localhost:8080/activite/ajouter`, data);
 
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
@@ -239,48 +242,15 @@ export class ActivitePage implements OnInit {
         this.bool_erreurImpTrieFr = false;
 
         if (res.status == true) {
+          this.bool_erreurImpTrieBack = false;
           alert("activité ajouté avec succes");
           this.route.navigateByUrl("/details-activite");
+          this.actualise();
         }
-
       });
-
-
     }
 
   }
-  // postActivite(){
-  //   this.bool_erreur = true
-  //   this.activiteObjet.nom = this.titre;
-  //   this.activiteObjet.dateDebut = this.dateDebut;
-  //   this.activiteObjet.dateFin = this.dateFin;
-  //   this.activiteObjet.description = this.descpt;
-  //   this.activiteObjet.nombrepersonnedemande = this.nombrepersonnedemande;
-
-  //   console.log("les acteurs internes: " + this.users);
-  //   console.log("les acteurs internes: " + this.acteurs);
-  //   console.log("Les acteurs externes" + this.salles)
-  //   console.log("Les acteurs externes" + this.entites)
-  //   console.log("Les acteurs externes" + this.acteurs)
-  //   console.log("Les acteurs externes" + this.descpt)
-  //   console.log("titre: " + this.titre);
-  //   console.log("a" + this.dateDebut);
-  //   console.log("da: "+ this.dateFin);
-  //   console.log("type: " + this.typeActivites)
-  //   console.log("resp: " + this.respons)
-
-  //  if(this.acteurs == "" || this.users == "" || this.entites == "" || this.typeActivites == "" || this.activiteObjet == null){
-  //     this.erreur = "Veuillez remplir tous les champ obligatoire";
-  //  }else{
-  //   this.activiteService.postActivite(this.acteurs, this.users, this.entites, this.typeActivites, this.salles, this.activiteObjet).subscribe((data) =>{
-  //     this.erreur = data.contenu
-  //     console.log("Donnée envoyé avec succes");
-  //   });
-  // }
-  //  }
-
-
-
 
   ngOnInit() {
 
@@ -289,26 +259,27 @@ export class ActivitePage implements OnInit {
     this.getListeSalle();
     this.getListeEntite();
     this.getListeTypeActivite();
-    // this.getListeAnnee();
     this.getListeUsers();
     this.getActeurs();
 
     this.breakpointObserver
-    .observe(['(max-width: 767px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.menuBureau = false;
-        this.menuMobile = true;
-        this.actualise();
-      } else {
-        this.menuBureau = true;
-        this.menuMobile = false;
-        this.actualise();
-      }
-    });
-    
+
+      .observe(['(max-width: 767px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          this.menuBureau = false;
+          this.menuMobile = true;
+          this.actualise();
+        } else {
+          this.menuBureau = true;
+          this.menuMobile = false;
+          this.actualise();
+        }
+      });
+
 
   }
+
   deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
@@ -319,5 +290,7 @@ export class ActivitePage implements OnInit {
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
-  } 
+  }
+
 }
+
