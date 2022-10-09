@@ -20,4 +20,8 @@ mesListes():Observable<any>{
 return this.http.get("http://localhost:8080/listepostulant/afficher")
 }
 
+recupererListeAvecTirageNonValide():Observable<any>{
+  return this.http.get<any>("http://localhost:8080/listepostulant/listeTirageNonValide");
+}
+
 }

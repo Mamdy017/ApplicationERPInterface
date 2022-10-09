@@ -10,6 +10,8 @@
   .ContourArticle{
     background: #FFFFFF;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    margin-left: 6%;
+    margin-top: 1%;
   }
 
   .btnReadMore{
@@ -26,4 +28,10 @@
   .autorArticle{
     font-size: .8rem;
     font-style: italic;
+  }
+  @media screen and (max-width: 767px) {
+
+    .ContourArticle{
+      margin-left: 1px;
+    }
   }

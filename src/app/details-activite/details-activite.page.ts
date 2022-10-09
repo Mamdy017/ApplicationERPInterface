@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { ActiviteService } from '../Services/activite/activite.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,13 +22,30 @@ export class DetailsActivitePage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  constructor(public breakpointObserver: BreakpointObserver, private route:Router) { }
+  message: boolean = true;
+  activites$: any;
+  imgSrc:string = "assets/images";
+
+  constructor(public breakpointObserver: BreakpointObserver,
+    private activiteService: ActiviteService,
+    private route: Router) { }
 
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
+
+  recupererToutesLesActivites(){
+    this.activiteService.recupererListeActivite().subscribe((data) =>{
+      this.activites$ = data
+     // this.imgSrc = data.photoactivite;
+      console.log(data);
+    })
+  }
+
+ 
+
   ngOnInit() {
 
     // ===========================================================================SESSION VALEURS================================================
@@ -51,6 +69,8 @@ this.numero_users = sessionStorage.getItem("numero_users");
           this.actualise();
         }
       });
+
+      this.recupererToutesLesActivites();
   }
   afficheMenuMobile() {
     this.menuBureau = true;

@@ -23,11 +23,11 @@
 
         <!-- file, nom, description, nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid -->
 
-        <form [formGroup]="myFormActivite" (ngSubmit)="submitActivite()" action="" class="container1 container py-5">
+        <form delegate-handle="dashboard" [formGroup]="myFormActivite" (ngSubmit)="submitActivite()" action="" class="container1 container py-5">
 
           <div class="mb-4 altert " style="border-radius:10px;">
             <div>
-              <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger " style="font-size: 1.2rem; font-weight: bold; text-align: center;">
+              <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold; text-align: center;">
                 {{erreurImpTrieFr}}</p>
               <p *ngIf="bool_erreurImpTrieBack"
                 [ngClass]="erreurImpTrieBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
@@ -64,23 +64,21 @@
               <label for="entity">Entité<span style="color: red;">*</span></label>
             </div>
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" formControlName="datedeb" id="name" placeholder="yyy/mm/dd"
+              <input type="date" formControlName="datedeb" id="name" placeholder="yyy/mm/dd"
                 class="form form-control inputvalue">
-              <label for="name">Date début: yyy/mm/dd<span style="color: red;">*</span></label>
+              <label for="name">Date début: <span style="color: red;">*</span></label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" formControlName="datefin" id="name" placeholder="Nom"
+              <input type="date" formControlName="datefin" id="name" placeholder="Nom"
                 class="form form-control inputvalue">
-              <label for="name">Date fin: yyy/mm/dd<span style="color: red;">*</span></label>
+              <label for="name">Date fin: <span style="color: red;">*</span></label>
             </div>
-
-
 
             <div class="mb-5 col-12 viens1 form-row form-floating">
               <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1"
                 rows="3"></textarea>
-              <label for="name">Description:</label>
+              <label for="name">Description: <span style="color: red;">*</span></label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
@@ -100,24 +98,97 @@
               </select>
               <label>Responsable<span style="color: red;">*</span></label>
             </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
-                [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"
-                placeholder="--Acteur interne---">
-                <ion-option selected disabled> --- Acteur interne---</ion-option>
-                <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
-              </ion-select>
-              <label>Acteur interne</label>
+
+            <div class="mb-3 col-12 col-md-12 row form-row form-floating">
+
+              <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs Internes</P>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"
+                  placeholder="Fornateurs">
+                  <ion-select-option selected disabled>Fornateurs</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Fornateurs</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesLead" [multiple]="true" formControlName="idacteurInternesLead"
+                  placeholder="Lead">
+                  <ion-select-option selected disabled>Lead</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Lead</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesInterv" [multiple]="true" formControlName="idacteurInternesInterv"
+                  placeholder="Intervenants">
+                  <ion-select-option selected disabled>Intervenants</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Intervenants</label>
+              </div>
+
+              
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesOrg" [multiple]="true" formControlName="idacteurInternesOrg"
+                  placeholder="Organisateurs">
+                  <ion-select-option selected disabled>Organisateurs</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Organisateurs</label>
+              </div>
+
             </div>
 
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs"
-                [(ngModel)]="idacteurs" [multiple]="true" placeholder="---Acteur externe---">
-                <ion-option selected disabled> --- Acteur externe ---</ion-option>
-                <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
-                </ion-select-option>
-              </ion-select>
-              <label>Acteur externe</label>
+            <div class="mb-3 col-12 col-md-12 row form-row form-floating">
+
+              <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs externes</P>
+              
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs"
+                  [(ngModel)]="idacteurs" [multiple]="true" placeholder="Formateurs">
+                  <ion-select-option selected disabled>Formateurs</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Formateurs</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursLead"
+                  [(ngModel)]="idacteursLead" [multiple]="true" placeholder="Lead">
+                  <ion-select-option selected disabled>Lead</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Lead</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursInterv"
+                  [(ngModel)]="idacteursInterv" [multiple]="true" placeholder="Intervenants">
+                  <ion-select-option selected disabled>Intervenants</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Intervenants</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurInternesOrg"
+                  [(ngModel)]="idacteursOrg" [multiple]="true" placeholder="Organisateurs">
+                  <ion-select-option selected disabled>Organisateurs</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Organisateurs</label>
+              </div>
             </div>
 
 
@@ -128,7 +199,6 @@
               <label for="name">Objectif Visé</label>
             </div>
 
-
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
               <input type="file" formControlName="file" (change)="onFileChangeActivite($event)" placeholder="Nom"
                 class="form form-control inputvalue">
@@ -136,15 +206,16 @@
             </div>
 
             <div class="row">
-              <div class="col-6">
-                <button class="btn bt b1">Créer</button>
+              <div class="col-4">
+                <button class="btn b1">Créer</button>
               </div>
-
-              <div class="col-6">
-                <a href="admin-ajouter-acteur-user"> <button class="btn bt b2 ">Ajouter acteur</button> </a>
+              <div class="col-4">
+                <a href="admin-ajouter-acteur-user"> <p class="btn b2 ">Ajouter acteur</p> </a>
+              </div>
+              <div class="col-4">
+                <a href="ajouter-tache"> <p class="btn b2 ">Ajouter tache</p> </a>
               </div>
             </div>
-
           </div>
         </form>
         <div>
