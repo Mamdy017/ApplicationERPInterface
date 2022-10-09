@@ -1,104 +1,76 @@
-<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
-      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
-  <style>
-    .deconnexion {
-      position: relative;
-      left: 80%;
-    }
-
-    @media only screen and (max-width: 475px) {
+<ion-content [fullscreen]="true">
+  <div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+        class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i>
+      Deconnexion</button>
+    <style>
       .deconnexion {
-        left: 50%;
+        position: relative;
+        left: 80%;
       }
-    }
-  </style>
-  <div class="row flex-nowrap">
-    <div class="col-auto px-2" *ngIf="menuBureau">
-      <app-menu></app-menu>
-    </div>
-    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
+      @media only screen and (max-width: 475px) {
+        .deconnexion {
+          left: 50%;
+        }
+      }
+    </style>
+    <div class="row flex-nowrap">
+      <div class="col-auto px-2" *ngIf="menuBureau">
+        <app-menu></app-menu>
+      </div>
+      <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+        <div class="container">
+          <div class="row boxShadow">
+            <!------------- Colonne Gauche---->
+            <!------------- Colonne Droite ---->
+            <div class="col-2 col-md-6" align="center">
+              <img src="../../assets/salles.png" width="100%">
+            </div>
+            <div class="col-10 col-md-6">
+              <form>
+                <fieldset>
+                  <legend class="display-6 text-center my-3"><b>Ajouter une<span class="o"> Salle</span></b></legend>
+                </fieldset>
+                <div class="trait"></div>
+                <div class="row">
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                    <input type="text" class="form form-control inputvalue" [(ngModel)]="nom" name="name" id="name"
+                      placeholder="Nom">
+                    <label for="name">Nom</label>
+                  </div>
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                    <select [(ngModel)]="etage" name="etage" (change)="filtreUserParEntite($event)"
+                      class="form form-control inputvalue">
+                      <option selected>Tout</option>
+                      <option>Etage 1</option>
+                      <option>Etage 2</option>
+                      <option>Etage 3</option>
+                      <label for="etage">Etage</label>
 
-
-
-
-      <div class="container">
-        <div class="row boxShadow">
-          <!------------- Colonne Gauche---->
-
-
-          <!------------- Colonne Droite ---->
-          <div class="col-2 col-md-6" align="center">
-            <img src="../../assets/salles.png" width="100%">
-          </div>
-
-
-          <div class="col-10 col-md-6">
-            <form>
-              <fieldset>
-                <legend class="display-6 text-center my-3"><b>Ajouter une<span class="o"> Salle</span></b></legend>
-              </fieldset>
-              <div class="trait"></div>
-
-
-              <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="messageRetour">
-                <strong>{{messageRetour}}</strong>
-                <button type="reset" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-
-
-
-              <div class="row">
-                <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                  <input type="text" class="form form-control inputvalue" [(ngModel)]="nom" name="name" id="name"
-                    placeholder="Nom">
-                  <label for="name">Nom</label>
+                    </select>
+                    <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                  </div>
+                  <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                    <input type="number" name="nbreplace" min="1" [(ngModel)]="nbreplace" placeholder="Nombre de Place"
+                      class="form form-control inputvalue">
+                    <label for="num">Nombre de Place</label>
+                  </div>
                 </div>
-                <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                  <!-- <input type="text" name="etage" id="etage" [(ngModel)]="etage" placeholder="etage" -->
-
-                
-                  <select [(ngModel)]="etage" (change)="filtreUserParEntite($event)" class="form form-control inputvalue">
-                    <option selected>Tout</option>
-                    <option>Etage 1</option>
-                    <option>Etage 2</option>
-                    <option>Etage 3</option>
-                    <label for="etage">Etage</label>
-                  
-                </select>
-                <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                <div class="mb-3 col-12 col-md-12">
+                  <button (click)="ajouterSalle()" class="btn btnAjouter my-3">Valider</button>
+                  <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
+                  <a href="liste-salle"> <button class="btn btnCancel my-3">Annuler</button> </a>
                 </div>
-                <div class="mb-3 col-12 col-md-12 form-row form-floating">
-                  <input type="number" name="nbreplace" min="1" [(ngModel)]="nbreplace" placeholder="Nombre de Place"
-                    class="form form-control inputvalue">
-                  <label for="num">Nombre de Place</label>
-                </div>
-
-
-
-              </div>
-              <div class="mb-3 col-12 col-md-12">
-                <button (click)="ajouterSalle()" class="btn btnAjouter my-3">Valider</button>
-                <!-- <button (click)="Connexion()" class="btn btnAjouter">Se Connecter</button> -->
-                <a href="liste-salle"> <button class="btn btnCancel my-3">Annuler</button> </a>
-              </div>
-
-            </form>
-
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-
-
-    </main>
+      </main>
+    </div>
   </div>
-</div>
-
+</ion-content>
 <ng-template #erreur id="#erreur">
   <div class="img" align="center">
     <div class="">
