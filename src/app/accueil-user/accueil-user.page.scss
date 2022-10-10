@@ -12,6 +12,7 @@
   position: relative;
   top: 20px;
 }
+
 .slogan{
   color: #FF6600;
   font-weight: 300;
@@ -67,6 +68,9 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
+  margin-left: 5px;
+  position: relative;
+  top: 5px;
 }
 
 .iconseventsTalk{
@@ -96,11 +100,17 @@
   top: 20px;
   margin-right: 20px;
 }
+.iconseventsForm i{
+  position: relative;
+  top: 9px;
+}
 .eventTitle{
   font-size: 1.5rem;
   padding: 10px;
   margin: 0;
   margin-left: -20px;
+  position: relative;
+  top: 5px;
   
 }
 .eventNumberTalk{
@@ -109,6 +119,8 @@
   margin-top: -10px;
   margin-bottom: 0;
   color: #24BB9D;
+  margin-left: -10px;
+  font-weight: 600;
 }
 .eventNumberEvent{
   font-size: 2rem;
@@ -116,12 +128,16 @@
   margin-top: -10px;
   margin-bottom: 0;
   color: #FF6600;
+  margin-left: -10px;
+  font-weight: 600;
 }.eventNumberForm{
   font-size: 2rem;
   position: relative;
   margin-top: -10px;
   margin-bottom: 0;
   color: #202020;
+  margin-left: -10px;
+  font-weight: 600;
 }
 .iconseventsTalk,.iconseventsEvent,.iconseventsForm i{
   color: #fff;
