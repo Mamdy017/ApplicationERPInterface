@@ -1,75 +1,71 @@
-
-
-<ion-content>
-
-  <div class="container">
-    <div class="row boxShadow">
-     
-  
-      <!------------- Colonne Droite ---->
-      <div class="col-12 col-md-16">
-        <form>
-          <fieldset>
-            <legend class="display-6 text-center my-3"><b>Ajouter une activite</b></legend>
-          </fieldset>
-          <div class="trait"></div>
-          <div class="row col-12">
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Titre</label>
-            </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              
-              <textarea type="text" name="firstname" id="firstname" placeholder="Description" class="form form-control inputvalue"></textarea>
-              <label for="firstname">Description</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="num" id="num" placeholder="Numéro" class="form form-control inputvalue">
-              <label for="num">Date debut</label>
-            </div>
-
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="email" id="email" placeholder="email" class="form form-control inputvalue">
-              <label for="email">Date fin</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-             <ion-input type="file" class="input" ><img class ="image" src="../assets/icon/camera0.svg" alt="logo" srcset="" placeholder="" width="8%">Image</ion-input>
-
-            </div>
-            <div class="col-6">
-              <ion-list>
-                <ion-item>
-                  <ion-select placeholder="Attribuer à un ou plusieurs acteurs" [multiple]="true">
-                    <ion-select-option value="apples">Fatoumata KALOGA</ion-select-option>
-                    <ion-select-option value="oranges">Néné SYLLA</ion-select-option>
-                    <ion-select-option value="bananas">Adama SAMAKE</ion-select-option>
-                  </ion-select>
-                </ion-item>
-              </ion-list>
-            </div>
-           
-          </div>
-          <button class="btn btnAjouter">Ajouter</button>
-          
-        
-        </form>
-  
-      </div>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+      <div class="container">
+        <div class="row boxShadow">
+
+
+          <!------------- Colonne Droite ---->
+          <div class="col-12 col-md-16">
+            <form>
+              <fieldset>
+                <legend class="display-6 text-center my-3"><b>Ajouter une activite</b></legend>
+              </fieldset>
+              <div class="trait"></div>
+              <div class="row col-12">
+                <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                  <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+                  <label for="name">Titre</label>
+                </div>
+                <div class="mb-3 col-12 col-md-12 form-row form-floating">
+
+                  <textarea type="text" name="firstname" id="firstname" placeholder="Description"
+                    class="form form-control inputvalue"></textarea>
+                  <label for="firstname">Description</label>
+                </div>
+                <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                  <input type="date" name="num" id="num" placeholder="Numéro" class="form form-control inputvalue">
+                  <label for="num">Date debut</label>
+                </div>
+
+                <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                  <input type="date" name="email" id="email" placeholder="email" class="form form-control inputvalue">
+                  <label for="email">Date fin</label>
+                </div>
+                <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                  <ion-input type="file" class="input"><img class="image" src="../assets/icon/camera0.svg" alt="logo"
+                      srcset="" placeholder="" width="8%">Image</ion-input>
+
+                </div>
+                <div class="col-6">
+                  <ion-list>
+                    <ion-item>
+                      <ion-select placeholder="Attribuer à un ou plusieurs acteurs" [multiple]="true">
+                        <ion-select-option value="apples">Fatoumata KALOGA</ion-select-option>
+                        <ion-select-option value="oranges">Néné SYLLA</ion-select-option>
+                        <ion-select-option value="bananas">Adama SAMAKE</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ion-list>
+                </div>
+
+              </div>
+              <button class="btn btnAjouter">Ajouter</button>
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-  
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-</ion-content>
+      </ion-content>

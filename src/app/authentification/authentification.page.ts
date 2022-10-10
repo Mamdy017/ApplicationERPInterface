@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-
+import {HttpClient} from '@angular/common/http';
 import { AuthentificationService } from '../Services/authentification/authentification.service';
-import { Router } from '@angular/router';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
-
+import { Router } from '@angular/router';
+import { Role } from '../modeles/role/role';
+import { Entite } from '../modeles/entite';
 @Component({
   selector: 'app-authentification',
   templateUrl: './authentification.page.html',
@@ -13,79 +12,88 @@ import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 })
 export class AuthentificationPage implements OnInit {
 
-  connexion:any;
-  email:any;
-  password:any;
-  erreur:any;
-  typeUser:any;
+  connexion: any;
+  email: any;
+  password: any;
+  erreur: any;
+  typeUser: any;
 
 
 
   utilisateur: Utilisateur = {
-    iduser:0,
-    nom:'',
-    prenom:'',
-    numero:'',
-    email:'',
-    password:'',
+    iduser: 0,
+    nom: '',
+    prenom: '',
+    numero: '',
+    email: '',
+    password: '',
+    role: new Role,
+    entite: new Entite
   }
 
   bool_erreur: boolean = false;
-  
-  constructor(private service : AuthentificationService, private http:HttpClient, private route:Router) { }
+
+  constructor(private service: AuthentificationService, private http: HttpClient, private route: Router) { }
 
   ngOnInit() {
-  
-    
+
+
   }
 
-  Connexion(){
+  Connexion() {
     this.bool_erreur = true;
-    if(typeof this.email === 'undefined' || typeof this.password === 'undefined'){
-      this.erreur="Tous les champs sont obligatoires";
+    if (typeof this.email === 'undefined' || typeof this.password === 'undefined') {
+
+      this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
-    }else{
-        this.service.seConnecter(this.email,this.password).subscribe(data=>{
-          this.connexion = data;
-
-          console.log(data);
-          
-          if(this.connexion.email == this.email && this.connexion.password==this.password)
-          {
-           //On recupere le type de role de l'utilisateur en question
-            this.typeUser = data.role.nom;   
-            
-            if(this.typeUser != null)
-              {
-                      if(this.typeUser == "User")
-                      {
-                      this.route.navigateByUrl('/accueil-user');
-                      }
-                      else if(this.typeUser == "Admin")
-                      {
-                      this.route.navigateByUrl('/ajouter-postulant');
-                        
-                      }
-                      else
-                      {
-                        this.route.navigateByUrl('');
-                      }
-              }
-          }
-           //On recupere le type de role de l'utilisateur en question
-          // console.log("Utilisateur = "+this.typeUser)
-          
-          // ajouter-postulant
-          // this.route.navigateByUrl('/ajouter-postulant');accueil-user
-          // routerLink="/ajouter-postulant"
-          this.erreur = data.contenu;
-
-          
-        })
-      }
-      
     } 
- 
+   
+    else {
+      this.service.seConnecter(this.email, this.password).subscribe(data => {
+        this.connexion = data;
+      
+
+        // console.log("session "+data);
+
+        if (this.connexion.email == this.email && this.connexion.password == this.password) {
+          //On recupere le type de role de l'utilisateur en question
+          this.typeUser = data.role.nom;
+
+          if (this.typeUser != null) {
+            sessionStorage.setItem("id_users", data.iduser);
+            sessionStorage.setItem("role_users", data.role.nom); 
+            sessionStorage.setItem("nom_users", data.nom);
+            sessionStorage.setItem("prenom_users", data.prenom);
+            sessionStorage.setItem("role_users", data.role.nom);
+            sessionStorage.setItem("email_users", data.email);
+            sessionStorage.setItem("numero_users", data.numero);
+
+            if (this.typeUser == "user") {
+              this.route.navigateByUrl('/accueil-user');
+            }
+            else if (this.typeUser == "admin") {
+              this.route.navigateByUrl('/admin-accueil');
+            }
+            else {
+              this.route.navigateByUrl('/admin-accueil');
+              console.log(data.contenu);       
+              this.erreur = "Utilisateur non géré !";      
+            }
+          }
+        }
+        else{
+      this.erreur = data.contenu
+      console.log("VVVVVVVV "+this.erreur)
+        }
+
     
+
+      })
+    }
+
   }
-  
+
+
+}
+
+

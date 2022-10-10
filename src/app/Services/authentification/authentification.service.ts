@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
 export class AuthentificationService {
 
   constructor(private http:HttpClient) { }
-  api="http://localhost:8080/utilisateur";
+  api="http://localhost:8080/utilisateur/seconnecter";
 
   seConnecter(email:String, password:String):Observable<any>
   {
-    return this.http.get(`${this.api}/seconnecter/${email}/${password}`);
+    return this.http.get(`${this.api}/${email}/${password}`);
   }
 }

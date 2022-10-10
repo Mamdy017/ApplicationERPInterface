@@ -1,0 +1,72 @@
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar"  data-bs-toggle="collapse"  style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" >
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+      
+      <div class="container">
+        <button type="button" class="btn" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
+            99+
+          </span></i>
+        </button>
+        <br><br>
+        <div class="row ro py-3">
+          <h1>Liste des utilisateurs</h1>
+          <div class="trait"></div>
+          <div class="position">
+            <button class="btn btnAjouter">Exporter le fichier</button>
+            <form action="">
+              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+            </form>
+            <div Filtré par entité>
+              <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                <option  *ngFor="let liste of reponse" [ngValue]="liste.nom"> {{liste.nom}} </option>
+                <label for="sexe">liste</label>
+              </select>
+            </div>
+            <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter1"> Ajouter un utilisateur  </button></a>
+          </div>
+          <div class="table-responsive ra py-5">
+            <table class="table" >
+              <thead>
+                <tr>
+                  <th scope="col" class="ra">N°</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Numéro</th>
+                  <th scope="col">Rôle</th>
+                  <th scope="col">Entité</th>
+                  <th scope="col" class="ra1">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let od of ods ; let i = index">
+                  <td scope="row">{{i+1}}</td>
+                  <td scope="">{{od[1]}}</td>
+                  <td>{{od[2]}}</td>
+                  <td>{{od[3]}}</td>
+                  <td>{{od[4]}}</td>
+                  <td>{{od[5]}}</td>
+                  <td>{{od[6]}}</td> 
+                  <td><a href=" modifier()"><i class="bi bi-pencil-square i" ></i></a>&nbsp; &nbsp; &nbsp;<a href="supprimer(iduser)"><i class="bi bi-trash-fill i"></i></a></td>
+                </tr>
+            
+              </tbody>
+            </table>
+  <!-- <pagination-controls (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </main>
+  </div>
+</div>

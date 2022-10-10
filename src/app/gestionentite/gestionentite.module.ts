@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { GestionentitePageRoutingModule } from './gestionentite-routing.module';
 
 import { GestionentitePage } from './gestionentite.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { GestionentitePage } from './gestionentite.page';
     IonicModule,
     GestionentitePageRoutingModule
   ],
-  declarations: [GestionentitePage]
+  declarations: [GestionentitePage,MenuComponent]
 })
 export class GestionentitePageModule {}

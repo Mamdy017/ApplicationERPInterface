@@ -1,5 +1,16 @@
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i>
+  </a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
 
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+<<<<<<< HEAD
 
+<<<<<<< HEAD
 <ion-content>
   <ion-div id="container">
 
@@ -42,78 +53,224 @@
 
   </ion-div>
 
+=======
+>>>>>>> 628d3a5e4f2cf3aaa4132a94ea71deba658cfe6c
 
-  <div class="container">
-    <div class="import">
-      <div>
-        <h1>Importer un fichier</h1>
-        <p class="vertical "></p>
-        <div class="file"><input type="file" class="retour"></div>
-        <input type="text" placeholder="Nom de la liste">
-        <input type="submit" name="Importer" value="Importer" class="submit">
-        <button class="btn btn-primary">Ajouter un postulant</button>
+
+      
+=======
+>>>>>>> e9eafdfcbe493253c3622b3b35493e12abfafd51
+      <div class="container">
+        <button type="button" class="btn" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style="font-size:15px; background-color: #ff6600;">
+              99+
+            </span></i>
+        </button>
+
+        <div class="row">
+          <!-- Importation -->
+
+          <div class="col-12 col-md-4 col-xs-6 py-3 text-center form">
+            <div class="m-3">
+              <form [formGroup]="myForm" (ngSubmit)="submit()">
+                <p class="h3"><b>Importer un fichier</b></p>
+
+                <div class="trait mb-5"></div>
+
+                <div class="mb-4 altert " style="border-radius:10px;">
+                  <div>
+                    <p *ngIf="bool_erreurImpFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
+                      {{erreurImpFr}}</p>
+                    <p *ngIf="bool_erreurImpBack"
+                      [ngClass]="erreurImpBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                      style="font-size: 1.2rem; font-weight: bold;">{{erreurImpBack.contenu}}</p>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                  <div class="mb-3 form-row form-floating">
+                    <input type="text" name="libele" id="libele" placeholder="Libelle de la liste"
+                      class="form form-control inputvalue" formControlName="libelleListe">
+                    <label for="libele">Libelle de la liste </label>
+                  </div>
+                </div>
+
+
+                <div class="col-12 col-md-12">
+                  <div class="mb-3 form-row form-floating">
+                    <select [(ngModel)]="libelleActivite" id="choice" class="form-select form-control inputvalue"
+                      formControlName="libelleActivite">
+                      <option selected>--Choisir Activité--</option>
+                      <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                        {{listeActivites.nom}}</option>
+                    </select>
+                    <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-12">
+                  <div class=" mb-3 mt-3 bttn">
+                    <input type="file" class="form-control" formControlName="file" (change)="onFileChange($event)" />
+                  </div>
+                </div>
+                <button class="btn btnImport mb-2 mt-3 ">Importer</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- le tirage -->
+          <div class="col-md-2 col-xs-1 py-3"></div>
+          <div class="col-12 col-md-6 col-xs-6 text-center form">
+
+            <div class="my-3 mt-5">
+              <div class="m-3">
+                <form>
+                  <p class="h3"><b>Faire Tirage</b></p>
+
+                  <div class="trait mt-3"></div><br>
+
+                  <div class="row">
+
+                    <div class="mb-4 altert " style="border-radius:10px;">
+                      <div>
+                        <p *ngIf="bool_erreurFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
+                          {{erreurTirageFr}}</p>
+                        <p *ngIf="bool_erreurBack"
+                          [ngClass]="erreurTirageBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                          style="font-size: 1.2rem; font-weight: bold;">{{erreurTirageBack.contenu}}</p>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-3">
+                      <div class="mb-3 form-row form-floating">
+                        <input type="text" id="libele" placeholder="libelle du tirage" name="libelleTirage"
+                          [(ngModel)]="libelleTirage" class="form form-control inputvalue">
+                        <label for="libele">Libelle Tirage</label>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <div class="mb-3 form-row form-floating  ">
+                        <input type="number" id="libele" min="1" placeholder="nombre à tiré" name="nombrePostulantTire"
+                          [(ngModel)]="nombrePostulantTire" class="form form-control inputvalue">
+                        <label for="num">Nombre à tiré </label>
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="mb-3 form-row form-floating ">
+                        <select name="libelleListet" [(ngModel)]="libelleListet"
+                          class="form-select form-control inputvalue">
+                          <option selected>--Choisir Liste--</option>
+                          <option *ngFor="let liste of listes$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
+                          </option>
+                        </select>
+                        <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
+                      </div>
+                    </div>
+<!--
+   <div class="col-12 col-md-6">
+                      <div class="mb-3 form-row form-floating ">
+                        <select name="libelleActivite" [(ngModel)]="libelleActivite"
+                          class="form-select form-control inputvalue">
+                          <option selected>--Choisir Activité--</option>
+                          <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                            {{listeActivites.nom}}</option>
+                        </select>
+                        <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                      </div>
+                    </div>
+-->
+                   
+
+                  </div>
+                  <button type="submit" (click)="postTirage()" class="btn btnImport mb-2 mt-3 ">Tirage</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- importation et tirage -->
+        <div class="row py-5">
+          <div class="text-center form">
+            <div class="m-3">
+
+              <form [formGroup]="myFormImportTrie" (ngSubmit)="submitImportTrie()">
+                <p class="h3">Importer et trier</p>
+                <div class="trait"></div><br><br>
+                <div class="row">
+                  <div class="mb-4 altert " style="border-radius:10px;">
+                    <div>
+                      <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger"
+                        style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieFr}}</p>
+                      <p *ngIf="bool_erreurImpTrieBack"
+                        [ngClass]="erreurImpTrieBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                        style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieBack.contenu}}</p>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3  ">
+                    <div class="mb-3 form-row form-floating">
+                      <input type="text" id="libeleListe" placeholder="Libelle Liste"
+                        class="form form-control inputvalue" formControlName="libelleListe">
+                      <label for="libele">Libelle de la liste </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="mb-3 form-row form-floating ">
+                      <select [(ngModel)]="libelleActivite" formControlName="libelleActivite"
+                        class="form-select form-control inputvalue">
+                        <option selected>--Choisir Activité--</option>
+                        <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                          {{listeActivites.nom}}</option>
+                      </select>
+                      <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="mb-3 form-row form-floating">
+                      <input type="text" class="form-control" id="libele" placeholder="Libelle tirage"
+                        formControlName="libelleTirage" class="form form-control inputvalue">
+                      <label for="libele">Libelle Tirage</label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class="mb-3 form-row form-floating">
+                      <input type="number" class="form-control" placeholder="Nombre à tirer" formControlName="nbreTire"
+                        class="form form-control inputvalue">
+                      <label for="num">Nombre à tiré </label>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 mb-3">
+                    <div class=" mb-3 mt-3 bttn ">
+                      <input type="file" class="form-control" formControlName="file"
+                        (change)="onFileChangeImportTrie($event)" />
+                    </div>
+                  </div>
+
+                </div>
+                <div>
+                  <input type="submit" class="btn1 btnImport">
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </div>
-    <div class="tirage">
-      <h1>Faire un tirage</h1>
-      <p class="vertical "></p>
-      <div class="row">
-        <div>
-          <input type="text" placeholder="Libelle tirage" class="align">
-        </div>
-        <div>
-          <select class="align cen">
-            <option>Choisir une liste</option>
-            <option>Liste1</option>
-            <option>Liste2</option>
-            <option>Liste3</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div>
-          <input type="number" placeholder="Nombre à trier" class="align">
-        </div>
-        <div>
-          <input type="text" placeholder="Nom de la liste" class="align cen">
-        </div>
-      </div>
-      <input type="submit" name="Importer" value="Faire un tirage" class="submit jus">
-    </div>
+
+    </main>
   </div>
-  
-  <div class="fairetirage">
-    <h1>Faire tirage sur une liste existante</h1>
-    <p class="vertical "></p>
-    <div class="tirage2">
-
-
-      <div>
-        <div>
-          <select class="col1">
-            <option>Libellé de la liste</option>
-            <option>Liste1</option>
-            <option>Liste2</option>
-            <option>Liste3</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <input type="text" placeholder="Libellé tirage" class="col2">
-      </div>
-
-      <div >
-        <input type="number" placeholder="Nombre à trier" class="col3">
-      </div>
-      <div>
-        <input type="text" placeholder="Libellé de l'activité" class="col5">
-      </div>
-
-
-
-    </div>
-    <input type="submit" name="Importer" value="Faire un tirage" class="submit jus3">
-  </div>
-
-</ion-content>
-
+</div>

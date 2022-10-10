@@ -1,3 +1,4 @@
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { ListePostulant } from '../modeles/liste-postulant/liste-postulant';
 import { Postulant } from '../modeles/postulant/postulant';
@@ -12,13 +13,11 @@ import { ListePostulantService } from '../Services/liste-postulant/liste-postula
 export class AjouterParticipantPage implements OnInit {
 
   postulantparticipant: Postulant  ={
-    id:0,
     nom_postulant: '',
   prenom_postulant:'',
   numero_postulant:'',
   email:"",
-  genre: "",
-  etat:true
+  genre: ""
   }
 
   
@@ -42,6 +41,11 @@ export class AjouterParticipantPage implements OnInit {
 
   constructor(private ajouterparticipantservice: AjouterParticipantService  ) { }
 
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
   ngOnInit() {
       this.ajouterparticipantservice.recupererListePostulant().subscribe((data) => {
         this.reponse = data;

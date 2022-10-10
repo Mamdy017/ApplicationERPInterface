@@ -1,106 +1,69 @@
-
-<ion-content>
-  <div class="search"><ion-searchbar class="search--"></ion-searchbar></div>
-  <div class="container1">
-    <div class="div-gauche">
-    <p>Vous souhaitez ajoute
-    un postulants au tirage?</p>
+<div class="container-fluid">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
+      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
-    <div class="div-droite">
-      <span ><p>Ajouter un Postulant</p></span>
-    </div>
 
-  </div>
+      <div class="container">
+        <button type="button" class="btn" style="margin-left:92% ;">
+          <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style="font-size:15px; background-color: #ff6600;">
+              99+
+            </span></i>
+        </button>
+        <br><br>
+        <div class="row ro py-3">
+          <h1>Liste des postulant-tirés</h1>
+          <div class="trait"></div>
+          <div class="position">
+            <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
+            <form action="">
+              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
+                  type="text" style="border: hidden; border: 0; background: transparent;"></button>
+            </form>
+            <button class="btn btnAjouter c1"><i class="bi bi-filter-right"></i>Filtrer par Genre</button>
+            <button class="btn btnAjouter c1">Valider</button>
+          </div>
+          <div class="table-responsive ra py-5">
+            <table id="season-tble" class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="ra">N°</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Numéro</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Activité</th>
+                  <th scope="col" class="ra1">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let personnes of lesPersonnesTirees ;let i = index ">
+                  <td scope="row">{{i+1}}</td>
+                  <td>{{personnes.nom_postulant}}</td>
+                  <td>{{personnes.prenom_postulant}}</td>
+                  <td>{{personnes.email}}</td>
+                  <td>{{personnes.numero_postulant}}</td>
+                  <td>{{personnes.genre}}</td>
+                  <td>{{personnes.activite}}</td>
+                  <td><i class="bi bi-pencil-square i"></i>&nbsp;&nbsp;<i class="bi bi-trash-fill i"></i></td>
+                </tr>
 
-<div class="container">
-   <div class="cont">
-     <div class="boutton">
-       <p class="b"><b>La Liste Postulansr Tirés</b></p>
-       <span class="sp1"><b>Filtrer</b></span>
-       <span class="sp2"><b>Exporter liste</b></span>
-     </div>
-    <table class="tab">
-      <thead class="head">
-        <th class="gauche">Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-        <th>Numéro</th>
-        <th>Genre</th>
-        <th class="droite">Actions</th>
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+          </div>
+        </div>
 
-      </thead>
+      </div>
 
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Diarra</td>
-        <td>Diaraba Idrissa</td>
-        <td>diarradiaraba9@gmail.com</td>
-        <td>78204039</td>
-        <td>Masculin</td>
-        <td>
-          <a>icone </a>
-          <a>icone </a>
-        </td>
-      </tr>
-    </table>
 
+    </main>
   </div>
 </div>
-
-
-</ion-content>

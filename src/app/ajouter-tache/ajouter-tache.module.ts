@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AjouterTachePageRoutingModule } from './ajouter-tache-routing.module';
 
 import { AjouterTachePage } from './ajouter-tache.page';
+import { MenuComponent } from '../menu/menu.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { AjouterTachePage } from './ajouter-tache.page';
     IonicModule,
     AjouterTachePageRoutingModule
   ],
-  declarations: [AjouterTachePage]
+  declarations: [AjouterTachePage,MenuComponent]
 })
 export class AjouterTachePageModule {}
