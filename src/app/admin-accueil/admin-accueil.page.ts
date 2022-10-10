@@ -71,7 +71,8 @@ export class AdminAccueilPage implements OnInit {
     //Afficher les entités de l'admin
     this.serviceAccueil.afficherEntiteAdmin().subscribe(data =>{
       this.afficherEntiteAdmin = data
-      console.log(this.afficherEntiteAdmin+"dvvvvvvvvvv")
+      console.log("vvvvvvvvvv")
+      console.table(this.afficherEntiteAdmin)
     })
 
 
@@ -106,9 +107,6 @@ export class AdminAccueilPage implements OnInit {
     //affiche année
     this.serviceAccueil.afficherAnnee().subscribe(data => {
       this.afficheAnnee = data
-      alert(this.afficheAnnee+"hgjghhghhh vvvvv")
-
- 
     })
 
   }

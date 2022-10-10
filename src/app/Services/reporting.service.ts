@@ -16,11 +16,11 @@ afficherTouteLesActivite():Observable<any>{
   return this.Http.get("http://localhost:8080/activite/afficher")
 }
 
-// // ============================================================= AFFICHER TOUTE LES ACTIVITE++++++++++++++++++++++++++++++++++++++++++++++++++
-// filtreParEntite(nomEntite:string):Observable<any>{
+// ============================================================= AFFICHER TOUTE LES ACTIVITE++++++++++++++++++++++++++++++++++++++++++++++++++
+filtreParEntite(nomEntite:string):Observable<any>{
   
-//   return this.Http.get(`http://localhost:8080/activite/parEntite/${nomEntite}`)
-// }
+  return this.Http.get(`http://localhost:8080/activite/parEntite/${nomEntite}`)
+}
 
 // ==========================================================RECUPERER TOUTE LES PERSONNES D'UN TIRAGE VALIDE========================
 lesPersonnesTireValide(idactivite:number){

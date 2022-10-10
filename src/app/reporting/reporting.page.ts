@@ -5,6 +5,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { EntiteService } from '../Services/entite/entite.service';
 import { AlertController, AnimationController } from '@ionic/angular';
 import * as XLSX from 'xlsx';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,27 +16,38 @@ import * as XLSX from 'xlsx';
 export class ReportingPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-p:1
+  p: 1
+
+  // /==============================================================================SESSION==========
+  iduser: any;
+  roles: any;
+  noms_users: any;
+  prenom_users: any;
+  email_users: string;
+  numero_users: string;
+  // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-// ==================Les declarations ici ===============================
-lesActivites:any
-searchText: any;
-lesEntites : any;
-lesPersonnesTirer:any;
-elementVide:any;
-filtreEntite:any;
-select_liste:String;
-evenement:any;
-reponse:any
+  // ==================Les declarations ici ===============================
+  lesActivites: any
+  searchText: any;
+  lesEntites: any;
+  lesPersonnesTirer: any;
+  elementVide: any
+  affiche:any
+  reponse:any
+  select_liste: string;
+  evenement:any
+  donnees:any
 
   constructor(public breakpointObserver: BreakpointObserver,
-              private serviceReporting:ReportingService,
-              private serviceEntite : EntiteService,
-              private alertController: AlertController,
-              private animationCtrl: AnimationController,
-              
-              ) { }
+    private serviceReporting: ReportingService,
+    private serviceEntite: EntiteService,
+    private alertController: AlertController,
+    private animationCtrl: AnimationController,private route:Router
+    
+
+  ) { }
 
   actualise(): void {
     setInterval(
@@ -43,6 +55,16 @@ reponse:any
       }, 100, clearInterval(1500));
   }
   ngOnInit() {
+
+
+    // ===========================================================================SESSION VALEURS================================================
+    this.iduser = sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users");
+    this.noms_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
+
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
       .subscribe((state: BreakpointState) => {
@@ -56,122 +78,92 @@ reponse:any
           this.actualise();
         }
       });
+         // =========================================== RECURATION : Activités =======================================
+        this.serviceReporting.afficheReporting().subscribe(data =>{
+          this.affiche = data
+          console.log(this.affiche)
 
-      /*this.servicelisteutilisateur.filtreParTout().subscribe((data)=>{
-  
-      // console.log(this.select_liste)
-  
-      this.ods = data
-  
-      console.log(this.ods)*/ 
-      //affichage 
-      this.serviceReporting.afficheReporting().subscribe((data)=>{
-
-        this.filtreEntite = data
-        console.log(this.filtreEntite)
-      })
+        })
 
 
-      // =========================================== RECURATION : Activités =======================================
-this.serviceReporting.afficherTouteLesActivite().subscribe(data=>{
-  this.lesActivites = data
-})
+    // =========================================== RECURATION : Activités =======================================
+    this.serviceReporting.afficherTouteLesActivite().subscribe(data => {
+      this.lesActivites = data
+    })
 
-      // =========================================== RECURATION Entité =======================================
-  
-      this.serviceEntite.afficherEntite().subscribe(data=>{
-        this.lesEntites = data
-      })
+    // =========================================== RECURATION Entité =======================================
+
+    this.serviceEntite.afficherEntite().subscribe(data => {
+      this.lesEntites = data
+    })
 
   }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Modal d'Affichage des Personnes tirées ++++++++++++++++++++++++++++
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Modal d'Affichage des Personnes tirées ++++++++++++++++++++++++++++
 
-enterAnimation = (baseEl: HTMLElement) => {
-  const root = baseEl.shadowRoot;
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot;
 
-  const backdropAnimation = this.animationCtrl
-    .create()
-    .addElement(root.querySelector('ion-backdrop')!)
-    .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
 
-  const wrapperAnimation = this.animationCtrl
-    .create()
-    .addElement(root.querySelector('.modal-wrapper')!)
-    .keyframes([
-      { offset: 0, opacity: '0', transform: 'scale(0)' },
-      { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-    ]);
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
 
-  return this.animationCtrl
-    .create()
-    .addElement(baseEl)
-    .easing('ease-out')
-    .duration(500)
-    .addAnimation([backdropAnimation, wrapperAnimation]);
-};
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
 
-leaveAnimation = (baseEl: HTMLElement) => {
-  return this.enterAnimation(baseEl).direction('reverse');
-};
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
 
 
   // ===================================ICI ON RECUPERE LES PERSONNES D'UNE ACTIVITE===========================================
-recId(idactivite:number){
-this.serviceReporting.lesPersonnesTireValide(idactivite).subscribe(async data=>{
-  this.lesPersonnesTirer = data
+  recId(idactivite: number) {
+    this.serviceReporting.lesPersonnesTireValide(idactivite).subscribe(async data => {
+      this.lesPersonnesTirer = data
 
-  console.log("============ "+this.lesPersonnesTirer[0])
+      console.log("============ " + this.lesPersonnesTirer[0])
 
-  if(this.lesPersonnesTirer[0] == undefined)
-  {
-      // alert("Cette activité n'as pas de tirage validé")
       
+
+      if (this.lesPersonnesTirer[0] === undefined) {
+        // alert("Cette activité n'as pas de tirage validé")
+
         const alert = await this.alertController.create({
           header: 'Desolé',
           subHeader: '',
           message: "Cette activité n'a pas de tirage validé sur une liste ",
           buttons: ['OK'],
         });
-    
+
         await alert.present();
+
+        
+      }
+
+
+    })
+
   }
 
-})
-
-}
-
-// Exportation du fichier
-
-name = 'lesPersonnesValider.xlsx';
-exportToExcel(): void {
-  const element = document.getElementById('season-tble');
-  const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
-
-  const book: XLSX.WorkBook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
-  XLSX.writeFile(book, this.name);
-}
-
-  //======================Filtrer par entite=================
-  // filtrerParEntite(event){
-  //   if(this.select_liste!= "Filtre par Entite"){
-  //     console.log(event.target.value+"hbhbhhjjbhhbbb")
-  //     this.evenement = event.target.value
-  //     this.serviceReporting.filtrerParEntite(this.select_liste).subscribe((data)=>{
-  //     this.filtreEntite=data
-  //     console.log(this.filtreEntite+"vfgvggggggggg")
-     
-
-      
-  //      } )
-  //   }
-    
-  // }
-
+  //filtre par entite
   filtreUserParEntite(event) {
 
     if(this.select_liste != "Filtre par Entité"){
@@ -179,24 +171,36 @@ exportToExcel(): void {
 
       console.log(event.target.value)
 
-      // console.log(this.ev)
       
       this.evenement = event.target.value
     
-     this.serviceReporting.filtrerParEntite(this.select_liste).subscribe((data)=>{
+     this.serviceReporting.filtreParEntite(this.select_liste).subscribe((data)=>{
   
-      // console.log(this.select_liste)
   
-      this.filtreEntite = data
+      this.donnees = data
   
-      console.log(this.filtreEntite)
+      console.log(this.donnees)
      })
+
+
     }
   }
 
+  // Exportation du fichier
 
-    
+  name = 'lesPersonnesValider.xlsx';
+  exportToExcel(): void {
+    const element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+    XLSX.writeFile(book, this.name);
+  }
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 }
-
 
