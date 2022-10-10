@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
+import { AnimationController } from '@ionic/angular';
 
 @Component({
   selector: 'app-activite',
@@ -34,7 +35,8 @@ export class ActivitePage implements OnInit {
   constructor(public breakpointObserver: BreakpointObserver, private activiteService: ActiviteService,
     private utilisateurs: ListeActeurService,
     private http: HttpClient,
-    private route: Router,) { }
+    private route: Router,
+    private animationCtrl: AnimationController) { }
 
   salles$: any;
   annees$: any;
@@ -47,6 +49,9 @@ export class ActivitePage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+
+  formtExt: boolean = false;
+  formtInt: boolean = false;
 
   titre: string
   salles: string;
@@ -66,6 +71,66 @@ export class ActivitePage implements OnInit {
   id: any = 1;
 
   fichier: File
+
+  clickInt: boolean = false;
+  notclickInt: boolean = true;
+  clickExt: boolean = false;
+  notclickExt: boolean = true;
+
+  selectionFormateurInter(){
+    this.clickInt = true;
+    this.notclickInt= false;
+  }
+
+  selectionFormateurExter(){
+    this.clickExt = true;
+    this.notclickExt = false;
+  }
+
+  selectionFormateurInterFermer(){
+    this.clickInt = false;
+    this.notclickInt= true;
+  }
+
+  selectionFormateurExterFermer(){
+    this.clickExt = false;
+    this.notclickExt = true;
+  }
+
+
+
+///models debut
+
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot;
+
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
+
+  //models fin
+
 
 
   activiteObjet: Activite = {
