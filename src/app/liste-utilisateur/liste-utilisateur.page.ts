@@ -14,50 +14,45 @@ import { Router } from '@angular/router';
 export class ListeUtilisateurPage implements OnInit {
 
 
-  selection :any
+  selection: any
 
 
 
-// /==============================================================================SESSION==========
-iduser:any;
-roles:any;
-noms_users:any;
-prenom_users:any;
-email_users: string;
-numero_users: string;
-// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // /==============================================================================SESSION==========
+  iduser: any;
+  roles: any;
+  noms_users: any;
+  prenom_users: any;
+  email_users: string;
+  numero_users: string;
+  // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-  searchText:any
-  p=1;
+  searchText: any
+  p = 1;
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  page:any;
-  maListes:any
+  page: any;
+  maListes: any
   donnees!: any
   user: Utilisateur
-  
-
-  constructor(private serviceUtilisateur:ListeActeurService,private serveiceUtilisateur:ListeUserService, 
-     public breakpointObserver: BreakpointObserver, private route:Router) { }
+  constructor(private serviceUtilisateur: ListeActeurService, private serveiceUtilisateur: ListeUserService,
+    public breakpointObserver: BreakpointObserver, private route: Router) { }
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
 
-
-  
   ngOnInit() {
 
     // ===========================================================================SESSION VALEURS================================================
-this.iduser =  sessionStorage.getItem("id_users");
-this.roles = sessionStorage.getItem("role_users"); 
-this.noms_users =  sessionStorage.getItem("nom_users");
-this.prenom_users = sessionStorage.getItem("prenom_users",);
-this.email_users = sessionStorage.getItem("email_users");
-this.numero_users = sessionStorage.getItem("numero_users");
-
+    this.iduser = sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users");
+    this.noms_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
       .subscribe((state: BreakpointState) => {
@@ -71,8 +66,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
           this.actualise();
         }
       });
-    this.serviceUtilisateur.lesUtilisateurs().subscribe(data=>{
-
+    this.serviceUtilisateur.lesUtilisateurs().subscribe(data => {
       this.donnees = data
       // console.log("--------------- "+this.donnees.nom)
 
@@ -95,7 +89,6 @@ this.numero_users = sessionStorage.getItem("numero_users");
     XLSX.writeFile(book, this.name);
   }
 
-
   // supprimer (Utilisateur:any){
   //   const confirmer = confirm('Êtes-vous sûr de supprimer cet utilisateur ?');
   //   if(confirmer==false){return;}
@@ -107,9 +100,9 @@ this.numero_users = sessionStorage.getItem("numero_users");
   //     }
   //   })
   // }
-  deconnexion(){
+  deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
-    }
+  }
 }

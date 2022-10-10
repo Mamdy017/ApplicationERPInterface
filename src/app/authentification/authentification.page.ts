@@ -49,7 +49,7 @@ export class AuthentificationPage implements OnInit {
     } 
    
     else {
-      this.service.seConnecter(this.email, this.password).subscribe(data => {
+      this.service.Connecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
 
         // console.log("session "+data);

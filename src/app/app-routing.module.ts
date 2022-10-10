@@ -160,11 +160,6 @@ const routes: Routes = [
     loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
   },
 
-
-
-
-
-
 ];
 @NgModule({
   imports: [
