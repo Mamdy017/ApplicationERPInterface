@@ -41,15 +41,15 @@ export class AuthentificationPage implements OnInit {
   }
 
   Connexion() {
-   
+
     if (typeof this.email === 'undefined' || typeof this.password === 'undefined') {
       this.bool_erreur = true;
       this.erreur = "Tous les champs sont obligatoires";
       console.log(this.erreur);
-    } 
-   
+    }
+
     else {
-      this.service.seConnecter(this.email, this.password).subscribe(data => {
+      this.service.Connecter(this.email, this.password).subscribe(data => {
         this.connexion = data;
 
         // console.log("session "+data);
@@ -60,17 +60,17 @@ export class AuthentificationPage implements OnInit {
 
           if (this.typeUser != null) {
             sessionStorage.setItem("id_users", data.iduser);
-            sessionStorage.setItem("role_users", data.role.nom); 
+            sessionStorage.setItem("role_users", data.role.nom);
             sessionStorage.setItem("nom_users", data.nom);
             sessionStorage.setItem("prenom_users", data.prenom);
             sessionStorage.setItem("role_users", data.role.nom);
             sessionStorage.setItem("email_users", data.email);
             sessionStorage.setItem("numero_users", data.numero);
 
-           
+
 
             if (this.typeUser == "user") {
-              
+
               this.route.navigateByUrl('/accueil-user');
             }
             else if (this.typeUser == "admin") {
@@ -78,8 +78,8 @@ export class AuthentificationPage implements OnInit {
             }
             else {
               this.route.navigateByUrl('/admin-accueil');
-              console.log(data.contenu);       
-              this.erreur = "Utilisateur non géré !";      
+              console.log(data.contenu);
+              this.erreur = "Utilisateur non géré !";
             }
           }
         }
@@ -89,7 +89,7 @@ export class AuthentificationPage implements OnInit {
       console.log("VVVVVVVV "+this.erreur)
         }
 
-    
+
 
       })
     }

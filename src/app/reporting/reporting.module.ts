@@ -20,7 +20,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReportingPageRoutingModule,
     NgxPaginationModule,
     Ng2SearchPipeModule
-
     
   ],
   declarations: [ReportingPage,MenuComponent]

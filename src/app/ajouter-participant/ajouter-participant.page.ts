@@ -31,6 +31,7 @@ export class AjouterParticipantPage implements OnInit {
       () => {
       }, 100, clearInterval(1500));
   }
+  
   ngOnInit() {
 
 // ===========================================================================SESSION VALEURS================================================

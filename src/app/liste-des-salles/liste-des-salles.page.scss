@@ -5,7 +5,7 @@
 //     width: 300px;
 //     height: 1px;
 //     margin-left: 180px;
-    
+
 //   }
 //   .search{
 //     width: 300px;
@@ -17,32 +17,35 @@
 
 //   }
 //   .djire{
-//     justify-content: center 
+//     justify-content: center
 //   }
 //   .b{
-    
+
 //   }
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .container1{
     margin-left: 6%;
     padding: auto;
 }
 .butt ion-searchbar{
     margin-left: 24%;
-    
+
     width: 50%;
 }
 .bonjour{
     background: #FFFFFF;
-    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
     // width: auto;
     margin-right: auto;
-    margin-left: auto;  
+    margin-left: auto;
     // height: 100%;
 }
 .ajouter{
     background: #FFFFFF;
     box-shadow: 0px 4px 21px rgba(0, 0, 0, 0.25);
-    
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -54,9 +57,9 @@
 // .table{
 //     width: 95%;
 //     margin-top: auto;
-//     margin-left: auto; 
+//     margin-left: auto;
 //     margin-right: auto;
-    
+
 // }
 .container{
     background: #FFFFFF;
@@ -68,6 +71,6 @@
 //     border: 1px solid #000000;
 // }
 // .c{
-    
+
 //     // margin-left: 20%;
 // }
