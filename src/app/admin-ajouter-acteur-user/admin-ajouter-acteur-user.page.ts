@@ -4,6 +4,7 @@ import { Acteur } from '../Modeles/acteur/acteur';
 import { Statut } from '../modeles/statut/statut';
 import { AdminActeurUserService } from '../services/admin-ajouter-acteur-user/admin-acteur-user.service';
 import { StatutService } from '../services/statutService';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-admin-ajouter-acteur-user',
@@ -28,10 +29,10 @@ numero_users: string;
   // email: any;
   statut: any;
 
-  // telephone:any
+  telephone: any;
 
 
- statutChoix: any;
+  statutChoix: any;
 
 
   acteurs: Acteur = {
@@ -43,17 +44,16 @@ numero_users: string;
     statut: Statut,
     idacteur: 0
   };
-  nom = '';
-  prenom = '';
-  numero= '';
-  email= '';
+    nom = '';
+    prenom = '';
+    numero= '';
+    email= '';
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  // Statut: any;
-
 
 
   donner: any;
   erreur: any;
+  modif: any;
 
   menuBureau = true;
   menuMobile = false;
@@ -77,34 +77,30 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
 
 
+
   ajouterUtilisateur() {
 
-    // console.log("-----------"+this.statutChoix)
 
     // eslint-disable-next-line eqeqeq
-    if (this.nom != '' && this.prenom != '' && this.email != '' /*&& this.statutChoix != null && this.numero != null*/) {
+    if (this.nom != '' && this.prenom != '' && this.email != '') {
 
       this.acteurs.nom = this.nom;
       this.acteurs.prenom = this.prenom;
       this.acteurs.email = this.email;
-      // this.acteurs.statut.statut_idStatut = this.statutChoix;
       this.acteurs.numero = this.numero;
 
-
-
       this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
-        this.donner = data;
-
+      this.donner = data;
+      this.modif = 'Acteur ajouter avec succes';
+      //this.resetForm();
         console.log('--------- ' + this.donner.contenu);
- });
+      });
     }
     else {
+      console.log('--------- ERREUR!');
       this.erreur = 'Veuillez remplir tous les champs !';
     }
   }
-  // stat(acteurs: Acteur, stat: any) {
-  //   throw new Error('Method not implemented.');
-  // }
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;

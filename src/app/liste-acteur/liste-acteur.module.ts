@@ -28,5 +28,5 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   declarations: [ListeActeurPage,MenuComponent]
 })
 export class ListeActeurPageModule {
- 
+
 }

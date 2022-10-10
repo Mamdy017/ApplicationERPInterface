@@ -31,6 +31,7 @@ export class MenuPage implements OnInit {
 
   ngOnInit() {
 
+<<<<<<< HEAD
     // ===========================================================================SESSION VALEURS================================================
 this.iduser =  sessionStorage.getItem("id_users");
 this.roles = sessionStorage.getItem("role_users"); 
@@ -40,6 +41,15 @@ this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
 
 }
+=======
+
+    this.nom =  sessionStorage.getItem("nom_users")
+    this.role =  sessionStorage.getItem("role_users")
+    this.prenom =  sessionStorage.getItem("prenom_users")
+
+
+   console.log("Je suis le role ========================== "+this.role);
+>>>>>>> f6dc2ee8b4f7f4f1b4cd1d6534d723c045dafcdf
 
   // ===========================================================================SESSION VALEURS================================================
 
