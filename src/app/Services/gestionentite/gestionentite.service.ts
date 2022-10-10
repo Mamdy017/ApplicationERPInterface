@@ -16,6 +16,16 @@ export class GestionentiteService {
   nombreFormation(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formation/${idEntite}`)
   }
+
+  formation(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite/${IdEntite}`)
+  }
+  talk(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite1/${IdEntite}`)
+  }
+  eve(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite2/${IdEntite}`)
+  }
   nombreTalk(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talk/${idEntite}`)
   }

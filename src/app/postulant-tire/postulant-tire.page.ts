@@ -91,7 +91,7 @@ export class PostulantTirePage implements OnInit {
           this.nombre_homme += 1;
         }
         else {
-          this.nombre_femme += 1;
+          this.nombre_femme += 1; 
         }
       }
 
