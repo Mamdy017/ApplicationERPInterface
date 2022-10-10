@@ -32,5 +32,9 @@ export class TirageService {
    }
 
    NombreMasculin
+
+   Trouver( lib:String):Observable<any>{
+    return this.http.get<any>(`http://localhost:8080/listepostulant/afficher/${lib}`);
+   }
   
 }
