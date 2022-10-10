@@ -71,45 +71,13 @@
             <div class="col-12 col-md-9">
               <div class="card1">
                 <ul class="chart">
-                  <li>
-                    <span style="height:50%" title="01" class="color-li"></span>
-                  </li>
-                  <li>
-                    <span style="height:70%" title="02"></span>
-                  </li>
-                  <li>
-                    <span style="height:50%" title="03"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="04"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="05"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="06"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="07"></span>
-                  </li>
-                  <li>
-                    <span style="height:20%" title="08"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="09"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="10"></span>
-                  </li>
-                  <li>
-                    <span style="height:15%" title="11"></span>
-                  </li>
-                  <li>
-                    <span style="height:35%" title="12"></span>
-                  </li>
+                  <div class="col-12 col-md-12">
+                    <small>L'alignement vertical répresente le nombre d'activités par mois </small>
+                    <canvas #barCanvas style="position: relative; height: 25vh; width: 25vw;"></canvas>
+                    <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
+                  </div>
+
                 </ul>
-                <br><br>
-                <h2 class="a">Données Statistiques</h2>
                 <div class="col-12 col-md-12 t2">
                   <h3 class=""> <strong> Activités encours</strong></h3>                     
                    <h3 *ngIf="encours">Aucune activité encours</h3>
