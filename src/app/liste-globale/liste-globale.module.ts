@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -15,7 +16,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeGlobalePageRoutingModule, NgxPaginationModule
+    ListeGlobalePageRoutingModule, NgxPaginationModule,
+    ReactiveFormsModule
   ],
   declarations: [ListeGlobalePage,MenuComponent]
 })

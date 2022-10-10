@@ -43,7 +43,7 @@ position:relative; left:80% ;
                     <p *ngIf="bool_erreurImpFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
                       {{erreurImpFr}}</p>
                     <p *ngIf="bool_erreurImpBack"
-                      [ngClass]="erreurImpBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                      [ngClass]="erreurImpBack.status== true ? 'alert-success' : 'alert-warning' " class="m-3"
                       style="font-size: 1.2rem; font-weight: bold;">{{erreurImpBack.contenu}}</p>
                   </div>
                 </div>
