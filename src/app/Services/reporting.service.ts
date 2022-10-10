@@ -27,6 +27,12 @@ lesPersonnesTireValide(idactivite:number){
   return this.Http.get(`http://localhost:8080/activite/lesPersonnes/${idactivite}`)
 }
 
+// Afficher dans reporting
+
+afficherReporting():Observable<any>{
+  return this.Http.get(`http://localhost:8080/activite/afficherDansReporting`)
+
+}
 
 
 }

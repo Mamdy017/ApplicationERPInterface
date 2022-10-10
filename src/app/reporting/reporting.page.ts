@@ -34,12 +34,18 @@ export class ReportingPage implements OnInit {
   lesEntites: any;
   lesPersonnesTirer: any;
   elementVide: any
+  affiche:any
+  reponse:any
+  select_liste: string;
+  evenement:any
+  donnees:any
 
   constructor(public breakpointObserver: BreakpointObserver,
     private serviceReporting: ReportingService,
     private serviceEntite: EntiteService,
     private alertController: AlertController,
     private animationCtrl: AnimationController,private route:Router
+    
 
   ) { }
 
@@ -72,6 +78,12 @@ export class ReportingPage implements OnInit {
           this.actualise();
         }
       });
+         // =========================================== RECURATION : Activités =======================================
+        this.serviceReporting.afficherReporting().subscribe(data =>{
+          this.affiche = data
+          console.log(this.affiche)
+
+        })
 
 
     // =========================================== RECURATION : Activités =======================================
@@ -149,6 +161,29 @@ export class ReportingPage implements OnInit {
 
     })
 
+  }
+
+  //filtre par entite
+  filtreUserParEntite(event) {
+
+    if(this.select_liste != "Filtre par Entité"){
+
+
+      console.log(event.target.value)
+
+      
+      this.evenement = event.target.value
+    
+     this.serviceReporting.filtreParEntite(this.select_liste).subscribe((data)=>{
+  
+  
+      this.donnees = data
+  
+      console.log(this.donnees)
+     })
+
+
+    }
   }
 
   // Exportation du fichier
