@@ -36,20 +36,20 @@
                   {{erreur}}
                 </div>
 
-                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
-                      <input type="text" name="nom" class="form-control" id="floatingInput" placeholder="Saisir nom" [(ngModel)]="nom" required>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating  mb-3">
+                      <input type="text" name="nom" class="form-control" id="floatingInput" placeholder="Saisir nom" [(ngModel)]="nom" [value]="nom" required>
                       <label for="floatingInput">Nom<span style="color:red ;">*</span></label>
                   </div>
                   <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
-                      <input type="text" name="prenom" class="form-control" id="floatingInput" placeholder="Saisir prenom"  [(ngModel)]="prenom" required>
+                      <input type="text" name="prenom" class="form-control" id="floatingInput" placeholder="Saisir prenom"  [(ngModel)]="prenom" [value]="prenom" required>
                       <label for="floatingInput">Prenom<span style="color:red ;">*</span></label>
                   </div>
                   <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
-                    <input type="text" name="email" class="form-control" id="floatingInput" placeholder="Saisir email" [(ngModel)]="email" required>
+                    <input type="text" name="email" class="form-control" id="floatingInput" placeholder="Saisir email" [(ngModel)]="email" [value]="email" required>
                     <label for="floatingInput">Email<span style="color:red ;">*</span></label>
                   </div>
                   <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
-                    <input type="text" name="numero" class="form-control" id="floatingInput" placeholder="Saisir numero" [(ngModel)]="numero" required>
+                    <input type="text" name="numero" class="form-control" id="floatingInput" placeholder="Saisir numero" [(ngModel)]="numero" [value]="numero" required>
                     <label for="floatingInput">Numero<span style="color:red ;">*</span></label>
                   </div>
                   <div class="col-lg-8 col-md-8 xs-6 mb-3 mt-2">
@@ -57,8 +57,6 @@
                   </div>
                   </div>
             </form>
-
-
       </div>
 
       </div>

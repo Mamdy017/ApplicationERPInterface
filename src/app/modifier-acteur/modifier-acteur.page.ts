@@ -67,7 +67,11 @@ export class ModifierActeurPage implements OnInit {
       {
         this.acteurModif = data;
 
-        console.log(this.acteurModif);
+        this.nom=this.acteurModif[0].nom;
+        this.prenom=this.acteurModif[0].prenom;
+        this.email=this.acteurModif[0].email;
+        this.numero=this.acteurModif[0].numero;
+        console.log(this.acteurModif[0].nom);
       });
   }
   resetForm(){
