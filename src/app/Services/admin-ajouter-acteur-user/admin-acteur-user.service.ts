@@ -9,15 +9,16 @@ import { Acteur } from 'src/app/Modeles/acteur/acteur';
 
 export class AdminActeurUserService {
 
-  
-  constructor(private http:HttpClient) { }
+
+  constructor(private http: HttpClient) { }
 
 // Formulaire d'ajout des Acteurs
 
-ajouterActeur(Acteur:Acteur):Observable<Object>{
+// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/no-shadow
+ajouterActeur(Acteur: Acteur, stat: string): Observable<Acteur>{
 
-  
-  return this.http.post<Object>(`http://localhost:8080/acteur/ajouter`,Acteur);
+
+  return this.http.post<Acteur>(`http://localhost:8080/acteur/ajouter/${stat}`, Acteur);
 }
 
 }

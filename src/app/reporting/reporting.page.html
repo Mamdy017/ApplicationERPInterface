@@ -143,7 +143,137 @@
           </div>
         </div>
 
+        <div class="position ">
+          <div class="mb-3 col-12 col-md-2 form-row ">
+            <select name="designation" id="designation" class="form-select form-control bi bi-filter-right ">
+              <option class="r" selected>Activité</option>
+              <option>Formation</option>
+              <option>Kalanso</option>
+              <option>Orange Fab</option>
+            </select>
+          </div>
+          <div class="mb-3 col-12 col-md-2 form-row ">
+            <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+              <option selected>Statut</option>
+              <option>Encours</option>
+              <option>Terminer</option>
+            </select>
+          </div>
+          <div class="mb-3 col-12 col-md-2 form-row ">
+            <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+              <option selected>Date</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+              <option>2025</option>
+            </select>
+          </div>
+          <div class="mb-3 col-12 col-md-2 form-row ">
+            <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+              <option selected>Entité</option>
+              <option *ngFor="let entite of lesEntites">{{entite.nom}}</option>
+
+            </select>
+          </div>
+          <div class="mb-3 col-12 col-md-2 form-row ">
+            <select name="designation" id="designation" class="form-select form-control bi bi-filter-right r">
+              <option selected>Liste</option>
+              <option>Liste1</option>
+              <option>Liste2</option>
+              <option>Liste3</option>
+              <option>Liste4</option>
+              <option>Liste5</option>
+            </select>
+          </div>
+          <form>
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search "></i> <input
+                type="text" style=" border: 0; background: transparent; font-size: 12px; " name="searchText"
+                [(ngModel)]="searchText"></button>
+          </form>
+        </div>
+        <div class="table-responsive ra py-5">
+          <table id="" class="table">
+            <thead>
+              <tr> 
+                <th scope="col" class="ra" style="text-align:center ;">Activité</th>
+                <th scope="col" style="text-align: left ;">Entité</th>
+                <th scope="col" style="text-align:left ;">Date</th>
+                <th scope="col" style="text-align:left ;">Statut</th>
+                <th scope="col" style="text-align:left ;">Actions</th>
+              </tr>
+              <!-- *ngFor=" paginate: { itemsPerPage: 5, currentPage: p}" -->
+
+              <tr
+                *ngFor="let activite of lesActivites |  filter:searchText | paginate:{ itemsPerPage: 5, currentPage: p}">
+                <td style="text-align:center ;">{{activite.nom}}</td>
+                <td style="text-align:center ;">{{activite.entite.nom}}</td>
+                <td style="text-align:center ;">{{activite.dateDebut | date }}</td>
+                <td style="text-align:center ;">{{activite.etatActivite.etat}}</td>
+                <td style="text-align:center ;" (click)="recId(activite.idactivite)" id="open-modal" expand="block"> <i
+                    class="bi bi-filetype-csv"></i></td>
+                <!-- <ion-button (click)="presentAlert(1)">Click Me</ion-button> -->
+              </tr>
+
+
+            </thead>
+          </table>
+
+          <pagination-controls (pageChange)="p = $event" class="text-center" nextLabel="Suivants"
+            previousLabel="Précédents"></pagination-controls>
+
+        </div>
       </div>
+      <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++  MODAL PERMETTANT D'AFFICHER LES PERSONNES-->
+
+      <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>
+                <ion-button (click)="exportToExcel()"> Telecharger <i class="bi bi-file-arrow-down-fill"></i>
+                </ion-button>
+              </ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()" class="btn btn-danger">Fermer</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <table id="season-tble" class="table">
+            <thead>
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Email</th>
+              <th>Numero</th>
+              <th>Genre</th>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let mesPersonnes of lesPersonnesTirer">
+                <td> {{mesPersonnes[0]}}</td>
+                <td> {{mesPersonnes[1]}}</td>
+                <td> {{mesPersonnes[2]}}</td>
+                <td> {{mesPersonnes[3]}}</td>
+                <td> {{mesPersonnes[4]}}</td>
+              </tr>
+            </tbody>
+
+            <!-- <ion-avatar slot="start">
+                          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              </ion-avatar > -->
+
+            <!-- <ion-label> <h2>{{mesPersonnes[0]}}</h2> </ion-label>
+                        <ion-label> <p>{{mesPersonnes[1]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[2]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[3]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[4]}}</p></ion-label> -->
+
+          </table>
+
+        </ng-template>
+      </ion-modal>
+
+
     </main>
   </div>
 </div>

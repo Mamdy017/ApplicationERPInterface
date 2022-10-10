@@ -3,15 +3,31 @@
     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
   }
   p{
-    text-align: center;
+    // text-align: center;
+    // font-family: 'Poppins';
+    // font-size: 24px;
+    // font-weight: bold;
     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
-    font-weight: bold;
+    line-height: 60px;
   }
   .container{
     position: relative;
     top: 20%;
+   }
+   thead{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
   }
+ .ajouter
+ {
+  color: #FFFFFF; font-weight: bold;
+ }
   .contain{
     background: #FFFFFF;
     box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.8);
@@ -21,7 +37,7 @@
   }
   .btnNouveau{
       box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
-      border-radius: 10px;
+  
       background-color: black;
       color: #FFFFFF;
   }
@@ -31,30 +47,63 @@
   }
   td a{
     text-decoration: none;
-    border: 1px solid black;
-    font-size: 14px;
-    border-radius: 10px;
+   
     
-    padding: 5px;
-    border: 1px solid #FF6600 ;
-    background-color: white;
-    color: black;
   }
+.voir{
+  text-decoration: none;
+  
+  font-size: 10px;
+ 
+  padding: 5px;
+
+  background-color: #FF6600;
+  color: white;
+  
+
+}
+
+.btn1{
+  color: white;
+  border-radius: 12px;
+  background: #000;
+  margin-left: 80%;
+
+}
+
+
+.btn1:hover{
+ background: #ff6600;
+}
   td a:hover{
     background-color: #FF6600;
     color: white;
   }
   
-  @media (max-width: 900px ) {
-    td a{
-      text-decoration: none;
-      border : 1px solid black;
-      font-size: 8px;
-      border-radius: 10px;
-      background-color: #FF6600;
-      color: white;
-      padding: 5px;
+  @media only screen and  (max-width: 767px ) {
+    // td a{
+    //   text-decoration: none;
+    //   border : 1px solid black;
+    //   font-size: 8px;
+    //   border-radius: 10px;
+    //   background-color: #FF6600;
+    //   color: white;
+    //   padding: 5px;
+    // }
+    td, th{
+      font-size: 10px;
     }
+    .btn1{
+      margin-left: 1px;
+    }
+
+  }
+  tbody{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
   }
   
   

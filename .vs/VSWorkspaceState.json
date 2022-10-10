@@ -3,8 +3,11 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\home"
+    "\\src\\app\\ajouter-participant",
+    "\\src\\app\\home",
+    "\\src\\app\\Services",
+    "\\src\\app\\Services\\accueil-admin"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\app\\ajouter-participant\\ajouter-participant.page.ts",
   "PreviewInSolutionExplorer": false
 }

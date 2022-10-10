@@ -1,75 +1,143 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" (click)="afficheMenuMobile()" data-bs-toggle="collapse" style="position:relative; top:2%; left:90%;"><i
-      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
-    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
 
-<ion-content>
- <div class="container">
-  <div class="contain">
-        <div class="row">
-        
-          <div class="col-12 col-md-3 text-center" part1>
-              <p> Statistiques</p> 
-              <div class="card">
-            
-                <div class="contenuCard text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600" class="bi bi-card-list" viewBox="0 0 16 16">
-                    <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-                    <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
-                  </svg>
-                  <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">{{totalTirage}}</p>
-                  <p>Nombres Tirages</p>
+      <ion-content>
+        <div class="container">
+          <div class="contain">
+            <div class="row">
+
+              <div class="col-12 col-md-3 text-center" part1>
+                <p> Statistiques</p>
+                <div class="card">
+
+                  <div class="contenuCard text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600"
+                      class="bi bi-card-list" viewBox="0 0 16 16">
+                      <path
+                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                      <path
+                        d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                    </svg>
+                    <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">
+                      {{totalTirage}}</p>
+                    <p>Nombres Tirages</p>
+                  </div>
                 </div>
-            </div>
 
-            </div>
+              </div>
 
-          <div class="col-12 col-md-8 text-center"  style="border-radius: 20px 20px 0px 0px;">
-            <p> La liste des tirages</p>
-            <!-- <div class="container"> -->
-            
-              <div class="table-responsive ra py-5">
+              <div class="col-12 col-md-9 text-center" style="border-radius: 20px 20px 0px 0px;">
+
+                <div class="filtre">
+
+                  <div>
+                    <p> La liste des tirages</p>
+                  </div>
+                  <!-- <div class="container"> -->
+
+                  <!-- <div>
+                    <select name="uneListe" id="liste" [(ngModel)]="uneListe" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                      <option  *ngFor="let liste of lesListes$" [ngValue]="liste.nom">{{liste.nom}} </option>
+                      <label for="liste">liste</label>
+                    </select>
+                  </div> -->
+
+
+                  <div>
+                    <select name="tirage" id="tirage" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                      <option selected>Tout</option>
+                      <option>Tirage valider</option>
+                      <option>Tirage non valider</option>
+                      <label for="tirage">Tirage</label>
+                    </select>
+                  </div>
+
+
+
+                </div>                         
+
+              <div class="table-responsive ra">
                 <table class="table" >
                   <thead style="background-color: #FF6600; color: white; border-bottom: none;">
                     <tr>
-                      <th scope="col" style="border-radius: 10px 0 0 0;">Liste</th>
-                      <th scope="col">Nombre Tiré</th>
+                      <th scope="col" style="border-radius: 10px 0 0 0;">Libelle tirage</th>
+                      <th scope="col" style="width:20% ;">Nombre Tiré</th>
                       <th scope="col">Date du tirage</th>
-                      <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
+                      <th scope="col">Activité</th>
+                      <th scope="col" style="border-radius: 0 10px 0 0;" colspan="2">Action</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr *ngFor="let liste of listeTirages">
+                  <tbody >
+                    <tr *ngFor="let liste of listeTirages | paginate: { itemsPerPage: 5, currentPage: p}">
                       <td scope="row">{{liste.libelleTirage}}</td>
                       <td scope="">{{liste.nombrePostulantTire}}</td>
                       <td>{{liste.date  | date : 'd MMMM yyyy' }}</td>
+                      <td scope="">{{liste.activite.nom}}</td>
                       <td><a [routerLink]="['/postulant-tire',liste.idtirage]" >Voir Plus</a></td>
+                      <td *ngIf="liste.validite == false" (click)="validerTirage(liste)"><a>Valider</a></td>
 
                       <!-- {{liste.idtirage}} -->
                     </tr>
-                                  
+
                   </tbody>
                 </table>
-                  <!-- <pagination-controls (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+                  <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls>
 
+                <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
               </div>
-        
-         <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
+
+            </div>
+            <!-- </div> -->
+          </div>
         </div>
-     
-     </div>
-      <!-- </div> -->
-    </div>
-</div>
-  <!-- </div> -->
-  </ion-content>
+        <!-- </div> -->
+          </div></ion-content>
 
     </main>
   </div>
 </div>
-  
+
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

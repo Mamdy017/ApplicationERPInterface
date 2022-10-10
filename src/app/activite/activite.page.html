@@ -1,102 +1,219 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar"  data-bs-toggle="collapse"  (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
-<div class="row flex-nowrap">
-  <div class="col-auto px-2" *ngIf="menuBureau" >
-    <app-menu></app-menu>
+<div class="container-fluid ">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2">
+      <app-menu></app-menu>
     </div>
-  
-    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">  
-      <div class="container py-5">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4 "></div>
-        </div>
-        <form action="" class="container1 container py-5">
-          <div class="row">
-            <div class="mb-3  col-12 col-md-12 viens2  form-row form-floating">
-              <h1 >Créer une Activité</h1>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+      <div class="container">
+
+        <!-- file, nom, description, nombrepersonnedemande, datedeb, datefin, idacteurs, idacteurInternes, libelleEntite, typeAct, libelleSalle, idresponsable, userid -->
+
+        <form delegate-handle="dashboard" [formGroup]="myFormActivite" (ngSubmit)="submitActivite()" action="" class="container1 container py-5">
+
+          <div class="mb-4 altert " style="border-radius:10px;">
+            <div>
+              <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold; text-align: center;">
+                {{erreurImpTrieFr}}</p>
+              <p *ngIf="bool_erreurImpTrieBack"
+                [ngClass]="erreurImpTrieBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                style="font-size: 1.2rem; font-weight: bold; text-align: center;">{{erreurImpTrieBack.contenu}}</p>
             </div>
+
           </div>
           <div class="row">
-            <div class="mb-3 col-12 col-md-12 viens  form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Titre:</label>
+            <div class="mb-3  col-12 col-md-12 viens2  form-row form-floating">
+              <h1>Créer une Activité</h1>
             </div>
+          </div>
+
+          <div class="row">
+            <div class="mb-3 col-12 col-md-6 viens  form-row form-floating">
+              <input type="text" id="name" formControlName="nom" placeholder="Nom" class="form form-control inputvalue">
+              <label for="name">Titre: <span style="color: red;">*</span> </label>
+            </div>
+
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Entité:</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Lieu:</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Date début:</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Date fin:</label>
-            </div>
-            <div class="mb-5 col-12 viens1 form-row form-floating" >
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              <label for="name">Description:</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Type d'activité:</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
-                  <option selected> --- salle ---</option>
-                  <option> salle 1</option>
-                  <option> salle 2</option>
-                  <option> salle 3</option>
-                  <label >salle</label>
+              <select id="sexe" class="form-select form-control inputvalue" formControlName="libelleSalle"
+                [(ngModel)]="libelleSalle">
+                <option selected disabled> --- salle ---</option>
+                <option *ngFor="let salle of salles$" [(ngValue)]="salle.nom">{{salle.nom}}</option>
               </select>
+              <label for="salle">Salle</label>
             </div>
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
-                  <option selected> --- Acteur interne ---</option>
-                  <option> Diaraba</option>
-                  <option> Mamady</option>
-                  <option> Adama</option>
-                  <label >Acteur interne</label>
+              <select id="sexe" formControlName="libelleEntite" class="form-select form-control inputvalue"
+                [(ngModel)]="libelleEntite">
+                <option selected> --- entites ---</option>
+                <option *ngFor="let entite of entites$">{{entite.nom}}</option>
               </select>
+              <label for="entity">Entité<span style="color: red;">*</span></label>
             </div>
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
-                  <option selected> --- Acteur externe ---</option>
-                  <option> Diarra</option>
-                  <option> Camara</option>
-                  <option> Coulibaly</option>
-                  <label >Acteur externe</label>
+              <input type="date" formControlName="datedeb" id="name" placeholder="yyy/mm/dd"
+                class="form form-control inputvalue">
+              <label for="name">Date début: <span style="color: red;">*</span></label>
+            </div>
+
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <input type="date" formControlName="datefin" id="name" placeholder="Nom"
+                class="form form-control inputvalue">
+              <label for="name">Date fin: <span style="color: red;">*</span></label>
+            </div>
+
+            <div class="mb-5 col-12 viens1 form-row form-floating">
+              <textarea class="form-control" formControlName="description" id="exampleFormControlTextarea1"
+                rows="3"></textarea>
+              <label for="name">Description: <span style="color: red;">*</span></label>
+            </div>
+
+            <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              <select id="sexe" formControlName="typeAct" class="form-select form-control inputvalue"
+                [(ngModel)]="typeAct">
+                <option selected disabled> --- Type activité ---</option>
+                <option *ngFor="let typeActivite of typeActivites$" [(ngValue)]="typeActivite.typeActivite">
+                  {{typeActivite.typeActivite}}</option>
               </select>
+              <label for="activity">Type activité<span style="color: red;">*</span></label>
             </div>
-            
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control inputvalue" >
-                  <option selected> --- Responsable ---</option>
-                  <option> Aly</option>
-                  <option> Sy</option>
-                  <option> Aziz</option>
-                  <label>Responsable</label>
+              <select id="sexe" class="form-select form-control inputvalue" formControlName="idresponsable"
+                [(ngModel)]="idresponsable">
+                <option selected disabled> --- Responsable ---</option>
+                <option *ngFor="let respon of respons$" [(ngValue)]="respon.iduser">{{respon.nom}}</option>
               </select>
+              <label>Responsable<span style="color: red;">*</span></label>
             </div>
+
+            <div class="mb-3 col-12 col-md-12 row form-row form-floating">
+
+              <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs Internes</P>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"
+                  placeholder="Fornateurs">
+                  <ion-select-option selected disabled>Fornateurs</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Fornateurs</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesLead" [multiple]="true" formControlName="idacteurInternesLead"
+                  placeholder="Lead">
+                  <ion-select-option selected disabled>Lead</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Lead</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesInterv" [multiple]="true" formControlName="idacteurInternesInterv"
+                  placeholder="Intervenants">
+                  <ion-select-option selected disabled>Intervenants</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Intervenants</label>
+              </div>
+
+              
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
+                  [(ngModel)]="idacteurInternesOrg" [multiple]="true" formControlName="idacteurInternesOrg"
+                  placeholder="Organisateurs">
+                  <ion-select-option selected disabled>Organisateurs</ion-select-option>
+                  <ion-select-option *ngFor="let user of users$" [value]="user.iduser"> {{user.nom}} </ion-select-option>
+                </ion-select>
+                <label>Organisateurs</label>
+              </div>
+
+            </div>
+
+            <div class="mb-3 col-12 col-md-12 row form-row form-floating">
+
+              <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs externes</P>
+              
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs"
+                  [(ngModel)]="idacteurs" [multiple]="true" placeholder="Formateurs">
+                  <ion-select-option selected disabled>Formateurs</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Formateurs</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursLead"
+                  [(ngModel)]="idacteursLead" [multiple]="true" placeholder="Lead">
+                  <ion-select-option selected disabled>Lead</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Lead</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursInterv"
+                  [(ngModel)]="idacteursInterv" [multiple]="true" placeholder="Intervenants">
+                  <ion-select-option selected disabled>Intervenants</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Intervenants</label>
+              </div>
+
+              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+                <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurInternesOrg"
+                  [(ngModel)]="idacteursOrg" [multiple]="true" placeholder="Organisateurs">
+                  <ion-select-option selected disabled>Organisateurs</ion-select-option>
+                  <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
+                  </ion-select-option>
+                </ion-select>
+                <label>Organisateurs</label>
+              </div>
+            </div>
+
+
+
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="number" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Objectif participant</label>
+              <input type="number" id="name" formControlName="nombrepersonnedemande" placeholder="Nom"
+                class="form form-control inputvalue">
+              <label for="name">Objectif Visé</label>
             </div>
+
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="file" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
-              <label for="name">Image</label>
+              <input type="file" formControlName="file" (change)="onFileChangeActivite($event)" placeholder="Nom"
+                class="form form-control inputvalue">
+              <label for="name">Image<span style="color: red;">*</span></label>
             </div>
+
             <div class="row">
-              <div class="col-6">
+              <div class="col-4">
                 <button class="btn b1">Créer</button>
               </div>
-              <div class="col-6">
-              <button class="btn b2 ">Ajouter acteur</button>
+              <div class="col-4">
+                <a href="admin-ajouter-acteur-user"> <p class="btn b2 ">Ajouter acteur</p> </a>
+              </div>
+              <div class="col-4">
+                <a href="ajouter-tache"> <p class="btn b2 ">Ajouter tache</p> </a>
               </div>
             </div>
           </div>
@@ -105,5 +222,5 @@
         </div>
       </div>
     </main>
-</div>
+  </div>
 </div>

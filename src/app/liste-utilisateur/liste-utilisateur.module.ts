@@ -8,13 +8,17 @@ import { ListeUtilisateurPageRoutingModule } from './liste-utilisateur-routing.m
 
 import { ListeUtilisateurPage } from './liste-utilisateur.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeUtilisateurPageRoutingModule
+    ListeUtilisateurPageRoutingModule, 
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListeUtilisateurPage,MenuComponent]
 })

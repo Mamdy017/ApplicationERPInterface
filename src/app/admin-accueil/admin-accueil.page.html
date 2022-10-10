@@ -1,6 +1,23 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+
+
+  </style>
+
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -20,13 +37,9 @@
                 <i class="bi bi-filter Filtree mx-3 pt-2"></i>
                 <div class="iputFilter">
                   <select name="designation" id="designation" class="form-select form-control bi bi-filter-right">
-                    <option selected>Filtré par An</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
-                    <option>2017</option>
+                    <option selected>Filtrer par An</option>
+                    <!-- <option>*ngFor="let annees of afficheAnnee" [ngValue]={{annees[0]}}> {{annees[0]}}</option> -->
+
                   </select>
                 </div>
               </div>
@@ -34,67 +47,209 @@
           </div>
           <section class="row gy-3 py-3">
             <div class="cardHome col-6 col-md-4 pt-3">
-              <div class="contourCard">
-                <span class="iconTop"><i class="bi bi-person-plus-fill iconns"></i></span>
-                <p class="pcardHome pt-3">{{apprenantsTotal}}</p>
-                <p class="txtcardHome">Apprenants</p>
-              </div>
+              <a>
+                <div class="contourCard ">
+                  <img src="../../assets/images/Iconformation.png" alt="photo apprenant" class="iconSize  ">
+                  <p class="pcardHome pt-4">{{apprenantsTotal}}</p>
+                  <p class="txtcardHome ">Apprenants</p>
+                </div>
+              </a>
             </div>
+
             <div class="cardHome col-6 col-md-4 pt-3">
-              <div class="contourCard">
-                <span class="iconTop"><i class="bi bi-person-plus-fill iconns"></i></span>
-                <p class="pcardHome pt-3">{{nbre}}</p>
-                <p class="txtcardHome">Utilisateurs</p>
-              </div>
+              <a href="#/liste-utilisateur">
+                <div class="contourCard" style="cursor: pointer;">
+                  <span class="iconTop"><i class="bi bi-person-plus-fill iconns"></i></span>
+                  <p class="pcardHome pt-3">{{nbre}}</p>
+                  <p class="txtcardHome">Utilisateurs</p>
+                </div>
+              </a>
             </div>
+
             <div class="cardHome col-12 col-md-4 pt-3">
-              <div class="contourCard">
-                <span class="iconTop"><i class="bi bi-person-plus-fill iconns"></i></span>
-                <p class="pcardHome pt-3">{{participantTotal}}</p>
-                <p class="txtcardHome">Participants</p>
-              </div>
+              <a href="#/liste-utilisateur">
+                <div class="contourCard">
+                  <img src="../../assets/images/IconParticipant.png" alt="photo participant " class="iconSize">
+                  <p class="pcardHome pt-4">{{participantTotal}}</p>
+                  <p class="txtcardHome">Participants</p>
+                </div>
+              </a>
             </div>
+
           </section>
 
           <!-- deuxième partie-->
           <div class="row">
-            <h2>Les entités d'orange</h2>
+            <h2>Les entités d'Orange Digital Center</h2>
             <div class="col-12 col-md-4">
               <div class="row">
-                <div class="cardHome col-6 col-md-6 py-3">
-                  <div class="contourCard p-2">
-                    <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">Orange Ventures</p>
-                  </div>
-                </div>
-                <div class="cardHome col-6 col-md-6 py-3">
-                  <div class="contourCard p-2">
-                    <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">Orange Fab</p>
-                  </div>
-                </div>
-              </div>
-              <div class="row py-3">
-                <div class="cardHome col-6 col-md-6 py-3">
-                  <div class="contourCard p-2">
-                    <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">FabLab Solidaire</p>
-                  </div>
-                </div>
-                <div class="cardHome col-6 col-md-6 py-3">
-                  <div class="contourCard p-2">
-                    <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
-                    <p class="txtcardbottom">Kalanso</p>
-                  </div>
+                <div class="cardHome col-6 col-md-6 py-3" *ngFor="let entites of afficherEntiteAdmin">
+                  <a href="accueil-entite/{{entites[0]}}">
+                    <div class="contourCard p-2" style="cursor: pointer;">
+                      <p class="text-center"><i class="bi bi-person-workspace iconBas"></i></p>
+                      <p class="txtcardbottom">{{entites[1]}}</p>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
             <div class="col-12 col-md-8">
+              <small>L'alignement vertical répresente le nombre d'activités par mois </small>
               <canvas #barCanvas style="position: relative; height: 10vh; width: 10vw;"></canvas>
+              <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
             </div>
           </div>
+          <!-- Footer -->
+          <footer class="page-footer font-small indigo">
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">Very long link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!">Very long link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!">Very long link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!">Very long link 4</a>
+                    </li>
+                  </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 4</a>
+                    </li>
+                  </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 4</a>
+                    </li>
+                  </ul>
+
+                </div>
+                <!-- Grid column -->
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+
+                  <!-- Links -->
+                  <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                      <a href="#!">Link 4</a>
+                    </li>
+                  </ul>
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+
+            </div>
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+              <a href="/"> MDBootstrap.com</a>
+            </div>
+            <!-- Copyright -->
+
+          </footer>
+          <!-- Footer -->
         </main>
       </ion-content>
     </main>
   </div>
 </div>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>
