@@ -139,7 +139,7 @@ const routes: Routes = [
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
-    path: 'details-activite/:details-activite',
+    path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
   {

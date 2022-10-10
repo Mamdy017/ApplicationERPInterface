@@ -57,6 +57,7 @@ export class ActivitePage implements OnInit {
     description: "",
     dateDebut: new Date(),
     dateFin: new Date(),
+  photoactivite: "",
   nombrepersonnedemande:0
 
   }

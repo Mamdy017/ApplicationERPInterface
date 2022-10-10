@@ -18,46 +18,16 @@
                 <div class="trait"></div>
                 <p class="text-center">Merci de visionner nos activités récentes</p>
 
-                <div class="row py-3 ps-3 ContourArticle m-3">
+                <div class="row py-3 ps-3 ContourArticle m-3" *ngFor="let activite of activiteEncours">
                   <div class="col-12 col-md-6 p-2">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                  </div>
+                    <img src="../../assets/images/{{activite.photoactivite}}" alt="image de formation " class="img-fluid rounded">
+                  </div>  
                   <div class="col-12 col-md-6">
                     <div class="me-3">
-                      <h1 class="h5"><b>Formation Kalanso</b></h1>
-                      <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers du numérique...
+                      <h1 class="h5"><b>{{activite.nom}}</b></h1>
+                      <p class="textArticle"> 
+                        {{activite.description}}
                       </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                      <button class="btn btnReadMore">Savoir Plus</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row py-3 ps-3 ContourArticle m-3">
-                  <div class="col-12 col-md-6 p-2">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="me-3">
-                      <h1 class="h5"><b>Formation Kalanso</b></h1>
-                      <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers du numérique... </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                      <button class="btn btnReadMore">Savoir Plus</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row py-3 ps-3 ContourArticle m-3">
-                  <div class="col-12 col-md-6 p-2">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="me-3">
-                      <h1 class="h5"><b>Formation Kalanso</b></h1>
-                      <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers du numérique... </p>
                       <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
                       <button class="btn btnReadMore">Savoir Plus</button>
                     </div>
@@ -126,7 +96,7 @@
 
               <div class="col-12 col-md-2"></div>
 
-              <div class="col-12 col-ms-12 col-md-8">
+              <div class="col-12 col-ms-12 col-md-8" >
                 <div class="cardContour my-3 py-2">
                   <h1 class="h3 text-center pt-3 display-6">Activités terminées</h1>
                   <div class="trait"></div>
@@ -140,7 +110,7 @@
                       <div>
                         <h1 class="h5"><b>Formation Kalanso</b></h1>
                         <p class="textArticle">
-                          Orange Digital Kalanso est la première école de formation aux métiers du numérique... </p>
+                          Orange Digital Kalanso est la première école  </p>
                         <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
                         <button class="btn btnReadMore">Savoir Plus</button>
                       </div>

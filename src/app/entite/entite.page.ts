@@ -17,12 +17,11 @@ export class EntitePage implements OnInit {
 // }
 
   entiteobjet: Entite = {
-
     idEntite: 0,
     nom: '',
     description: '',
-    slogant: ''
-
+    slogant: '',
+    photoentite: ''
   }
 
   photo$!: Observable<any>;

@@ -61,6 +61,7 @@ export class AccueilEntitePage implements OnInit {
         }
       });
       
+      console.log("uuuuuuuuuuuuuuu  " + this.nombre_formation)
       this.serviceEntite.nombreFormation(id).subscribe(data => {
         this.nombre_formation = data;
       });

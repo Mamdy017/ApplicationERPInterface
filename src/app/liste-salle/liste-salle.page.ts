@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Salle } from '../modeles/salle/salle';
 import { SalleService } from '../services/salle';
 
 @Component({
@@ -8,9 +9,10 @@ import { SalleService } from '../services/salle';
   styleUrls: ['./liste-salle.page.scss'],
 })
 export class ListeSallePage implements OnInit {
-
+  salleFiltre: string;
+  salleParDispo : Salle[] = [];
   p=1;
-  maListes: any;
+  maListes: Salle[];
   menuBureau= true;
   menuMobile= false;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver) { }
@@ -37,8 +39,8 @@ export class ListeSallePage implements OnInit {
 
     this.serviceSalle.afficherToutesLesSalles().subscribe(data =>{
       this.maListes = data;
-
-      console.log('ma listes = '+this.maListes);
+      this.salleParDispo = data;
+      console.table(this.maListes);
     });
 
 
@@ -48,4 +50,21 @@ export class ListeSallePage implements OnInit {
     this.menuMobile = false;
   }
 
+  filtreSalle(event: Event){
+    const valeur = (event.target as HTMLSelectElement).value
+    if(valeur == "Disponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite==true);
+      console.table(this.salleParDispo)
+    }
+    if(valeur == "Indisponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite !== true);
+      console.table(this.salleParDispo)
+    }
+   if(valeur == "Tout"){
+      this.salleParDispo = this.maListes;
+      console.table(this.salleParDispo)
+    // }
+
+    }
+  }
 }

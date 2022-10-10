@@ -1,5 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Activite } from '../modeles/activite/activite';
+import { GestionentiteService } from '../Services/gestionentite/gestionentite.service';
 
 @Component({
   selector: 'app-details-activite',
@@ -7,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details-activite.page.scss'],
 })
 export class DetailsActivitePage implements OnInit {
-
+  activiteAvenir : Activite[];
+  existeAvenir : boolean = true;
+  existeEncours : boolean = true;
+  activiteEncours : Activite[];
+  activiteTerminer : Activite[];
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  constructor(public breakpointObserver: BreakpointObserver) { }
+  constructor(public breakpointObserver: BreakpointObserver, private serviceActivite : GestionentiteService) { }
 
   actualise(): void {
     setInterval(
@@ -31,6 +38,26 @@ export class DetailsActivitePage implements OnInit {
           this.actualise();
         }
       });
+
+      this.serviceActivite.globalActiviteEnCours().subscribe(data => {
+        this.activiteEncours = data;
+        if(this.activiteEncours.length == 0){
+          this.existeEncours = false;
+        }
+        console.table("ururrrrrrrrrrrrrrrrrrr    " + this.existeEncours + "   rrrrrrrrrrrrrrrrrr")
+      })
+      this.serviceActivite.globalActiviteAvenir().subscribe(data => {
+        this.activiteAvenir = data;
+        if(this.activiteAvenir.length == 0){
+          this.existeAvenir = false;
+        }
+        console.table("ururrrrrrrrrrrrrrrrrrr    " + this.existeAvenir + "   rrrrrrrrrrrrrrrrrr")
+
+      })
+      this.serviceActivite.globalActiviteAvenir().subscribe(data => {
+        this.activiteEncours = data;
+      })
+
   }
   afficheMenuMobile() {
     this.menuBureau = true;

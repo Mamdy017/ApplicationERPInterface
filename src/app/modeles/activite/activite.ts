@@ -10,8 +10,9 @@ export class Activite {
   description!: string;
   dateDebut!: Date;
   dateFin!: Date;
-  // acteur!: Acteur;
   nombrepersonnedemande!:number;
+  photoactivite: string; 
+  // acteur!: Acteur;
   // typeActivite!: TypeActivite;
   // utilisateur!: Utilisateur;
   // salle!: Salle;
