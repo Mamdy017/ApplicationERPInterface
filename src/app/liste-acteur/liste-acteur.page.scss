@@ -1,4 +1,6 @@
-
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .row{
   box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
   border-radius: 20px;
@@ -77,7 +79,7 @@ justify-content: space-around;
 //   100%{
 //     transform: scale(1);
 //   }
-// } 
+// }
 
 @media screen and (max-width:768px) {
 .position{
