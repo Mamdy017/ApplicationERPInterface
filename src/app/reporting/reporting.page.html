@@ -85,15 +85,13 @@
                 <th scope="col" style="text-align:left ;">Statut</th>
                 <th scope="col" style="text-align:left ;">Actions</th>
               </tr>
-              <!-- *ngFor=" paginate: { itemsPerPage: 5, currentPage: p}" -->
-
-              <tr
-                *ngFor="let activite of lesActivites |  filter:searchText | paginate:{ itemsPerPage: 5, currentPage: p}">
+            
+              <tr *ngFor="let activite of lesActivites |  filter:searchText | paginate:{ itemsPerPage: 5, currentPage: p}">
                 <td style="text-align:center ;">{{activite.nom}}</td>
-                <td style="text-align:center ;">{{activite.entite.nom}}</td>
-                <td style="text-align:center ;">{{activite.dateDebut | date }}</td>
-                <td style="text-align:center ;">{{activite.etatActivite.etat}}</td>
-                <td style="text-align:center ;" (click)="recId(activite.idactivite)" id="open-modal" expand="block"> <i
+                <!-- <td style="text-align:center ;">{{activite.entite.nom}}</td> -->
+                <td style="text-align:center ;">{{activite.date_debut | date }}</td>
+                <!-- <td style="text-align:center ;">{{activite.etatActivite.etat}}</td> -->
+                <td style="text-align:center ;" (click)="recId(activite.idactivite)"> <i
                     class="bi bi-filetype-csv"></i></td>
                 <!-- <ion-button (click)="presentAlert(1)">Click Me</ion-button> -->
               </tr>
@@ -107,9 +105,47 @@
 
         </div>
       </div>
+
+
+
+
+      <!-- <table id="season-tble" class="table">
+        <thead>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Email</th>
+          <th>Numero</th>
+          <th>Genre</th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let mesPersonnes of lesPersonnesTirer">
+            <td> {{mesPersonnes[0]}}</td>
+            <td> {{mesPersonnes[1]}}</td>
+            <td> {{mesPersonnes[2]}}</td>
+            <td> {{mesPersonnes[3]}}</td>
+            <td> {{mesPersonnes[4]}}</td>
+          </tr>
+        </tbody>
+
+    
+
+      </table> -->
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++  MODAL PERMETTANT D'AFFICHER LES PERSONNES-->
 
-      <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+      <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation" >
         <ng-template>
           <ion-header>
             <ion-toolbar>
@@ -141,15 +177,7 @@
               </tr>
             </tbody>
 
-            <!-- <ion-avatar slot="start">
-                          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-              </ion-avatar > -->
-
-            <!-- <ion-label> <h2>{{mesPersonnes[0]}}</h2> </ion-label>
-                        <ion-label> <p>{{mesPersonnes[1]}}</p></ion-label>
-                        <ion-label> <p>{{mesPersonnes[2]}}</p></ion-label>
-                        <ion-label> <p>{{mesPersonnes[3]}}</p></ion-label>
-                        <ion-label> <p>{{mesPersonnes[4]}}</p></ion-label> -->
+        
 
           </table>
 

@@ -86,6 +86,7 @@ export class ReportingPage implements OnInit {
     })
 
   }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
@@ -128,7 +129,9 @@ export class ReportingPage implements OnInit {
 
       console.log("============ " + this.lesPersonnesTirer[0])
 
-      if (this.lesPersonnesTirer[0] == undefined) {
+      
+
+      if (this.lesPersonnesTirer[0] === undefined) {
         // alert("Cette activité n'as pas de tirage validé")
 
         const alert = await this.alertController.create({
@@ -139,7 +142,10 @@ export class ReportingPage implements OnInit {
         });
 
         await alert.present();
+
+        
       }
+
 
     })
 

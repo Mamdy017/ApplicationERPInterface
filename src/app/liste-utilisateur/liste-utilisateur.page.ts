@@ -6,6 +6,7 @@ import * as XLSX from 'xlsx';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 import { Router } from '@angular/router';
 import { GestionentiteService } from '../Services/gestionentite/gestionentite.service';
+import { Entite } from '../modeles/entite';
 
 @Component({
   selector: 'app-liste-utilisateur',
@@ -40,8 +41,9 @@ export class ListeUtilisateurPage implements OnInit {
   donnees!: any
   user: Utilisateur
   ev: any;
-  ods: Utilisateur[];
+  ods: any
   reponse: any;
+  entite:Entite
   constructor(private serviceUtilisateur: ListeActeurService, private serveiceUtilisateur: ListeUserService,
     public breakpointObserver: BreakpointObserver, private route: Router, private servicelisteutilisateur: ListeUserService,
     private serviceEntite: GestionentiteService) { }
