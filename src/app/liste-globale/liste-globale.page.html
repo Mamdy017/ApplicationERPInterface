@@ -46,55 +46,143 @@
 
               </div>
 
-              
+
+              <!-- <div class="container"> -->
+
+              <div class="col-12 col-md-9 text-center" style="border-radius: 20px 20px 0px 0px;">
+                <p> Toutes les listes </p>
                 <!-- <div class="container"> -->
 
-          <div class="col-12 col-md-9 text-center"  style="border-radius: 20px 20px 0px 0px;">
-            <p> Toutes les listes </p>
-            <!-- <div class="container"> -->
-            
-              <div class="table-responsive ra">
-                <table class="table" >
-                  <thead style="background-color: #FF6600; color: white; border-bottom: none;">
-                    <tr>
-                      <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
-                      <th scope="col " style=" width:30%;">Nombre de Tirage</th>
-                      <th scope="col">Activité</th>
-                      <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let liste of mesListe | paginate:{ itemsPerPage:3,currentPage:p}">
-                      <td scope="row">{{liste.libelleliste}}</td>
-                      <td scope="">{{liste.nombretirage}}</td>
-                      <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a></td>
-                      <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
+                <div class="table-responsive ra">
+                  <table class="table">
+                    <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                      <tr>
+                        <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
+                        <th scope="col " style=" width:30%;">Nombre de Tirage</th>
+                        <th scope="col">Activité</th>
+                        <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let liste of mesListe | paginate:{ itemsPerPage:3,currentPage:p}">
+                        <td scope="row">{{liste.libelleliste}}</td>
+                        <td scope="">{{liste.nombretirage}}</td>
+                        <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a>
+                        </td>
+                        <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]">Voir Plus</a></td>
 
-                    </tr>
-                                  
-                  </tbody>
-                </table>
+                      </tr>
 
-                   
+                    </tbody>
+                  </table>
+
+
                   <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
 
-                   <div class="row"> 
-                      <div class="col-4 btn-left">
-                        <button class="btn" onclick="formulaireImporter()">Importer une liste</button>
-                      </div>
-                      <div class="col-4 btn-right">
-                        <a href="ajouter-postulant"> <button class="btn ">Ajouter Postulant</button></a> 
-                      </div>
+                  <div class="row">
+                    <div class="col-4 btn-left">
+                      <button class="btn" onclick="formulaireImporter()" id="open-modal" expand="block">Importer une liste</button>
+                    </div>
+                    <div class="col-4 btn-right">
+                      <a href="ajouter-postulant"> <button class="btn ">Ajouter Postulant</button></a>
+                    </div>
                   </div>
                 </div>
 
                 <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->
               </div>
-        
+
+            </div>
+
+          </div>
         </div>
-     
-     </div>
-    </div>
+      </ion-content>
+    </main>
+  </div>
+<!-- ====================================================  ICI MON MODAL ============================================================= -->
+
+<ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          <h2>Importer un fichier ici</h2>
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()" class="btn btn-danger">Fermer</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ng-form>
+      
+        <form [formGroup]="myForm" (ngSubmit)="submit()">
+
+          <div class="mb-4 altert " style="border-radius:10px;">
+            <div>
+              <p *ngIf="bool_erreurImpFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
+                {{erreurImpFr}}</p>
+              <p *ngIf="bool_erreurImpBack"
+                [ngClass]="erreurImpBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                style="font-size: 1.2rem; font-weight: bold;">{{erreurImpBack.contenu}}</p>
+            </div>
+          </div>
+
+            <label>Libelle de la liste</label>
+            <input type="text" name="libelleListe" class="form-control col-6">
+
+            <label>Choisir une activité</label>
+            <input type="text" name="libelleActivite" class="form-control col-6">
+
+            <label>Choisir un fichier</label>
+            <input type="file" name="file" class="form-control col-6">
+
+
+          <button class="btn bg-orange">Importer</button>
+
+        </form>
+
+    </ng-form>
+
+
+
+  </ng-template>
+</ion-modal>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

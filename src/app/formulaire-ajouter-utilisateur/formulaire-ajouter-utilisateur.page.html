@@ -73,7 +73,7 @@
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
                       <input type="password" name="passe1_utilisateur" id="num" [(ngModel)]="passe1_utilisateur"
                         placeholder="mot de passe" class="form form-control inputvalue">
-                      <label for="passe1_utilisateur">Passe </label>
+                      <label for="passe1_utilisateur">Mot de passe</label>
                     </div>
 
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
@@ -84,7 +84,7 @@
 
                     <div class="mb-4 col-12 col-md-6 form-row form-floating">
                       <select name="ID_ENTITE" id="ID_ENTITE" class="form-select form-control" [(ngModel)]="ID_ENTITE">
-                        <option selected>Entité</option>
+                        <option selected>Choisir une entité</option>
                         <option *ngFor="let entite of mesEntites" value="{{entite.idEntite}}"> {{entite.nom}}</option>
                         <label for="entite">Enitite </label>
 
