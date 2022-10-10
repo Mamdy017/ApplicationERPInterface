@@ -11,7 +11,7 @@ export class ActiviteService {
   api="http://localhost:8080";
 
   constructor(private http: HttpClient) { }
-
+// ==========================RECUPERATION DES ACTIVITES===================================
   recupererListeActivite():Observable<any>{
     return this.http.get(`${this.api}/activite/afficher`);
   }
