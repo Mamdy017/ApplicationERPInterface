@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { PostulantTire } from '../modeles/postulant-tire/postulant-tire';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
 import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 
@@ -35,7 +36,7 @@ export class PostulantTirePage implements OnInit {
   lesPersonnesTirees: any;
 
   page: number = 1
-
+  PostulantTire:PostulantTire[]
   nombre_homme: number = 0;
   nombre_femme: number = 0;
   genre: any

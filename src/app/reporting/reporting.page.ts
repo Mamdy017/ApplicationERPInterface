@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class ReportingPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-  p: 1
+  p:number=1
 
   // /==============================================================================SESSION==========
   iduser: any;

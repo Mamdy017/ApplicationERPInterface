@@ -4,7 +4,14 @@
 table {
   overflow: scroll;
 
-}
+.ro{
+    box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
+    border-radius: 20px;
+  }
+//   input { outline-style:none; } 
+//   .btnAjouter{
+// =======
+// }
 
 .ro {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
@@ -65,40 +72,37 @@ input {
   border: 2px solid #FF6600;
   width: 150px;
   border-radius: 20px;
-  margin-left: -50px;
+  margin-left: -5px;
   margin-right: auto;
   margin-bottom: 30px;
 }
 
-.trait1 {
-  border: 2px solid #FF6600;
-  width: 250px;
-  background-color: #FF6600;
-  color: #FFFFFF;
-  border-radius: 0 20px 20px 0;
-  margin-left: 6px;
-  margin-right: auto;
-  margin-bottom: 30px;
-  height: 60px;
-  font-size: 40px;
+  .trait1{
+    border: 2px solid #FF6600;
+    width: 250px;  
+    background-color: #FF6600;
+    color: #FFFFFF;
+    border-radius: 0 20px 20px 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    height:60px;
+    font-size: 40px;
 
-}
-
-h1 {
-  margin-left: -90%;
-}
-
-.r {
-  // background-color: #FF6600;
-  color: #000000;
-  text-align: center;
-}
-
-i {
-  color: #FF6600;
-}
-
-th {
+    }
+    h1{
+        margin-left: -18%;
+        font-size: 45px;
+    }
+    .r{
+        background-color: #FF6600;
+        color: #FFFFFF;
+        text-align: center;
+    }
+  i{
+  color:#FF6600;
+  }
+  th{
   background-color: #FF6600;
   color: white;
 }
@@ -121,4 +125,5 @@ p {
 
 main {
   overflow: scroll;
+}
 }

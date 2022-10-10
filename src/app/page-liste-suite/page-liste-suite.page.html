@@ -48,6 +48,8 @@
 
               </tbody>
             </table>
+            <h2 class="text-center" *ngIf="!Tirage">Aucun tirage dans la base de donnée</h2>
+
             <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
             </pagination-controls>
 

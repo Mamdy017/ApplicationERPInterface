@@ -1,9 +1,12 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ListePostulant } from '../modeles/liste-postulant/liste-postulant';
+import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ListePostulantService } from '../Services/liste-postulant.service';
-
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostulantTire } from '../modeles/postulant-tire/postulant-tire';
 @Component({
   selector: 'app-liste-globale',
   templateUrl: './liste-globale.page.html',
@@ -25,21 +28,47 @@ export class ListeGlobalePage implements OnInit {
 
 
   p =1;
+
+  closeResult:string;
   
   menuBureau = true;
   menuMobile = false;
-  constructor(private serviceListe: ListePostulantService, public breakpointObserver: BreakpointObserver,private route:Router) { }
-
+  constructor(private serviceListe: ListePostulantService,
+     public breakpointObserver: BreakpointObserver,
+     private http: HttpClient,
+     private modalService: NgbModal,
+     private route: Router ) { }
+//importation
+bool_erreurImpFr: boolean;
+bool_erreurImpBack: boolean;
+erreurImpFr: string;
+erreurImpBack: string;
+libelleTirage: ""
+  nombrePostulantTire: number
+  libelleActivite: ""
+  libelleListe: ""
+  libelleListet: ""
+  bool_erreur: boolean = false;
+  bool_erreurImp: boolean = false;
+  activitesSansListes$:any;
+  
+  formmodule!: FormGroup;
 
   listeTotal: any
   mesListe: any
   page:number=1;
+
+
+ Postulants:PostulantTire[]
+
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
   ngOnInit() {
+
+   
 
     // ===========================================================================SESSION VALEURS================================================
 this.iduser =  sessionStorage.getItem("id_users");
@@ -86,5 +115,117 @@ this.numero_users = sessionStorage.getItem("numero_users");
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
     }
+
+    // ===========================================================================Popup Formulaire importer une liste================================================
+
+    open(content) {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+    
+    private getDismissReason(reason: any): string {
+      if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+      } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+      } else {
+        return `with: ${reason}`;
+      }
+    }
+    
+  //importation de  fichier
+
+  actualiseApresImp(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
+
+  resetImportForm() {
+    this.libelleListe = "",
+      this.libelleActivite = "",
+      this.nombrePostulantTire = null
+  }
+
+
+  myForm = new FormGroup({
+
+    libelleListe: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    libelleActivite: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    file: new FormControl('', [Validators.required]),
+
+    fileSource: new FormControl('', [Validators.required])
+
+  });
+
+
+
+  get f() {
+
+    return this.myForm.controls;
+
+  }
+
+  onFileChange(event) {
+
+    if (event.target.files.length > 0) {
+
+      const file = event.target.files[0];
+
+      this.myForm.patchValue({
+
+        fileSource: file
+
+      });
+
+    }
+
+  }
+
+  submit() {
+
+    const formData = new FormData();
+
+    formData.append('file', this.myForm.get('fileSource').value);
+
+
+    //console.log(`http://localhost:8080/postulant/import/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+
+
+    if (this.myForm.get('libelleListe').value.length > 0 && this.myForm.get('libelleActivite').value.length > 0 && formData != null) {
+      this.http.post<any>(`http://localhost:8080/postulant/import/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
+
+        .subscribe(res => {
+
+          this.erreurImpBack = res;
+
+          console.log(res.status);
+
+          if (res.status == true) {
+            this.route.navigateByUrl("/")
+            this.actualise();
+          } else {
+            this.bool_erreurImpFr = false;
+            this.bool_erreurImpBack = true;
+          }
+
+          console.log(res);
+
+
+
+        })
+
+    } else {
+      this.bool_erreurImpFr = true;
+      this.bool_erreurImpBack = false;
+      this.erreurImpFr = "veuillez remplir tous les champs";
+    }
+
+
+  }
+
 
 }

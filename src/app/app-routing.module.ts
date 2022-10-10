@@ -1,4 +1,5 @@
 
+
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -146,6 +147,7 @@ const routes: Routes = [
     // :details-activite
     path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
+
   },
   {
     path: 'entite',
@@ -160,6 +162,7 @@ const routes: Routes = [
     loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
   },
 
+
 ];
 @NgModule({
   imports: [
@@ -168,9 +171,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-
-
-
 
