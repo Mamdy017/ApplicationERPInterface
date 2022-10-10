@@ -1,7 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ListePostulantService } from '../Services/liste-postulant.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
