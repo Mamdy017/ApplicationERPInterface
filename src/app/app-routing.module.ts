@@ -146,6 +146,19 @@ const routes: Routes = [
     path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
+  {
+    path: 'reinitialiser-code',
+    loadChildren: () => import('./reinitialiser-code/reinitialiser-code.module').then( m => m.ReinitialiserCodePageModule)
+  },  {
+    path: 'code-de-confirmation',
+    loadChildren: () => import('./code-de-confirmation/code-de-confirmation.module').then( m => m.CodeDeConfirmationPageModule)
+  },
+  {
+    path: 'modification-code',
+    loadChildren: () => import('./modification-code/modification-code.module').then( m => m.ModificationCodePageModule)
+  },
+
+
 
 
 
