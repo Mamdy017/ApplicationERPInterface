@@ -1,59 +1,60 @@
-
 <div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()" style="position:relative; top:2%; left:90%;"><i
-      class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
-    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
-<ion-content>
-  <div class="container">
-        <div class="row col-12 py-3">
-          
-          <div class="intermediare col-12">
+      <ion-content>
+        <div class="container">
+          <div class="row col-12 py-3">
 
-            <h1 > Listes des tirages effectuées sur la "" {{ libele_liste }} ""</h1>
-          </div>
-          <br><br>
-          <div class="libelle col-12"> <p> </p></div>
-  
-          <div class="trait"></div>
-          <table class="table thead-dark ">
-            <thead class="thead-dark ">
-             
-              <tr>
-                <th class="gauche" scope="col">Tirage </th>
-                <th scope="col">Date </th>
-                <th scope="col">Nombre tiré</th>
-                
-                <th class="droite"scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-                
-              <tr *ngFor='let tire of ListeTirage | paginate:{itemsPerPage:3, currentPage:page}'>
-              
-                <td scope="row">{{tire.libelleTirage}}</td>
+            <div class="intermediare col-12">
+
+              <h1> Listes des tirages effectuées sur la "" {{ libele_liste }} ""</h1>
+            </div>
+            <br><br>
+            <div class="libelle col-12">
+              <p> </p>
+            </div>
+
+            <div class="trait"></div>
+            <table class="table thead-dark ">
+              <thead class="thead-dark ">
+
+                <tr>
+                  <th class="gauche" scope="col">Tirage </th>
+                  <th scope="col">Date </th>
+                  <th scope="col">Nombre tiré</th>
+
+                  <th class="droite" scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor='let tire of ListeTirage | paginate:{itemsPerPage:3, currentPage:page}'>
+
+                  <td scope="row">{{tire.libelleTirage}}</td>
                   <td>{{tire.date | date : 'd MMMM yyyy'}}</td>
                   <td>{{tire.nombrePostulantTire}}</td>
-                 
-              
-            
+
+
+
                   <td><a [routerLink]="['/postulant-tire',tire.idtirage]">Voir Plus</a></td>
-                
-              </tr>
-              
-            </tbody>
-          </table>
-  <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant" ></pagination-controls>
-  
+
+                </tr>
+
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+            </pagination-controls>
+
+          </div>
+
+        </div>
+      </ion-content>
+    </main>
   </div>
-       
-  </div>
-  </ion-content>
-</main>
 </div>
-</div>
-  

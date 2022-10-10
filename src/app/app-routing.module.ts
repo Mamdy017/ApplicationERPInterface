@@ -9,17 +9,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'authentification',
+    redirectTo: /*'authentification'*/ 'splash-screen',
     pathMatch: 'full'
   },
   {
-    path: 'admin',
+    path: 'admin/:idtirage',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
-  {
-    path: 'entite',
-    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
-  },
+
   {
     path: 'admin-accueil',
     loadChildren: () => import('./admin-accueil/admin-accueil.module').then( m => m.AdminAccueilPageModule)
@@ -27,10 +24,6 @@ const routes: Routes = [
   {
     path: 'liste-utilisateur',
     loadChildren:()=> import('./liste-utilisateur/liste-utilisateur.module').then(m => m.ListeUtilisateurPageModule)
-  },
-  {
-    path: 'accueil-user',
-    loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
     path: 'tirage',
@@ -52,6 +45,10 @@ const routes: Routes = [
   {
     path: 'authentification',
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
+  },
+  {
+    path: 'detail-activite',
+    loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
   },
   {
     path: 'liste-acteur',
@@ -114,7 +111,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-salle/liste-salle.module').then( m => m.ListeSallePageModule)
   },
   {
-    path: 'ajouter-entite',
+    path: 'entite',
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
   {
@@ -122,7 +119,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
-    path: 'accueil-entite',
+    path: 'accueil-entite/:id_entite',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },
   {
@@ -146,12 +143,22 @@ const routes: Routes = [
     loadChildren: () => import('./accueil-user/accueil-user.module').then( m => m.AccueilUserPageModule)
   },
   {
+    // :details-activite
     path: 'details-activite',
     loadChildren: () => import('./details-activite/details-activite.module').then( m => m.DetailsActivitePageModule)
   },
-
-
-
+  {
+    path: 'entite',
+    loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
+  },
+  {
+    path: 'splash-screen',
+    loadChildren: () => import('./splash-screen/splash-screen.module').then( m => m.SplashScreenPageModule)
+  },
+  {
+    path: 'ajouter_utilisateur',
+    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+  },
 
 ];
 @NgModule({
@@ -161,4 +168,9 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+
+
+
 

@@ -8,13 +8,17 @@ import { ListeSallePageRoutingModule } from './liste-salle-routing.module';
 
 import { ListeSallePage } from './liste-salle.page';
 import { MenuComponent } from '../menu/menu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import {  Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ListeSallePageRoutingModule
+    ListeSallePageRoutingModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListeSallePage,MenuComponent]
 })

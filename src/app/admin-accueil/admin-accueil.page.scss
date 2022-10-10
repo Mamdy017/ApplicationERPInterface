@@ -1,5 +1,5 @@
 *{
-  font-family: 'Poppins';
+  font-family: 'Poppins', sans-serif;
 }
 
 .welcomeP{
@@ -12,14 +12,34 @@
   margin-top: -10px;
   font-size: 1rem;
 }
+
+.iconSize{
+  width: 58px;
+  position: relative;
+  top: 15px;
+}
+.iconSize2{
+  width: 35px;
+  position: relative;
+  top: 15px;
+}
+
+
 .contourCard{
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+  text-align: center;
 }
 .cardHome{
 background: #FFFFFF;
 box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-
 }
+.cardHome a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
 .containerSearch{
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
@@ -66,15 +86,26 @@ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 .Filtree{
   font-size: 3rem;
   cursor: pointer;
-  
+
 }
 .toutFilter{
   position: relative;
   display: flex;
   background-color: #E7EBED;
   border-radius: 12px;
-} 
+}
 .iputFilter{
   position: relative;
   top: 23px;
+}
+
+.iconSize{
+  width: 58px;
+  position: relative;
+  top: 15px;
+}
+.iconSize2{
+  width: 35px;
+  position: relative;
+  top: 15px;
 }

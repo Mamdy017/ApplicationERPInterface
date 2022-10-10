@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Tirage } from 'src/app/modeles/tirage/tirage';
-import {Observable} from 'rxjs'
+import { Observable } from 'rxjs'
 
 
 @Injectable({
@@ -15,10 +15,13 @@ export class TirageService {
   constructor(private http: HttpClient) {
    }
 
-   postTirage(libelleListe:string, libelleActivite:string, tirage:Tirage):Observable<any>{
+   postTirage(libelleListe:string, tirage:Tirage):Observable<any>{
 
-    return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}/${libelleActivite}`, tirage);
+    console.log(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
+
+    return this.http.post<Tirage>(`${this.api}/tirage/ajouter/${libelleListe}`, tirage);
    }
+   
 
    TrouverTirageParListe(idListe:number){
     return this.http.get(`${this.api}/tirage/tirageParListe/${idListe}`);

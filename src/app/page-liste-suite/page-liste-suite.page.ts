@@ -14,26 +14,32 @@ import { ListePostulantService } from "../Services/liste-postulant.service";
 export class PageListeSuitePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
-ListeTirage:any;
-//nombre de postulant tire par genre
-PostulantTireParGenre:any;
-page:number=1;
-liste: any
-mesListe:any
-nomliste:any
-idTirage: any
-libelleliste:any
-libele_liste : string;
-  constructor(public breakpointObserver: BreakpointObserver, private service: TirageService, 
-              private route:ActivatedRoute, 
-              private servicePostulantTire:PostulantTireService, private serviceListe: ListePostulantService, private servicenom:ListePostulantService) { }
+  ListeTirage: any;
+  //nombre de postulant tire par genre
+  PostulantTireParGenre: any;
+  page: number = 1;
+  liste: any
+  mesListe: any
+  nomliste: any
+  idTirage: any
+  libelleliste: any
+  libele_liste: string;
+  iduser: string;
+  roles: string;
+  prenom_users: string;
+  numero_users: string;
+  email_users: string;
+  noms_users: string;
+  constructor(public breakpointObserver: BreakpointObserver, private service: TirageService,
+    private route: ActivatedRoute,
+    private servicePostulantTire: PostulantTireService, private serviceListe: ListePostulantService, private servicenom: ListePostulantService) { }
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
   ngOnInit() {
-    
+
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
       .subscribe((state: BreakpointState) => {
@@ -48,28 +54,40 @@ libele_liste : string;
         }
       });
 
-      //Recuperer les tirages sur une liste
-      const id_liste = +this.route.snapshot.params["idliste"];
-      console.log(id_liste)
-      this.service.TrouverTirageParListe(id_liste).subscribe(data=>{
-        this.ListeTirage=data
-    
+
+
+    // /==============================================================================SESSION==========
+
+    // ===========================================================================SESSION VALEURS================================================
+    this.iduser = sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users");
+    this.noms_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
+
+    //Recuperer les tirages sur une liste
+    const id_liste = +this.route.snapshot.params["idliste"];
+    console.log(id_liste)
+    this.service.TrouverTirageParListe(id_liste).subscribe(data => {
+      this.ListeTirage = data
+
       //STATISTIQUES PAR GENRE
-        this.serviceListe.mesListes().subscribe(data => {
-          this.mesListe = data;
-          console.table(this.mesListe)
-          for (const liste of this.mesListe) {
-            if(liste.idliste == id_liste){
-              this.libele_liste = liste.libelleliste;
-            }
+      this.serviceListe.mesListes().subscribe(data => {
+        this.mesListe = data;
+        console.table(this.mesListe)
+        for (const liste of this.mesListe) {
+          if (liste.idliste == id_liste) {
+            this.libele_liste = liste.libelleliste;
           }
-          
-        })  
+        }
 
-   })   
+      })
 
-  
-      
+    })
+
+
+
   }
 
   afficheMenuMobile() {
@@ -77,5 +95,5 @@ libele_liste : string;
     this.menuMobile = false;
   }
 
-  
+
 }

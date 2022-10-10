@@ -8,7 +8,8 @@ import { PostulantTirePageRoutingModule } from './postulant-tire-routing.module'
 
 import { PostulantTirePage } from './postulant-tire.page';
 import { MenuComponent } from '../menu/menu.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     IonicModule,
     PostulantTirePageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule, 
+    Ng2SearchPipeModule
   ],
   declarations: [PostulantTirePage,MenuComponent]
 })

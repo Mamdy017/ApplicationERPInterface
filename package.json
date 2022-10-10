@@ -13,7 +13,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cdk": "^12.2.0",
+    "@angular/cdk": "^14.2.4",
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
     "@angular/forms": "^14.0.0",
@@ -26,16 +26,27 @@
     "@capacitor/keyboard": "4.0.1",
     "@capacitor/status-bar": "4.0.1",
     "@fortawesome/fontawesome-free": "^6.2.0",
-    "@ionic/angular": "^6.1.9",
+    "@ionic/angular": "^6.3.0",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.11.6",
     "boostrap": "^2.0.0",
     "chart.js": "^3.9.1",
+    "install": "^0.13.0",
     "ionicons": "^6.0.3",
+    "natives": "^1.1.6",
     "ng2-charts": "^4.0.1",
+<<<<<<< HEAD
     "npm": "^8.19.2",
+=======
+    "ng2-search-filter": "^0.5.1",
+    "ngx-pagination": "^6.0.2",
+    "npm": "^8.15.0",
+>>>>>>> 605a0985090817d6fc9125cf870afe4ff9d9ad08
     "rxjs": "~6.6.0",
+    "sweetalert2": "^11.4.38",
     "tslib": "^2.2.0",
+    "using": "^1.0.0-alpha-1",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -44,7 +55,7 @@
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
-    "@angular/cli": "^14.0.0",
+    "@angular/cli": "^14.2.4",
     "@angular/compiler": "^14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@angular/language-service": "^14.0.0",

@@ -1,6 +1,21 @@
-<div class="container-fluid">
+<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+  
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+.deconnexion{
+  left:50% ;
+}
+}
+
+
+</style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -10,7 +25,7 @@
 
         <div class="row py-3">
           <div class="welcomeContainer py-2">
-            <p class="display-6 text-center"> Bienvenue ! {{nom}}</p>
+            <p class="display-6 text-center"> Bienvenue ! {{noms_users}}</p>
             <p class="text-center"> Sur la plateforme Orange Digital Center </p>
             <p class="text-center slogan"> #Innovation - #Technologie - #Invention</p>
           </div>
@@ -19,21 +34,22 @@
         <div class="row cardContour">
           <div class="col-6 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <!-- <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i> -->
+              <img src="../../assets/icon/ion_town.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{totalSalleLibre}}</p>
               <p class="pContent2 text-center">Salles disponibles</p>
             </div>
           </div>
           <div class="col-6 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-graduation-cap i iconsHaut text-center"></i>
+              <img src="../../assets/icon/🦆 icon _Graduation Cap_.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{apprenantsTotal}}</p>
               <p class="pContent2 text-center">Apprenants</p>
             </div>
           </div>
           <div class="col-12 col-md-4">
             <div class="cardTop my-3 p-2">
-              <i class="fa-solid fa-chalkboard-user i iconsHaut text-center"></i>
+              <img src="../../assets/icon/🦆 icon _Chalkboard Teacher_.png" alt="icon" class="iconSize">
               <p class="pContent1 text-center">{{participantTotal}}</p>
               <p class="pContent2 text-center">Participants</p>
             </div>
@@ -43,7 +59,9 @@
         <div class="row cardContour my-3">
           <div class="col-12 col-md-8">
             <div class="statistique">
-              <img src="../../assets/images/img1.jpg" alt="">
+              <small>L'alignement vertical répresente le nombre d'activités par mois </small>
+              <canvas #barCanvas style="position: relative; height: 10vh; width: 10vw;"></canvas>
+              <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
             </div>
           </div>
           <div class="col-12 col-md-4 row">
@@ -62,7 +80,7 @@
                 </div>
                 <div class="textevents">
                   <p class="eventTitle">Talks</p>
-                  <p class="eventNumberTalk">98</p>
+                  <p class="eventNumberTalk">{{nombreTalks}}</p>
                 </div>
               </div>
               <div class="itemsevents">
@@ -71,7 +89,7 @@
                 </div>
                 <div class="textevents">
                   <p class="eventTitle">Evénements</p>
-                  <p class="eventNumberEvent">203</p>
+                  <p class="eventNumberEvent">{{nombreEvenements}}</p>
                 </div>
               </div>
               <div class="itemsevents">
@@ -80,7 +98,7 @@
                 </div>
                 <div class="textevents">
                   <p class="eventTitle">Formation</p>
-                  <p class="eventNumberForm">45</p>
+                  <p class="eventNumberForm">{{nombreFormation}}</p>
                 </div>
               </div>
             </div>
@@ -94,53 +112,20 @@
               <div class="trait"></div>
               <p class="text-center">Merci de visionner nos activités récentes</p>
 
-              <div class="row py-3 ps-3 ContourArticle m-3">
+              <div class="row py-3 ps-3 ContourArticle m-3" *ngFor="let activites of activiteRecent">
                 <div class="col-12 col-md-6 p-2">
                   <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="me-3">
-                    <h1 class="h5"><b>Formation Kalanso</b></h1>
+                    <h1 class="h5"><b>{{activites[0]}}</b></h1>
                     <p class="textArticle">
-                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
-                      et totalement gratuite pour les jeunes de 18 à 30 ans...
+                      {{activites[1]}}
                     </p>
-                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                    <button class="btn btnReadMore">Savoir Plus</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row py-3 ps-3 ContourArticle m-3">
-                <div class="col-12 col-md-6 p-2">
-                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="me-3">
-                    <h1 class="h5"><b>Formation Kalanso</b></h1>
-                    <p class="textArticle">
-                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
-                      et totalement gratuite pour les jeunes de 18 à 30 ans...
-                    </p>
-                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                    <button class="btn btnReadMore">Savoir Plus</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row py-3 ps-3 ContourArticle m-3">
-                <div class="col-12 col-md-6 p-2">
-                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="me-3">
-                    <h1 class="h5"><b>Formation Kalanso</b></h1>
-                    <p class="textArticle">
-                      Orange Digital Kalanso est la première école de formation aux métiers du numérique libre d’accès
-                      et totalement gratuite pour les jeunes de 18 à 30 ans...
-                    </p>
-                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA</p>
-                    <button class="btn btnReadMore">Savoir Plus</button>
+                    <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}}
+                      {{activites[3]}} </p>
+                    <a [routerLink]="['/details-activite',activites[4]   ]"> <button class="btn btnReadMore">Savoir
+                        Plus</button> </a>
                   </div>
                 </div>
               </div>
@@ -156,53 +141,22 @@
                 <h1 class="h4 text-center pt-3 display-6">Activités à venir</h1>
                 <div class="trait mb-4"></div>
 
-                <div class="ContourArticle py-2 m-2">
+                <div class="ContourArticle py-2 m-2" *ngFor="let activites of activiteAVenir">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
                   </div>
                   <div class="col-12 col-md-12">
                     <div class="me-2">
-                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
+                      <h1 class="h5 text-center pt-1"><b>{{activites[0]}}</b></h1>
                       <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers...
-                      </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
-                      <button class="btn btnReadMore">Savoir Plus</button>
+                        {{activites[1]}} </p>
+                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}}
+                        {{activites[3]}} </p>
+                      <button class="btn btnReadMore">Savoir Plus </button>
                     </div>
                   </div>
                 </div>
 
-                <div class="ContourArticle py-2 m-2">
-                  <div class="col-12 col-md-12 p-3">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                  </div>
-                  <div class="col-12 col-md-12">
-                    <div class="me-2">
-                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
-                      <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers...
-                      </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
-                      <button class="btn btnReadMore">Savoir Plus</button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="ContourArticle py-2 m-2">
-                  <div class="col-12 col-md-12 p-3">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
-                  </div>
-                  <div class="col-12 col-md-12">
-                    <div class="me-2">
-                      <h1 class="h5 text-center pt-1"><b>Formation Kalanso</b></h1>
-                      <p class="textArticle">
-                        Orange Digital Kalanso est la première école de formation aux métiers...
-                      </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : Jeremi KOLOMA </p>
-                      <button class="btn btnReadMore">Savoir Plus</button>
-                    </div>
-                  </div>
-                </div>
 
               </div>
 
@@ -215,3 +169,27 @@
     </main>
   </div>
 </div>
+
+<!-- ====================================== Session ================================== -->
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div >
+      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover{
+          background-color:black ;
+          border:2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+        .img button a{
+          background-color:#ff6600 ;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

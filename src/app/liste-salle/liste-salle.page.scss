@@ -1,9 +1,11 @@
-
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .ro{
     box-shadow: 1px 1px 5px rgba(0, 0,0 , 0.8);
     border-radius: 20px;
   }
-  input { outline-style:none; } 
+  input { outline-style:none; }
   .btnAjouter{
   background-color: #ff6600;
   color: white;
@@ -41,7 +43,7 @@
   }
   .trait{
   border: 2px solid #FF6600;
-  width: 150px;  
+  width: 150px;
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;

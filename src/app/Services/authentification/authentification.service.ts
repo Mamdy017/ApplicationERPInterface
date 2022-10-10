@@ -10,7 +10,7 @@ export class AuthentificationService {
   constructor(private http:HttpClient) { }
   api="http://localhost:8080/utilisateur/seconnecter";
 
-  seConnecter(email:String, password:String):Observable<any>
+  Connecter(email:String, password:String):Observable<any>
   {
     return this.http.get(`${this.api}/${email}/${password}`);
   }
