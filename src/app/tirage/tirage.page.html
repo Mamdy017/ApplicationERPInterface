@@ -74,10 +74,59 @@ position:relative; left:80% ;
                     <input type="file" class="form-control" formControlName="file" (change)="onFileChange($event)" />
                   </div>
                 </div>
-                <button class="btn btnImport mb-2 mt-3 ">Importer</button>
+                <button class="btn btnImport mb-2 mt-3 " id="open-modal" expand="block" (click)="affiche()" >Importer</button>
               </form>
             </div>
+            <!--MODAL PERMETTANT D'AFFICHER LES PERSONNES-->
+<div *ngIf="status">
+      <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation" >
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>
+                
+              </ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()" class="btn btn-danger">Fermer</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <table id="season-tble" class="table" >
+            <thead style="padding-bottom:100%;">
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Email</th>
+              <th>Numero</th>
+              <th>Genre</th>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let mesPersonnes of liste" >
+                <td> {{mesPersonnes[0]}}</td>
+                <td> {{mesPersonnes[1]}}</td>
+                <td> {{mesPersonnes[2]}}</td>
+                <td> {{mesPersonnes[3]}}</td>
+                <td> {{mesPersonnes[4]}}</td>
+              </tr>
+            </tbody>
+
+            <!-- <ion-avatar slot="start">
+                          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              </ion-avatar > -->
+
+            <!-- <ion-label> <h2>{{mesPersonnes[0]}}</h2> </ion-label>
+                        <ion-label> <p>{{mesPersonnes[1]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[2]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[3]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[4]}}</p></ion-label> -->
+
+          </table>
+
+        </ng-template>
+      </ion-modal>
+    </div>
           </div>
+
 
           <!-- le tirage -->
           <div class="col-md-2 col-xs-1 py-3"></div>
