@@ -11,6 +11,7 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
 
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-liste-acteur',
@@ -103,16 +104,56 @@ this.numero_users = sessionStorage.getItem("numero_users");
     this.cacherAction = true;
   }
   supprimer(acteur: any) {
-    const confirmer = confirm('êtes-vous sûr de le supprimer ?');
-    // eslint-disable-next-line eqeqeq
-    if (confirmer == false) { return; }
-    this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
-      next: (data) => {
-        console.log(acteur.id);
-        const index = this.acteurs.indexOf(acteur);
-        this.acteurs.splice(index, 1);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Etes-vous sûre de vouloir supprimer cet acteur ????',
+      text: "Vous pouvez annuler ou confirmer!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confimer!',
+      cancelButtonText: 'Annuler!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
+          next: (data) => {
+            console.log(acteur.id);
+            const index = this.acteurs.indexOf(acteur);
+            this.acteurs.splice(index, 1);
+            swalWithBootstrapButtons.fire(
+              'Acteur supprimé avec succes!',
+              // 'Vous êtes diriger vers la liste des utilisateurs.',
+              'success',)
+
+          }
+        });
+      }else{
+        return;
       }
-    });
+    })
+      
+
+
+
+
+    // const confirmer = confirm('êtes-vous sûr de le supprimer ?');
+    // // eslint-disable-next-line eqeqeq
+    // if (confirmer == false) { return; }
+    // this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
+    //   next: (data) => {
+    //     console.log(acteur.id);
+    //     const index = this.acteurs.indexOf(acteur);
+    //     this.acteurs.splice(index, 1);
+    //   }
+    // });
   }
   afficheMenuMobile() {
     this.menuBureau = true;
