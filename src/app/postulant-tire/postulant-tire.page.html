@@ -96,7 +96,8 @@
                     </tr>
                   </tbody>
                 </table>
-                <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
+                <h2 class="text-center"  *ngIf="!PostulantTire">Aucun postulant-tire dans la base de donnée</h2>
+                <pagination-controls style="background-color:gray!important;" (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant" color="black">
                 </pagination-controls>
               </div>
             </div>

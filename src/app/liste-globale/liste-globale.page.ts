@@ -6,6 +6,7 @@ import { ListePostulantService } from '../Services/liste-postulant.service';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PostulantTire } from '../modeles/postulant-tire/postulant-tire';
 @Component({
   selector: 'app-liste-globale',
   templateUrl: './liste-globale.page.html',
@@ -58,8 +59,7 @@ libelleTirage: ""
   page:number=1;
 
 
-  //Popup importer une liste 
-  ref: DynamicDialogRef;
+ Postulants:PostulantTire[]
 
   actualise(): void {
     setInterval(

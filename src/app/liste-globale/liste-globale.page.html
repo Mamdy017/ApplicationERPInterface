@@ -3,6 +3,9 @@
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
   <style>
+    .ngx-pagination .current{
+      background-color: red!important;
+    }
     .deconnexion {
       position: relative;
       left: 80%;
@@ -18,11 +21,21 @@
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
+    
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
 
       <ion-content>
         <div class="container">
+          <div class="row gauche"> 
+            <div class="col-6 btn-left">
+              <button class="btn btnImport1" (click)="open(content)">Importer une liste</button>
+            </div>
+            <div class="col-6 btn-right">
+              <a href="ajouter-postulant"> <button class="btn btnImport">Ajouter Postulant</button></a> 
+            </div>
+        </div>
+        <br>
           <div class="contain">
             <div class="row">
 
@@ -74,18 +87,11 @@
                                   
                   </tbody>
                 </table>
+                <h2 class="text-center"  *ngIf="!Postulants">Aucune liste dans la base de donnée</h2>
 
+                       <pagination-controls style="color: black;"  (pageChange)="p = $event" class="text-center ngx-pagination"></pagination-controls>
+                  
                    
-                  <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-
-                   <div class="row"> 
-                      <div class="col-4 btn-left">
-                        <button class="btn" (click)="open(content)">Importer une liste</button>
-                      </div>
-                      <div class="col-4 btn-right">
-                        <a href="ajouter-postulant"> <button class="btn ">Ajouter Postulant</button></a> 
-                      </div>
-                  </div>
                 </div>
 
                 <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->
@@ -96,14 +102,14 @@
      </div>
     </div>
 
-    <ng-template #content let-modal>
+    <ng-template #content let-modal class="">
       <div class="modal-header">
-        <h4 class="modal-title text-align:center" id="modal-basic-title">Importer un fichier</h4>
+       
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="col-12 col-md-4 col-xs-6 py-3 text-center form">
+      <div class="col-12 col-md-12 col-xs-6 py-3 text-center form">
         <div class="m-3 modal-body">
           <form [formGroup]="myForm" (ngSubmit)="submit()">
             <p class="h3"><b>Importer un fichier</b></p>
@@ -159,9 +165,9 @@
           </div>
         </form>
       </div> -->
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Importer</button>
-      </div>
+      </div> -->
     </ng-template>
 
 <ng-template #erreur id="#erreur">
@@ -187,3 +193,5 @@
     </div>
   </div>
 </ng-template>
+</ion-content>
+

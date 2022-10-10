@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 import { TirageService } from '../Services/tirage/tirage.service';
 import { ListePostulantService } from "../Services/liste-postulant.service";
+import { Tirage } from '../modeles/tirage/tirage';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class PageListeSuitePage implements OnInit {
   //nombre de postulant tire par genre
   PostulantTireParGenre: any;
   page: number = 1;
+  Tirage:Tirage[]
   liste: any
   mesListe: any
   nomliste: any
