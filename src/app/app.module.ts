@@ -2,13 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterLinkActive } from '@angular/router';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 // import {NgxPaginationModule} from 'ngx-pagination';
 
-import { createPopperLite as createPopper } from '@popperjs/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    BrowserAnimationsModule,
+    
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
