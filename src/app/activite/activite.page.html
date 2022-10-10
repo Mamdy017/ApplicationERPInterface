@@ -15,7 +15,7 @@
     }
   </style>
   <div class="row flex-nowrap">
-    <div class="col-auto px-2">
+    <div class="col-auto px-2"  *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
@@ -102,8 +102,8 @@
             <div class="mb-3 col-12 col-md-12 row form-row form-floating">
 
               <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs Internes</P>
-
-              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              &nbsp;&nbsp;
+              <div class="mb-3 col-12 col-md-6 py-2 form-row form-floating">
                 <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
                   [(ngModel)]="idacteurInternes" [multiple]="true" formControlName="idacteurInternes"
                   placeholder="Fornateurs">
@@ -112,8 +112,8 @@
                 </ion-select>
                 <label>Fornateurs</label>
               </div>
-
-              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              &nbsp;&nbsp;
+              <div class="mb-3 col-12 py-2 col-md-6 form-row form-floating">
                 <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
                   [(ngModel)]="idacteurInternesLead" [multiple]="true" formControlName="idacteurInternesLead"
                   placeholder="Lead">
@@ -122,7 +122,7 @@
                 </ion-select>
                 <label>Lead</label>
               </div>
-
+              &nbsp;&nbsp;
               <div class="mb-3 col-12 col-md-6 form-row form-floating">
                 <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
                   [(ngModel)]="idacteurInternesInterv" [multiple]="true" formControlName="idacteurInternesInterv"
@@ -132,8 +132,7 @@
                 </ion-select>
                 <label>Intervenants</label>
               </div>
-
-              
+              &nbsp;&nbsp;
               <div class="mb-3 col-12 col-md-6 form-row form-floating">
                 <ion-select name="sexe" id="sexe" class="form-select form-control inputvalue"
                   [(ngModel)]="idacteurInternesOrg" [multiple]="true" formControlName="idacteurInternesOrg"
@@ -143,24 +142,22 @@
                 </ion-select>
                 <label>Organisateurs</label>
               </div>
-
             </div>
-
             <div class="mb-3 col-12 col-md-12 row form-row form-floating">
-
               <P style="text-align: center; background-color: #ff6600; color: white; margin: 0;">Formateurs externes</P>
-              
-              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+               &nbsp;
+              <div class="mb-3 col-12 col-md-6 form-row form-floating py-2">
                 <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurs"
                   [(ngModel)]="idacteurs" [multiple]="true" placeholder="Formateurs">
+                  ion-label
                   <ion-select-option selected disabled>Formateurs</ion-select-option>
                   <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
                   </ion-select-option>
                 </ion-select>
-                <label>Formateurs</label>
-              </div>
 
-              <div class="mb-3 col-12 col-md-6 form-row form-floating">
+              </div>
+               &nbsp;&nbsp;
+              <div class="mb-3 col-12 col-md-6 form-row form-floating py-2">
                 <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursLead"
                   [(ngModel)]="idacteursLead" [multiple]="true" placeholder="Lead">
                   <ion-select-option selected disabled>Lead</ion-select-option>
@@ -169,7 +166,7 @@
                 </ion-select>
                 <label>Lead</label>
               </div>
-
+              &nbsp;&nbsp;
               <div class="mb-3 col-12 col-md-6 form-row form-floating">
                 <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteursInterv"
                   [(ngModel)]="idacteursInterv" [multiple]="true" placeholder="Intervenants">
@@ -179,7 +176,7 @@
                 </ion-select>
                 <label>Intervenants</label>
               </div>
-
+              &nbsp;&nbsp;
               <div class="mb-3 col-12 col-md-6 form-row form-floating">
                 <ion-select id="sexe" class="form-select form-control inputvalue" formControlName="idacteurInternesOrg"
                   [(ngModel)]="idacteursOrg" [multiple]="true" placeholder="Organisateurs">

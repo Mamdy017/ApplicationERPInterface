@@ -188,6 +188,10 @@ export class ActivitePage implements OnInit {
   submitActivite() {
 
 
+
+
+
+
     let userid: any = 1;
 
     let data = new FormData();

@@ -167,11 +167,11 @@ export class SallePage implements OnInit {
 // Retour sur la page de liste des salles
 
 retournerListeSalles(){
-  this.route.navigateByUrl("/liste-salle") 
+  this.route.navigateByUrl("/liste-salle")
 }
 
 
-// 
+//
 
 
 
