@@ -29,7 +29,7 @@ export class AccueilUserPage implements OnInit {
 
   constructor(private service: AccueilUserService,
      public breakpointObserver: BreakpointObserver,
-     public activiteService: ActiviteService) { }
+     private activiteService: ActiviteService) { }
 
   actualise(): void {
     setInterval(
@@ -80,16 +80,16 @@ export class AccueilUserPage implements OnInit {
       })
 
       //trois activité recente
-      this.activiteService.activiteRecente().subscribe(data=>{
-        this.activiteRecent = data
-        console.log("===================="+data.nom)
+      // this.activiteService.activiteRecente().subscribe(data=>{
+      //   this.activiteRecent = data
+      //   console.log("===================="+data.nom)
 
-      })
-      //TROIS ACTIVITe 0 VENIR
-      this.activiteService.activiteAvenir().subscribe(data=>{
-        this.activiteAVenir= data
-        console.log(this.activiteAVenir)
-      })
+      // })
+      // //TROIS ACTIVITe 0 VENIR
+      // this.activiteService.activiteAvenir().subscribe(data=>{
+      //   this.activiteAVenir= data
+      //   console.log(this.activiteAVenir)
+      // })
 
      
 

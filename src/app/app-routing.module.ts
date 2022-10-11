@@ -115,7 +115,7 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
-    path: 'accueil-entite/:id',
+    path: 'accueil-entite',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },
   {
@@ -147,13 +147,18 @@ const routes: Routes = [
     loadChildren: () => import('./entite/entite.module').then( m => m.EntitePageModule)
   },
   {
-    path: 'ajouter_utilisateur',
-    loadChildren: () => import('./formulaire-ajouter-utilisateur/formulaire-ajouter-utilisateur.module').then( m => m.FormulaireAjouterUtilisateurPageModule)
+    path: 'reinitialiser-code',
+    loadChildren: () => import('./reinitialiser-code/reinitialiser-code.module').then( m => m.ReinitialiserCodePageModule)
   },
-  // {
-  //   path: 'tirage-valide',
-  //   loadChildren: () => import('./tirage-valide/tirage-valide.component').then( m => m.TirageValideComponent)
-  // },
+  {
+    path: 'code-de-confirmation',
+    loadChildren: () => import('./code-de-confirmation/code-de-confirmation.module').then( m => m.CodeDeConfirmationPageModule)
+  },
+  {
+    path: 'modification-code',
+    loadChildren: () => import('./modification-code/modification-code.module').then( m => m.ModificationCodePageModule)
+  },
+
 
 
 

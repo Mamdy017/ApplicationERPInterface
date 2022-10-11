@@ -20,7 +20,8 @@
               <div class="row my-3">
                 <div class=" col-12 col-md-6" *ngFor="let entite of entites">
                   <div class="m-3">
-                    <div class="cardHome1" (click)="versEntite(entite)">
+                    <div class="cardHome1" [routerLink]="['/accueil-entite', entite.idEntite]" >   
+                      <!-- (click)="versEntite(entite) -->
                       <img src="../../assets/icon/{{entite.photoentite}}" class="iconSize1" alt="icon">
                       <p class="titleEntite">{{entite.nom}}</p>
                       <p class="txtEntite">{{entite.description}}</p>
