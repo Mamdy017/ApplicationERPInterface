@@ -100,7 +100,7 @@ export class AccueilEntitePage implements OnInit {
 
 
   ngOnInit() {
-    
+
     this.barChart;
     this.barCanvas;
     this.ionViewDidEnter;
@@ -354,8 +354,8 @@ export class AccueilEntitePage implements OnInit {
 
 
 
-  } 
-  
+  }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;

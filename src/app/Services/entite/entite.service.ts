@@ -27,6 +27,8 @@ export class EntiteService {
     //   return this.http.get<Entite>(`${this.api}/entite/afficherEntiteAdmin`);
     // }
 
+  
+
   //======================Ajouter entite=================
 
   ajouterEntite(nom: string, description: string, slogant: string, file:any):Observable<any>{

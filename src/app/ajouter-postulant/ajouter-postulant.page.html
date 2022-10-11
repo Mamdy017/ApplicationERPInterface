@@ -5,7 +5,7 @@
         class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
     <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i>
       Deconnexion</button>
-   <a href="details-activite" style="color:#FF6600; font-size:60px;padding: 200px;position: relative;top: 25px;"><ion-icon name="arrow-back-circle"></ion-icon></a>
+   <a href="liste-globale" style="color:#FF6600; font-size:60px;padding: 200px;position: relative;top: 25px;"><ion-icon name="arrow-back-circle"></ion-icon></a>
 
     <style>
       .deconnexion {
@@ -86,15 +86,7 @@
                         class="form form-control inputvalue">
                       <label for="email">Email</label>
                     </div>
-                    
-                    <!-- <div class="mb-3 col-12 col-md-12 form-row form-floating">
-                      <select name="liste" id="liste" class="form-select form-control">
-                        <option selected> Choisir une liste </option>
-                        <option> Liste1</option>
-                        <option> Liste2</option>
-                        <label for="sexe">liste</label>
-                      </select>
-                    </div> -->
+                
 
                     <div class="mb-3 col-12 col-md-12 form-row form-floating">
                       <select id="liste" class="form-select form-control"  name="listes" [(ngModel)]="listes">

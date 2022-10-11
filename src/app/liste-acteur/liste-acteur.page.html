@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
@@ -30,9 +29,6 @@
   <button (click)="changeTheme" mat-raised-button color="primary">Change Theme</button>
 </section> -->
 
-=======
-<div class="container">
->>>>>>> 99eb8efe539646c9f4014c7f3d8641028196b107
   <button type="button" class="btn" style="margin-left:92% ;">
     <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
@@ -43,7 +39,6 @@
   <div class="row ro py-3">
     <h1>Liste des acteurs</h1>
     <div class="trait"></div>
-<<<<<<< HEAD
     <div class="position" >
         <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
 
@@ -77,73 +72,6 @@
               <tbody>
                 <tr *ngFor="let acteur of acteurs | paginate: { itemsPerPage: 5, currentPage: p} | filter:searchTerm">
 
-=======
-    <div class="position">
-      <button class="btn btnAjouter">Exporter le fichier</button>
-
-      <a href="ajouter-acteur"> <button class="btn btnAjouter1" style="border: 1px solid;">Ajouter un acteur</button></a>
-
-        <button class="btn btnAjouter">Exporter le fichier</button>
-
-      <button class="btn "></button>
-        <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
-
-     <a href="admin-ajouter-acteur-user"> <button class="btn btnAjouter1" style="border: 1px solid;"  >Ajouter un acteur</button></a>
-
-      <button class="btn btnAjouter c1">Filtré par Rôle <i class="bi bi-filter-right"></i></button>
-      <!-- <div class="btn btnAjouter c1 form-row form-floating">
-      <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control">
-        <option *ngFor="let listepostulants of reponse" [ngValue]="listepostulants.libelleliste"> {{listepostulants.libelleliste}}</option>
-        <label for="sexe">Filtré par Rôle</label>
-      </select>
-    </div>-->
-      <form action="">
-        <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
-      </form>
-    </div>
-      <div class="table-responsive ra py-5">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Prénom</th>
-              <th scope="col">nom</th>
-              <th scope="col">Email</th>
-              <th scope="col">Numéro</th>
-              <th scope="col">Rôle</th>
-              <th scope="col" class="ra1">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let list of contenu ; let i = index">
-              <td scope="row">{{i+1}}</td>
-              <td>{{list[1]}}</td>
-              <td>{{list[2]}}</td>
-              <td>{{list[3]}}</td>
-              <td>{{list[4]}}</td>
-              <td>{{list[5]}}</td>
-              <td><button> <i class="bi bi-pencil-square i"></i></button>&nbsp; &nbsp; &nbsp;<button><i class="bi bi-trash-fill i" (click)="supprimer(acteur)"></i></button></td>
-            </tr>
-          </tbody>
-          <!--  <h2 *ngIf="!contenu"> Aucun acteur dans la base de donnée !</h2>-->
-        </table>
-      </div>
-    <div class="table-responsive ra py-5">
-      <table class="table">
-      <table id="season-tble" class="table">
-        <thead>
-          <tr>
-            <th scope="col">Prénom</th>
-            <th scope="col">nom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Numéro</th>
-            <th scope="col">Rôle</th>
-            <th scope="col" class="ra1">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let acteur of acteurs">
-          <tr *ngFor="let acteur of acteurs | paginate: { itemsPerPage: 5, currentPage: p}">
->>>>>>> 99eb8efe539646c9f4014c7f3d8641028196b107
             <td>{{acteur.prenom}}</td>
             <td>{{acteur.nom}}</td>
             <td>{{acteur.email}}</td>
@@ -154,7 +82,6 @@
        </tbody>
        <h2 *ngIf="!acteurs"> Aucun acteur dans la base de donnée !</h2>
       </table>
-<<<<<<< HEAD
       <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
 
           </div>
@@ -191,19 +118,3 @@
     </div>
   </div>
 </ng-template>
-=======
-    </div>
-  </div>
-</div>
-      <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-
-    </div>
-  </div>
-
-
-
-  </main>
-  </div>
-  </div>
-
->>>>>>> 99eb8efe539646c9f4014c7f3d8641028196b107

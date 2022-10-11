@@ -53,6 +53,13 @@ export class EntitePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
 
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
+
+
   constructor(private serviceEntite: EntiteService,
     private formB: FormBuilder, private route: Router
     // private serviceq:EntiteService,
@@ -131,10 +138,16 @@ export class EntitePage implements OnInit {
 
       console.log(data)
 
+      if(data.status == true){
+        this.route.navigateByUrl("/gestionentite")
+      }
+
       this.formmodule.reset()
     })
 
     this.resetForm();
+    this.actualise();
+   
   }
 
   afficheMenuMobile() {

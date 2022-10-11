@@ -106,14 +106,18 @@ leaveAnimation = (baseEl: HTMLElement) => {
   libelleActivite: ""
   libelleListe: ""
   libelleListet: ""
+  activitesSansListesI$ 
 
   formmodule!: FormGroup;
 
   getActiviteSansListe(){
     this.activiteService.recupererActiviteSansListe().subscribe((data) =>{
       this.activitesSansListes$ = data;
+      this.activitesSansListesI$ = data;
     })
   }
+
+  
 
   getListeSansTirageValide(){
     this.listePostulantService.recupererListeAvecTirageNonValide().subscribe((data) => {
@@ -350,7 +354,7 @@ leaveAnimation = (baseEl: HTMLElement) => {
 
           .subscribe(res => {
             if (res.status == true) {
-              this.route.navigateByUrl("/liste-salle")
+              this.route.navigateByUrl("/postulant-tire/")
               swalWithBootstrapButtons.fire(
                 'Tirage effectué avec succes!',
                 'Vous êtes diriger vers la liste du tirage.',
@@ -430,7 +434,7 @@ leaveAnimation = (baseEl: HTMLElement) => {
     this.route.navigateByUrl('/authentification');
   }
   affiche() {
-    alert(this.myForm.get('libelleListe').value)
+    
     this.serviceTirage.Trouver(this.myForm.get('libelleListe').value).subscribe((data=>{
       this.liste= data;
       console.log(this.liste)
