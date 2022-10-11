@@ -1,0 +1,86 @@
+<ion-content>
+  <div class="container">
+    <button type="button" class="btn" style="margin-left:92% ;">
+      <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:15px;">
+        99+
+      </span></i>
+    </button>
+    <br><br>
+    <div class="row py-3">
+      <h1>Liste des participants</h1>
+      <div class="trait"></div>
+      <div class="position">
+          <button class="btn btnAjouter">Exporter le fichier</button>
+          <form action="">
+            <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;"></button>
+          </form>
+        <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button>
+        <button class="btn btnAjouter">Ajouter un participant</button>
+      </div>
+      <div class="table-responsive ra py-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align:center; border-radius: 10px 0 0 0;">Nom</th>
+              <th scope="col" style="text-align:center;">Prenom</th>
+              <th scope="col" style="text-align:center;">Email</th>
+              <th scope="col" style="text-align:center;">Numero</th>
+              <th scope="col" style="text-align:center;">Statut</th>
+              <th scope="col" style="text-align:center;border-radius: 0 10px 0 0;">Liste</th>
+            </tr>
+
+
+            <!-- <tr *ngFor="let liste of listes | paginate: { itemsPerPage: 2, currentPage: p}"> -->
+             <tr>
+              <td >KONTE</td>
+              <td >Aly</td>
+              <td >alykonte19@gmail.com</td>
+              <td >76123450</td>
+              <td >HOMME</td>
+              <td >Liste1</td>
+
+            </tr>
+
+            <tr>
+              <td >TRAORE</td>
+              <td >Moussoudou</td>
+              <td >moussoudou@gmail.com</td>
+              <td >76123450</td>
+              <td >HOMME</td>
+              <td >Liste1</td>
+
+            </tr>
+            <tr>
+              <td >COULIBALY</td>
+              <td >Hawa</td>
+              <td >hawa@gmail.com</td>
+              <td >89123450</td>
+              <td >FEMME</td>
+              <td >Liste1</td>
+
+            </tr>
+            <tr>
+              <td >KONTE</td>
+              <td >Aly</td>
+              <td >alykonte19@gmail.com</td>
+              <td >76123450</td>
+              <td >HOMME</td>
+              <td >Liste</td>
+
+            </tr>
+
+
+          </thead>
+        </table>
+        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+</ion-content>

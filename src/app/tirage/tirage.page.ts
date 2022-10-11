@@ -11,6 +11,9 @@ import { TirageService } from '../Services/tirage/tirage.service';
 import { Tirage } from '../modeles/tirage/tirage';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
+import { ListePostulantService } from '../Services/liste-postulant.service';
+import Swal from 'sweetalert2';
+import { AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -21,12 +24,46 @@ import { Router } from '@angular/router';
 export class TiragePage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+  liste:Observable<any[]>
+
+  activitesSansListes$:any;
+
+ // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Modal d'Affichage des Personnes tirées ++++++++++++++++++++++++++++
+
+ enterAnimation = (baseEl: HTMLElement) => {
+  const root = baseEl.shadowRoot;
+
+  const backdropAnimation = this.animationCtrl
+    .create()
+    .addElement(root.querySelector('ion-backdrop')!)
+    .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+
+  const wrapperAnimation = this.animationCtrl
+    .create()
+    .addElement(root.querySelector('.modal-wrapper')!)
+    .keyframes([
+      { offset: 0, opacity: '0', transform: 'scale(0)' },
+      { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+    ]);
+
+  return this.animationCtrl
+    .create()
+    .addElement(baseEl)
+    .easing('ease-out')
+    .duration(500)
+    .addAnimation([backdropAnimation, wrapperAnimation]);
+};
+
+leaveAnimation = (baseEl: HTMLElement) => {
+  return this.enterAnimation(baseEl).direction('reverse');
+};
 
   //tirage
   bool_erreurBack: boolean;
   bool_erreurFr: boolean;
   erreurTirageFr: string;
   erreurTirageBack: string;
+  
 
   //importation
   bool_erreurImpFr: boolean;
@@ -39,12 +76,14 @@ export class TiragePage implements OnInit {
   bool_erreurImpTrieBack: boolean;
   bool_erreurImpTrieFr: boolean;
   erreurImpTrieFr: string;
+  status: boolean;
 
   constructor(private serviceTirage: TirageService,
     private ajoutPostulantService: AjouterPostulantService,
     private activiteService: ActiviteService,
+    private listePostulantService: ListePostulantService,
     private http: HttpClient, public breakpointObserver: BreakpointObserver,
-    private route: Router) { }
+    private route: Router, private animationCtrl: AnimationController) { }
 
 
   tirageObjet: Tirage = {
@@ -54,6 +93,8 @@ export class TiragePage implements OnInit {
 
   listes$!: any;
   listeActivites$!: any
+
+  listeSansTirageValides$!: any;
 
   bool_erreur: boolean = false;
   bool_erreurImp: boolean = false;
@@ -68,6 +109,17 @@ export class TiragePage implements OnInit {
 
   formmodule!: FormGroup;
 
+  getActiviteSansListe(){
+    this.activiteService.recupererActiviteSansListe().subscribe((data) =>{
+      this.activitesSansListes$ = data;
+    })
+  }
+
+  getListeSansTirageValide(){
+    this.listePostulantService.recupererListeAvecTirageNonValide().subscribe((data) => {
+      this.listeSansTirageValides$ = data;
+    })
+  }
 
   getListePostulant() {
     this.ajoutPostulantService.recupererListePostulant().subscribe((data) => {
@@ -80,6 +132,8 @@ export class TiragePage implements OnInit {
       this.listeActivites$ = data;
     })
   }
+
+  
 
 
   //Tirage
@@ -95,9 +149,9 @@ export class TiragePage implements OnInit {
     this.tirageObjet.libelleTirage = this.libelleTirage;
     this.tirageObjet.nombrePostulantTire = this.nombrePostulantTire;
 
-console.log("Libelle "+this.libelleListet)
-console.log("Libelle Tirage "+this.libelleTirage)
-console.log("Nobre "+this.nombrePostulantTire)
+    console.log("Libelle " + this.libelleListet)
+    console.log("Libelle Tirage " + this.libelleTirage)
+    console.log("Nobre " + this.nombrePostulantTire)
 
 
 
@@ -111,6 +165,7 @@ console.log("Nobre "+this.nombrePostulantTire)
         this.erreurTirageBack = data
         if (data.status == true) {
           this.route.navigateByUrl("/liste-tirage")
+          this.actualise();
         } else {
 
           this.bool_erreurFr = false
@@ -136,7 +191,7 @@ console.log("Nobre "+this.nombrePostulantTire)
     setInterval(
       () => {
       }, 100, clearInterval(1500));
-  } 
+  }
 
   resetImportForm() {
     this.libelleListe = "",
@@ -185,26 +240,31 @@ console.log("Nobre "+this.nombrePostulantTire)
 
     formData.append('file', this.myForm.get('fileSource').value);
 
+
     //console.log(`http://localhost:8080/postulant/import/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+
 
     if (this.myForm.get('libelleListe').value.length > 0 && this.myForm.get('libelleActivite').value.length > 0 && formData != null) {
       this.http.post<any>(`http://localhost:8080/postulant/import/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
 
         .subscribe(res => {
 
+          this.status = res.status;
+
           this.erreurImpBack = res;
 
           console.log(res.status);
 
-          if(res.status == true){
+          if (res.status == true) {
             this.route.navigateByUrl("/postulant-tire/")
-          }else{            
+            this.actualise();
+          } else {
             this.bool_erreurImpFr = false;
             this.bool_erreurImpBack = true;
           }
 
           console.log(res);
-         
+
 
 
         })
@@ -260,6 +320,14 @@ console.log("Nobre "+this.nombrePostulantTire)
   }
 
   submitImportTrie() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
 
     const formData = new FormData();
 
@@ -268,43 +336,59 @@ console.log("Nobre "+this.nombrePostulantTire)
     console.log(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
 
     if (this.myFormImportTrie.get('libelleListe').value.length > 0 && this.myFormImportTrie.get('libelleTirage').value.length > 0 && this.myFormImportTrie.get('libelleListe').value.length > 0 && formData != null) {
-      this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+      swalWithBootstrapButtons.fire({
+        title: 'Voulez-vous vraiment effectuer le tirage !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
 
-        .subscribe(res => {
+          .subscribe(res => {
+            if (res.status == true) {
+              this.route.navigateByUrl("/liste-salle")
+              swalWithBootstrapButtons.fire(
+                'Tirage effectué avec succes!',
+                'Vous êtes diriger vers la liste du tirage.',
+                'success',)
+            }
+            else {
+              swalWithBootstrapButtons.fire(
+                this.erreurImpTrieFr = res.contenu,
+  
+              )
+            }
+  
+            console.log(res);
+  
+            this.erreurImpTrieBack = res;
+            this.bool_erreurImpTrieBack = true;
+            this.bool_erreurImpTrieFr = false;
+          })
+        }
 
-          console.log(res);
 
-          this.erreurImpTrieBack = res;
-          this.bool_erreurImpTrieBack = true;
-          this.bool_erreurImpTrieFr = false;
-        })
-
+      })
+      
     } else {
 
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "Veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = " Veuillez bien remplir tous les champs !",
+      )
+      // this.erreurImpTrieFr = "Veuillez remplir tous les champs";
 
 
 
     }
 
 
-
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   actualise(): void {
 
@@ -329,6 +413,9 @@ console.log("Nobre "+this.nombrePostulantTire)
           this.actualise();
         }
       });
+
+      this.getActiviteSansListe();
+      this.getListeSansTirageValide();
   }
   afficheMenuMobile() {
     this.menuBureau = true;
@@ -337,5 +424,16 @@ console.log("Nobre "+this.nombrePostulantTire)
 
 
 
-
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+  }
+  affiche() {
+    alert(this.myForm.get('libelleListe').value)
+    this.serviceTirage.Trouver(this.myForm.get('libelleListe').value).subscribe((data=>{
+      this.liste= data;
+      console.log(this.liste)
+    }))
+  }
 }

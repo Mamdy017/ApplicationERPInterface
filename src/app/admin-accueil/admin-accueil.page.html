@@ -1,6 +1,21 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
+
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -20,6 +35,9 @@
                 <i class="bi bi-filter Filtree mx-3 pt-2"></i>
                 <div class="iputFilter">
                   <select name="designation" id="designation" class="form-select form-control bi bi-filter-right">
+                    <option selected>Filtrer par An</option>
+                    <!-- <option>*ngFor="let annees of afficheAnnee" [ngValue]={{annees[0]}}> {{annees[0]}}</option> -->
+
                      <option selected >Filtrer par An</option> 
                      <option *ngFor="let annees of afficheAnnee" [ngValue]="annees.annee"> {{annees.annee}}</option> 
                     
@@ -36,13 +54,15 @@
                 <p class="txtcardHome ">Apprenants</p>
               </div>
             </div>
+
             <div class="cardHome col-6 col-md-4 pt-3">
-              <div class="contourCard">
-                <img src="../../assets/images/IconUser.png" alt="photo utilisateur" class="iconSize2">
-                <p class="pcardHome pt-4">{{nbre}}</p>
+              <div class="contourCard" style="cursor: pointer;">
+                <span class="iconTop"><i class="bi bi-person-plus-fill iconns"></i></span>
+                <p class="pcardHome pt-3">{{nbre}}</p>
                 <p class="txtcardHome">Utilisateurs</p>
               </div>
             </div>
+
             <div class="cardHome col-12 col-md-4 pt-3">
               <div class="contourCard">
                 <img src="../../assets/images/IconParticipant.png" alt="photo participant " class="iconSize">
@@ -50,6 +70,7 @@
                 <p class="txtcardHome">Participants</p>
               </div>
             </div>
+
           </section>
 
           <!-- deuxième partie-->
@@ -72,8 +93,45 @@
               <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
             </div>
           </div>
+          <!-- Footer -->
+          <footer class="footer mt-3">
+            <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+              Center</p>
+          </footer>
+          <style>
+            footer {
+              padding: 25px;
+              background: #202020;
+              color: #FFFFFF;
+            }
+          </style>
+          <!-- Footer -->
         </main>
       </ion-content>
     </main>
   </div>
 </div>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

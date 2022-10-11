@@ -1,5 +1,8 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActiviteService } from '../Services/activite/activite.service';
+import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 import { ListePostulant } from '../modeles/liste-postulant/liste-postulant';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterParticipantService } from '../Services/ajouter-participant/ajouter-participant.service';
@@ -11,6 +14,25 @@ import { ListePostulantService } from '../Services/liste-postulant/liste-postula
   styleUrls: ['./ajouter-participant.page.scss'],
 })
 export class AjouterParticipantPage implements OnInit {
+
+  // ============================================================SESSION==========
+
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+  menuBureau: boolean = true;
+  menuMobile: boolean = false;
+  listes$: any;
+  libelleActivites$: any;
+  constructor( public breakpointObserver: BreakpointObserver, private route:Router,private ajouterPostulant:AjouterPostulantService,
+    private activiteService: ActiviteService,
+    private ajouterparticipantservice: AjouterParticipantService) { }
 
   postulantparticipant: Postulant  ={
     nom_postulant: '',
@@ -39,13 +61,14 @@ export class AjouterParticipantPage implements OnInit {
   Erreur:any
   
 
-  constructor(private ajouterparticipantservice: AjouterParticipantService  ) { }
+  
 
   actualise(): void {
     setInterval(
       () => {
       }, 100, clearInterval(1500));
   }
+  
   ngOnInit() {
     //this.getListePostulant();
 

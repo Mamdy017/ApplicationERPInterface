@@ -16,19 +16,33 @@ export class GestionentiteService {
   nombreFormation(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Formation/${idEntite}`)
   }
+
+  formation(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite/${IdEntite}`)
+  }
+  talk(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite1/${IdEntite}`)
+  }
+  eve(IdEntite : number):Observable<any>{
+    return this.http.get(`${this.api}/activite/ParEntite2/${IdEntite}`)
+  }
   nombreTalk(idEntite : number) :Observable<any>{
-    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talks/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Talk/${idEntite}`)
   }
   nombreEvennement(idEntite : number) :Observable<any>{
     return this.http.get(`${this.api}/activite/parTypeActiviteEtEntite/Evennement/${idEntite}`)
   }
 
   activiteEnCours(idEntite : number) :Observable<any> {
-    return this.http.get(`${this.api}/activite/parEntiteEtEtat/En Cours/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parEntiteEtEtat/encours/${idEntite}`)
   }
   
   activiteAvenir(idEntite : number) :Observable<any> {
-    return this.http.get(`${this.api}activite/parEntiteEtEtat/à Venir/${idEntite}`)
+    return this.http.get(`${this.api}/activite/parEntiteEtEtat/avenir/${idEntite}`)
+  }
+
+  responsableEntite(idEntite : number) :Observable<any> {
+    return this.http.get(`${this.api}/utilisateur/responsableParEntite/responsable/${idEntite}`)
   }
 }
   

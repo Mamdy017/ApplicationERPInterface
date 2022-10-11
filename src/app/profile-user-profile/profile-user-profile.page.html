@@ -1,123 +1,113 @@
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+      <ion-content>
+
+        <div class="container">
+          <div class="row boxShadow">
+            <!------------- Colonne Gauche---->
+            <div class="col-12 col-md-2 imgGauche">
+
+              <img src="assets/icon/user.png" alt="image user" class="img-fluid rounded">
+              <p class="profileName">Ousmane <b>TOURE</b></p>
+
+              <div class="row">
+                <p class="py-3" class="titleProfilSettings"><i class="bi bi-gear"></i> Compte</p>
+                <p class="py-3" class="titleProfilSettings2"><i class="bi bi-lock-fill"></i> Mots de passe</p>
+              </div>
 
 
-<ion-content>
+            </div>
 
-  <div class="container">
-    <div class="row boxShadow">
-      <!------------- Colonne Gauche---->
-      <div class="col-12 col-md-2 imgGauche">
-      
-        <img src="assets/icon/user.png" alt="image user" class="img-fluid rounded">
-        <p class="profileName">Ousmane <b>TOURE</b></p>
+            <!------------- Colonne Droite ---->
+            <div class="col-12 col-md-10">
+              <form>
+                <fieldset>
+                  <legend class="display-6"><b>Paramètres du profil</b></legend>
+                </fieldset>
+                <div class="trait"></div>
+                <div class="row col-12">
+                  <div class="mb-3 col-12 col-md-6 form-row ">
+                    <label for="name">Nom</label>
 
-        <div class="row">
-            <p class="py-3" class="titleProfilSettings"><i class="bi bi-gear"></i> Compte</p>
-            <p class="py-3" class="titleProfilSettings2"><i class="bi bi-lock-fill"></i> Mots de passe</p>
+                    <input type="text" name="name" id="name" value="TOURE" class="form form-control inputvalue">
+                  </div>
+                  <div class="mb-3 col-12 col-md-6 form-row ">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" name="firstname" id="firstname" value="Ousmane"
+                      class="form form-control inputvalue">
+                  </div>
+                  <div class="mb-3 col-12 col-md-6 form-row ">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" value="Toure@orangemali.com"
+                      class="form form-control inputvalue">
+                  </div>
+                  <div class="mb-3 col-12 col-md-6 form-row ">
+                    <label for="num">Numéro</label>
+                    <input type="text" name="num" id="num" value="74674384" class="form form-control inputvalue">
+                  </div>
+                  <div class="mb-3 col-12 col-md-6 form-row ">
+                    <label for="num">Role</label>
+                    <input type="text" name="num" id="num" value="Administrateur" class="form form-control inputvalue"
+                      disabled>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btnAjouter">Enregistrer</button>
+                  <button class="btn btnAjouter1">Annuler</button>
+                </div>
+
+
+
+              </form>
+
+            </div>
+          </div>
         </div>
+      </ion-content>
+    </main>
+  </div>
+</div>
 
-        
-      </div>
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
 
-      <!------------- Colonne Droite ---->
-      <div class="col-12 col-md-10">
-        <form>
-          <fieldset>
-            <legend class="display-6"><b>Paramètres du profil</b></legend>
-          </fieldset>
-          <div class="trait"></div>
-          <div class="row col-12">
-            <div class="mb-3 col-12 col-md-6 form-row ">
-              <label for="name">Nom</label>
-
-              <input type="text" name="name" id="name" value="TOURE" class="form form-control inputvalue">
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row ">
-              <label for="firstname">Prénom</label>
-              <input type="text" name="firstname" id="firstname" value="Ousmane" class="form form-control inputvalue">
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row ">
-              <label for="email">Email</label>
-              <input type="email" name="email" id="email" value="Toure@orangemali.com" class="form form-control inputvalue">
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row ">
-              <label for="num">Numéro</label>
-              <input type="text" name="num" id="num" value="74674384" class="form form-control inputvalue">
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row ">
-              <label for="num">Role</label>
-              <input type="text" name="num" id="num" value="Administrateur" class="form form-control inputvalue" disabled>
-            </div>
-          </div>
-          <div>
-            <button class="btn btnAjouter">Enregistrer</button>
-            <button class="btn btnAjouter1">Annuler</button>
-          </div>
-          
-
-
-        </form>
-
-      </div>
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <!-- Tiec -->
-  <!-- <div class="container">
-    <div class="left" style="position: absolute; left: 0;">
-      <img src="assets/images/logo.png" alt="">
-      <h2>Bienvenue</h2>
-      <h6>Sur Orange Digital Center</h6>
-    </div>
-
-    <div class="right">
-
-      <h2>Ajouter un postulant</h2>
-      <div class="trait"></div>
-
-      <form action="" method="post" >
-        <table>
-          <tr>
-            <td><input type="text" name="nom" placeholder="Saisir Nom" required></td>
-            <td><input type="text" name="nom" placeholder="Saisir Prenom" required></td>
-          </tr>
-
-          <tr>
-            <td><input type="text" name="num" placeholder="Saisir Numero" required></td>
-            <td><select class="slt">
-              <option value="" style="background: red;">--Genre--</option>
-              <option value="">Masculin</option>
-              <option value="">Féminin</option>
-            </select></td>
-          </tr>
-        </table>
-            <td><input class="eml" type="email" name="email" placeholder="Entrer Email" required></td>
-        <input type="submit" value="Envoyer">
-      </form>
-
-    </div>
-
-  </div>  -->
-
-
-</ion-content>
+</ng-template>

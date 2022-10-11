@@ -1,65 +1,24 @@
 <div class="container-fluid">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i>
-  </a>
+  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
+<style>
+
+.deconnexion{
+position:relative; left:80% ;
+}
+@media only screen and (max-width: 475px){
+.deconnexion{
+  left:50% ;
+}
+}
+</style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
 
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-<ion-content>
-  <ion-div id="container">
-
-    <ion-card class="box1">
-      <ion-div>
-        <h2>Importer un fichier</h2>
-        <ion-file >Joindre un fichier</ion-file><br />
-        <ion-input typeof="text" placeholder="Nom de la liste"></ion-input>
-        <ion-button color="dark">Importer</ion-button><br />
-        <ion-div>Ajouter  Un Postulant</ion-div><br />
-      </ion-div>
-
-    </ion-card>
-
-    <ion-card class="box2">
-
-      <ion-div>
-        <h2>Faire Tirage</h2>
-        <ion-div >Libellé tirage</ion-div><br />
-        <ion-input typeof="numeric" placeholder="Nombre à trié"></ion-input>
-        <ion-div >Libellé de la liste</ion-div><br />
-        <ion-div >Libellé d'activité</ion-div><br />
-        <ion-button color="light">Faire tirage</ion-button>
-      </ion-div>
-
-    </ion-card>
-
-    <ion-card class="box3">
-
-      <ion-div>
-        <h2>Faire tirage sur une Liste existante</h2>
-        <ion-input typeof="text" placeholder="Libellé tirage"></ion-input><br />
-        <ion-input typeof="numeric" placeholder=" Nombre à trié"></ion-input><br />
-        <ion-input typeof="text" placeholder="Libellé de la liste"></ion-input><br />
-        <ion-input typeof="text" placeholder="Libellé d'activité"></ion-input><br />
-        <ion-button color="light">Faire tirage</ion-button>
-      </ion-div>
-
-    </ion-card>
-
-  </ion-div>
-
-=======
->>>>>>> 628d3a5e4f2cf3aaa4132a94ea71deba658cfe6c
-
-
-      
-=======
->>>>>>> e9eafdfcbe493253c3622b3b35493e12abfafd51
       <div class="container">
         <button type="button" class="btn" style="margin-left:92% ;">
           <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
@@ -84,7 +43,7 @@
                     <p *ngIf="bool_erreurImpFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
                       {{erreurImpFr}}</p>
                     <p *ngIf="bool_erreurImpBack"
-                      [ngClass]="erreurImpBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                      [ngClass]="erreurImpBack.status== true ? 'alert-success' : 'alert-warning' " class="m-3"
                       style="font-size: 1.2rem; font-weight: bold;">{{erreurImpBack.contenu}}</p>
                   </div>
                 </div>
@@ -97,13 +56,12 @@
                   </div>
                 </div>
 
-
                 <div class="col-12 col-md-12">
                   <div class="mb-3 form-row form-floating">
                     <select [(ngModel)]="libelleActivite" id="choice" class="form-select form-control inputvalue"
                       formControlName="libelleActivite">
                       <option selected>--Choisir Activité--</option>
-                      <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
+                      <option *ngFor="let listeActivites of activitesSansListes$" [(ngValue)]="listeActivites.nom">
                         {{listeActivites.nom}}</option>
                     </select>
                     <label style="font-size: 1.2rem; color: black;">Choisir une Activité</label>
@@ -115,9 +73,57 @@
                     <input type="file" class="form-control" formControlName="file" (change)="onFileChange($event)" />
                   </div>
                 </div>
-                <button class="btn btnImport mb-2 mt-3 ">Importer</button>
+                <button class="btn btnImport mb-2 mt-3 " id="open-modal" expand="block" (click)="affiche()" >Importer</button>
               </form>
             </div>
+            <!--MODAL PERMETTANT D'AFFICHER LES PERSONNES-->
+<div *ngIf="status">
+      <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation" >
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>
+                
+              </ion-title>
+              <ion-buttons slot="end">
+                <ion-button (click)="modal.dismiss()" class="btn btn-danger">Fermer</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
+          <table id="season-tble" class="table" >
+            <thead style="padding-bottom:100%;">
+              <th>Nom</th>
+              <th>Prenom</th>
+              <th>Email</th>
+              <th>Numero</th>
+              <th>Genre</th>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let mesPersonnes of liste" >
+                <td> {{mesPersonnes[0]}}</td>
+                <td> {{mesPersonnes[1]}}</td>
+                <td> {{mesPersonnes[2]}}</td>
+                <td> {{mesPersonnes[3]}}</td>
+                <td> {{mesPersonnes[4]}}</td>
+              </tr>
+            </tbody>
+
+            <!-- <ion-avatar slot="start">
+                          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              </ion-avatar > -->
+
+            <!-- <ion-label> <h2>{{mesPersonnes[0]}}</h2> </ion-label>
+                        <ion-label> <p>{{mesPersonnes[1]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[2]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[3]}}</p></ion-label>
+                        <ion-label> <p>{{mesPersonnes[4]}}</p></ion-label> -->
+
+          </table>
+
+        </ng-template>
+      </ion-modal>
+    </div>
           </div>
 
           <!-- le tirage -->
@@ -164,25 +170,12 @@
                         <select name="libelleListet" [(ngModel)]="libelleListet"
                           class="form-select form-control inputvalue">
                           <option selected>--Choisir Liste--</option>
-                          <option *ngFor="let liste of listes$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
+                          <option *ngFor="let liste of listeSansTirageValides$" [(ngValue)]="liste.libelleliste">{{liste.libelleliste}}
                           </option>
                         </select>
                         <label style="font-size: 1.2rem; color: black;">Choisir une Liste</label>
                       </div>
                     </div>
-<!--
-   <div class="col-12 col-md-6">
-                      <div class="mb-3 form-row form-floating ">
-                        <select name="libelleActivite" [(ngModel)]="libelleActivite"
-                          class="form-select form-control inputvalue">
-                          <option selected>--Choisir Activité--</option>
-                          <option *ngFor="let listeActivites of listeActivites$" [(ngValue)]="listeActivites.nom">
-                            {{listeActivites.nom}}</option>
-                        </select>
-                        <label style="font-size: 1.2rem; color: black;">Choisir une Activité </label>
-                      </div>
-                    </div>
--->
                    
 
                   </div>
@@ -193,7 +186,6 @@
 
           </div>
         </div>
-
 
         <!-- importation et tirage -->
         <div class="row py-5">
@@ -206,8 +198,8 @@
                 <div class="row">
                   <div class="mb-4 altert " style="border-radius:10px;">
                     <div>
-                      <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger"
-                        style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieFr}}</p>
+                      <!-- <p *ngIf="bool_erreurImpTrieFr" class="m-3 alert-danger"
+                        style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieFr}}</p> -->
                       <p *ngIf="bool_erreurImpTrieBack"
                         [ngClass]="erreurImpTrieBack.status == true ? 'alert-success' : 'alert-warning' " class="m-3"
                         style="font-size: 1.2rem; font-weight: bold;">{{erreurImpTrieBack.contenu}}</p>
@@ -274,3 +266,4 @@
     </main>
   </div>
 </div>
+

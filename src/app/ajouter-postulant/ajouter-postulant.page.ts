@@ -1,5 +1,6 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 // import { Component, OnInit } from '@angular/core';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
@@ -12,13 +13,24 @@ export class AjouterPostulantPage implements OnInit {
   
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+  status: boolean = false;
+
+  // /==============================================================================SESSION==========
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
   postulant: Postulant = {
     nom_postulant: "",
     prenom_postulant: "",
     numero_postulant: "",
-    email: "",
-    genre: ""
+    email: " ",
+    genre: " "
 
     }
   
@@ -31,21 +43,45 @@ export class AjouterPostulantPage implements OnInit {
     listePostulant:any;
   
     liste:any;
-  
-    erreur: any;
+    listes:any
+    erreurs: any;
     bool_erreur: boolean = false;
+    bool_erreurFr: boolean = false;
+  errors: string;
   
   
     constructor(
       private ajouterPostulant : AjouterPostulantService, public breakpointObserver: BreakpointObserver
-    ) { }
+    ,private route:Router) { }
   
     actualise(): void {
       setInterval(
         () => {
         }, 100, clearInterval(1500));
     }
+
+
+    resetForm(){
+
+         
+   this.nom_postulant = "";
+   this.prenom_postulant = "";
+    this.numero_postulant = "";
+   this.email = " ";
+ this.genre = " ";
+
+    }
     ngOnInit() {
+
+
+
+      // ===========================================================================SESSION VALEURS================================================
+this.iduser =  sessionStorage.getItem("id_users");
+this.roles = sessionStorage.getItem("role_users"); 
+this.noms_users =  sessionStorage.getItem("nom_users");
+this.prenom_users = sessionStorage.getItem("prenom_users",);
+this.email_users = sessionStorage.getItem("email_users");
+this.numero_users = sessionStorage.getItem("numero_users");
 
       this.getListePostulant();
   
@@ -62,6 +98,8 @@ export class AjouterPostulantPage implements OnInit {
           this.actualise();
         }
       });
+
+      this.getListePostulant();
   
     }
   
@@ -83,31 +121,57 @@ export class AjouterPostulantPage implements OnInit {
     this.postulant.email = this.email;
     this.postulant.genre = this.genre;
 
-    this.bool_erreur = true;
+    
 
-    if(this.nom_postulant === "" || this.prenom_postulant === "" || this.email == "" || this.genre == "" || this.numero_postulant == ""){
+    if(this.nom_postulant.length != 0 || this.prenom_postulant.length != 0 || this.email.length != 0 || this.genre.length != 0 || this.numero_postulant.length != 0){
       
-      this.erreur = "Veuillez remplir tous les champs";
+
+      this.ajouterPostulant.ajouterPostulant(this.listes, this.postulant).subscribe((data) =>{ 
+        console.log(data.contenu);
+
+        if(data == null){
+          this.erreurs = "Ce postulant existe déjà"
+          this.status = false;
+        }else{
+          this.erreurs = "Postulant ajouté avec succès"
+         
+          this.status = true;
+           this.resetForm()
+        }
+      
+      
+      })
+
+     
+      this.bool_erreur = true;
+      this.bool_erreurFr = false
+
+  
 
     }else{  
      
-      this.ajouterPostulant.ajouterPostulant(this.liste, this.postulant).subscribe((data) =>{ 
-
-        if(data == null){
-          this.erreur = "Ce postulant existe déjà";
-        }else{
-          this.erreur = "Postulant ajouté avec succes";
-        }
-
-        })
-        console.log(this.erreur);
+      console.log("vvvv   " +this.nom_postulant)
+    console.log("bbbb   " +this.prenom_postulant)
+    console.log("bbbb   " +this.numero_postulant)
+    console.log("bbb    " +this.postulant)
+      this.bool_erreurFr = true;
+      this.bool_erreur = false;
+      this.erreurs = "Veuillez remplir tous les champs";
+   
+       
     }
+
+   
   }
 
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
-
+  deconnexion(){
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+    }
 
 }

@@ -10,7 +10,8 @@ export class AppComponent implements OnInit {
 
   // menuBureau: boolean = true;
   // menuMobile: boolean = false;
-
+  
+  
   constructor( /*public breakpointObserver: BreakpointObserver*/) { }
 
   actualise(): void{

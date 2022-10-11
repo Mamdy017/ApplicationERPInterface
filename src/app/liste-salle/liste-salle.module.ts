@@ -9,6 +9,7 @@ import { ListeSallePageRoutingModule } from './liste-salle-routing.module';
 import { ListeSallePage } from './liste-salle.page';
 import { MenuComponent } from '../menu/menu.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {  Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     IonicModule,
     ListeSallePageRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
   ],
   declarations: [ListeSallePage,MenuComponent]
 })

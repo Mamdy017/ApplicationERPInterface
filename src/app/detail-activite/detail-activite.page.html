@@ -1,44 +1,133 @@
+<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
 
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
 
-<ion-content>
-<div class="container">
-<div class="row">
-<div class="col-md-12  colonne1">
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
 
-  <!-- <img src="/assets/images/detail-liste.png" class="rounded img"> -->
-  <img src="/assets/images/detail-liste.png" class="img-fluid" alt="...">
-</div>
-<div class="col-md-12  text ">
-  <!-- <hr style="background: #FF6600;border-radius: 20px;background: rgba(255,102,0,1);width: 104px;height: 8px; margin-top:-10%; margin-left:40%;"> -->
-  <h1 class="h1 ">Talk - Le numérique responsable</h1><br>
-  <hr class="py-1" style="border-radius: 20px;width: 10%;height: 3%;margin-left:45%;margin-top:-6%;background: #FF6600;" >
-  <br><br>
-  <p class="t1" >Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de sa valeur et atteindre ses objectifs ... 
-    Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de sa valeur et atteindre ses objectifs ... 
-    Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de sa valeur et atteindre ses objectifs .
-  </p>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+      <ion-content>
+        <div class="container">
+          <div class="row contourShaddow my-4">
+            <div class="contourTopImg my-1 p-4 col-12 col-md-12">
+              <div class="contourImg">
+                <img src="../../assets/images/numerique.jpg" alt="images" class="img-fluid">
+              </div>
+              <h1 class="display-6 mb-3"><b>Talk - Le numérique responsable</b></h1>
+
+              <div class="UserSection ">
+                <div class="userCerle ">
+                  <div class="name">HC</div>
+                </div>
+
+                <div class="userName  ">
+                  <span class="firstName">Hawa <b>COULIBALY</b></span>
+                  <span>Responsable</span>
+                </div>
+
+                <div class="  ">
+                  <button class="btn btnTerminer">
+                    <img src="../../assets/icon/validIcon.png" alt="icon valid" class="iconValid"> Terminer
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row contourShaddow">
+            <div class="description p-4">
+              Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de
+              sa
+              valeur et atteindre ses objectifs ...
+              Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de
+              sa
+              valeur et attei Hawa Berthe, conférencière en développement conférencière en développement personnel,
+              partage
+              plusieurs outils pour prendre conscience de sa
+              valeur et attei Hawa Berthe, conférencière en développement
+            </div>
+          </div>
+
+          <div class="row contourShaddow my-4">
+            <div class="moreInfos p-4">
+              <p class="h3 mb-3"><b>Inforamtions Importante</b></p>
+
+              <div class="row">
+                <div class="col-12 col-md-4">
+                  <p>
+                    <ion-icon name="location" class="iconLocationSize"></ion-icon>
+                    <b>Lieu : </b>Orange Digital Center
+                  </p>
+                  <p>
+                    <ion-icon name="home" class="iconLocationSize"></ion-icon>
+                    <b>Salle : </b>2ème Etage
+                  </p>
+                </div>
+                <div class="col-12 col-md-4">
+                  <p>
+                    <ion-icon name="person" class="iconLocationSize"></ion-icon>
+                    <b>Responsable: </b>Jeremi KOLOMA
+                  </p>
+                  <p>
+                    <ion-icon name="locate" class="iconLocationSize"></ion-icon>
+                    <b>Objectif participants: </b>100
+                  </p>
+                </div>
+                <div class="col-12 col-md-4">
+                  <p>
+                    <ion-icon name="calendar" class="iconLocationSize"></ion-icon>
+                    <b>Date début : </b>20/20/2022
+                  </p>
+                  <p>
+                    <ion-icon name="calendar" class="iconLocationSize"></ion-icon>
+                    <b>Date Fin : </b>20/20/2030
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </main>
+  </div>
 </div>
 
-  <div class="col-md-12 row colonne3">
-   <div class="col-md-4 ">
-  <a href=""><i class="bi bi-person-circle" style="color:black; margin-left: 2%;"></i></a><p>Créer par  Moussoudou Traoré</p>
-  <button type="button" class="btn btn-success" style="margin-left: 10%;margin-top: -1%;">Etat de l’activité: Terminer</button><br>
-  <a href=""><ion-icon name="locate" style="margin-left: 2%;margin-top: 5%;"></ion-icon></a><p>Objetif participant : 20 personnes</p>
-</div>
-<div class="col-md-4 ">
-  <a href=""><ion-icon name="calendar"></ion-icon></a><p>Date début : 20/12/2022</p>
-  <a href=""><ion-icon name="calendar"></ion-icon></a><p>Date fin : 30/12/2022</p>
-  <a href=""><ion-icon name="pin"></ion-icon></a><p>Lieu : Orange Digital Center</p>
-</div>
-  <div class="col-md-4 king">
-  <a href="" ><ion-icon name="home"></ion-icon></a><p >Salle : 2eme etage</p>
-  <a href="" ><ion-icon name="person"></ion-icon></a><p >Responsable:  Aly KONTE</p>
-</div>
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
 
-</div>
-</div>
-
-
-
-</div>
-</ion-content>
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

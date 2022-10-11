@@ -1,7 +1,24 @@
-<ion-content>
-  <div class="container-fluid">
-    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-      style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<ion-content *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <div class="container-fluid ">
+
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+        class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i>
+      Deconnexion</button>
+   <a href="details-activite" style="color:#FF6600; font-size:60px;padding: 200px;position: relative;top: 25px;"><ion-icon name="arrow-back-circle"></ion-icon></a>
+
+    <style>
+      .deconnexion {
+        position: relative;
+        left: 80%;
+      }
+
+      @media only screen and (max-width: 475px) {
+        .deconnexion {
+          left: 50%;
+        }
+      }
+    </style>
     <div class="row flex-nowrap">
       <div class="col-auto px-2" *ngIf="menuBureau">
         <app-menu></app-menu>
@@ -20,23 +37,37 @@
               <!------------- Colonne Droite ---->
               <div class="col-12 col-md-8">
                 <form>
+                 
                   <fieldset>
                     <legend class="display-6 text-center my-3"><b>Ajouter un postulant</b></legend>
                   </fieldset>
                   <div class="trait"></div>
+<!-- =========================================  Retour de message d'erreur ou success  ========================================== -->
+                
+                <div class="mb-4 altert " style="border-radius:10px;">
+                  <div align="center">
+                    <p *ngIf="bool_erreurFr" class="m-3 alert-danger" style="font-size: 1.2rem; font-weight: bold;">
+                      {{erreurs}}</p>
+                    <p *ngIf="bool_erreur"
+                      [ngClass]="status == true ? 'alert-success' : 'alert-warning' " class="m-3"
+                      style="font-size: 1.2rem; font-weight: bold;">{{erreurs}}</p>
+                  </div>
+                </div>
+
+
                   <div class="row col-12">
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="name" [(ngModel)]="nom_postulant" id="name" placeholder="Nom"
+                      <input type="text" name="nom_postulan" [(ngModel)]="nom_postulant" id="name" placeholder="Nom"
                         class="form form-control inputvalue">
                       <label for="name">Nom</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="firstname" [(ngModel)]="prenom_postulant" id="firstname"
+                      <input type="text" name="prenom_postulant" [(ngModel)]="prenom_postulant" id="firstname"
                         placeholder="Prénom" class="form form-control inputvalue">
                       <label for="firstname">Prénom</label>
                     </div>
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                      <input type="text" name="num" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro"
+                      <input type="text" name="numero_postulant" id="num" [(ngModel)]="numero_postulant" placeholder="Numéro"
                         class="form form-control inputvalue">
                       <label for="num">Numéro</label>
                     </div>
@@ -55,22 +86,29 @@
                         class="form form-control inputvalue">
                       <label for="email">Email</label>
                     </div>
-                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                    
+                    <!-- <div class="mb-3 col-12 col-md-12 form-row form-floating">
                       <select name="liste" id="liste" class="form-select form-control">
                         <option selected> Choisir une liste </option>
                         <option> Liste1</option>
                         <option> Liste2</option>
                         <label for="sexe">liste</label>
                       </select>
+                    </div> -->
+
+                    <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                      <select id="liste" class="form-select form-control"  name="listes" [(ngModel)]="listes">
+                        <option selected> Choisir une liste </option>
+                        <option *ngFor="let liste of listePostulant" [(ngValue)]="liste.libelleliste" >{{liste.libelleliste}}</option>
+                        <label for="sexe">liste</label>
+                      </select>
                     </div>
-                  </div>
-                  <button class="btn btnAjouter">Valider</button>
 
-                  <div class="erreurAjoutPost" *ngIf="bool_erreur">
-                    <p>{{erreur}}</p>
-                  </div>
 
-                  <button (click)="posterPostulant()" class="btn btnAjouter">Ajouter</button>
+                  </div>
+                  <!-- <button class="btn btnAjouter">Valider</button> -->
+
+                  <button (click)="posterPostulant()" class="btn btnAjouter" >Ajouter</button>
 
                 </form>
 
@@ -82,3 +120,27 @@
     </div>
   </div>
 </ion-content>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

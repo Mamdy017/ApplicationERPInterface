@@ -8,16 +8,18 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 // import {NgxPaginationModule} from 'ngx-pagination';
 
-
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import{NgChartsModule} from 'ng2-charts'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,16 +27,23 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterLinkActive,
+    Ng2SearchPipeModule,
     NgChartsModule,
-    Ng2SearchPipeModule
+    NgbModule
+    
+
+    // FilterPipe
 
     // LayoutModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  
+ }

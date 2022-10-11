@@ -1,17 +1,36 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
 .contenuCard{
     padding: 20px;
     box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
   }
   p{
-    text-align: center;
+    // text-align: center;
+    // font-family: 'Poppins';
+    // font-size: 24px;
+    // font-weight: bold;
     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
     font-size: 24px;
-    font-weight: bold;
+    line-height: 60px;
   }
   .container{
     position: relative;
     top: 20%;
+   }
+   thead{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
   }
+ .ajouter
+ {
+  color: #FFFFFF; font-weight: bold;
+ }
   .contain{
     background: #FFFFFF;
     box-shadow: 1px 4px 12px rgba(0, 0, 0, 0.8);
@@ -20,8 +39,8 @@
     top: 50%;
   }
   .btnNouveau{
-      box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25); 
-      border-radius: 10px;
+      box-shadow: 0px 4px 23px rgba(0, 0, 0, 0.25);
+
       background-color: black;
       color: #FFFFFF;
   }
@@ -31,32 +50,114 @@
   }
   td a{
     text-decoration: none;
-    border: 1px solid black;
-    font-size: 14px;
-    border-radius: 10px;
-    
-    padding: 5px;
-    border: 1px solid #FF6600 ;
-    background-color: white;
-    color: black;
+
+
   }
+.voir{
+  text-decoration: none;
+
+  font-size: 10px;
+
+  padding: 5px;
+
+  background-color: #FF6600;
+  color: white;
+
+
+}
+
+
   td a:hover{
     background-color: #FF6600;
     color: white;
   }
-  
-  @media (max-width: 900px ) {
-    td a{
-      text-decoration: none;
-      border : 1px solid black;
-      font-size: 8px;
-      border-radius: 10px;
-      background-color: #FF6600;
-      color: white;
-      padding: 5px;
+
+  @media only screen and  (max-width: 767px ) {
+    // td a{
+    //   text-decoration: none;
+    //   border : 1px solid black;
+    //   font-size: 8px;
+    //   border-radius: 10px;
+    //   background-color: #FF6600;
+    //   color: white;
+    //   padding: 5px;
+    // }
+    td, th{
+      font-size: 10px;
     }
+
+
   }
+  tbody{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .paginate .currentPage{
+    padding: 0.1875rem 0.625rem;
+    background-color: #000000;
+    color: #fefefe;
+    cursor: default;
+}
+
+
+
+  .gauche{
+  margin-left: 70%;
+  }
+
+
+  //Popup importer un fichier
+
   
-  
-  
-  
+.form {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.trait{
+  border: 2px solid #FF6600;
+  width: 20%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btnImport{
+  background: #FF6600;
+  border-radius: 12px;
+  color: white;
+  height: 50px;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+}
+
+.btnImport:hover{
+  background: black;
+}
+
+.btnImport1{
+  background: #FF6600;
+  border-radius: 12px;
+  color: white;
+  height: 50px;
+  border: none;
+  font-size: 15px;
+  width: 100%;
+}
+
+.btnImport1:hover{
+  background: black;
+}
+
+.ngx-pagination .current {
+  padding: 0.1875rem 0.625rem;
+  background: black;
+  color: #fefefe;
+  cursor: default;
+}
+
+
+

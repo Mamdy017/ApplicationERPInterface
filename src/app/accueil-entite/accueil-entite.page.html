@@ -1,129 +1,162 @@
-<div class="container-fluid">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+<div class="container-fluid " *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
+
+    @media only screen and (max-width: 475px) {
+      
+      .deconnexion {
+        left: 50%;
+      }
+
+    }
+
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
 
-<ion-content>
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-9  ">
-      <div class="col-12 col-md-12 t1 " class="haut">
-        <!-- <!-- <h1>Bienvenue sur la page de l’entité</h1> -->
-        <h2>{{nom_entite}}</h2> 
-      </div>
-<!--La section pour les statistiques formations apprenants et evenements-->
-      
-      <section class="row gy-3 py-3">
-        <div class="col-6 col-md-4 pt-3">
-          <div class="card">
-            <img src="../../assets/icon/formation.png" alt="icon" class="icons">
-            <p class="pcard">{{nombre_formation}}</p>
-            <p class="textcard">Formations</p>
+      <ion-content>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-9  ">
+              <div class="col-12 col-md-12 t1 " class="haut">
+                <!-- <h1>Bienvenue sur la page de l’entité</h1> -->
+                <h2>{{nom_entite}}</h2>
+              </div>
+              <!--La section pour les statistiques formations apprenants et evenements-->
+
+              <section class="row gy-3 py-3">
+                <div class="col-6 col-md-4 pt-3">
+                  <div class="card">
+                    <img src="../../assets/icon/formation.png" alt="icon" class="icons">
+                    <p class="pcard">{{nombre_formation}}</p>
+                    <p class="textcard">Formations</p>
+                  </div>
+                </div>
+                <div class="col-6 col-md-4 pt-3">
+                  <div class="card">
+                    <img src="../../assets/icon/talk.png" alt="icon" class="icons2">
+                    <p class="pcard">{{nombre_talk}}</p>
+                    <p class="textcard">Talks</p>
+                  </div>
+
+                </div>
+                <div class="col-6 col-md-4 pt-3">
+                  <div class="card">
+                    <img src="../../assets/icon/event.png" alt="icon" class="icons3">
+                    <p class="pcard">{{nombre_evennement}}</p>
+                    <p class="textcard">Evenements</p>
+                  </div>
+
+                </div>
+              </section>
+            </div>
+            <div class="col-12 col-md-3 t2 ">
+              <div class="card1">
+                <img src="assets/icon/{{img_responsable}}" alt="">
+                <p class="profil">{{prenom_responsable}}</p>
+                <p class="statut">{{nom_responsable}}</p>
+                <p class="statut">Responsable</p>
+                <button class="btn btnModify"><a href="changer-profile">Modifier</a></button>
+              </div>
+
+            </div>
           </div>
+          <section class="row gy-3 py-3">
+            <div class="col-12 col-md-9">
+              <div class="card1">
+                <ul class="chart">
+                  <div class="col-12 col-md-12">
+                    <small>L'alignement vertical répresente le nombre d'activités par mois </small>
+                    <canvas #barCanvas style="position: relative; height: 25vh; width: 25vw;"></canvas>
+                    <small>L'alignement horizontal répresente le nombre de mois dans l'année</small>
+                  </div>
+
+                </ul>
+                <div class="col-12 col-md-12 t2">
+                  <h3 class=""> <strong> Activités encours</strong></h3>                     
+                   <h3 *ngIf="encours">Aucune activité encours</h3>
+                  <div class="card1" *ngFor="let encour of activite_encours">
+                    <div class="row ">
+
+                      <div class="col-12 col-md-10">
+                        <div class="contient row bg-">
+                          <div class="col-md-6">
+                            <img src="../../assets/kalanso.jpg"
+                              style="height: 150px; width: 100%; cursor: pointer; padding: 1px;" alt="" srcset="">
+                          </div>
+                          <div class="col-md-6">
+                            <p class="titreac">{{encour[0]}}</p>
+                            <p class="date1"><span><i class="bi bi-calendar-fill "></i> Debut {{encour[3] | date
+                                }}</span> <span><i class="bi bi-calendar-check-fill"></i> Fin {{encour[4] |
+                                date}}</span> </p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+
+                </div>
+
+              </div>
+              <!--La section pour les activites à venir-->
+
+            </div>
+            <div class="col-12 col-md-3 t2">
+              <div class="card1">
+                <h3 class="py-3"> <strong> Activités a venir</strong></h3>
+                <h3 *ngIf="avenir">Aucune activité à venir</h3>
+                <div *ngFor="let a of activite_avenir | paginate: { itemsPerPage: 2, currentPage: p}">
+                  <p class="titreac">{{a[0]}}</p>
+                  <img src="../../assets/kalanso.jpg"
+                    style="height: 300px; width: 100%; cursor: pointer; padding: auto;" class="image" alt="" srcset="">
+                  <p class="date"><span><i class="bi bi-calendar-fill "></i> Debut {{a[3] | date }}</span> <span><i
+                        class="bi bi-calendar-check-fill"></i> Fin {{a[4] | date}}</span> </p>
+                  <p class="tiret"></p>
+                </div>
+                <pagination-controls (pageChange)="p = $event" style="font-size: 10px;" nextLabel="Suivants"
+                  previousLabel="Précédent"></pagination-controls>
+              </div>
+            </div>
+          </section>
+          <!--La section pour les activites encours-->
         </div>
-        <div class="col-6 col-md-4 pt-3">
-          <div class="card">
-            <img src="../../assets/icon/talk.png" alt="icon" class="icons2">
-            <p class="pcard">{{nombre_talk}}</p>
-            <p class="textcard">Talks</p>
-          </div>
-          
-        </div>
-        <div class="col-6 col-md-4 pt-3">
-          <div class="card">
-            <img src="../../assets/icon/event.png" alt="icon" class="icons3">
-            <p class="pcard">{{nombre_evennement}}</p>
-            <p class="textcard">Evenements</p>
-          </div>
-          
-        </div>
-      </section>    
-    </div>
-    <div class="col-12 col-md-3 t2 ">
-      <div class="card1">
-        <img src="assets/icon/user.png" alt="">
-        <p class="profil">{{nom_res}}</p>
-        <p  class="statut">TOURE</p>
-        <p  class="statut">Responsable</p>
-        <button class="btn btnModify"><a href="changer-profile">Modifier</a></button>
-      </div>
-      
-    </div>
+      </ion-content>
+    </main>
   </div>
-<section  class="row gy-3 py-3">
-  <div class="col-12 col-md-9">
-    <div class="card1">
-      <ul class="chart">
-        <li >
-          <span style="height:50%" title="Janvier" class="color-li"></span>
-        </li>
-        <li>
-          <span style="height:70%" title="Fevrier"></span>
-        </li>
-        <li>
-          <span style="height:50%" title="Mars"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Avril"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Mai"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Juin"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Juillet"></span>
-        </li>
-        <li>
-          <span style="height:20%" title="Août"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Septembre"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Octobre"></span>
-        </li>
-        <li>
-          <span style="height:15%" title="Novembre"></span>
-        </li>
-        <li>
-          <span style="height:35%" title="Decembre"></span>
-        </li>
-      </ul>    
-      <br><br>
-      <h2 class="a">Données Statistiques</h2>
-    </div>
-    <!--La section pour les activites à venir-->
-  </div>
-  <div class="col-12 col-md-3 t2">
-    <div class="card1">
-      <h2>Activités a venir</h2>
-      <div *ngFor="let a of activite_avenir">
-        <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
-      </div>
-     </div>
-  </div>
-</section>
-<!--La section pour les activites encours-->
-<section>
-  <div class="col-12 col-md-9 t2">
-    <div class="card1">
-      <h2>Activités encours</h2>
-      <div  class="row py-3">
-        <div class="col-12 col-md-4"  *ngFor="let a of activite_encours">
-          <p><i class="bi bi-bar-chart"></i>{{a.nom}}</p>
-        </div>
-     
-    </div>
-    </div>
-  </div>
-</section>
- 
 </div>
-</ion-content>
-    </main></div></div>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>
