@@ -9,6 +9,45 @@
         position: relative;
         left: 80%;
       }
+    
+  </style>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
+    </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
+
+
+
+
+      <div class="container">
+        <div class="row boxShadow">
+          <!------------- Colonne Gauche---->
+
+
+          <!------------- Colonne Droite ---->
+          <div class="col-2 col-md-6" align="center">
+            <img src="../../assets/salles.png" width="100%">
+          </div>
+
+
+          <div class="col-10 col-md-6">
+            <form>
+              <fieldset>
+                <legend class="display-6 text-center my-3"><b>Ajouter une<span class="o"> Salle</span></b></legend>
+              </fieldset>
+              <div class="trait"></div>
+
+
+              <!-- <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="messageRetour">
+                <strong>{{messageRetour}}</strong>
+                <button type="reset" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div> -->
+
+
 
       @media only screen and (max-width: 475px) {
         .deconnexion {

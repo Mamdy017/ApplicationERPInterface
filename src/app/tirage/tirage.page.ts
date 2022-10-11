@@ -12,8 +12,8 @@ import { Tirage } from '../modeles/tirage/tirage';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { ListePostulantService } from '../Services/liste-postulant.service';
+import Swal from 'sweetalert2';
 import { AnimationController } from '@ionic/angular';
-import { Postulant } from '../modeles/postulant/postulant';
 
 
 @Component({
@@ -320,6 +320,14 @@ leaveAnimation = (baseEl: HTMLElement) => {
   }
 
   submitImportTrie() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
 
     const formData = new FormData();
 
@@ -328,22 +336,52 @@ leaveAnimation = (baseEl: HTMLElement) => {
     console.log(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
 
     if (this.myFormImportTrie.get('libelleListe').value.length > 0 && this.myFormImportTrie.get('libelleTirage').value.length > 0 && this.myFormImportTrie.get('libelleListe').value.length > 0 && formData != null) {
-      this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
+      swalWithBootstrapButtons.fire({
+        title: 'Voulez-vous vraiment effectuer le tirage !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)
 
-        .subscribe(res => {
+          .subscribe(res => {
+            if (res.status == true) {
+              this.route.navigateByUrl("/liste-salle")
+              swalWithBootstrapButtons.fire(
+                'Tirage effectué avec succes!',
+                'Vous êtes diriger vers la liste du tirage.',
+                'success',)
+            }
+            else {
+              swalWithBootstrapButtons.fire(
+                this.erreurImpTrieFr = res.contenu,
+  
+              )
+            }
+  
+            console.log(res);
+  
+            this.erreurImpTrieBack = res;
+            this.bool_erreurImpTrieBack = true;
+            this.bool_erreurImpTrieFr = false;
+          })
+        }
 
-          console.log(res);
 
-          this.erreurImpTrieBack = res;
-          this.bool_erreurImpTrieBack = true;
-          this.bool_erreurImpTrieFr = false;
-        })
-
+      })
+      
     } else {
 
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "Veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = " Veuillez bien remplir tous les champs !",
+      )
+      // this.erreurImpTrieFr = "Veuillez remplir tous les champs";
 
 
 
