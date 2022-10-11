@@ -85,8 +85,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
-                      *ngFor="let personnes of lesPersonnesTirees  | paginate:{itemsPerPage: 5, currentPage:page} |  filter:searchText let i = index">
+                    <tr *ngFor="let personnes of lesPersonnesTirees  | paginate:{itemsPerPage: 5, currentPage:page} |  filter:searchText let i = index">
                       <td scope="row">{{i+1}}</td>
                       <td>{{personnes.nom_postulant}}</td>
                       <td>{{personnes.prenom_postulant}}</td>
@@ -94,7 +93,7 @@
                       <td>{{personnes.numero_postulant}}</td>
                       <td>{{personnes.genre}}</td>
                       <td>{{personnes.activite.nom}}</td>
-                      <td>{{personnes.activite.nom}}</td>
+                      <td><a [routerLink]="['/postulant-tire',personnes.id]">Voir Plus</a></td>
                     </tr>
                   </tbody>
                 </table>

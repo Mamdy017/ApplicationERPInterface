@@ -21,6 +21,7 @@ export class PostulantTirePage implements OnInit {
   prenom_users: any;
   email_users: string;
   numero_users: string;
+  PostulantTire:PostulantTire[];
 
   // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -36,7 +37,6 @@ export class PostulantTirePage implements OnInit {
   lesPersonnesTirees: any;
 
   page: number = 1
-  PostulantTire:PostulantTire[]
   nombre_homme: number = 0;
   nombre_femme: number = 0;
   genre: any
@@ -49,6 +49,11 @@ export class PostulantTirePage implements OnInit {
   // id_tirage : any
   ngOnInit() {
 
+    const id = +this.route.snapshot.paramMap.get('id');
+
+   this.route.paramMap.subscribe(params =>{
+    const id = +params.get('id');
+   });
     // ===========================================================================SESSION VALEURS================================================
     this.iduser = sessionStorage.getItem("id_users");
     this.roles = sessionStorage.getItem("role_users");
