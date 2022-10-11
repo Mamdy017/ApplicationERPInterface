@@ -27,97 +27,107 @@
             <div class="row">
 
               <div class="col-12 col-md-3 text-center" part1>
-                <p> Statistiques</p>
+                <p class="h4"> STATISTIQUES</p>
                 <div class="card">
 
                   <div class="contenuCard text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="#FF6600"
-                      class="bi bi-card-list" viewBox="0 0 16 16">
-                      <path
-                        d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-                      <path
-                        d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                    </svg>
-                    <p class="nombreSurlaCard text-center" style="color: #FF6600; font-weight: bold; font-size: 34px;">
+                    <ion-icon name="list-circle-outline" class="listeIcon"></ion-icon>
+                    <p class="nombreSurlaCard text-center">
                       {{listeTotal}}</p>
-                    <p>Nombre Listes</p>
+                    <p class="txtListe">Nombre Listes</p>
                   </div>
                 </div>
 
               </div>
 
-              
+
+              <!-- <div class="container"> -->
+
+              <div class="col-12 col-md-9 text-center" style="border-radius: 20px 20px 0px 0px;">
+                <p class="display-6"> Toutes les listes </p>
                 <!-- <div class="container"> -->
 
-          <div class="col-12 col-md-9 text-center"  style="border-radius: 20px 20px 0px 0px;">
-            <p> Toutes les listes </p>
-            <!-- <div class="container"> -->
-            
-              <div class="table-responsive ra">
-                <table class="table" >
-                  <thead style="background-color: #FF6600; color: white; border-bottom: none;">
-                    <tr>
-                      <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
-                      <th scope="col " style=" width:30%;">Nombre de Tirage</th>
-                      <th scope="col">Activité</th>
-                      <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let liste of mesListe | paginate:{ itemsPerPage:3,currentPage:p}">
-                      <td scope="row">{{liste.libelleliste}}</td>
-                      <td scope="">{{liste.nombretirage}}</td>
-                      <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a></td>
-                      <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]" >Voir Plus</a></td>
+                <div class="table-responsive overflow-hidden">
+                  <table class="table">
+                    <thead style="background-color: #FF6600; color: white; border-bottom: none;">
+                      <tr>
+                        <th scope="col" style="border-radius: 10px 0 0 0;"> Libellé_liste</th>
+                        <th scope="col " style=" width:30%;">Nombre de Tirage</th>
+                        <th scope="col">Activité</th>
+                        <th scope="col" style="border-radius: 0 10px 0 0;">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let liste of mesListe | paginate:{ itemsPerPage:3,currentPage:p}">
+                        <td scope="row">{{liste.libelleliste}}</td>
+                        <td scope="">{{liste.nombretirage}}</td>
+                        <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a>
+                        </td>
+                        <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]">Voir Plus</a></td>
 
-                    </tr>
-                                  
-                  </tbody>
-                </table>
+                      </tr>
 
-                   
+                    </tbody>
+                  </table>
+
+
                   <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
 
-                   <div class="row"> 
-                      <div class="col-4 btn-left">
-                        <button class="btn" onclick="formulaireImporter()">Importer une liste</button>
-                      </div>
-                      <div class="col-4 btn-right">
-                        <a href="ajouter-postulant"> <button class="btn ">Ajouter Postulant</button></a> 
-                      </div>
+                  <div class="row mt-4 mb-2">
+                    <div class="col-4">
+                      <button class="btn btn-outline-dark" onclick="formulaireImporter()">Importer une liste</button>
+                    </div>
+                    <div class="col-4">
+                      <a href="ajouter-postulant"> <button class="btn btn-outline-dark">Ajouter Postulant</button></a>
+                    </div>
                   </div>
                 </div>
-
                 <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->
               </div>
-        
+            </div>
+          </div>
+          
+           <!-- Footer -->
+           <footer class="footer">
+            <p class="text-center pt-2">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+              Center</p>
+          </footer>
+          <style>
+            footer {
+              padding: 25px;
+              background: #202020;
+              color: #FFFFFF;
+            }
+          </style>
+          <!-- Footer -->
         </div>
-     
-     </div>
-    </div>
 
 
 
-<ng-template #erreur id="#erreur">
-  <div class="img" align="center">
-    <div class="">
-      <img src="../../assets/images/errors.jpg" width="30%">
-    </div>
-    <div>
-      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
-      <style>
-        .img button a:hover {
-          background-color: black;
-          border: 2px solid #ff6600;
-          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-          color: white;
-        }
+        <ng-template #erreur id="#erreur">
+          <div class="img" align="center">
+            <div class="">
+              <img src="../../assets/images/errors.jpg" width="30%">
+            </div>
+            <div>
+              <button style="font-size:20px;">Veuillez vous <a href="authentification"
+                  class=" btn">connecter</a></button>
+              <style>
+                .img button a:hover {
+                  background-color: black;
+                  border: 2px solid #ff6600;
+                  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+                  color: white;
+                }
 
-        .img button a {
-          background-color: #ff6600;
-          text-decoration: none;
-        }
-      </style>
-    </div>
+                .img button a {
+                  background-color: #ff6600;
+                  text-decoration: none;
+                }
+              </style>
+            </div>
+          </div>
+        </ng-template>
+      </ion-content>
+    </main>
   </div>
-</ng-template>
