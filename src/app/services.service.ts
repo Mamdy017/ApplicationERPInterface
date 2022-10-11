@@ -18,4 +18,12 @@ totalSallesDisponible():Observable<any>{
 apprenantOUParticipant(decider:any){
   return this.http.get("http://localhost:8080/postulant/afficherNombreParticipantOuApprenant/"+`${decider}`)
 }
+
+//
+nombreApprenant():Observable<any>{
+
+  return this.http.get("http://localhost:8080/postulanttire/compteApprenant")
 }
+
+}
+

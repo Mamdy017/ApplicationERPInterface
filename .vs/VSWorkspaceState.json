@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\src",
     "\\src\\app",
@@ -27,5 +28,10 @@
   "SelectedNode": "\\src\\app\\ajouter-participant\\ajouter-participant.page.ts",
 >>>>>>> e9eafdfcbe493253c3622b3b35493e12abfafd51
 >>>>>>> e436e8a92b13020c98593231858879b30807b023
+=======
+    ""
+  ],
+  "SelectedNode": "\\angular.json",
+>>>>>>> 99eb8efe539646c9f4014c7f3d8641028196b107
   "PreviewInSolutionExplorer": false
 }

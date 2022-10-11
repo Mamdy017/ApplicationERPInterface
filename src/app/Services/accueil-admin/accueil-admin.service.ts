@@ -18,7 +18,7 @@ export class AccueilAdminService {
   }
 
   //afficher l'année
-  afficherAnnee():Observable<any>{
+  afficherAnnee():Observable<Object>{
     return this.http.get("http://localhost:8080/annee/affiche");
   }
 

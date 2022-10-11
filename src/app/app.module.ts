@@ -1,7 +1,7 @@
 // import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy, RouterLinkActive } from '@angular/router';
-import { LayoutModule } from '@angular/cdk/layout';
+// import { LayoutModule } from '@angular/cdk/layout';
 
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import{NgChartsModule} from 'ng2-charts'
-import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
