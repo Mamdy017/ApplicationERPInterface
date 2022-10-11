@@ -2,6 +2,8 @@
 // import { clearInterval } from 'timers';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Salle } from '../modeles/salle/salle';
 import { SalleService } from '../services/salle';
 // import { SalleService } from '../services/salle'
@@ -42,7 +44,7 @@ salles:Salle
 
   mesDonnees: any
 
-  constructor(private serviceSalle: SalleService,public breakpointObserver: BreakpointObserver) { }
+  constructor(private serviceSalle: SalleService,public breakpointObserver: BreakpointObserver, private route: Router) { }
   actualise(): void {
     setInterval(
       () => {
@@ -72,25 +74,65 @@ salles:Salle
  
 //  La fonction nous permettant d'ajouter les salles
   ajouterSalle() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
 
     if(this.etage == "" || this.nom == "" || this.nbreplace == null ){
-        this.messageRetour = " Veuillez bien remplir tous les champs !"   
+      swalWithBootstrapButtons.fire(
+        this.messageRetour = " Veuillez bien remplir tous les champs !",
+      )   
         this.resetForm();
     }
     else
     {
-      this.salles.nom = this.nom;
-      this.salles.etage = this.etage;
-      this.salles.nbreplace = this.nbreplace;
+      swalWithBootstrapButtons.fire({
+        title: 'Cette salle va etre ajooutée !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.salles.nom = this.nom;
+          this.salles.etage = this.etage;
+          this.salles.nbreplace = this.nbreplace;
+          console.log("Les données: " + this.salles)
+          this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data => {
+            if (data.status == true) {
+              this.route.navigateByUrl("/liste-salle")
+              swalWithBootstrapButtons.fire(
+                'Salle ajoutée avec succes!',
+                'Vous êtes diriger vers la liste des salles.',
+                'success',)
+            }
+            else {
+              swalWithBootstrapButtons.fire(
+                this.messageRetour = data.contenu,
 
-       console.log("Les données: " + this.salles)
-    this.mesDonnees = this.serviceSalle.ajouterUneSalle(this.salles).subscribe(data => { 
-      this.messageRetour = data.contenu;
-        this.resetForm();
-      // console.log(this.messageRetour);
+              )
+            }
+            this.resetForm();
+            // console.log(this.messageRetour);
+          })
 
-    })
-    
+        }else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Ajout de salle annuler'
+          )
+
+        }
+      })
     }
 
 

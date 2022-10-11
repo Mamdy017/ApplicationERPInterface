@@ -7,6 +7,7 @@ import { Activite } from '../modeles/activite/activite';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { AnimationController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-activite',
@@ -251,6 +252,15 @@ export class ActivitePage implements OnInit {
   }
 
   submitActivite() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
+
 
 
 
@@ -267,15 +277,18 @@ export class ActivitePage implements OnInit {
       //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "Veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = "Veuillez remplir tous les champs",)
+      // this.erreurImpTrieFr = "Veuillez remplir tous les champs";
 
     } else if (this.myFormActivite.get('datedeb').value > this.myFormActivite.get('datefin').value) {
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin",)
+      // this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
     }
     else {
-      alert(this.myFormActivite.get('fileSource').value)
       data.append("file", this.myFormActivite.get('fileSource').value);
       data.append("nom", this.myFormActivite.get('nom').value);
       data.append("description", this.myFormActivite.get('description').value);
@@ -305,7 +318,6 @@ export class ActivitePage implements OnInit {
 
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
 
-      alert(this.myFormActivite.get('idacteurInternes').value)
 
         console.log(res);
 
@@ -315,7 +327,6 @@ export class ActivitePage implements OnInit {
 
         if (res.status == true) {
           this.bool_erreurImpTrieBack = false;
-          alert("activité ajouté avec succes");
           this.route.navigateByUrl("/details-activite");
           this.actualise();
         }
