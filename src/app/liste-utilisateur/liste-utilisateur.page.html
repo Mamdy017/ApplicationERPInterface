@@ -35,11 +35,13 @@ position:relative; left:80% ;
               <form action="">
                 <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"  [(ngModel)]="searchText"></button>
               </form>
-              <select class="btn btnAjouter"  [(ngModel)]="selection">
-                <option>Kalanso</option>
-                <option>Orabge Fab lab</option>
-                <option>Orange FAb</option>
-              </select>
+              <div Filtré par entité>
+                <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                  <option  *ngFor="let liste of reponse" [ngValue]="liste.nom"> {{liste.nom}} </option>
+                  <label for="sexe">liste</label>
+                </select>
+              </div>
+              
 
 
               <a href="ajouter_utilisateur"> <button class="btn btnAjouter1"> Ajouter un utilisateur  </button></a>
