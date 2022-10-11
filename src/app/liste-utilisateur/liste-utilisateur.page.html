@@ -14,7 +14,7 @@ position:relative; left:80% ;
 }
 </style>
   <div class="row flex-nowrap">
-    <div class="col-auto px-2" *ngIf="menuBureau">
+    <div class="col-auto px-2" >
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
@@ -61,15 +61,15 @@ position:relative; left:80% ;
               <tbody>
                 <tr *ngFor="let valeur of donnees |  filter:searchText | paginate: { itemsPerPage: 5, currentPage: p}; let i = index">
                   <td scope="row">{{i+1}}</td>
-                  <td scope="">{{valeur.nom}}</td>
-                  <td>{{valeur.prenom}}</td>
-                  <td>{{valeur.email}}</td>
-                  <td>{{valeur.numero}}</td>
-                  <td>{{valeur.role.nom}}</td>
-                  <td>{{valeur.entite.nom}}</td>
-                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp; <button><i class="bi bi-trash-fill i" ></i></button></td>
+                  <td scope="">{{od[1]}}</td>
+                  <td>{{od[2]}}</td>
+                  <td>{{od[3]}}</td>
+                  <td>{{od[4]}}</td>
+                  <td>{{od[5]}}</td>
+                  <td>{{od[6]}}</td> 
+                  <td><a href=" modifier()"><i class="bi bi-pencil-square i" ></i></a>&nbsp; &nbsp; &nbsp;<a href="supprimer(iduser)"><i class="bi bi-trash-fill i"></i></a></td>
                 </tr>
-            <!-- (click)="supprimer(user)" -->
+            
               </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>

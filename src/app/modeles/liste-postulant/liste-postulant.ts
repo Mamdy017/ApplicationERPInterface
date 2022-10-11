@@ -3,7 +3,7 @@ import { Activite } from "../activite/activite";
 export class ListePostulant {
 
   id!: number;
-  libelleListe!: string;
+  libelleliste!: any;
   nombreTirage!: number;
   activite!: Activite;
 }

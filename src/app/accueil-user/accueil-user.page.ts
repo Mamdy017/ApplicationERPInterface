@@ -24,6 +24,7 @@ export class AccueilUserPage implements OnInit {
   activiteAVenir:any;
   activiteParId:any
   activite:Activite;
+  annees:any
 
 
   iduser:any;
@@ -255,7 +256,7 @@ this.fablabDe=data
       this.apprenantsTotal = data
     })
     // Ici on charge le nombre total des Participants
-    this.service.apprenantOUParticipant("participant").subscribe(data => {
+    this.service.apprenantOUParticipant("participants").subscribe(data => {
       this.participantTotal = data
 
       //le nombre de formation
@@ -283,7 +284,7 @@ this.fablabDe=data
       //TROIS ACTIVITe 0 VENIR
       this.activiteService.activiteAvenir().subscribe(data=>{
         this.activiteAVenir= data
-        console.log(this.activiteAVenir)
+        console.table(this.activiteAVenir)
       })
  
      

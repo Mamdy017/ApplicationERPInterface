@@ -27,6 +27,7 @@ numero_users: string;
   menuBureau= true;
   menuMobile= false;
 searchText: any;
+  disponible: import("c:/Users/mkkeita/Desktop/projects/ionic/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route:Router) { }
 
   actualise(): void {
@@ -86,5 +87,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
   
       XLSX.writeFile(book, this.name);
     }
+
+  //Afficher par disponibilité
+  afficherDisponibilite(event) {
+    this.serviceSalle.afficherSalleParDisponibilite(event).subscribe(data =>
+      this.disponible = data)
+  }
 
 }
