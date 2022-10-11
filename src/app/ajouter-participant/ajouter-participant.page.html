@@ -20,6 +20,7 @@ position:relative; left:80% ;
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
       <div class="container">
         <div class="row boxShadow">
+
           <!------------- Colonne Gauche---->
           <div class="col-12 col-md-4 imgGauche">
             <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
@@ -31,7 +32,7 @@ position:relative; left:80% ;
           <div class="col-12 col-md-8">
             <form>
               <fieldset>
-                <legend class="display-6 text-center my-3"><b>Ajouter un participant</b></legend>
+                <legend class="display-6 text-center my-3"><b>Ajouter un participant / apprenant</b></legend>
               </fieldset>
               <div class="trait"></div>
               <div class="row col-12">
@@ -64,10 +65,10 @@ position:relative; left:80% ;
                 </div>
                 
                 <div class="mb-3 col-12 col-md-12 form-row form-floating">
+                  <label for="sexe" style="padding-top: -10px;">Activité</label>
                   <select id="liste" class="form-select form-control"  name="listes" [(ngModel)]="listes">
-                    <option selected> Choisir une liste </option>
-                    <option *ngFor="let liste of listes$" >{{liste.libelleliste}}</option>
-                    <label for="sexe">liste</label>
+                    <option selected disabled> Choisir une activité </option>
+                    <option *ngFor="let liste of libelleActivites$">{{liste.libelleliste}}</option>
                   </select>
                 </div>
               </div>

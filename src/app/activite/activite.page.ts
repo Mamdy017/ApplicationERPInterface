@@ -275,6 +275,7 @@ export class ActivitePage implements OnInit {
       this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
     }
     else {
+      alert(this.myFormActivite.get('fileSource').value)
       data.append("file", this.myFormActivite.get('fileSource').value);
       data.append("nom", this.myFormActivite.get('nom').value);
       data.append("description", this.myFormActivite.get('description').value);
@@ -303,6 +304,8 @@ export class ActivitePage implements OnInit {
       console.log(`http://localhost:8080/activite/ajouter`, data);
 
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
+
+      alert(this.myFormActivite.get('idacteurInternes').value)
 
         console.log(res);
 

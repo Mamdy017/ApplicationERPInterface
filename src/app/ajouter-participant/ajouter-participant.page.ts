@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActiviteService } from '../Services/activite/activite.service';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-p
 })
 export class AjouterParticipantPage implements OnInit {
 
-  // /==============================================================================SESSION==========
+  // ============================================================SESSION==========
+
   iduser:any;
   roles:any;
   noms_users:any;
@@ -23,7 +25,9 @@ export class AjouterParticipantPage implements OnInit {
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   listes$: any;
-  constructor( public breakpointObserver: BreakpointObserver, private route:Router,private ajouterPostulant:AjouterPostulantService) { }
+  libelleActivites$: any;
+  constructor( public breakpointObserver: BreakpointObserver, private route:Router,private ajouterPostulant:AjouterPostulantService,
+    private activiteService: ActiviteService) { }
 
 
   actualise(): void {
@@ -67,6 +71,12 @@ this.numero_users = sessionStorage.getItem("numero_users");
     this.ajouterPostulant.recupererListePostulant().subscribe((data =>{
       this.listes$ = data;
     }))
+  }
+
+  getListeActivite() {
+    this.activiteService.recupererListeActivite().subscribe((data) => {
+      this.libelleActivites$ = data;
+    })
   }
 
   afficheMenuMobile() {
