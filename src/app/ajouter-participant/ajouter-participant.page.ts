@@ -1,7 +1,10 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Postulant } from '../modeles/postulant/postulant';
+import { Tirage } from '../modeles/tirage/tirage';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
+import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
 
 @Component({
   selector: 'app-ajouter-participant',
@@ -9,6 +12,8 @@ import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-p
   styleUrls: ['./ajouter-participant.page.scss'],
 })
 export class AjouterParticipantPage implements OnInit {
+
+  status: boolean = false;
 
   // /==============================================================================SESSION==========
   iduser:any;
@@ -20,10 +25,36 @@ export class AjouterParticipantPage implements OnInit {
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+postulant: Postulant = {
+  nom_postulant: "",
+  prenom_postulant: "",
+  numero_postulant: "",
+  email: " ",
+  genre: " "
+
+  }
+
+  nom_postulant: string = '';
+  prenom_postulant: string = '';
+  numero_postulant: string = '';
+  email: string = '';
+  genre: string = '';
+
+  listePostulant:any;
+
+  liste:any;
+  listes:any
+  erreurs: any;
+  bool_erreur: boolean = false;
+  bool_erreurFr: boolean = false;
+errors: string;
+
+
   menuBureau: boolean = true;
   menuMobile: boolean = false;
   listes$: any;
-  constructor( public breakpointObserver: BreakpointObserver, private route:Router,private ajouterPostulant:AjouterPostulantService) { }
+  contenu: string;
+  constructor( public breakpointObserver: BreakpointObserver, private route:Router,private ajouterParticipant:PostulantTireService) { }
 
 
   actualise(): void {
@@ -31,6 +62,18 @@ export class AjouterParticipantPage implements OnInit {
       () => {
       }, 100, clearInterval(1500));
   }
+
+  resetForm(){
+
+         
+    this.nom_postulant = "";
+    this.prenom_postulant = "";
+    this.numero_postulant = "";
+    this.email = " ";
+    this.genre = " ";
+    
+ 
+     }
   
   ngOnInit() {
 
@@ -64,9 +107,64 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
 
   recupererListePostulant(){
-    this.ajouterPostulant.recupererListePostulant().subscribe((data =>{
+    this.ajouterParticipant.recupererListePostulant().subscribe((data =>{
       this.listes$ = data;
     }))
+  }
+
+
+  posterParticipant(){
+    
+    this.postulant.nom_postulant = this.nom_postulant;
+    this.postulant.prenom_postulant = this.prenom_postulant;
+    this.postulant.numero_postulant = this.numero_postulant;
+    this.postulant.email = this.email;
+    this.postulant.genre = this.genre;
+
+    
+
+    if(this.nom_postulant.length != 0 || this.prenom_postulant.length != 0 || this.email.length != 0 || this.genre.length != 0 || this.numero_postulant.length != 0){
+      
+
+      this.ajouterParticipant.ajouterParticipant(this.listes, this.postulant).subscribe((data) =>{ 
+
+        this.contenu = data.contenu;
+
+        console.log(data.contenu);
+
+        // if(data == null){
+        //   this.erreurs = "Ce participant existe déjà"
+        //   this.status = false;
+        // }else{
+        //   this.erreurs = "participant ajouté avec succès"
+         
+        //   this.status = true;
+           this.resetForm()
+      //  }
+      
+      
+      })
+
+     
+      this.bool_erreur = true;
+      this.bool_erreurFr = false
+
+  
+
+    }else{  
+     
+      console.log("vvvv   " +this.nom_postulant)
+    console.log("bbbb   " +this.prenom_postulant)
+    console.log("bbbb   " +this.numero_postulant)
+    console.log("bbb    " +this.postulant)
+      this.bool_erreurFr = true;
+      this.bool_erreur = false;
+      this.erreurs = "Veuillez remplir tous les champs";
+   
+       
+    }
+
+   
   }
 
   afficheMenuMobile() {

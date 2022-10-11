@@ -37,6 +37,12 @@ const routes: Routes = [
     path:'ajouter-postulant',
     loadChildren:() => import('./ajouter-postulant/ajouter-postulant.module').then(m => m.AjouterPostulantPageModule)
   },
+
+  {
+    path:'ajouter-participant',
+    loadChildren:() => import('./ajouter-participant/ajouter-participant.module').then(m => m.AjouterParticipantPageModule)
+  },
+
   {
     path: 'admin-ajouter-acteur-user',
     loadChildren: () => import('./admin-ajouter-acteur-user/admin-ajouter-acteur-user.module').then(
