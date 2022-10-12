@@ -1,21 +1,20 @@
-<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
-  
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
-<style>
+<div class="container-fluid " *ngIf="roles == 'user' || roles =='admin' || roles =='responsable' && iduser  else erreur">
 
-.deconnexion{
-position:relative; left:80% ;
-}
-@media only screen and (max-width: 475px){
-.deconnexion{
-  left:50% ;
-}
-}
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
 
-
-</style>
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
@@ -108,13 +107,13 @@ position:relative; left:80% ;
         <div class="row cardContour">
           <div class="col-12 col-md-8">
             <div class="cardContour my-3 py-2">
-              <h1 class="h3 text-center pt-3 display-5">Activités Récentes</h1>
+              <h1 class="h3 text-center pt-3 display-5">Activités Encours</h1>
               <div class="trait"></div>
-              <p class="text-center">Merci de visionner nos activités récentes</p>
+              <p class="text-center">Merci de visionner nos activités encours</p>
 
               <div class="row py-3 ps-3 ContourArticle m-3" *ngFor="let activites of activiteRecent">
                 <div class="col-12 col-md-6 p-2">
-                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                  <img src="../../assets/images/{{activites[5]}}" alt="image de formation " class="img-fluid rounded">
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="me-3">
@@ -143,7 +142,8 @@ position:relative; left:80% ;
 
                 <div class="ContourArticle py-2 m-2" *ngFor="let activites of activiteAVenir">
                   <div class="col-12 col-md-12 p-3">
-                    <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                    <img src="../../assets/images/{{activites[5]}}" alt="image de formation " class="img-fluid rounded">
+                    
                   </div>
                   <div class="col-12 col-md-12">
                     <div class="me-2">
@@ -164,6 +164,19 @@ position:relative; left:80% ;
           </div>
         </div>
 
+        <!-- Footer -->
+        <footer class="footer mt-3 mb-3">
+          <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+            Center</p>
+        </footer>
+        <style>
+          footer {
+            padding: 25px;
+            background: #202020;
+            color: #FFFFFF;
+          }
+        </style>
+        <!-- Footer -->
 
       </div>
     </main>
@@ -176,17 +189,18 @@ position:relative; left:80% ;
     <div class="">
       <img src="../../assets/images/errors.jpg" width="30%">
     </div>
-    <div >
-      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
       <style>
-        .img button a:hover{
-          background-color:black ;
-          border:2px solid #ff6600;
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
           color: white;
         }
-        .img button a{
-          background-color:#ff6600 ;
+
+        .img button a {
+          background-color: #ff6600;
           text-decoration: none;
         }
       </style>

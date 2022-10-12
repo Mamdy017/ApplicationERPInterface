@@ -1,78 +1,70 @@
-
-  <div class="container row" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
-
-    <!-- =============================  L'image  ============================== -->
-    <div class="col-lg-4 col-md-6 xs-6 droit">
-      <img src="../../assets/ajouterM.png" width="100%">
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
+    style="position:relative; top:2%; left:90%;"><i class="bi bi-list py-2 p-1 " style="color:black"></i></a>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
 
-    <!-- =============================  Formulaire  ============================== -->
+    <main class="col ps-md-2 pt-2 " style=" height: 100vh ;">
 
-    <div class="col-lg-8 col-md-6 xs-6">
+      <div class="conteneur">
+        <div class="container row ">
 
-      <div class="left" style="left: 0; align-items: center;">
 
-        <h2>Formulaire Acteur</h2>
-        <div class="trait"></div>
+          <!-- =============================  L'image  ============================== -->
+          <div class="col-lg-4 col-md-6 xs-6 align-items-center droit">
+            <img src="../../assets/ajouterM.png" width="100%">
+          </div>
 
-        <form class="form">
-          <table>
-            <tr>
-              <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom"
-                  required> </td>
-            </tr>
+          <!-- =============================  Formulaire  ============================== -->
 
-            <tr>
-              <td> <input type="text" name="prenom" class="form-control" class="form-control"
-                  placeholder="Saisir Prenom" required> </td>
-            </tr>
+          <div class="col-lg-8 col-md-6 xs-6  ">
 
-            <tr>
-              <td> <input type="email" name="email" class="form-control" placeholder="Saisir Email"
-                 required> </td>
-            </tr>
+            <div class="  left">
 
-      <tr>
-        <td><input type="text" name="telephone" placeholder="76 55 67 55" required></td>
-      </tr>
+              <h2>Modifier Acteur</h2>
+              <div class="trait"></div>
 
-      <tr>
-        <td><select class="slth" name="selection">
-          <!-- <option value="">--Statut--</option> -->
-          <option  class="form-control" ></option>
-        </select></td>
-      </tr>
-      <input type="submit" class="bouton1" value="Envoyer">
-    </table>
-  </form>
 
-</div>
+              <form class="form">
 
-</div>
+                <div class="row col ">
+
+                  <div class="col-12 col-md-12 mb-3 p-1 bg-danger err " *ngIf="erreur">
+                    {{erreur}}
+                  </div>
+
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating  mb-3">
+                    <input type="text" name="nom" class="form-control" id="floatingInput" placeholder="Saisir nom"
+                      [(ngModel)]="nom" [value]="nom" required>
+                    <label for="floatingInput">Nom<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="prenom" class="form-control" id="floatingInput" placeholder="Saisir prenom"
+                      [(ngModel)]="prenom" [value]="prenom" required>
+                    <label for="floatingInput">Prenom<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="email" class="form-control" id="floatingInput" placeholder="Saisir email"
+                      [(ngModel)]="email" [value]="email" required>
+                    <label for="floatingInput">Email<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="numero" class="form-control" id="floatingInput" placeholder="Saisir numero"
+                      [(ngModel)]="numero" [value]="numero" required>
+                    <label for="floatingInput">Numero<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 mb-3 mt-2">
+                    <button (click)="saveActeur()" class="btn bttn">Valider</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
-
-
-
-<ng-template #erreur id="#erreur">
-  <div class="img" align="center">
-    <div class="">
-      <img src="../../assets/images/errors.jpg" width="30%">
-    </div>
-    <div >
-      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
-      <style>
-        .img button a:hover{
-          background-color:black ;
-          border:2px solid #ff6600;
-          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-          color: white;
-        }
-        .img button a{
-          background-color:#ff6600 ;
-          text-decoration: none;
-        }
-      </style>
-    </div>
-  </div>
-</ng-template>
-
+</div>

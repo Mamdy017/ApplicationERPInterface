@@ -1,4 +1,4 @@
-<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+<div class="container-fluid " *ngIf="roles == 'admin' || roles =='responsable' && iduser  else erreur">
 
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
@@ -20,82 +20,105 @@
       <app-menu></app-menu>
     </div>
 
-    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+    <main class="col ps-md-2 pt-2 " style=" height: 100vh ;">
+
+      <div class="conteneur">
+        <div class="container row ">
 
 
-      <div class="container row">
-
-        <!-- =============================  L'image  ============================== -->
-        <div class="col-lg-4 col-md-6 xs-6 droit">
-          <img src="../../assets/ajouterM.png" width="100%">
-        </div>
-
-        <!-- =============================  Formulaire  ============================== -->
-
-        <div class="col-lg-8 col-md-6 xs-6">
-
-          <div class="left" style="left: 0; align-items: center;">
-
-            <h2>Formulaire Acteur</h2>
-            <div class="trait"></div>
-
-            <form class="form">
-              <table>
-                <tr>
-                  <td> <input type="text" name="nom" class="form-control" placeholder="Saisir Nom" [(ngModel)]="nom"
-                      required> </td>
-                </tr>
-
-                <tr>
-                  <td> <input type="text" name="prenom" class="form-control" class="form-control"
-                      placeholder="Saisir Prenom" [(ngModel)]="prenom" required> </td>
-                </tr>
-
-                <tr>
-                  <td> <input type="email" name="email" class="form-control" placeholder="Saisir Email"
-                      [(ngModel)]="email" required> </td>
-                </tr>
-
-                <tr>
-                  <td><input type="text" name="telephone" placeholder="76 55 67 55" [(ngModel)]="numero" required></td>
-                </tr>
-
-                <!-- <tr>
-            <td><select class="slth" name="selection" [(ngModel)]="statutChoix">
-              <option value="">--Statut--</option>//
-              <option  *ngFor="let statuts of statut" class="form-control"  [ngValue] ="statutChoix">{{statuts.nom}}</option>
-            </select></td>
-          </tr> -->
-                <input (click)="ajouterUtilisateur()" type="submit" class="bouton1" value="Envoyer">
-              </table>
-            </form>
-
+          <!-- =============================  L'image  ============================== -->
+          <div class="col-lg-4 col-md-6 xs-6 align-items-center droit">
+            <img src="../../assets/ajouterM.png" width="100%">
           </div>
 
-        </div>
+          <!-- =============================  Formulaire  ============================== -->
+
+          <div class="col-lg-8 col-md-6 xs-6 ">
+
+            <div class="left" style="left: 0; align-items: center;">
+
+              <h2>Formulaire Acteur</h2>
+              <div class="trait"></div>
 
 
-        <ng-template #erreur id="#erreur">
-          <div class="img" align="center">
-            <div class="">
-              <img src="../../assets/images/errors.jpg" width="30%">
+              <form class="form">
+
+                <div class="row col">
+                  <div class="col-6 col-md-6 mb-3 p-1 valider bg-success " *ngIf="modif">
+                    {{modif}}
+                  </div>
+                  <!-- <div class="col-12 col-md-12 mb-3 p-1 bg-danger err " *ngIf="erreur">
+                  {{erreur}}
+                </div> -->
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="nom" class="form-control" id="floatingInput" placeholder="Saisir nom"
+                      [(ngModel)]="nom" required>
+                    <label for="floatingInput">Nom<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="prenom" class="form-control" id="floatingInput" placeholder="Saisir prenom"
+                      [(ngModel)]="prenom" required>
+                    <label for="floatingInput">Prenom<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="email" class="form-control" id="floatingInput" placeholder="Saisir email"
+                      [(ngModel)]="email" required>
+                    <label for="floatingInput">Email<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 form-floating mb-3">
+                    <input type="text" name="numero" class="form-control" id="floatingInput" placeholder="Saisir numero"
+                      [(ngModel)]="numero" required>
+                    <label for="floatingInput">Numero<span style="color:red ;">*</span></label>
+                  </div>
+                  <div class="col-lg-8 col-md-8 xs-6 mb-3 mt-2">
+                    <button (click)="ajouterUtilisateur()" class="btn bttn">Valider</button>
+                  </div>
+                </div>
+              </form>
+
+
             </div>
-            <div>
-              <button style="font-size:20px;">Veuillez vous <a href="authentification"
-                  class=" btn">connecter</a></button>
-              <style>
-                .img button a:hover {
-                  background-color: black;
-                  border: 2px solid #ff6600;
-                  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-                  color: white;
-                }
 
-                .img button a {
-                  background-color: #ff6600;
-                  text-decoration: none;
-                }
-              </style>
-            </div>
           </div>
-        </ng-template>
+        </div>
+        <!-- Footer -->
+        <footer class="footer mt-3 mb-3">
+          <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+            Center</p>
+        </footer>
+        <style>
+          footer {
+            padding: 25px;
+            background: #202020;
+            color: #FFFFFF;
+          }
+        </style>
+        <!-- Footer -->
+      </div>
+    </main>
+  </div>
+</div>
+
+<ng-template #erreur id="#erreur">
+  <div class="img" align="center">
+    <div class="">
+      <img src="../../assets/images/errors.jpg" width="30%">
+    </div>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
+      <style>
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+          color: white;
+        }
+
+        .img button a {
+          background-color: #ff6600;
+          text-decoration: none;
+        }
+      </style>
+    </div>
+  </div>
+</ng-template>

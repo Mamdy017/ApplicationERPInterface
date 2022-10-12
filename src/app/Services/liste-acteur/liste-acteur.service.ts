@@ -11,11 +11,11 @@ export class ListeActeurService {
 
   constructor(private http : HttpClient) { }
 
-  // IcI ON RECUPERE LE NOMBRE TOTAL D'UTILISATEURS 
+  // IcI ON RECUPERE LE NOMBRE TOTAL D'UTILISATEURS
   utilisateurTotal():Observable<any>{
     return this.http.get("http://localhost:8080/utilisateur/afficherNbreUser")
   }
-   // IcI ON RECUPERETOUS LES UTILISATEURS 
+   // IcI ON RECUPERETOUS LES UTILISATEURS
    lesUtilisateurs():Observable<any>
 {
   return this.http.get("http://localhost:8080/utilisateur/afficher")
@@ -23,12 +23,17 @@ export class ListeActeurService {
 
 
 afficherLesActeurs() :Observable<Acteur[]> {
-  return this.http.get<Acteur[]>("http://localhost:8080/acteur/afficher");
+  return this.http.get<Acteur[]>('http://localhost:8080/acteur/afficher');
 }
 
-supprimerActeur(id : number) :Observable<any>{
+supprimerActeur(id: number): Observable<any>{
   return this.http.delete(`http://localhost:8080/acteur/supprimer/${id}`);
-}
+  }
+
+  //afficher acteur et rôle
+  afficherActeurRole(): Observable<any> {
+    return this.http.get("http://localhost:8080/utilisateur/afficherAvecRole")
+  }
 
 supprimerUtilisateur( iduser: number) :Observable<any>{
   return this.http.delete(`http://localhost:8080/utilisateur/supprimer/${iduser}`);

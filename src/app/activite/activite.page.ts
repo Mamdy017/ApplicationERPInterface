@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Activite } from '../modeles/activite/activite';
 import { ActiviteService } from '../Services/activite/activite.service';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
+import { AnimationController } from '@ionic/angular';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-activite',
@@ -13,6 +15,14 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
   styleUrls: ['./activite.page.scss'],
 })
 export class ActivitePage implements OnInit {
+
+
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
 
 
   // @ViewChild(IonContent) content: IonContent;
@@ -34,7 +44,8 @@ export class ActivitePage implements OnInit {
   constructor(public breakpointObserver: BreakpointObserver, private activiteService: ActiviteService,
     private utilisateurs: ListeActeurService,
     private http: HttpClient,
-    private route: Router,) { }
+    private route: Router,
+    private animationCtrl: AnimationController) { }
 
   salles$: any;
   annees$: any;
@@ -47,6 +58,9 @@ export class ActivitePage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+
+  formtExt: boolean = false;
+  formtInt: boolean = false;
 
   titre: string
   salles: string;
@@ -66,6 +80,66 @@ export class ActivitePage implements OnInit {
   id: any = 1;
 
   fichier: File
+
+  clickInt: boolean = false;
+  notclickInt: boolean = true;
+  clickExt: boolean = false;
+  notclickExt: boolean = true;
+
+  selectionFormateurInter(){
+    this.clickInt = true;
+    this.notclickInt= false;
+  }
+
+  selectionFormateurExter(){
+    this.clickExt = true;
+    this.notclickExt = false;
+  }
+
+  selectionFormateurInterFermer(){
+    this.clickInt = false;
+    this.notclickInt= true;
+  }
+
+  selectionFormateurExterFermer(){
+    this.clickExt = false;
+    this.notclickExt = true;
+  }
+
+
+
+///models debut
+
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot;
+
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
+
+  //models fin
+
 
 
   activiteObjet: Activite = {
@@ -186,30 +260,43 @@ export class ActivitePage implements OnInit {
   }
 
   submitActivite() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
 
 
 
-
-
-
-    let userid: any = 1;
+    let userid: any = this.iduser;
 
     let data = new FormData();
 
 
-    if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
+    if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || 
+    typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 ||
+     this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 
+     || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
       //this.myFormActivite.get('filesource').value !=  null  || 
       //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "Veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = "Veuillez remplir tous les champs",)
+      // this.erreurImpTrieFr = "Veuillez remplir tous les champs";
 
     } else if (this.myFormActivite.get('datedeb').value > this.myFormActivite.get('datefin').value) {
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
-      this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
+      swalWithBootstrapButtons.fire(
+        this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin",)
+      // this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
     }
     else {
+      console.log("My value : " + this.myFormActivite.get('nombrepersonnedemande').value)
       data.append("file", this.myFormActivite.get('fileSource').value);
       data.append("nom", this.myFormActivite.get('nom').value);
       data.append("description", this.myFormActivite.get('description').value);
@@ -247,7 +334,6 @@ export class ActivitePage implements OnInit {
 
         if (res.status == true) {
           this.bool_erreurImpTrieBack = false;
-          alert("activité ajouté avec succes");
           this.route.navigateByUrl("/details-activite");
           this.actualise();
         }
@@ -257,6 +343,13 @@ export class ActivitePage implements OnInit {
   }
 
   ngOnInit() {
+
+    this.iduser =  sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users"); 
+    this.noms_users =  sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
 
     this.myFormActivite
 

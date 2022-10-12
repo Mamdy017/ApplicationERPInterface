@@ -1,16 +1,38 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-import { ReportingService } from './reporting.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class ReportingService {
 
-describe('ReportingService', () => {
-  let service: ReportingService;
+  constructor(private Http : HttpClient) { }
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ReportingService);
-  });
+// ============================================================= AFFICHER TOUTE LES ACTIVITE++++++++++++++++++++++++++++++++++++++++++++++++++
+afficherTouteLesActivite():Observable<any>{
+  
+  return this.Http.get("http://localhost:8080/activite/afficher")
+}
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+// ============================================================= AFFICHER TOUTE LES ACTIVITE++++++++++++++++++++++++++++++++++++++++++++++++++
+filtreParEntite(nomEntite:string):Observable<any>{
+  
+  return this.Http.get(`http://localhost:8080/activite/parEntite/${nomEntite}`)
+}
+
+// ==========================================================RECUPERER TOUTE LES PERSONNES D'UN TIRAGE VALIDE========================
+lesPersonnesTireValide(idactivite:number){
+  
+  return this.Http.get(`http://localhost:8080/activite/lesPersonnes/${idactivite}`)
+}
+
+// Afficher dans reporting
+
+afficherReporting():Observable<any>{
+  return this.Http.get(`http://localhost:8080/activite/afficherDansReporting`)
+
+}
+
+
+}

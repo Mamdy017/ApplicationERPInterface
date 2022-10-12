@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\app\\ajouter-participant",
-    "\\src\\app\\home",
-    "\\src\\app\\Services",
-    "\\src\\app\\Services\\accueil-admin"
+    ""
   ],
-  "SelectedNode": "\\src\\app\\ajouter-participant\\ajouter-participant.page.ts",
+  "SelectedNode": "\\angular.json",
   "PreviewInSolutionExplorer": false
 }

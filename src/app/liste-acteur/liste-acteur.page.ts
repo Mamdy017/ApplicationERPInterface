@@ -2,6 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 import { Acteur } from '../modeles/acteur/acteur';
+import {ActivatedRoute} from '@angular/router';
 // import { Acteur } from '../modeles/acteur/acteur';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 // import { ListeActeurService } from '../Services/liste-acteur/liste-acteur.service';
@@ -11,6 +12,7 @@ import { ListeActeurService } from '../services/liste-acteur/liste-acteur.servic
 
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-liste-acteur',
@@ -36,30 +38,12 @@ numero_users: string;
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+  constructor(private serviceActeur: ListeActeurService, private route: ActivatedRoute, private router: Router, public breakpointObserver: BreakpointObserver) { }
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
 
 
 
-
-
-
-
-
-  // acteurs: any;
-
-  //recherche
-  // filterText:string = '';
-  //la recherche
-  // searchText: any;
-  // numeros= true;
-  //theme
-  // otherTheme: boolean = false;
-
-  // changeTheme() {
-  //   this.otherTheme = !this.otherTheme ;
-  // }
-
-
-  constructor(private serviceActeur: ListeActeurService, public breakpointObserver: BreakpointObserver, private route:Router) { }
 
   actualise(): void {
     setInterval(
@@ -75,6 +59,12 @@ this.noms_users =  sessionStorage.getItem("nom_users");
 this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
+    const id = +this.route.snapshot.paramMap.get('idacteur');
+
+   this.route.paramMap.subscribe(params =>{
+    const id = +params.get('idacteur');
+   });
+
 
     this.serviceActeur.afficherLesActeurs().subscribe(data => {
       this.acteurs = data;
@@ -103,16 +93,56 @@ this.numero_users = sessionStorage.getItem("numero_users");
     this.cacherAction = true;
   }
   supprimer(acteur: any) {
-    const confirmer = confirm('êtes-vous sûr de le supprimer ?');
-    // eslint-disable-next-line eqeqeq
-    if (confirmer == false) { return; }
-    this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
-      next: (data) => {
-        console.log(acteur.id);
-        const index = this.acteurs.indexOf(acteur);
-        this.acteurs.splice(index, 1);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Etes-vous sûre de vouloir supprimer cet acteur ????',
+      text: "Vous pouvez annuler ou confirmer!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confimer!',
+      cancelButtonText: 'Annuler!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
+          next: (data) => {
+            console.log(acteur.id);
+            const index = this.acteurs.indexOf(acteur);
+            this.acteurs.splice(index, 1);
+            swalWithBootstrapButtons.fire(
+              'Acteur supprimé avec succes!',
+              // 'Vous êtes diriger vers la liste des utilisateurs.',
+              'success',)
+
+          }
+        });
+      }else{
+        return;
       }
-    });
+    })
+      
+
+
+
+
+    // const confirmer = confirm('êtes-vous sûr de le supprimer ?');
+    // // eslint-disable-next-line eqeqeq
+    // if (confirmer == false) { return; }
+    // this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({
+    //   next: (data) => {
+    //     console.log(acteur.id);
+    //     const index = this.acteurs.indexOf(acteur);
+    //     this.acteurs.splice(index, 1);
+    //   }
+    // });
   }
   afficheMenuMobile() {
     this.menuBureau = true;
@@ -122,9 +152,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
   //le telechargement du fichier
   // eslint-disable-next-line @typescript-eslint/member-ordering
   name = 'ListeActeurs.xlsx';
-  /*pour exporter sans un champ, on declarer la constante cacherAction*/
-  //showMe:boolean = false;
-  // showMe=true;
+
   // eslint-disable-next-line @typescript-eslint/member-ordering
   cacherAction = true;
   exportToExcel(): void {
@@ -137,13 +165,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
     XLSX.writeFile(book, this.name);
 
-    // this.showMe=true;
-    // setTimeout(()=>{
-    //   this.AfficherAction
-    // }, 1000);
-    // this.cacher = false;
-    /*pour exporter sans col action*/
+
     this.fonction();
+    this.toogleTag();
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    this.cacherAction;
   }
   /*Actualiser directement après export*/
   fonction(){
@@ -152,23 +178,14 @@ this.numero_users = sessionStorage.getItem("numero_users");
     }, 100);
   }
 
-  /* le reste pour exporter sans un champ*/
-  // actualiser(setTimeout(() => {
-
-  // }, 500);)
-
-  // setTimeout(() => {
-
-  // }, 500);
-
   /*Méthode pour cacherAction en un clique*/
   toogleTag() {
     this.cacherAction = false;
     // this.showMe=true;
     // this.fonction()
     this.fonction2();
-
   }
+
   fonction2(){
     setTimeout(()=>{
       this.cacherAction = true;
@@ -177,6 +194,6 @@ this.numero_users = sessionStorage.getItem("numero_users");
   deconnexion(){
     sessionStorage.clear();
     console.log('je suis le log')
-    this.route.navigateByUrl('/authentification');
+    this.router.navigateByUrl('/authentification');
     }
 }

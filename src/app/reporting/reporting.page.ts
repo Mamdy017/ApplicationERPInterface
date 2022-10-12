@@ -1,11 +1,10 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { ReportingService } from '../Services/reporting.service';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { EntiteService } from '../Services/entite/entite.service';
-import { AlertController, AnimationController } from '@ionic/angular';
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import { ReportingService } from '../Services/reporting.service';
+import { EntiteService } from '../Services/entite.service';
+import { AlertController, AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -13,10 +12,9 @@ import { Router } from '@angular/router';
   templateUrl: './reporting.page.html',
   styleUrls: ['./reporting.page.scss'],
 })
-export class ReportingPage implements OnInit {
-  menuBureau: boolean = true;
+export class ReportingPage implements OnInit {menuBureau: boolean = true;
   menuMobile: boolean = false;
-  p:number=1
+  p: 1
 
   // /==============================================================================SESSION==========
   iduser: any;
@@ -34,13 +32,17 @@ export class ReportingPage implements OnInit {
   lesEntites: any;
   lesPersonnesTirer: any;
   elementVide: any
+  affiche:any
+  reponse:any
+  select_liste: string;
+  evenement:any
+  donnees:any
 
   constructor(public breakpointObserver: BreakpointObserver,
     private serviceReporting: ReportingService,
     private serviceEntite: EntiteService,
     private alertController: AlertController,
     private animationCtrl: AnimationController,private route:Router
-
   ) { }
 
   actualise(): void {
@@ -48,10 +50,7 @@ export class ReportingPage implements OnInit {
       () => {
       }, 100, clearInterval(1500));
   }
-  ngOnInit() {
-
-
-    // ===========================================================================SESSION VALEURS================================================
+  ngOnInit() {// ===========================================================================SESSION VALEURS================================================
     this.iduser = sessionStorage.getItem("id_users");
     this.roles = sessionStorage.getItem("role_users");
     this.noms_users = sessionStorage.getItem("nom_users");
@@ -72,6 +71,12 @@ export class ReportingPage implements OnInit {
           this.actualise();
         }
       });
+         // =========================================== RECURATION : Activités =======================================
+        this.serviceReporting.afficherReporting().subscribe(data =>{
+          this.affiche = data
+          console.log(this.affiche)
+
+        })
 
 
     // =========================================== RECURATION : Activités =======================================
@@ -86,6 +91,7 @@ export class ReportingPage implements OnInit {
     })
 
   }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
@@ -128,7 +134,9 @@ export class ReportingPage implements OnInit {
 
       console.log("============ " + this.lesPersonnesTirer[0])
 
-      if (this.lesPersonnesTirer[0] == undefined) {
+      
+
+      if (this.lesPersonnesTirer[0] === undefined) {
         // alert("Cette activité n'as pas de tirage validé")
 
         const alert = await this.alertController.create({
@@ -139,10 +147,36 @@ export class ReportingPage implements OnInit {
         });
 
         await alert.present();
+
+        
       }
+
 
     })
 
+  }
+
+  //filtre par entite
+  filtreUserParEntite(event) {
+
+    if(this.select_liste != "Filtre par Entité"){
+
+
+      console.log(event.target.value)
+
+      
+      this.evenement = event.target.value
+    
+     this.serviceReporting.filtreParEntite(this.select_liste).subscribe((data)=>{
+  
+  
+      this.donnees = data
+  
+      console.log(this.donnees)
+     })
+
+
+    }
   }
 
   // Exportation du fichier
@@ -162,5 +196,4 @@ export class ReportingPage implements OnInit {
     this.route.navigateByUrl('/authentification');
     }
 }
-
 

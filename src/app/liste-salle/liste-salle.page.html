@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin'  && iduser  else erreur">
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
@@ -18,41 +18,40 @@
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
-    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
 
 
       <div class="container">
         <button type="button" class="btn" style="margin-left:92% ;">
           <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-              style="font-size:15px; color: #ff6600;">
-              99+
-            </span></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px; color: #ff6600;">
+            99+
+          </span></i>
         </button>
         <br><br>
         <div class="row ro py-3">
           <h1>Liste des salles</h1>
           <div class="trait"></div>
           <div class="position">
-            <button (click)="exportToExcel()" class="btn btnAjouter">Exporter</button>
+            <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
             <form action="">
-              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search "></i> <input
-                type="text" style=" border: 0; background: transparent; font-size: 12px; " name="searchText"
-                [(ngModel)]="searchText"></button>
+              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"  [(ngModel)]="searchText" placeholder="Rechercher"></button>
             </form>
             <!-- <button class="btn btnAjouter c1">Filtré par entité <i class="bi bi-filter-right"></i></button> -->
 
-            <select class="btn btnAjouter c1">
-              <option></option>
+            <select class="btn btnAjouter c1 form-control " (change)="filtreSalle($event)">
+              <option>Tout</option>
+              <option>Disponible</option>
+              <option>Indisponible</option>
               <i class="bi bi-filter-right"></i>
             </select>
 
-
-
-            <a href="salle"> <button class="btn btnAjouter">Ajouter une salle</button></a>
+            
+            <a href="salle">  <button class="btn btnAjouter">Ajouter une salle</button></a>
           </div>
           <div class="table-responsive ra py-5">
-            <table class="table " id="season-tble">
+            <h1>{{salleFiltre}}</h1>
+            <table class="table" id="season-tble">
               <thead>
                 <tr>
                   <th scope="col" class="ra" style="text-align:center ;">N°</th>
@@ -63,13 +62,14 @@
                 </tr>
 
 
-                <tr *ngFor="let uneSalle of maListes |  paginate: { itemsPerPage: 5, currentPage: p} | filter:searchText let i = index">
+                <tr *ngFor="let uneSalle of salleParDispo | filter:searchText | paginate: { itemsPerPage: 5, currentPage: p} let i = index">
                   <td style="text-align:center ;">{{i+1}}</td>
                   <td style="text-align:center ;">{{uneSalle.nom}}</td>
                   <td style="text-align:center ;">{{uneSalle.etage}}</td>
                   <td style="text-align:center ;">{{uneSalle.nbreplace}}</td>
                   <td style="text-align:center ;">
-                    <i class="bi bi-check-circle i"></i>
+                    <p *ngIf="uneSalle.disponibilite"><i class="bi bi-check-circle i" style="color:#198754; font-size:20px;" ></i></p>
+                    <p *ngIf="!uneSalle.disponibilite"><i class="bi bi-x-circle" style="color:red; font-size:20px;"></i></p>
                   </td>
                 </tr>
               </thead>
@@ -84,27 +84,3 @@
     </main>
   </div>
 </div>
-
-<ng-template #erreur id="#erreur">
-  <div class="img" align="center">
-    <div class="">
-      <img src="../../assets/images/errors.jpg" width="30%">
-    </div>
-    <div>
-      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
-      <style>
-        .img button a:hover {
-          background-color: black;
-          border: 2px solid #ff6600;
-          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-          color: white;
-        }
-
-        .img button a {
-          background-color: #ff6600;
-          text-decoration: none;
-        }
-      </style>
-    </div>
-  </div>
-</ng-template>

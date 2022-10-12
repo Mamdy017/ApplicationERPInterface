@@ -2,6 +2,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
+import { Annee } from '../modeles/annee/annee';
 import { Entite } from '../modeles/entite';
 import { ServicesService } from '../services.service';
 import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
@@ -79,6 +80,9 @@ export class AdminAccueilPage implements OnInit {
   fablabDe: any;
   afficheAnnee: any;
   afficherEntiteAdmin: Entite;
+ 
+  nombreApprenants:any
+  annee:Annee
 
 
 
@@ -170,7 +174,8 @@ export class AdminAccueilPage implements OnInit {
     })
     this.KalansoAout = this.serviceActeur.KalansoAout().subscribe(data => {
       this.KalansoAout = data
-    })
+    //Afficher les entités de l'admin
+   
     this.KalansoSep = this.serviceActeur.KalansoSep().subscribe(data => {
       this.KalansoSep = data
     })
@@ -284,19 +289,19 @@ export class AdminAccueilPage implements OnInit {
       this.totalSalleLibre = data
     })
     // Ici on charge le nombre total des Apprenants
-    this.service.apprenantOUParticipant("apprenant").subscribe(data => {
+    this.service.apprenantOUParticipant("Apprenants").subscribe(data => {
       this.apprenantsTotal = data
     })
     // Ici on charge le nombre total des Participants
-    this.service.apprenantOUParticipant("participant").subscribe(data => {
-      this.participantTotal = data
+    this.service.apprenantOUParticipant("participant").subscribe(data => {this.participantTotal = data})
+    
 
-      //affiche année
-      // this.serviceAccueil.afficherAnnee().subscribe(data => {
-      //   this.afficheAnnee= data
-      // })
       
 
+      //le nombre d'apprenants
+      this.service.nombreApprenant().subscribe(data =>{
+        this.nombreApprenants = data
+      })
 
       // Ici on charge les sessions
 
@@ -307,7 +312,10 @@ export class AdminAccueilPage implements OnInit {
 
     })
 
-  }
+    //affiche année
+   
+
+    }
 
   afficheMenuMobile() {
     this.menuBureau = true;
@@ -365,9 +373,12 @@ export class AdminAccueilPage implements OnInit {
       }
     })
   }
+
+
   deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
   }
+
 }

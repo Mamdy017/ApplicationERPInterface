@@ -27,14 +27,17 @@ export class EntiteService {
     //   return this.http.get<Entite>(`${this.api}/entite/afficherEntiteAdmin`);
     // }
 
+  
+
   //======================Ajouter entite=================
 
-  ajouterEntite(nom: string, description: string, slogant: string, file:any):Observable<any>{
+  ajouterEntite(nom: string, description: string, slogant: string,iduser:any, file:any):Observable<any>{
     let data =new FormData();
     data.append("file",file);
     data.append("nom", nom);
     data.append("description", description);
     data.append("slogant", slogant)
+    data.append("iduser",iduser)
     return this.http.post<any>('http://localhost:8080/entite/ajouterE', data);
   }
 

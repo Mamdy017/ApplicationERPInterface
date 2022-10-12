@@ -16,6 +16,8 @@ export class ActiviteService {
     return this.http.get(`${this.api}/activite/afficher`);
   }
 
+
+
 // ==========================AJOUT DE L'Activite
 
 postActivite(idacteurs: string, idacteurInternes: string, libelleEntite: string, typeAct: string, libelleSalle: string, activite:Activite):Observable<any>{
