@@ -44,8 +44,9 @@
                   <p class="textArticle">
                     {{activite.description}}
                   </p>
-                  <p class="autorArticle"><i class="bi bi-person-fill"></i> Etat : {{activite.etatActivite.etat}}</p>
-                  <button class="btn btnReadMore" routerLink="/detail-activite">Savoir Plus</button>
+                  <p class="autorArticle"><i class="bi bi-calendar3-event"></i> Etat : {{activite.etatActivite.etat}}</p>
+                  <button class="btn btnReadMore" routerLink="/detail-activite/{{activite.idactivite}}">Voir Plus</button>
+
                 </div>
               </div>
             </div>

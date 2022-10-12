@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
-    path: 'detail-activite',
+    path: 'detail-activite/:idactivite',
     loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
   },
   {

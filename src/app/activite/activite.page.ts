@@ -17,6 +17,14 @@ import Swal from 'sweetalert2';
 export class ActivitePage implements OnInit {
 
 
+  iduser:any;
+  roles:any;
+  noms_users:any;
+  prenom_users:any;
+ email_users: string;
+ numero_users: string;
+
+
   // @ViewChild(IonContent) content: IonContent;
 
   // scrollToTop() {
@@ -263,16 +271,15 @@ export class ActivitePage implements OnInit {
 
 
 
-
-
-
-
-    let userid: any = 1;
+    let userid: any = this.iduser;
 
     let data = new FormData();
 
 
-    if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 || this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
+    if (this.myFormActivite.get('file').value.length == 0 || this.myFormActivite.get('nom').value.length == 0 || this.myFormActivite.get('description').value.length == 0 || 
+    typeof this.myFormActivite.get('idresponsable').value === 'undefined' || this.myFormActivite.get('nombrepersonnedemande').value.length == 0 ||
+     this.myFormActivite.get('datedeb').value.length == 0 || this.myFormActivite.get('datefin').value.length == 0 
+     || typeof this.myFormActivite.get('libelleEntite').value === 'undefined' || typeof this.myFormActivite.get('typeAct').value === 'undefined') {
       //this.myFormActivite.get('filesource').value !=  null  || 
       //, this.myFormActivite.get('idacteurInternes').value.length, typeof this.myFormActivite.get('typeAct').value  === 'unedifined'
       this.bool_erreurImpTrieFr = true;
@@ -289,6 +296,7 @@ export class ActivitePage implements OnInit {
       // this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
     }
     else {
+      console.log("My value : " + this.myFormActivite.get('nombrepersonnedemande').value)
       data.append("file", this.myFormActivite.get('fileSource').value);
       data.append("nom", this.myFormActivite.get('nom').value);
       data.append("description", this.myFormActivite.get('description').value);
@@ -318,7 +326,6 @@ export class ActivitePage implements OnInit {
 
       this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
 
-
         console.log(res);
 
         this.erreurImpTrieBack = res;
@@ -336,6 +343,13 @@ export class ActivitePage implements OnInit {
   }
 
   ngOnInit() {
+
+    this.iduser =  sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users"); 
+    this.noms_users =  sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
 
     this.myFormActivite
 

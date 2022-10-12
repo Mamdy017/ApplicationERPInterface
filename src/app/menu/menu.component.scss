@@ -55,8 +55,9 @@ i,
 .nom {
   color: white;
   display: flex;
-  margin-left: -15%;
+  margin-left: -10%;
   flex-direction: column;
+  margin-top:10%;
 
   // animation-name: sidebar-nav-link-load;
   // animation-duration: 1000ms;
@@ -126,4 +127,9 @@ ul {
 
 ul::-webkit-scrollbar {
   display: none;
+}
+.li{
+  position: relative;
+  top: -5%;
+
 }

@@ -18,10 +18,10 @@
     
         <div class="row px-2" routerLink="/profile-user-profile">
           <div class="col" (click)="doConfirm()" > 
-            <img src="../../assets/images/Add-user-icon.png" style="height:100%; width:100%"
+            <img src="../../assets/images/profil.png" style="height:100%; width:100%; border-radius: 50%;"
               alt="">    
           </div>
-          <div class="col nom py-2" align="">
+          <div class="col nom" align="">
             <span>{{nom_users}}</span>
             <span>{{prenom_users}}</span>
           </div>
@@ -29,21 +29,14 @@
    
 
       </li>
-
      <li [routerLinkActive]=" 'active' " class="li ">
         <a routerLink="/accueil-user" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
       </li>
-
       <li [routerLinkActive]=" 'active' " class="li ">
         <a *ngIf="admin || respon" routerLink="/admin-accueil" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Tableau bord</span></a>
-      </li> 
-      
-     
-
-     
-
+      </li>
       <li [routerLinkActive]="'active'"  class="li">
 
         <a routerLink="/liste-globale" class="nav-link  align-middle li">

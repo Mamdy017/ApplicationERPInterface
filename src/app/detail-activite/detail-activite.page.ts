@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterStateSnapshot } from '@angular/router';
+import { DetailActiviteService } from '../Services/detail_activite.service';
 
 @Component({
   selector: 'app-detail-activite',
@@ -9,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class DetailActivitePage implements OnInit {
 
-  constructor(  public breakpointObserver: BreakpointObserver,  private route: Router) { }
+  constructor(  public breakpointObserver: BreakpointObserver,  private route: Router,
+    private routes : ActivatedRoute,
+    private detailActiviteService: DetailActiviteService ) { }
   // /==============================================================================SESSION==========
   iduser:any;
   roles:any;
@@ -19,6 +22,8 @@ export class DetailActivitePage implements OnInit {
  numero_users: string;
  menuBureau: boolean = true;
  menuMobile: boolean = false;
+
+ detailsActivite:any;
 // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 actualise(): void {
@@ -26,6 +31,56 @@ actualise(): void {
     () => {
     }, 100, clearInterval(1500));
 }
+
+
+photo:any;
+libelle:any
+responsable:any
+etat:any
+dateDebut:any
+datefin:any
+objectifVise:any
+salle:any
+
+formateursInternes:any;
+formateursExternes:any
+
+getFormateursInternes(){
+  const idAct = this.routes.snapshot.params['idactivite']
+  this.detailActiviteService.recupererFormateurInternes(idAct).subscribe(data => {
+    this.formateursInternes = data
+  })
+}
+
+getFormateursExternes(){
+  const idAct = this.routes.snapshot.params['idactivite']
+  this.detailActiviteService.recupererFormateurExternes(idAct).subscribe(data =>{
+    this.formateursExternes = data
+  })
+}
+
+getDetailListes(){
+
+  const idAct = this.routes.snapshot.params['idactivite']
+
+  this.detailActiviteService.recupererDetailActivite(idAct).subscribe(data =>{
+    this.detailsActivite = data;
+    this.photo = this.detailsActivite.photo;
+    this.libelle = this.detailsActivite.libelle
+    this.dateDebut = this.detailsActivite.dateDebut
+    this.responsable = this.detailsActivite.responsable
+    this.etat = this.detailsActivite.etat
+    this.datefin = this.detailsActivite.datefin
+    this.objectifVise = this.detailsActivite.objectifVise
+    this.salle = this.detailsActivite.salle
+    //console.log(this.detailsActivite)
+  })
+  
+
+}
+
+
+
   ngOnInit() {
     this.breakpointObserver
     .observe(['(max-width: 767px)'])
@@ -47,6 +102,11 @@ this.noms_users =  sessionStorage.getItem("nom_users");
 this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
+
+// ======================================================================
+
+    this.getDetailListes();
+
   }
 
   deconnexion() {
