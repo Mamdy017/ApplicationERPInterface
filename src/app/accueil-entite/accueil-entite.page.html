@@ -91,7 +91,7 @@
                       <div class="col-12 col-md-10">
                         <div class="contient row bg-">
                           <div class="col-md-6">
-                            <img src="../../assets/kalanso.jpg"
+                            <img src="../../assets/images/{{encour[5]}}"
                               style="height: 150px; width: 100%; cursor: pointer; padding: 1px;" alt="" srcset="">
                           </div>
                           <div class="col-md-6">
@@ -119,7 +119,7 @@
                 <h3 *ngIf="avenir">Aucune activité à venir</h3>
                 <div *ngFor="let a of activite_avenir | paginate: { itemsPerPage: 2, currentPage: p}">
                   <p class="titreac">{{a[0]}}</p>
-                  <img src="../../assets/kalanso.jpg"
+                  <img src="../../assets/images/{{a[5]}}"
                     style="height: 300px; width: 100%; cursor: pointer; padding: auto;" class="image" alt="" srcset="">
                   <p class="date"><span><i class="bi bi-calendar-fill "></i> Debut {{a[3] | date }}</span> <span><i
                         class="bi bi-calendar-check-fill"></i> Fin {{a[4] | date}}</span> </p>
