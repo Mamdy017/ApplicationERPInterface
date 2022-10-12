@@ -89,18 +89,20 @@
                         <td scope="">{{liste.nombretirage}}</td>
                         <td><a href="[routerLink]='['/detail-activite',liste.idactivite]'">{{liste.activite.nom}}</a>
                         </td>
-                        <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]">Voir Plus</a></td>
+                        <td><a class="voir" [routerLink]="['/page-liste-suite',liste.idliste]"><i class="bi bi-plus-circle-fill"></i></a></td>
 
                       </tr>
 
                     </tbody>
                   </table>
-                  <!-- <h2 class="text-center"  *ngIf="!Postulants">Aucune liste dans la base de donnée</h2> -->
-
-                  <pagination-controls style="color: black;" (pageChange)="p = $event"
-                    class="text-center ngx-pagination"></pagination-controls>
-
-
+                  
+                    <style>
+                      .my-pagination ::ng-deep .ngx-pagination .current {
+                        background:black;
+                      }
+                    </style>
+                      <pagination-controls (pageChange)=" p = $event" class="text-center my-pagination " previousLabel="Précedant" nextLabel="Suivant"></pagination-controls>
+    
                 </div>
 
                 <!-- <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a> -->

@@ -50,8 +50,14 @@
             </table>
             <!-- <h2 class="text-center" *ngIf="ListeTirage == null">Aucun tirage dans la base de donnée</h2> -->
 
-            <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
-            </pagination-controls>
+         
+            <style>
+              .my-pagination ::ng-deep .ngx-pagination .current {
+                background:black;
+              }
+            </style>
+              <pagination-controls (pageChange)=" page = $event" class="text-center my-pagination " previousLabel="Précedant" nextLabel="Suivant"></pagination-controls>
+
 
           </div>
 
