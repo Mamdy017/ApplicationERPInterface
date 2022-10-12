@@ -1,4 +1,4 @@
-<ion-content *ngIf="roles == 'admin' && iduser  else erreur">
+<ion-content *ngIf="roles == 'admin' || roles =='responsable' && iduser  else erreur">
 
   <div class="container">
     <div class="forme">

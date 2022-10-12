@@ -1,4 +1,4 @@
-<ion-content *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+<ion-content *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <div class="container-fluid ">
     <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
     ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>

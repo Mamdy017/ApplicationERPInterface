@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<div class="container-fluid " *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+<div class="container-fluid " *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
   ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
@@ -27,64 +26,6 @@ position:relative; left:80% ;
             <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
             <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
             <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
-=======
-
-
-<ion-content>
-
-  <div class="container">
-    <div class="row boxShadow">
-      <!------------- Colonne Gauche---->
-      <div class="col-12 col-md-4 imgGauche">
-        <img src="assets/icon/illustre.png" alt="image ajouter un postulant" class="img-fluid rounded">
-        <h2 class="display-6 text-center" style="font-weight: bold; color: black;">Bienvenue</h2>
-        <h6>Sur <span style="color:#FF6600">Orange </span>Digital Center</h6>
-      </div>
-
-      <!------------- Colonne Droite ---->
-      <div class="col-12 col-md-8">
-        <form>
-          <fieldset>
-            <legend class="display-6 text-center my-3"><b>Ajouter un participant</b></legend>
-          </fieldset>
-          <div class="trait"></div>
-          <div class="row col-12">
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="name" id="name" placeholder="Nom" [(ngModel)]="nom_postulant"  class="form form-control inputvalue">
-              <label for="name">Nom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="firstname" id="firstname" [(ngModel)]="prenom_postulant" placeholder="Prénom" class="form form-control inputvalue">
-              <label for="firstname">Prénom</label>
-            </div>
-            <div class="mb-3 col-12 col-md-6 form-row form-floating">
-              <input type="text" name="num" id="num" placeholder="Numéro" [(ngModel)]="numero_postulant" class="form form-control inputvalue">
-              <label for="num">Numéro</label>
-            </div>
-
-            <div class="mb-4 col-12 col-md-6 form-row form-floating">
-              <select name="sexe" id="sexe" class="form-select form-control" [(ngModel)]="genre">
-                <option selected>Genre</option>
-                <option value="homme" > Homme</option>
-                <option value="femme"> Femme</option>
-                <label for="sexe">Genre</label>
-              </select>
-
-            </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <input type="email" name="email" id="email" [(ngModel)]="email" placeholder="email" class="form form-control inputvalue">
-              <label for="email">Email</label>
-            </div>
-            <div class="mb-3 col-12 col-md-12 form-row form-floating">
-              <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control">
-                <option *ngFor="let listepostulants of reponse" [ngValue]="listepostulants.libelleliste"> {{listepostulants.libelleliste}}</option>
-                <label for="sexe">liste</label>
-              </select>
-            </div>
-          </div>
-          <div>
-            <p *ngIf="bool_erreur">{{Erreur}}</p>
->>>>>>> 99eb8efe539646c9f4014c7f3d8641028196b107
           </div>
           <button class="btn btnAjouter" (click)="ajouterParticipant()">Valider</button>
 

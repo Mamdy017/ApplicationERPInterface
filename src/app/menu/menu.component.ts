@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,14 +15,41 @@ export class MenuComponent implements OnInit {
   roles: string;
   user: boolean;
   iduser: string;
+  donnees: any;
 
-  constructor() { }
+  droit:any
+  ID: any;
+  nom_users: string;
+
+  constructor(private serviceUtilisateur : ListeActeurService) { }
 
   ngOnInit() {
 
-    // ===========================================================================SESSION VALEURS================================================
     this.iduser = sessionStorage.getItem("id_users");
     this.roles = sessionStorage.getItem("role_users");
+    this.nom_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
+
+    this.serviceUtilisateur.lesUtilisateurs().subscribe(data => {
+      this.donnees = data
+      
+      for(var a of this.donnees)
+       this.ID = a.idusers
+        if(a.idusers = this.iduser){
+          this.droit = true
+        console.log(" nous sommes ok ")
+       }
+      
+
+    })
+
+    // ===========================================================================SESSION VALEURS================================================
+
+
+    // ICI ON VERIFIE LES ID
+    
 
     if(this.roles == "user"){
       this.user = true;
@@ -31,10 +59,7 @@ export class MenuComponent implements OnInit {
     }else{
       this.respon = true;
     }
-    this.prenom_users = sessionStorage.getItem("nom_users");
-    this.prenom_users = sessionStorage.getItem("prenom_users",);
-    this.email_users = sessionStorage.getItem("email_users");
-    this.numero_users = sessionStorage.getItem("numero_users");
+   
 
   }
 

@@ -27,7 +27,7 @@ numero_users: string;
   menuBureau= true;
   menuMobile= false;
 searchText: any;
-  disponible: import("c:/Users/mkkeita/Desktop/projects/ionic/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
+  disponible: import("C:/Users/adcoulibaly/Desktop/ERP/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route:Router) { }
 
   actualise(): void {

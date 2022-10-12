@@ -17,26 +17,30 @@
       <li class=" py-4">
     
         <div class="row px-2" routerLink="/profile-user-profile">
-          <div class="col" (click)="doConfirm()" > <img src="../../assets/images/img1.jpg" style="border-radius:100% ;height:120%; width:75%"
-              alt="">    </div>
-          <div class="col nom py-2">
-            <span>Admin</span>
-            <span>Center</span>
+          <div class="col" (click)="doConfirm()" > 
+            <img src="../../assets/images/profil.png" style="height:100%; width:100%"
+              alt="">    
+          </div>
+          <div class="col nom py-2" align="">
+            <span>{{nom_users}}</span>
+            <span>{{prenom_users}}</span>
           </div>
         </div>
    
 
       </li>
 
-      <li [routerLinkActive]=" 'active' " class="li ">
-        <a *ngIf="admin || respon" routerLink="/admin-accueil" class="nav-link  align-middle li">
-          <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Le bord</span></a>
-      </li> 
-      
-      <li [routerLinkActive]=" 'active' " class="li ">
+     <li [routerLinkActive]=" 'active' " class="li ">
         <a routerLink="/accueil-user" class="nav-link  align-middle li">
           <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Accueil</span></a>
       </li>
+
+      <li [routerLinkActive]=" 'active' " class="li ">
+        <a *ngIf="admin || respon" routerLink="/admin-accueil" class="nav-link  align-middle li">
+          <i class="bi bi-house"></i> <span class="ms-1  d-sm-inline light px-3">Tableau de bord</span></a>
+      </li> 
+      
+     
 
      
 
@@ -49,10 +53,13 @@
         <a routerLink="/liste-acteur" class="nav-link  align-middle li">
           <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Acteur</span></a>
       </li>
-      <li *ngIf="admin || respon" [routerLinkActive]="'active'" class="li">
+      <!-- =============================== ADMIN ============================================= -->
+      <li *ngIf="admin" [routerLinkActive]="'active'" class="li">
         <a routerLink="/gestionentite" class="nav-link  align-middle li">
           <i class="bi bi-clipboard-data"></i><span class="ms-1  d-sm-inline light px-3">Entités</span></a>
       </li>
+      <!-- =============================== RESPONSABLE ======================================== -->
+
       <li [routerLinkActive]="'active'" class="li">
         <a routerLink="/liste-tirage" class="nav-link  align-middle li">
           <i class="bi bi-browser-edge"></i> <span class="ms-1  d-sm-inline light px-3">Tirage</span></a>
@@ -65,6 +72,8 @@
         <a routerLink="/liste-utilisateur" class="nav-link  align-middle li">
           <i class="bi bi-person-circle"></i> <span class="ms-1  d-sm-inline light px-3">Utilisateurs</span></a>
       </li>
+
+
       <li [routerLinkActive]="'active'" class="li">
         <a routerLink="/liste-salle" class="nav-link  align-middle li">
           <i class="bi bi-pc-display-horizontal"></i> <span class="ms-1  d-sm-inline light px-3">Salles</span></a>
