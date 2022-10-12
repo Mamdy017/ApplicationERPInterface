@@ -1,19 +1,21 @@
 <ion-content *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
   <div class="container-fluid ">
-    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-    <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
-<style>
+    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+        class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i>
+      Deconnexion</button>
+    <style>
+      .deconnexion {
+        position: relative;
+        left: 80%;
+      }
 
-.deconnexion{
-  position:relative; left:80% ;
-}
-@media only screen and (max-width: 475px){
-  .deconnexion{
-    left:50% ;
-  }
-}
-</style>
+      @media only screen and (max-width: 475px) {
+        .deconnexion {
+          left: 50%;
+        }
+      }
+    </style>
     <div class="row flex-nowrap">
       <div class="col-auto px-2" *ngIf="menuBureau">
         <app-menu></app-menu>
@@ -81,6 +83,19 @@
 
             </div>
           </div>
+          <!-- Footer -->
+          <footer class="footer mt-3 mb-3">
+            <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+              Center</p>
+          </footer>
+          <style>
+            footer {
+              padding: 25px;
+              background: #202020;
+              color: #FFFFFF;
+            }
+          </style>
+          <!-- Footer -->
         </div>
       </main>
     </div>
@@ -92,17 +107,18 @@
     <div class="">
       <img src="../../assets/images/errors.jpg" width="30%">
     </div>
-    <div >
-      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
       <style>
-        .img button a:hover{
-          background-color:black ;
-          border:2px solid #ff6600;
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
           color: white;
         }
-        .img button a{
-          background-color:#ff6600 ;
+
+        .img button a {
+          background-color: #ff6600;
           text-decoration: none;
         }
       </style>

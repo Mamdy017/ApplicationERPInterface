@@ -120,6 +120,10 @@ const routes: Routes = [
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
   },
   {
+    path: 'modifier-acteur/:idacteur',
+    loadChildren: () => import('./modifier-acteur/modifier-acteur.module').then( m => m.ModifierActeurPageModule)
+  },
+  {
     path: 'accueil-entite/:id_entite',
     loadChildren: () => import('./accueil-entite/accueil-entite.module').then( m => m.AccueilEntitePageModule)
   },

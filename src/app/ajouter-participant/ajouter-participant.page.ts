@@ -107,6 +107,11 @@ export class AjouterParticipantPage implements OnInit {
   }
 
 
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.route.navigateByUrl('/authentification');
+  }
 
 }
   

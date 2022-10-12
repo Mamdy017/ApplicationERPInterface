@@ -3,20 +3,18 @@
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
   <style>
-
     .deconnexion {
       position: relative;
       left: 80%;
     }
 
     @media only screen and (max-width: 475px) {
-      
+
       .deconnexion {
         left: 50%;
       }
 
     }
-
   </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
@@ -83,8 +81,8 @@
 
                 </ul>
                 <div class="col-12 col-md-12 t2">
-                  <h3 class=""> <strong> Activités encours</strong></h3>                     
-                   <h3 *ngIf="encours">Aucune activité encours</h3>
+                  <h3 class=""> <strong> Activités encours</strong></h3>
+                  <h3 *ngIf="encours">Aucune activité encours</h3>
                   <div class="card1" *ngFor="let encour of activite_encours">
                     <div class="row ">
 
@@ -131,6 +129,19 @@
             </div>
           </section>
           <!--La section pour les activites encours-->
+          <!-- Footer -->
+          <footer class="footer mt-3 mb-3">
+            <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+              Center</p>
+          </footer>
+          <style>
+            footer {
+              padding: 25px;
+              background: #202020;
+              color: #FFFFFF;
+            }
+          </style>
+          <!-- Footer -->
         </div>
       </ion-content>
     </main>

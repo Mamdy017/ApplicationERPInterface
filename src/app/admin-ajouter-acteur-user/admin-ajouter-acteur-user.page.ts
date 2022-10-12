@@ -42,7 +42,7 @@ numero_users: string;
     numero: '',
     email: '',
     statut: Statut,
-    idacteur: 0
+    idActeur: 0
   };
     nom = '';
     prenom = '';

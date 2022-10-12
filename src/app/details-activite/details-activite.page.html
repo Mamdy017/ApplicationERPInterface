@@ -1,78 +1,94 @@
+<div class="container-fluid" style="overflow: hidden;"
+  *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
 
-  <div class="container-fluid" style="overflow: hidden;" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
-    <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-    ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-    <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
-<style>
-
-.deconnexion{
-  position:relative; left:80% ;
-}
-@media only screen and (max-width: 475px){
-  .deconnexion{
-    left:50% ;
-  }
-}
-</style>
-    <div class="row flex-nowrap">
-      <div class="col-auto px-2" *ngIf="menuBureau">
-        <app-menu></app-menu>
-      </div>
-      <main class="col ps-md-2 pt-2  " style=" height: 100vh ; overflow: scroll;">
-        <div class="container">
-
-          <!-- <div class="row"> -->
-
-            <span class="text-center py-5"><a href="/importer-participant" ><button class=" btn btnReadMore">Ajouter liste Apprenant</button></a>
-              <a href="activite" style="margin:200px;"><button class=" btn btnReadMore">Ajouter une Activité</button></a>
-              </span>
-            <div class="col-12 col-ms-12 col-md-12 ">
-              <div class="cardContour my-3 row py-2">
-                <h1 class="h3 text-center pt-3 display-6">Les activités</h1>
-                <div class="trait"></div>
-                <p class="text-center">Merci de visionner activités de ODC</p>
-                <div class="row py-4 ps-3 ContourArticle p col-md-5" *ngFor ="let activite of activites$">
-                  <div class="col-12 col-md-6 p-2">
-                    <img src="../../assets/images/{{activite.photoactivite}}" alt="image de formation " class="img-fluid rounded">
-                  </div>
-                  <div class="col-12 col-md-6">
-                    <div class="me-3">
-                      <h1 class="h5"><b>{{activite.nom}}</b></h1>
-                      <p class="textArticle">
-                        {{activite.description}}
-                      </p>
-                      <p class="autorArticle"><i class="bi bi-person-fill"></i> Etat : {{activite.etatActivite.etat}}</p>
-                      <button class="btn btnReadMore" routerLink="/detail-activite">Savoir Plus</button>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div> 
-
-          <!-- </div> -->
-
-        </div>
-      </main>
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+  </style>
+  <div class="row flex-nowrap">
+    <div class="col-auto px-2" *ngIf="menuBureau">
+      <app-menu></app-menu>
     </div>
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ; overflow: scroll;">
+      <div class="container">
+
+        <!-- <div class="row"> -->
+
+        <span class="text-center py-5"><a href="/importer-participant"><button class=" btn btnReadMore">Ajouter liste
+              Apprenant</button></a>
+          <a href="activite" style="margin:200px;"><button class=" btn btnReadMore">Ajouter une Activité</button></a>
+        </span>
+        <div class="col-12 col-ms-12 col-md-12 ">
+          <div class="cardContour my-3 row py-2">
+            <h1 class="h3 text-center pt-3 display-6">Les activités</h1>
+            <div class="trait"></div>
+            <p class="text-center">Merci de visionner activités de ODC</p>
+            <div class="row py-4 ps-3 ContourArticle p col-md-5" *ngFor="let activite of activites$">
+              <div class="col-12 col-md-6 p-2">
+                <img src="../../assets/images/{{activite.photoactivite}}" alt="image de formation "
+                  class="img-fluid rounded">
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="me-3">
+                  <h1 class="h5"><b>{{activite.nom}}</b></h1>
+                  <p class="textArticle">
+                    {{activite.description}}
+                  </p>
+                  <p class="autorArticle"><i class="bi bi-person-fill"></i> Etat : {{activite.etatActivite.etat}}</p>
+                  <button class="btn btnReadMore" routerLink="/detail-activite">Savoir Plus</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- </div> -->
+        <!-- Footer -->
+        <footer class="footer mt-3 mb-3">
+          <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+            Center</p>
+        </footer>
+        <style>
+          footer {
+            padding: 25px;
+            background: #202020;
+            color: #FFFFFF;
+          }
+        </style>
+        <!-- Footer -->
+      </div>
+    </main>
   </div>
-  
+</div>
+
 <ng-template #erreur id="#erreur">
   <div class="img" align="center">
     <div class="">
       <img src="../../assets/images/errors.jpg" width="30%">
     </div>
-    <div >
-      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
       <style>
-        .img button a:hover{
-          background-color:black ;
-          border:2px solid #ff6600;
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
           color: white;
         }
-        .img button a{
-          background-color:#ff6600 ;
+
+        .img button a {
+          background-color: #ff6600;
           text-decoration: none;
         }
       </style>
