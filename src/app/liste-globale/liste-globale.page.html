@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
@@ -23,8 +23,6 @@
     </div>
     
     <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
-
-
       <ion-content>
         <div class="container">
           <div class="row gauche"> 
@@ -87,7 +85,7 @@
                                   
                   </tbody>
                 </table>
-                <h2 class="text-center"  *ngIf="!Postulants">Aucune liste dans la base de donnée</h2>
+                <!-- <h2 class="text-center"  *ngIf="!Postulants">Aucune liste dans la base de donnée</h2> -->
 
                        <pagination-controls style="color: black;"  (pageChange)="p = $event" class="text-center ngx-pagination"></pagination-controls>
                   

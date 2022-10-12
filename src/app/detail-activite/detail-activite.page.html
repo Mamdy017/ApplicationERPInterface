@@ -1,4 +1,4 @@
-<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+<div class="container-fluid " *ngIf="roles == 'admin' || roles =='responsable' && iduser  else erreur">
 
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
@@ -27,9 +27,9 @@
           <div class="row contourShaddow my-4">
             <div class="contourTopImg my-1 p-4 col-12 col-md-12">
               <div class="contourImg">
-                <img src="../../assets/images/numerique.jpg" alt="images" class="img-fluid">
+                <img src="../../assets/images/{{photo}}/" width="100%" alt="images" class="img-fluid">
               </div>
-              <h1 class="display-6 mb-3"><b>Talk - Le numérique responsable</b></h1>
+              <h1 class="display-6 mb-3"><b>{{libelle}}</b></h1>
 
               <div class="UserSection ">
                 <div class="userCerle ">
@@ -37,13 +37,13 @@
                 </div>
 
                 <div class="userName  ">
-                  <span class="firstName">Hawa <b>COULIBALY</b></span>
+                  <span class="firstName">{{responsable}} <b>{{responsable}} </b></span>
                   <span>Responsable</span>
                 </div>
 
                 <div class="  ">
                   <button class="btn btnTerminer">
-                    <img src="../../assets/icon/validIcon.png" alt="icon valid" class="iconValid"> Terminer
+                    <img src="../../assets/icon/validIcon.png" alt="icon valid" class="iconValid"> {{etat}}
                   </button>
                 </div>
               </div>
@@ -51,15 +51,7 @@
           </div>
           <div class="row contourShaddow">
             <div class="description p-4">
-              Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de
-              sa
-              valeur et atteindre ses objectifs ...
-              Hawa Berthe, conférencière en développement personnel, partage plusieurs outils pour prendre conscience de
-              sa
-              valeur et attei Hawa Berthe, conférencière en développement conférencière en développement personnel,
-              partage
-              plusieurs outils pour prendre conscience de sa
-              valeur et attei Hawa Berthe, conférencière en développement
+              {{etat}}
             </div>
           </div>
 
@@ -75,27 +67,27 @@
                   </p>
                   <p>
                     <ion-icon name="home" class="iconLocationSize"></ion-icon>
-                    <b>Salle : </b>2ème Etage
+                    <b>Salle : </b>{{salle}}
                   </p>
                 </div>
                 <div class="col-12 col-md-4">
                   <p>
                     <ion-icon name="person" class="iconLocationSize"></ion-icon>
-                    <b>Responsable: </b>Jeremi KOLOMA
+                    <b>Responsable: </b>{{responsable}}
                   </p>
                   <p>
                     <ion-icon name="locate" class="iconLocationSize"></ion-icon>
-                    <b>Objectif participants: </b>100
+                    <b>Objectif participants: </b>{{objectifVise}}
                   </p>
                 </div>
                 <div class="col-12 col-md-4">
                   <p>
                     <ion-icon name="calendar" class="iconLocationSize"></ion-icon>
-                    <b>Date début : </b>20/20/2022
+                    <b>Date début : </b>{{dateDebut | date}}
                   </p>
                   <p>
                     <ion-icon name="calendar" class="iconLocationSize"></ion-icon>
-                    <b>Date Fin : </b>20/20/2030
+                    <b>Date Fin : </b>{{datefin | date}}
                   </p>
                 </div>
               </div>
@@ -103,7 +95,20 @@
             </div>
           </div>
         </div>
+        <footer class="footer mt-3 mb-3">
+          <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span>
+            Digital
+            Center</p>
+        </footer>
+        <style>
+          footer {
+            padding: 25px;
+            background: #202020;
+            color: #FFFFFF;
+          }
+        </style>
       </ion-content>
+
     </main>
   </div>
 </div>

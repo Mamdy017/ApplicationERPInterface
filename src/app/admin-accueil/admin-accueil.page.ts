@@ -293,8 +293,8 @@ export class AdminAccueilPage implements OnInit {
       this.apprenantsTotal = data
     })
     // Ici on charge le nombre total des Participants
-    this.service.apprenantOUParticipant("participants").subscribe(data => {})
-      this.participantTotal = data
+    this.service.apprenantOUParticipant("participant").subscribe(data => {this.participantTotal = data})
+    
 
       
 

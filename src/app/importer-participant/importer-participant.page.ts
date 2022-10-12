@@ -25,6 +25,7 @@ export class ImporterParticipantPage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+  activitesSansListes$: any;
   constructor(private http: HttpClient,
     private activiteService: ActiviteService, public breakpointObserver: BreakpointObserver, private route: Router) { }
 
@@ -35,6 +36,14 @@ export class ImporterParticipantPage implements OnInit {
 
   erreurImport: any;
   bool_erreurImp: boolean = false;
+
+
+  getActiviteSansListe(){
+    this.activiteService.recupererActiviteSansListe().subscribe((data) =>{
+      this.activitesSansListes$ = data;
+    })
+  }
+
 
 
 
@@ -126,6 +135,7 @@ export class ImporterParticipantPage implements OnInit {
     this.email_users = sessionStorage.getItem("email_users");
     this.numero_users = sessionStorage.getItem("numero_users");
 
+    this.getActiviteSansListe();
 
     this.getListeActivite();
     this.breakpointObserver

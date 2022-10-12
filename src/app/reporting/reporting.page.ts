@@ -1,11 +1,10 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
-import { ReportingService } from '../Services/reporting.service';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { EntiteService } from '../Services/entite/entite.service';
-import { AlertController, AnimationController } from '@ionic/angular';
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
+import { ReportingService } from '../Services/reporting.service';
+import { EntiteService } from '../Services/entite.service';
+import { AlertController, AnimationController } from '@ionic/angular';
 
 
 @Component({
@@ -13,8 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './reporting.page.html',
   styleUrls: ['./reporting.page.scss'],
 })
-export class ReportingPage implements OnInit {
-  menuBureau: boolean = true;
+export class ReportingPage implements OnInit {menuBureau: boolean = true;
   menuMobile: boolean = false;
   p: 1
 
@@ -45,8 +43,6 @@ export class ReportingPage implements OnInit {
     private serviceEntite: EntiteService,
     private alertController: AlertController,
     private animationCtrl: AnimationController,private route:Router
-    
-
   ) { }
 
   actualise(): void {
@@ -54,10 +50,7 @@ export class ReportingPage implements OnInit {
       () => {
       }, 100, clearInterval(1500));
   }
-  ngOnInit() {
-
-
-    // ===========================================================================SESSION VALEURS================================================
+  ngOnInit() {// ===========================================================================SESSION VALEURS================================================
     this.iduser = sessionStorage.getItem("id_users");
     this.roles = sessionStorage.getItem("role_users");
     this.noms_users = sessionStorage.getItem("nom_users");
@@ -79,7 +72,7 @@ export class ReportingPage implements OnInit {
         }
       });
          // =========================================== RECURATION : Activités =======================================
-        this.serviceReporting.afficheReporting().subscribe(data =>{
+        this.serviceReporting.afficherReporting().subscribe(data =>{
           this.affiche = data
           console.log(this.affiche)
 

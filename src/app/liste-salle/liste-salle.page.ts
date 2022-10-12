@@ -2,7 +2,9 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SalleService } from '../services/salle';
+import { Salle } from '../modeles/salle/salle';
 import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'app-liste-salle',
@@ -11,24 +13,28 @@ import * as XLSX from 'xlsx';
 })
 export class ListeSallePage implements OnInit {
 
-// /==============================================================================SESSION==========
-iduser:any;
-roles:any;
-noms_users:any;
-prenom_users:any;
-email_users: string;
-numero_users: string;
-// /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+  salleFiltre: string;
+  salleParDispo : Salle[] = [];
+  reponse:any;
+  // /==============================================================================SESSION==========
+  iduser: any;
+  roles: any;
+  noms_users: any;
+  prenom_users: any;
+  email_users: string;
+  numero_users: string;
+  // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+  searchText: any;
 
-  p=1;
+  p = 1;
   maListes: any;
-  menuBureau= true;
-  menuMobile= false;
-searchText: any;
+  menuBureau = true;
+  menuMobile = false;
+
   disponible: import("C:/Users/fssy/Documents/ProjetIntellijSimplon/ERPFontEnd/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
-  constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route:Router) { }
+  constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route: Router) { }
 
   actualise(): void {
     setInterval(
@@ -38,13 +44,13 @@ searchText: any;
   ngOnInit() {
 
 
-// ===========================================================================SESSION VALEURS================================================
-this.iduser =  sessionStorage.getItem("id_users");
-this.roles = sessionStorage.getItem("role_users"); 
-this.noms_users =  sessionStorage.getItem("nom_users");
-this.prenom_users = sessionStorage.getItem("prenom_users",);
-this.email_users = sessionStorage.getItem("email_users");
-this.numero_users = sessionStorage.getItem("numero_users");
+    // ===========================================================================SESSION VALEURS================================================
+    this.iduser = sessionStorage.getItem("id_users");
+    this.roles = sessionStorage.getItem("role_users");
+    this.noms_users = sessionStorage.getItem("nom_users");
+    this.prenom_users = sessionStorage.getItem("prenom_users",);
+    this.email_users = sessionStorage.getItem("email_users");
+    this.numero_users = sessionStorage.getItem("numero_users");
 
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -60,10 +66,10 @@ this.numero_users = sessionStorage.getItem("numero_users");
         }
       });
 
-    this.serviceSalle.afficherToutesLesSalles().subscribe(data =>{
+    this.serviceSalle.afficherToutesLesSalles().subscribe(data => {
       this.maListes = data;
 
-      console.log('ma listes = '+this.maListes);
+      console.log('ma listes = ' + this.maListes);
     });
 
 
@@ -72,26 +78,44 @@ this.numero_users = sessionStorage.getItem("numero_users");
     this.menuBureau = true;
     this.menuMobile = false;
   }
-  deconnexion(){
+  deconnexion() {
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
-    }
-    name = 'ListeDesSalles.xlsx';
-    exportToExcel(): void {
-      const element = document.getElementById('season-tble');
-      const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
-  
-      const book: XLSX.WorkBook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
-  
-      XLSX.writeFile(book, this.name);
-    }
+  }
+  name = 'ListeDesSalles.xlsx';
+  exportToExcel(): void {
+    const element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
+  }
 
   //Afficher par disponibilité
   afficherDisponibilite(event) {
     this.serviceSalle.afficherSalleParDisponibilite(event).subscribe(data =>
       this.disponible = data)
+  }
+
+  filtreSalle(event: Event){
+    const valeur = (event.target as HTMLSelectElement).value
+    if(valeur == "Disponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite==true);
+      console.table(this.salleParDispo)
+    }
+    if(valeur == "Indisponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite !== true);
+      console.table(this.salleParDispo)
+    }
+   if(valeur == "Tout"){
+      this.salleParDispo = this.maListes;
+      console.table(this.salleParDispo)
+    // }
+
+    }
   }
 
 }

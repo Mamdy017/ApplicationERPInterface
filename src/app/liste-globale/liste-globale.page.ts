@@ -6,6 +6,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostulantTire } from '../modeles/postulant-tire/postulant-tire';
+import { ActiviteService } from '../Services/activite/activite.service';
 @Component({
   selector: 'app-liste-globale',
   templateUrl: './liste-globale.page.html',
@@ -36,7 +37,8 @@ export class ListeGlobalePage implements OnInit {
      public breakpointObserver: BreakpointObserver,
      private http: HttpClient,
      private modalService: NgbModal,
-     private route: Router ) { }
+     private route: Router ,
+     private activiteService: ActiviteService) { }
 //importation
 bool_erreurImpFr: boolean;
 bool_erreurImpBack: boolean;
@@ -60,11 +62,13 @@ libelleTirage: ""
 
  Postulants:PostulantTire[]
 
-  actualise(): void {
-    setInterval(
-      () => {
-      }, 100, clearInterval(1500));
-  }
+ actualise(): void {
+  setInterval(
+    () => {
+    }, 100, clearInterval(1500));
+}
+
+
   ngOnInit() {
 
    
@@ -76,6 +80,8 @@ this.noms_users =  sessionStorage.getItem("nom_users");
 this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
+
+this. getListeActivite();
 
 
     this.breakpointObserver
@@ -135,6 +141,13 @@ this.numero_users = sessionStorage.getItem("numero_users");
       }
     }
     
+    getListeActivite() {
+      this.activiteService.recupererActiviteSansListe().subscribe((data) => {
+        this.activitesSansListes$  = data;
+ 
+      })
+    }
+
   //importation de  fichier
 
   actualiseApresImp(): void {
@@ -204,7 +217,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
           console.log(res.status);
 
           if (res.status == true) {
-            this.route.navigateByUrl("/")
+            //this.route.navigateByUrl("/")
             this.actualise();
           } else {
             this.bool_erreurImpFr = false;

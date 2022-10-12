@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./authentification/authentification.module').then( m => m.AuthentificationPageModule)
   },
   {
-    path: 'detail-activite',
+    path: 'detail-activite/:idactivite',
     loadChildren: () => import('./detail-activite/detail-activite.module').then( m => m.DetailActivitePageModule)
   },
   {
@@ -118,6 +118,10 @@ const routes: Routes = [
   {
     path: 'liste-tirage-nonvalide',
     loadChildren: () => import('./liste-tirage-nonvalide/liste-tirage-nonvalide.module').then( m => m.ListeTirageNonvalidePageModule)
+  },
+  {
+    path: 'modifier-acteur/:idacteur',
+    loadChildren: () => import('./modifier-acteur/modifier-acteur.module').then( m => m.ModifierActeurPageModule)
   },
   {
     path: 'accueil-entite/:id_entite',

@@ -13,7 +13,10 @@ export class EntiteService {
   file:any;
   constructor(private http:HttpClient) { }
 
-
+// ===================== AFicher une entité =======================
+afficherEntite() :Observable<any>{
+  return this.http.get("http://localhost:8080/entite/afficher");
+}
   //======================Ajouter entite=================
 
   ajouterEntite(nom: string, description: string, slogant: string, file:any):Observable<any>{

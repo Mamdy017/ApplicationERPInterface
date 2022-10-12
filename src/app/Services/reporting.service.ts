@@ -33,7 +33,7 @@ filtrerParEntite(entite:any):Observable<Activite[]> {
 }
 
 //afficher dans reportiong
-afficheReporting():Observable<any> {
+afficherReporting():Observable<any> {
   return this.Http.get(`http://localhost:8080/activite/afficherDansReporting`)
 
 }

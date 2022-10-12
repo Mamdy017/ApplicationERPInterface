@@ -17,9 +17,6 @@ export class ListeUtilisateurPage implements OnInit {
 
 
   selection: any
-
-
-
   // /==============================================================================SESSION==========
   iduser: any;
   roles: any;
@@ -43,7 +40,7 @@ export class ListeUtilisateurPage implements OnInit {
   ev: any;
   ods: any
   reponse: any;
-  entite:Entite
+  entite: Entite
   constructor(private serviceUtilisateur: ListeActeurService, private serveiceUtilisateur: ListeUserService,
     public breakpointObserver: BreakpointObserver, private route: Router, private servicelisteutilisateur: ListeUserService,
     private serviceEntite: GestionentiteService) { }
@@ -77,9 +74,9 @@ export class ListeUtilisateurPage implements OnInit {
       });
 
 
-      this.serviceEntite.afficherEntite().subscribe((data) => {
-        this.reponse = data;
-      })
+    this.serviceEntite.afficherEntite().subscribe((data) => {
+      this.reponse = data;
+    })
 
     this.serviceUtilisateur.lesUtilisateurs().subscribe(data => {
       this.donnees = data
@@ -87,14 +84,14 @@ export class ListeUtilisateurPage implements OnInit {
 
     })
 
-    this.servicelisteutilisateur.filtreParTout().subscribe((data)=>{
-  
+    this.servicelisteutilisateur.filtreParTout().subscribe((data) => {
+
       // console.log(this.select_liste)
-  
+
       this.ods = data
-  
+
       console.log(this.ods)
-     })
+    })
 
   }
 
@@ -113,34 +110,31 @@ export class ListeUtilisateurPage implements OnInit {
     XLSX.writeFile(book, this.name);
   }
 
-
-
-
   filtreUserParEntite(event) {
 
-    if(this.select_liste != "Filtre par Entité"){
+    if (this.select_liste != "Filtre par Entité") {
 
 
       console.log(event.target.value)
 
       // console.log(this.ev)
-      
+
       this.ev = event.target.value
-    
-     this.servicelisteutilisateur.filtreParEntite(this.select_liste).subscribe((data)=>{
-  
-      // console.log(this.select_liste)
-  
-      this.ods = data
-  
-      console.log(this.ods)
-     })
+
+      this.servicelisteutilisateur.filtreParEntite(this.select_liste).subscribe((data) => {
+
+        // console.log(this.select_liste)
+
+        this.ods = data
+
+        console.log(this.ods)
+      })
 
 
     }
-  
-   
-   
+
+
+
   }
 
 
