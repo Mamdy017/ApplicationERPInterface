@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Postulant } from '../modeles/postulant/postulant';
 
 @Component({
   selector: 'app-modifier-postulant',
@@ -27,6 +28,27 @@ actualise(): void {
     () => {
     }, 100, clearInterval(1500));
 }
+
+
+//************************************************************************************
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  modifierpostulant = new Postulant();
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  nom_postulant= '';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  prenom_postulant = '';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  numero_postulant= '';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  email= '';
+   // eslint-disable-next-line @typescript-eslint/member-ordering
+   genre= '';
+   // eslint-disable-next-line @typescript-eslint/member-ordering
+   activite= '';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  id!: any;
+
   ngOnInit() {
 
     // ===========================================================================SESSION VALEURS================================================
@@ -50,14 +72,19 @@ this.numero_users = sessionStorage.getItem("numero_users");
           this.actualise();
         }
       });
-  }
+      
+      
+
+    }
+
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
+
   deconnexion(){
     sessionStorage.clear();
     console.log('je suis le log')
     this.route.navigateByUrl('/authentification');
     }
-}
+  }

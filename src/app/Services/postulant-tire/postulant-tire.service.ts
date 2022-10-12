@@ -17,6 +17,11 @@ export class PostulantTireService {
       return this.http.get(`http://localhost:8080/postulanttire/nombrePostulantTireParGenre/${genre}/${idTirage}`);
     }
 
+
+    supprimerpostulant(id:number):Observable<object>{
+      return this.http.get(`http://localhost:8080/postulanttire/supprimer/${id}`)
+    }
+
  
 }
 

@@ -1,10 +1,16 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import * as XLSX from 'xlsx';
+import { PostulantTire } from '../modeles/postulant-tire/postulant-tire';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
 import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.service';
+
+
+
+
 
 @Component({
   selector: 'app-postulant-tire',
@@ -12,6 +18,10 @@ import { PostulantTireService } from '../Services/postulant-tire/postulant-tire.
   styleUrls: ['./postulant-tire.page.scss'],
 })
 export class PostulantTirePage implements OnInit {
+
+ 
+
+
 
   // /==============================================================================SESSION==========
   iduser: any;
@@ -29,8 +39,9 @@ export class PostulantTirePage implements OnInit {
   searchText: any;
   // eslint-disable-next-line max-len
   constructor(private servicePostulant: PageListeTirageService, private route: ActivatedRoute,
-    public breakpointObserver: BreakpointObserver, private routes: Router, private service: PostulantTireService) { }
+    public breakpointObserver: BreakpointObserver, private routes: Router, private service: PostulantTireService ) { }
 
+   
   // eslint-disable-next-line @typescript-eslint/member-ordering
   lesPersonnesTirees: any;
 
@@ -40,6 +51,9 @@ export class PostulantTirePage implements OnInit {
   nombre_femme: number = 0;
   genre: any
   idTirage: any
+  postulantsTire:PostulantTire[]
+  
+  postulantTire: PostulantTire[];
   actualise(): void {
     setInterval(
       () => {
@@ -48,6 +62,11 @@ export class PostulantTirePage implements OnInit {
   // id_tirage : any
   ngOnInit() {
 
+    //*********************************************** Modification d'un postulant********************************************
+    const id = + this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(params =>{
+    const id= +params.get('id')
+  })
     // ===========================================================================SESSION VALEURS================================================
     this.iduser = sessionStorage.getItem("id_users");
     this.roles = sessionStorage.getItem("role_users");
@@ -99,25 +118,46 @@ export class PostulantTirePage implements OnInit {
     });
 
 
-
+   
 
   }
+
+
+  //Supprimer
+
+
 
   afficheMenuMobile() {
     this.menuBureau = true;
     this.menuMobile = false;
   }
 
-
+  supprimer(postulantTire: any) {
+    const confirmer = confirm('êtes-vous sûr de le supprimer ?');
+    // eslint-disable-next-line eqeqeq
+    if (confirmer == false) { return; }
+    this.service.supprimerpostulant(postulantTire.id).subscribe({
+      next: (data) => {
+        console.log(postulantTire.id);
+        const index = this.postulantsTire.indexOf(postulantTire);
+        this.postulantsTire.splice(index, 1);
+      }
+    });
+  }
   name = 'ListePostulantTire.xlsx';
+
+  cacheraction = true;
+  
   exportToExcel(): void {
-    const element = document.getElementById('season-tble');
-    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+    this.cacheraction = false
+    // const element = document.getElementById('season-tble');
+    // const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
 
-    const book: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+    // const book: XLSX.WorkBook = XLSX.utils.book_new();
+    // XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
 
-    XLSX.writeFile(book, this.name);
+    // XLSX.writeFile(book, this.name);
+    this.fonction()
   }
 
   deconnexion() {
@@ -125,4 +165,23 @@ export class PostulantTirePage implements OnInit {
     console.log('je suis le log')
     this.routes.navigateByUrl('/authentification');
   }
+
+
+
+  fonction(){
+    setTimeout(() => {
+  
+      const element = document.getElementById('season-tble');
+      const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+  
+      const book: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+  
+      XLSX.writeFile(book, this.name);
+  
+      this.cacheraction = true
+    },0);
+  }
+
+
 }

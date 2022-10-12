@@ -81,6 +81,8 @@
                       <th scope="col">Numéro</th>
                       <th scope="col">Genre</th>
                       <th scope="col">Activité</th>
+                      <th scope="col" *ngIf="cacheraction">Action</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -92,8 +94,16 @@
                       <td>{{personnes.email}}</td>
                       <td>{{personnes.numero_postulant}}</td>
                       <td>{{personnes.genre}}</td>
-                      <td>{{personnes.activite}}</td>
-                    </tr>
+                      <td>{{personnes.activite.nom}}</td>
+                      <td><a [routerLink]="['../modifier-postulant', personnes.id]" *ngIf="cacheraction"><i class="bi bi-pencil-square i "></i></a>&nbsp; &nbsp; &nbsp;
+                        
+                        
+                        <button  (click)="supprimer(personnes)">
+                        <i class="bi bi-trash-fill i" ></i>
+                      </button>
+
+                      </td>
+                     </tr>
                   </tbody>
                 </table>
                 <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
