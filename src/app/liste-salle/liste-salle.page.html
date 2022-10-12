@@ -74,8 +74,13 @@
                 </tr>
               </thead>
             </table>
-            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-
+            <style>
+              .my-pagination ::ng-deep .ngx-pagination .current {
+                background:black;
+              }
+            </style>
+            <pagination-controls (pageChange)="p = $event" class="text-center my-pagination " previousLabel="Précedant" nextLabel="Suivant">
+            </pagination-controls>
 
           </div>
         </div>

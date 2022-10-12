@@ -101,8 +101,13 @@
 
                   </tbody>
                 </table>
-                  <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls>
-
+                <style>
+                  .my-pagination ::ng-deep .ngx-pagination .current {
+                    background:black;
+                  }
+                </style>
+                <pagination-controls (pageChange)="p= $event" class="text-center my-pagination " previousLabel="Précedant" nextLabel="Suivant">
+                </pagination-controls>
                 <a href="tirage"><button type="submit" class="btn btnNouveau float-right">Nouveau Tirage </button></a>
               </div>
 

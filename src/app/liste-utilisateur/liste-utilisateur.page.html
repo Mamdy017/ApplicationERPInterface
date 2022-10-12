@@ -72,7 +72,13 @@ position:relative; left:80% ;
             <!-- (click)="supprimer(user)" -->
               </tbody>
             </table>
-            <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+            <style>
+              .my-pagination ::ng-deep .ngx-pagination .current {
+                background:black;
+              }
+            </style>
+            <pagination-controls (pageChange)="page = $event" class="text-center my-pagination " previousLabel="Précedant" nextLabel="Suivant">
+            </pagination-controls>
   <!-- <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
           </div>
 
