@@ -260,7 +260,7 @@ leaveAnimation = (baseEl: HTMLElement) => {
           console.log(res.status);
 
           if (res.status == true) {
-            this.route.navigateByUrl("/postulant-tire/")
+            alert('nous')
             this.actualise();
           } else {
             this.bool_erreurImpFr = false;

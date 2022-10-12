@@ -2,7 +2,9 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SalleService } from '../services/salle';
+import { Salle } from '../modeles/salle/salle';
 import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'app-liste-salle',
@@ -11,6 +13,10 @@ import * as XLSX from 'xlsx';
 })
 export class ListeSallePage implements OnInit {
 
+
+  salleFiltre: string;
+  salleParDispo : Salle[] = [];
+  reponse:any;
   // /==============================================================================SESSION==========
   iduser: any;
   roles: any;
@@ -20,13 +26,13 @@ export class ListeSallePage implements OnInit {
   numero_users: string;
   // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
+  searchText: any;
 
   p = 1;
   maListes: any;
   menuBureau = true;
   menuMobile = false;
-  searchText: any;
+
   disponible: import("C:/Users/mccamara/Desktop/Nouveau dossier/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route: Router) { }
 
@@ -92,6 +98,24 @@ export class ListeSallePage implements OnInit {
   afficherDisponibilite(event) {
     this.serviceSalle.afficherSalleParDisponibilite(event).subscribe(data =>
       this.disponible = data)
+  }
+
+  filtreSalle(event: Event){
+    const valeur = (event.target as HTMLSelectElement).value
+    if(valeur == "Disponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite==true);
+      console.table(this.salleParDispo)
+    }
+    if(valeur == "Indisponible"){
+      this.salleParDispo = this.maListes.filter((liste : Salle) => liste.disponibilite !== true);
+      console.table(this.salleParDispo)
+    }
+   if(valeur == "Tout"){
+      this.salleParDispo = this.maListes;
+      console.table(this.salleParDispo)
+    // }
+
+    }
   }
 
 }
