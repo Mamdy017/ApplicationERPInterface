@@ -1,4 +1,4 @@
-<div class="container-fluid " *ngIf="roles == 'admin' && iduser  else erreur">
+<div class="container-fluid " *ngIf="roles == 'user' || roles =='admin' || roles =='responsable' && iduser  else erreur">
 
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
@@ -107,13 +107,13 @@
         <div class="row cardContour">
           <div class="col-12 col-md-8">
             <div class="cardContour my-3 py-2">
-              <h1 class="h3 text-center pt-3 display-5">Activités Récentes</h1>
+              <h1 class="h3 text-center pt-3 display-5">Activités Encours</h1>
               <div class="trait"></div>
-              <p class="text-center">Merci de visionner nos activités récentes</p>
+              <p class="text-center">Merci de visionner nos activités encours</p>
 
               <div class="row py-3 ps-3 ContourArticle m-3" *ngFor="let activites of activiteRecent">
                 <div class="col-12 col-md-6 p-2">
-                  <img src="../../assets/images/kalanso1.jpg" alt="image de formation " class="img-fluid rounded">
+                  <img src="../../assets/images/{{activites[5]}}" alt="image de formation " class="img-fluid rounded">
                 </div>
                 <div class="col-12 col-md-6">
                   <div class="me-3">
@@ -143,6 +143,7 @@
                 <div class="ContourArticle py-2 m-2" *ngFor="let activites of activiteAVenir">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/{{activites[5]}}" alt="image de formation " class="img-fluid rounded">
+                    
                   </div>
                   <div class="col-12 col-md-12">
                     <div class="me-2">

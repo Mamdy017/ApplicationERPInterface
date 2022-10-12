@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' && iduser  else erreur">
+<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
   ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
@@ -14,7 +14,7 @@ position:relative; left:80% ;
 }
 </style>
   <div class="row flex-nowrap">
-    <div class="col-auto px-2" >
+    <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
     <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
@@ -33,14 +33,15 @@ position:relative; left:80% ;
           <div class="position">
               <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
               <form action="">
-                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"  [(ngModel)]="searchText"></button>
+                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"  [(ngModel)]="searchText" placeholder="Rechercher"></button>
               </form>
-              <select class="btn btnAjouter"  [(ngModel)]="selection">
-                <option>Kalanso</option>
-                <option>Orabge Fab lab</option>
-                <option>Orange FAb</option>
-              </select>
-
+             
+              <div Filtré par entité>
+                <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control" (change)="filtreUserParEntite($event)">
+                  <option  *ngFor="let liste of reponse" [ngValue]="liste.nom"> {{liste.nom}} </option>
+                  <label for="sexe">liste</label>
+                </select>
+              </div>
 
               <a href="ajouter_utilisateur"> <button class="btn btnAjouter1"> Ajouter un utilisateur  </button></a>
           </div>
@@ -59,17 +60,17 @@ position:relative; left:80% ;
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let valeur of donnees |  filter:searchText | paginate: { itemsPerPage: 5, currentPage: p}; let i = index">
+                <tr *ngFor="let ods of ods |  filter:searchText | paginate: { itemsPerPage: 5, currentPage: p}; let i = index">
                   <td scope="row">{{i+1}}</td>
-                  <td scope="">{{od[1]}}</td>
-                  <td>{{od[2]}}</td>
-                  <td>{{od[3]}}</td>
-                  <td>{{od[4]}}</td>
-                  <td>{{od[5]}}</td>
-                  <td>{{od[6]}}</td> 
-                  <td><a href=" modifier()"><i class="bi bi-pencil-square i" ></i></a>&nbsp; &nbsp; &nbsp;<a href="supprimer(iduser)"><i class="bi bi-trash-fill i"></i></a></td>
+                  <td scope="">{{ods[1]}}</td>
+                  <td>{{ods[2]}}</td>
+                  <td>{{ods[3]}}</td>
+                  <td>{{ods[4]}}</td>
+                  <td>{{ods[5]}}</td>
+                  <td>{{ods[6]}}</td>
+                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp; <button><i class="bi bi-trash-fill i" ></i></button></td>
                 </tr>
-            
+            <!-- (click)="supprimer(user)" -->
               </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>

@@ -13,7 +13,7 @@
 
             <div class="intermediare col-12">
 
-              <h1> Listes des tirages effectuées sur la "" {{ libele_liste }} ""</h1>
+              <h1> Listes des tirages effectuées sur la liste <strong>{{ libele_liste }}</strong> </h1>
             </div>
             <br><br>
             <div class="libelle col-12">
@@ -48,7 +48,7 @@
 
               </tbody>
             </table>
-            <h2 class="text-center" *ngIf="!Tirage">Aucun tirage dans la base de donnée</h2>
+            <!-- <h2 class="text-center" *ngIf="ListeTirage == null">Aucun tirage dans la base de donnée</h2> -->
 
             <pagination-controls (pageChange)="page = $event" previousLabel="Précedant" nextLabel="Suivant">
             </pagination-controls>

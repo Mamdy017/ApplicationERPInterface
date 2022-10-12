@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Tirage } from '../modeles/tirage/tirage';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
 import { PageListeTirageService } from '../Services/page-liste-tirage/page-liste-tirage.service';
@@ -57,6 +58,8 @@ this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
 
+this.actualise();
+
 
     this.breakpointObserver
       .observe(['(max-width: 767px)'])
@@ -98,17 +101,41 @@ this.numero_users = sessionStorage.getItem("numero_users");
   }
 
   validerTirage(tirage:any){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
 
-    this.serviceTirage.validerTirage(tirage.idtirage, tirage).subscribe(data =>{
-      console.log(data)
-      if(data.status == false){
-        alert("Cette liste est déjà validé")
-      }else{
-      alert("Tirage validé avec succès");
-    }
+      },
+      heightAuto: false
     })
-    console.log(tirage);
-    this.actualise();
+
+    swalWithBootstrapButtons.fire({
+      title: 'Cet tirage va etre validé !!!!',
+      text: "Vous pouvez annuler ou confirmer!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Confimer!',
+      cancelButtonText: 'Annuler!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.serviceTirage.validerTirage(tirage.idtirage, tirage).subscribe(data =>{
+          console.log(data)
+          if(data.status == false){
+            swalWithBootstrapButtons.fire(
+              'Cet tirage est déjà validé',)
+          }else{
+            swalWithBootstrapButtons.fire(
+              'Cet tirage est validé avec succes!')
+              this.actualise();
+        }
+        })
+        console.log(tirage);
+      }
+    })
+
+    
   }
 
 

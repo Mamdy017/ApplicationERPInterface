@@ -115,7 +115,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
   
 
   posterPostulant(){
-    const swalWithBootstrapButtons = Swal.mixin({
+     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-primary',
         cancelButton: 'btn btn-danger',
@@ -140,13 +140,11 @@ this.numero_users = sessionStorage.getItem("numero_users");
 
         if(data == null){
           swalWithBootstrapButtons.fire(
-            this.erreurs = "Ce postulant existe déjà",
-          )
+            this.erreurs = "Ce postulant existe déjà",)
           this.status = false;
         }else{
           swalWithBootstrapButtons.fire(
-            this.erreurs = "Postulant ajouté avec succès",
-          )
+            this.erreurs = "Postulant ajouté avec succès",)
          
           this.status = true;
            this.resetForm()
@@ -170,8 +168,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
       this.bool_erreurFr = true;
       this.bool_erreur = false;
       swalWithBootstrapButtons.fire(
-        this.erreurs = "Veuillez remplir tous les champs !",
-      )
+        this.erreurs = "Veuillez remplir tous les champs",)
    
        
     }

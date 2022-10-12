@@ -1,6 +1,6 @@
 
 export class Acteur {
-  idacteur!: number;
+  idActeur!: number;
   nom!: string;
   prenom!: string;
   numero!: string;

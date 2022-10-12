@@ -76,6 +76,9 @@ export class AuthentificationPage implements OnInit {
             else if (this.typeUser == "admin") {
               this.route.navigateByUrl('/admin-accueil');
             }
+            else if (this.typeUser=='responsable') {
+              this.route.navigateByUrl('/accueil-user');
+            }
             else {
               this.route.navigateByUrl('/admin-accueil');
               console.log(data.contenu);

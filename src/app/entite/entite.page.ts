@@ -6,6 +6,8 @@ import { Fichier } from '../modeles/entite';
 import { Observable } from 'rxjs';
 import { EntiteService } from '../Services/entite/entite.service';
 import { Router } from '@angular/router';
+import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
+import { Utilisateur } from '../modeles/utilisateur/utilisateur';
 
 @Component({
   selector: 'app-entite',
@@ -32,7 +34,8 @@ export class EntitePage implements OnInit {
     nom: '',
     description: '',
     slogant: '',
-    photoentite: ''
+    photoentite: '',
+    iduser: new Utilisateur
   }
 
   photo$!: Observable<any>;
@@ -52,9 +55,18 @@ export class EntitePage implements OnInit {
 
   menuBureau: boolean = true;
   menuMobile: boolean = false;
+  donnees: any;
+
+  actualise(): void {
+    setInterval(
+      () => {
+      }, 100, clearInterval(1500));
+  }
+
 
   constructor(private serviceEntite: EntiteService,
-    private formB: FormBuilder, private route: Router
+    private formB: FormBuilder, private route: Router,
+    private serviceUtilisateur : ListeActeurService
     // private serviceq:EntiteService,
     // private servicez:
   ) { }
@@ -74,6 +86,14 @@ export class EntitePage implements OnInit {
       file: ["", Validators.required],
       description: ["", Validators.required],
       slogant: ["", Validators.required],
+      iduser:["",Validators.required]
+    })
+
+    // ======================================================RECUPERATION DES UTILISATEURS
+
+    this.serviceUtilisateur.lesUtilisateurs().subscribe(data => {
+      this.donnees = data
+
     })
   }
 
@@ -87,13 +107,16 @@ export class EntitePage implements OnInit {
 
 
   creerEntite() {
+
+
+
     this.entiteobjet = this.formmodule.value
     let data = new FormData();
 
     // data.append("file",this.file)
 
     console.log(data)
-    this.serviceEntite.ajouterEntite(this.entiteobjet.nom, this.entiteobjet.description, this.entiteobjet.slogant, this.file).subscribe(data => {
+    this.serviceEntite.ajouterEntite(this.entiteobjet.nom, this.entiteobjet.description, this.entiteobjet.slogant,this.entiteobjet.iduser, this.file).subscribe(data => {
       this.formmodule.reset()
       this.message = "entite ajouter avec succes";
       this.contenu = data.contenu;
@@ -127,14 +150,20 @@ export class EntitePage implements OnInit {
     console.log(this.fichier.photoentite)
 
 
-    this.serviceEntite.ajouterEntite(this.nom, this.description, this.slogant, this.fichier.file).subscribe(data => {
+    this.serviceEntite.ajouterEntite(this.nom, this.description, this.slogant,this.entiteobjet.iduser, this.fichier.file).subscribe(data => {
 
       console.log(data)
+
+      if(data.status == true){
+        this.route.navigateByUrl("/gestionentite")
+      }
 
       this.formmodule.reset()
     })
 
     this.resetForm();
+    this.actualise();
+   
   }
 
   afficheMenuMobile() {
