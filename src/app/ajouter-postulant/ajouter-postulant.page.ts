@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 // import { Component, OnInit } from '@angular/core';
 import { Postulant } from '../modeles/postulant/postulant';
 import { AjouterPostulantService } from '../Services/ajouter-postulant/ajouter-postulant.service';
@@ -114,6 +115,14 @@ this.numero_users = sessionStorage.getItem("numero_users");
   
 
   posterPostulant(){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-primary',
+        cancelButton: 'btn btn-danger',
+
+      },
+      heightAuto: false
+    })
     
     this.postulant.nom_postulant = this.nom_postulant;
     this.postulant.prenom_postulant = this.prenom_postulant;
@@ -130,10 +139,14 @@ this.numero_users = sessionStorage.getItem("numero_users");
         console.log(data.contenu);
 
         if(data == null){
-          this.erreurs = "Ce postulant existe déjà"
+          swalWithBootstrapButtons.fire(
+            this.erreurs = "Ce postulant existe déjà",
+          )
           this.status = false;
         }else{
-          this.erreurs = "Postulant ajouté avec succès"
+          swalWithBootstrapButtons.fire(
+            this.erreurs = "Postulant ajouté avec succès",
+          )
          
           this.status = true;
            this.resetForm()
@@ -156,7 +169,9 @@ this.numero_users = sessionStorage.getItem("numero_users");
     console.log("bbb    " +this.postulant)
       this.bool_erreurFr = true;
       this.bool_erreur = false;
-      this.erreurs = "Veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurs = "Veuillez remplir tous les champs !",
+      )
    
        
     }
