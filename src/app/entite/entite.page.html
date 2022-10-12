@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="roles == 'admin' && iduser  else erreur">
+<div class="container-fluid" *ngIf="roles == 'admin' || roles =='responsable' && iduser  else erreur">
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
   <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
@@ -31,7 +31,7 @@
 
       <ion-content>
 
-        <div class="container">
+        <div class="container contain">
           <div class="row boxShadow">
             <!------------- Colonne Gauche---->
             <div class="col-12 col-md-4 imgGauche">
@@ -73,12 +73,25 @@
                     <label for="num">Description <span style="color: red;">*</span></label>
                   </div>
 
-                  <div class="mb-3 col-12 col-md-12 ">
+                  <div class="mb-3 col-12 col-md-6 ">
                     <!-- <input type="file" name="file" id="file"  class="form form-control inputvalue"> -->
                     <ion-input type="file" name="file" formControlName="file" class="input"
                       (change)="fileChang($event)"><img class="image" src="../assets/icon/camera0.svg" alt="logo"
                         srcset="" placeholder="logo" width="8%">Logo<span style="color: red;">*</span></ion-input>
                   </div>
+
+
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating">
+
+                    <select formControlName="iduser" id="choice" class="form-select form-control" name="iduser">
+                      <option selected>--Choisir un responsable--</option>
+                      <option *ngFor="let listeUsers of donnees" [(ngValue)]="listeUsers.iduser">
+                        {{listeUsers.nom}} - {{listeUsers.prenom}}</option>
+                    </select>
+                    <label for="num">Choisir un responsable <span style="color: red;">*</span></label>
+
+                  </div>
+
 
                 </div>
                 <button class="btn btnAjouter" value="Ajout">Creer</button>
@@ -88,21 +101,21 @@
             </div>
 
           </div>
-          <!-- Footer -->
-          <footer class="footer mt-3 mb-3">
-            <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
-              Center</p>
-          </footer>
-          <style>
-            footer {
-              padding: 25px;
-              background: #202020;
-              color: #FFFFFF;
-            }
-          </style>
-          <!-- Footer -->
-        </div>
 
+        </div>
+        <!-- Footer -->
+        <footer class="footer mt-3 mb-3">
+          <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
+            Center</p>
+        </footer>
+        <style>
+          footer {
+            padding: 25px;
+            background: #202020;
+            color: #FFFFFF;
+          }
+        </style>
+        <!-- Footer -->
       </ion-content>
 
     </main>
