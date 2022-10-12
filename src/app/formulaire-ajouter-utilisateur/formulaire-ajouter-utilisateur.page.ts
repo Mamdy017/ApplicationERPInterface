@@ -139,6 +139,11 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
       this.email_utilisateur != null && this.numero_utilisateur &&
       this.passe1_utilisateur != null && this.passe1_utilisateur != null
     ) {
+      if(this.email_utilisateur.endsWith("@orangemali.com")==false){
+        swalWithBootstrapButtons.fire(
+          this.info= "Email non valide"
+        )
+      }else
       if (this.passe1_utilisateur == this.passe2_utilisateur) {
         swalWithBootstrapButtons.fire({
           title: 'Cet utilisateur va etre ajoouté !!!!',
@@ -147,7 +152,7 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
           showCancelButton: true,
           confirmButtonText: 'Confimer!',
           cancelButtonText: 'Annuler!',
-          reverseButtons: true
+          // reverseButtons: true
         }).then((result) => {
           if (result.isConfirmed) {
             this.utilisateur.nom = this.user_nom;
@@ -162,17 +167,19 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
               this.message = data
               this.info = this.message.contenu
 
-              console.log(this.info);
+              
+                console.log(this.info);
               this.route.navigateByUrl("/liste-utilisateur")
               swalWithBootstrapButtons.fire(
                 'Utilisateur ajouté avec succes!',
                 'Vous êtes diriger vers la liste des utilisateurs.',
                 'success',)
+              
 
             })
 
           }
-          else {
+          else  {
             swalWithBootstrapButtons.fire(
               this.info = this.message.contenu
 
@@ -180,12 +187,11 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
           }
         })
       }
-      else {
+      else if(this.passe1_utilisateur != this.passe2_utilisateur) {
         swalWithBootstrapButtons.fire(
-          this.info = "Mot de passe incorrect !"
+          this.info = "Les deux mots de passe ne sont pas les mêmes"
         )
       }
-
     }
     else {
       swalWithBootstrapButtons.fire(

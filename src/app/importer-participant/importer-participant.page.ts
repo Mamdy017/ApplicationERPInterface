@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { ActiviteService } from '../Services/activite/activite.service';
 
 
@@ -90,6 +91,15 @@ export class ImporterParticipantPage implements OnInit {
   }
 
   submit() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        cancelButton: 'btn btn-danger',
+        confirmButton: 'btn btn-primary',
+        
+
+      },
+      heightAuto: false
+    })
 
     const formData = new FormData();
 
@@ -100,21 +110,62 @@ export class ImporterParticipantPage implements OnInit {
     console.log(`http://localhost:8080/postulant/posulantTires/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
 
     if (this.myForm.get('libelleListe').value.length > 0 && this.myForm.get('libelleActivite').value.length > 0) {
-      this.http.post<any>(`http://localhost:8080/postulant/posulantTires/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
+      swalWithBootstrapButtons.fire({
+        title: 'Cet participant va etre ajoouté !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.http.post<any>(`http://localhost:8080/postulant/posulantTires/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
 
         .subscribe(res => {
+          if (res.status == true) {
+            this.route.navigateByUrl("/liste-salle")
+            swalWithBootstrapButtons.fire(
+              'Postulant ajouté avec succes!',
+              'Vous êtes diriger vers la liste des postulants.',
+              'success',)
+          }else {
+            swalWithBootstrapButtons.fire(
+              this.erreurImport = res.contenu,
 
-          this.erreurImport = res.contenu;
-          this.bool_erreurImp = true;
-
-
-          console.log(res.contenu);
-
+            )
+          }
         })
+        }else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+             'Ajout de postulant annulé'       
+          )
+
+        }
+      })
+        
+      // this.http.post<any>(`http://localhost:8080/postulant/posulantTires/excel/${this.myForm.get('libelleListe').value}/${this.myForm.get('libelleActivite').value}`, formData)
+
+      //   .subscribe(res => {
+          
+
+      //     this.erreurImport = res.contenu;
+      //     this.bool_erreurImp = true;
+
+
+      //     console.log(res.contenu);
+
+      //   })
 
     } else {
       this.bool_erreurImp = true;
-      this.erreurImport = "veuillez remplir tous les champs";
+      swalWithBootstrapButtons.fire(
+        this.erreurImport = " Veuillez remplir tous les champs !",
+      )   
+      // this.erreurImport = "veuillez remplir tous les champs";
     }
 
 

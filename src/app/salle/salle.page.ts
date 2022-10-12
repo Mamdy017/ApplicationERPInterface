@@ -86,7 +86,7 @@ salles:Salle
 
     if(this.etage == "" || this.nom == "" || this.nbreplace == null ){
       swalWithBootstrapButtons.fire(
-        this.messageRetour = " Veuillez bien remplir tous les champs !",
+        this.messageRetour = " Veuillez remplir tous les champs !",
       )   
         this.resetForm();
     }

@@ -5,6 +5,7 @@ import { Statut } from '../modeles/statut/statut';
 import { AdminActeurUserService } from '../services/admin-ajouter-acteur-user/admin-acteur-user.service';
 import { StatutService } from '../services/statutService';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-ajouter-acteur-user',
@@ -58,6 +59,7 @@ numero_users: string;
   menuBureau = true;
   menuMobile = false;
 
+
   constructor(private serviceActeur: AdminActeurUserService, /*private serviceStatut: StatutService*/ private route:Router) { }
 
   ngOnInit() {
@@ -75,30 +77,73 @@ this.numero_users = sessionStorage.getItem("numero_users");
     // this.serviceStatut.afficherToutesLesStatus().subscribe(data=>{ this.statut = data ;});
   }
 
+  resetForm(){
+    this.nom='';
+    this.prenom='';
+    this.numero='';
+    this.email='';
+  }
+
 
 
 
   ajouterUtilisateur() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        cancelButton: 'btn btn-danger',
+        confirmButton: 'btn btn-primary',
+        
+
+      },
+      heightAuto: false
+    })
 
 
     // eslint-disable-next-line eqeqeq
     if (this.nom != '' && this.prenom != '' && this.email != '') {
+      swalWithBootstrapButtons.fire({
+        title: 'Cet acteur va etre ajouté !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
 
-      this.acteurs.nom = this.nom;
-      this.acteurs.prenom = this.prenom;
-      this.acteurs.email = this.email;
-      this.acteurs.numero = this.numero;
-
-      this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
-      this.donner = data;
-      this.modif = 'Acteur ajouter avec succes';
-      //this.resetForm();
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.acteurs.nom = this.nom;
+          this.acteurs.prenom = this.prenom;
+          this.acteurs.email = this.email;
+          this.acteurs.numero = this.numero;
+          this.serviceActeur.ajouterActeur(this.acteurs, this.statutChoix).subscribe(data => {
+          this.donner = data;
+          this.route.navigateByUrl("/liste-acteur")
+              swalWithBootstrapButtons.fire(
+                'Acteur ajouté avec succes!',
+                'Vous êtes diriger vers la liste des acteurs.',
+                'success',)
+          // this.modif = 'Acteur ajouter avec succes';
+          this.resetForm();
         console.log('--------- ' + this.donner.contenu);
       });
     }
+        // }else {
+        //   swalWithBootstrapButtons.fire(
+        //     'Annulation réussie'  
+        //   )
+          
+        // }
+      })
+        
+
+      
+    }
     else {
       console.log('--------- ERREUR!');
-      this.erreur = 'Veuillez remplir tous les champs !';
+      swalWithBootstrapButtons.fire(
+        'Veuillez remplir tous les champs !'       
+     )
+      // this.erreur = 'Veuillez remplir tous les champs !';
     }
   }
   afficheMenuMobile() {

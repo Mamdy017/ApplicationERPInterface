@@ -109,7 +109,7 @@ this.numero_users = sessionStorage.getItem("numero_users");
       showCancelButton: true,
       confirmButtonText: 'Confimer!',
       cancelButtonText: 'Annuler!',
-      reverseButtons: true
+      // reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
         this.serviceActeur.supprimerActeur(acteur.idacteur).subscribe({

@@ -2,7 +2,7 @@
   <div class="container-fluid" *ngIf="roles == 'admin' || roles =='responsable' && iduser  else erreur">
     <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
         class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-    <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i>
+    <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power " ></i>
       Deconnexion</button>
     <style>
       .deconnexion {
@@ -69,7 +69,7 @@
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
                       <input type="password" name="passe1_utilisateur" id="num" [(ngModel)]="passe1_utilisateur"
                         placeholder="mot de passe" class="form form-control inputvalue">
-                      <label for="passe1_utilisateur">Passe </label>
+                      <label for="passe1_utilisateur">Mot de passe </label>
                     </div>
 
                     <div class="mb-3 col-12 col-md-6 form-row form-floating">
