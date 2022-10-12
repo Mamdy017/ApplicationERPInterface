@@ -1,11 +1,21 @@
 .conteneur {
   position: relative;
-  top: 10%;
+  top: 1%;
   border-radius: 12px;
   padding: 10px;
-  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.5);
+  
 }
-
+.conte{
+  margin-top: 10%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
+* {
+    font-family:'Poppins', sans-serif;;
+}
+label{
+  margin-left: 2%;
+}
 main {
   overflow: scroll;
 }

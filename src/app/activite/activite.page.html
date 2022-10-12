@@ -13,6 +13,13 @@
         left: 50%;
       }
     }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
+      }
+    }
   </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
@@ -116,7 +123,8 @@
               </span>
             </div>
 
-            <ion-modal style="--height:350px;" #modal trigger="open-modal1" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+            <ion-modal style="--height:350px;" #modal trigger="open-modal1" [enterAnimation]="enterAnimation"
+              [leaveAnimation]="leaveAnimation">
               <ng-template>
                 <ion-header>
                   <ion-toolbar>
@@ -179,12 +187,8 @@
               </ng-template>
             </ion-modal>
 
-<<<<<<< HEAD
-
-            <ion-modal #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
-=======
-            <ion-modal style="--height:350px;"  #modal trigger="open-modal" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
->>>>>>> 7a39c11dc55a58076c38086a4684b17c12255f5c
+            <ion-modal style="--height:350px;" #modal trigger="open-modal" [enterAnimation]="enterAnimation"
+              [leaveAnimation]="leaveAnimation">
               <ng-template>
                 <ion-header>
                   <ion-toolbar>

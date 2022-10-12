@@ -14,6 +14,13 @@
         left: 50%;
       }
     }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
+      }
+    }
   </style>
 
   <div class="row flex-nowrap">
@@ -38,9 +45,9 @@
                     <option selected>Filtrer par An</option>
                     <!-- <option>*ngFor="let annees of afficheAnnee" [ngValue]={{annees[0]}}> {{annees[0]}}</option> -->
 
-                     <option selected >Filtrer par An</option> 
-                     <option *ngFor="let annees of afficheAnnee" [ngValue]="annees.annee"> {{annees.annee}}</option> 
-                    
+                    <option selected>Filtrer par An</option>
+                    <option *ngFor="let annees of afficheAnnee" [ngValue]="annees.annee"> {{annees.annee}}</option>
+
                   </select>
                 </div>
               </div>

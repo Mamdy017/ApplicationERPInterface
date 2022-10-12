@@ -14,6 +14,13 @@
         left: 50%;
       }
     }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
+      }
+    }
   </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
@@ -44,8 +51,10 @@
                   <p class="textArticle">
                     {{activite.description}}
                   </p>
-                  <p class="autorArticle"><i class="bi bi-calendar3-event"></i> Etat : {{activite.etatActivite.etat}}</p>
-                  <button class="btn btnReadMore" routerLink="/detail-activite/{{activite.idactivite}}">Voir Plus</button>
+                  <p class="autorArticle"><i class="bi bi-calendar3-event"></i> Etat : {{activite.etatActivite.etat}}
+                  </p>
+                  <button class="btn btnReadMore" routerLink="/detail-activite/{{activite.idactivite}}">Voir
+                    Plus</button>
 
                 </div>
               </div>

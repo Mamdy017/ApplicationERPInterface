@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400&display=swap%27');
+* {
+    font-family:'Poppins', sans-serif;;
+}
 .conteneur{
     position: relative;
     top: 10%;
     border-radius: 12px;
     padding: 10px;
-    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.5);
+}
+.container{
+  margin-top: 9%;
+  cursor: pointer;
 }
 main{
   overflow: scroll;
@@ -32,6 +40,10 @@ input:hover{
   background-color: white;
   border: 1px solid #ff6600;
 }
+label{
+  margin-left: 2%;
+}
+
 .err{
   color: black;
   font-size: 18px;

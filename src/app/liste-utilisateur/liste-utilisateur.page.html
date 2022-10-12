@@ -1,52 +1,65 @@
-<div class="container-fluid" *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
-  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"
-  ><i class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
-  <button (click)="deconnexion()" class="btn deconnexion btn-danger" > <i class="bi bi-power "></i> Deconnexion</button>
-<style>
+<div class="container-fluid"
+  *ngIf="roles == 'user' || roles == 'admin' || roles =='responsable' && iduser  else erreur">
+  <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
+      class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
+  <button (click)="deconnexion()" class="btn deconnexion btn-danger"> <i class="bi bi-power "></i> Deconnexion</button>
+  <style>
+    .deconnexion {
+      position: relative;
+      left: 80%;
+    }
 
-.deconnexion{
-position:relative; left:80% ;
-}
-@media only screen and (max-width: 475px){
-.deconnexion{
-  left:50% ;
-}
-}
-</style>
+    @media only screen and (max-width: 475px) {
+      .deconnexion {
+        left: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
+      }
+    }
+  </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
       <app-menu></app-menu>
     </div>
-    <main class="col ps-md-2 pt-2  " style= " height: 100vh ;">
-      
+    <main class="col ps-md-2 pt-2  " style=" height: 100vh ;">
+
       <div class="container">
         <button type="button" class="btn" style="margin-left:92% ;">
           <i class="bi bi-bell-fill position-relative" style="font-size:30px ;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="font-size:15px;  background-color: #ff6600;">
-            99+
-          </span></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style="font-size:15px;  background-color: #ff6600;">
+              99+
+            </span></i>
         </button>
         <br><br>
         <div class="row ro py-3">
           <h1>Liste des utilisateurs</h1>
           <div class="trait"></div>
           <div class="position">
-              <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
-              <form action="">
-                <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"  [(ngModel)]="searchText" placeholder="Rechercher"></button>
-              </form>
-             
-              <div Filtré par entité>
-                <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control" (change)="filtreUserParEntite($event)">
-                  <option  *ngFor="let liste of reponse" [ngValue]="liste.nom"> {{liste.nom}} </option>
-                  <label for="sexe">liste</label>
-                </select>
-              </div>
+            <button (click)="exportToExcel()" class="btn btnAjouter">Exporter le fichier</button>
+            <form action="">
+              <button class="btn btnAjouter recherche" style="display:flex ;"><i class="bi bi-search py-1"></i> <input
+                  type="text" style="border: hidden; border: 0; background: transparent;" name="searchText"
+                  [(ngModel)]="searchText" placeholder="Rechercher"></button>
+            </form>
 
-              <a href="ajouter_utilisateur"> <button class="btn btnAjouter1"> Ajouter un utilisateur  </button></a>
+            <div Filtré par entité>
+              <select name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control"
+                (change)="filtreUserParEntite($event)">
+                <option *ngFor="let liste of reponse" [ngValue]="liste.nom"> {{liste.nom}} </option>
+                <label for="sexe">liste</label>
+              </select>
+            </div>
+
+            <a href="ajouter_utilisateur"> <button class="btn btnAjouter1"> Ajouter un utilisateur </button></a>
           </div>
           <div class="table-responsive ra py-5">
-            <table class="table" id="season-tble" >
+            <table class="table" id="season-tble">
               <thead>
                 <tr>
                   <th scope="col" class="ra">N°</th>
@@ -60,7 +73,8 @@ position:relative; left:80% ;
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let ods of ods |  filter:searchText | paginate: { itemsPerPage: 5, currentPage: p}; let i = index">
+                <tr
+                  *ngFor="let ods of ods |  filter:searchText | paginate: { itemsPerPage: 5, currentPage: p}; let i = index">
                   <td scope="row">{{i+1}}</td>
                   <td scope="">{{ods[1]}}</td>
                   <td>{{ods[2]}}</td>
@@ -68,13 +82,14 @@ position:relative; left:80% ;
                   <td>{{ods[4]}}</td>
                   <td>{{ods[5]}}</td>
                   <td>{{ods[6]}}</td>
-                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp; <button><i class="bi bi-trash-fill i" ></i></button></td>
+                  <td><i class="bi bi-pencil-square i" [routerLink]=""></i>&nbsp; &nbsp; &nbsp; <button><i
+                        class="bi bi-trash-fill i"></i></button></td>
                 </tr>
-            <!-- (click)="supprimer(user)" -->
+                <!-- (click)="supprimer(user)" -->
               </tbody>
             </table>
             <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
-  <!-- <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
+            <!-- <pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Précédent" nexLabel="Suivant"> </pagination-controls> -->
           </div>
 
         </div>
@@ -91,17 +106,18 @@ position:relative; left:80% ;
     <div class="">
       <img src="../../assets/images/errors.jpg" width="30%">
     </div>
-    <div >
-      <button style="font-size:20px;" >Veuillez vous <a href="authentification"  class=" btn">connecter</a></button>
+    <div>
+      <button style="font-size:20px;">Veuillez vous <a href="authentification" class=" btn">connecter</a></button>
       <style>
-        .img button a:hover{
-          background-color:black ;
-          border:2px solid #ff6600;
+        .img button a:hover {
+          background-color: black;
+          border: 2px solid #ff6600;
           box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
           color: white;
         }
-        .img button a{
-          background-color:#ff6600 ;
+
+        .img button a {
+          background-color: #ff6600;
           text-decoration: none;
         }
       </style>

@@ -120,4 +120,9 @@ export class ModifierActeurPage implements OnInit {
   public saveComplete(): void {
     this.router.navigate(['/liste-acteur']);
   }
+  deconnexion() {
+    sessionStorage.clear();
+    console.log('je suis le log')
+    this.router.navigateByUrl('/authentification');
+  }
 }

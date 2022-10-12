@@ -9,6 +9,7 @@ import { DetailActiviteService } from '../Services/detail_activite.service';
   styleUrls: ['./detail-activite.page.scss'],
 })
 export class DetailActivitePage implements OnInit {
+  description: any;
 
   constructor(  public breakpointObserver: BreakpointObserver,  private route: Router,
     private routes : ActivatedRoute,
@@ -73,7 +74,8 @@ getDetailListes(){
     this.datefin = this.detailsActivite.datefin
     this.objectifVise = this.detailsActivite.objectifVise
     this.salle = this.detailsActivite.salle
-    //console.log(this.detailsActivite)
+    this.description=this.detailsActivite.description
+    console.log(this.detailsActivite)
   })
   
 

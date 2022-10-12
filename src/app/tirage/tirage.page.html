@@ -13,6 +13,13 @@
         left: 50%;
       }
     }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
+      }
+    }
   </style>
   <div class="row flex-nowrap">
     <div class="col-auto px-2" *ngIf="menuBureau">
@@ -80,8 +87,8 @@
             </div>
             <!--MODAL PERMETTANT D'AFFICHER LES PERSONNES-->
             <div *ngIf="status">
-              <ion-modal #modal style="--width:90%; --overflow:scroll;" trigger="open-modal" [enterAnimation]="enterAnimation"
-                [leaveAnimation]="leaveAnimation">
+              <ion-modal #modal style="--width:90%; --overflow:scroll;" trigger="open-modal"
+                [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
                 <ng-template>
                   <ion-header>
                     <ion-toolbar>

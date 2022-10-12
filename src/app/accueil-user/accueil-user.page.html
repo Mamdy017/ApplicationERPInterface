@@ -1,4 +1,5 @@
-<div class="container-fluid " *ngIf="roles == 'user' || roles =='admin' || roles =='responsable' && iduser  else erreur">
+<div class="container-fluid "
+  *ngIf="roles == 'user' || roles =='admin' || roles =='responsable' && iduser  else erreur">
 
   <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" (click)="afficheMenuMobile()"><i
       class="bi bi-list py-2 p-1 " style="color:black;position:relative; top:2%; left:15%; font-size: 30px;"></i></a>
@@ -12,6 +13,13 @@
     @media only screen and (max-width: 475px) {
       .deconnexion {
         left: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 499px) and (max-width: 857px) {
+
+      .deconnexion {
+        left: 65%;
       }
     }
   </style>
@@ -123,7 +131,7 @@
                     </p>
                     <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}}
                       {{activites[3]}} </p>
-                    <a [routerLink]="['/details-activite',activites[4]   ]"> <button class="btn btnReadMore">Savoir
+                    <a [routerLink]="['/detail-activite',activites[4]   ]"> <button class="btn btnReadMore">Voir
                         Plus</button> </a>
                   </div>
                 </div>
@@ -143,7 +151,7 @@
                 <div class="ContourArticle py-2 m-2" *ngFor="let activites of activiteAVenir">
                   <div class="col-12 col-md-12 p-3">
                     <img src="../../assets/images/{{activites[5]}}" alt="image de formation " class="img-fluid rounded">
-                    
+
                   </div>
                   <div class="col-12 col-md-12">
                     <div class="me-2">
@@ -152,7 +160,7 @@
                         {{activites[1]}} </p>
                       <p class="autorArticle"><i class="bi bi-person-fill"></i> Créer par : {{activites[2]}}
                         {{activites[3]}} </p>
-                      <button class="btn btnReadMore">Savoir Plus </button>
+                      <button class="btn btnReadMore" routerLink="/detail-activite/{{activites[4]}}">Voir Plus </button>
                     </div>
                   </div>
                 </div>

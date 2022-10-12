@@ -33,7 +33,7 @@ export class ListeSallePage implements OnInit {
   menuBureau = true;
   menuMobile = false;
 
-  disponible: import("C:/Users/mccamara/Desktop/Nouveau dossier/ApplicationERPInterface/src/app/modeles/salle/salle").Salle;
+  disponible: import("src/app/modeles/salle/salle").Salle;
   constructor(private serviceSalle: SalleService, public breakpointObserver: BreakpointObserver, private route: Router) { }
 
   actualise(): void {
