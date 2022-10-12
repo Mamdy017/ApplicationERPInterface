@@ -20,7 +20,6 @@ export class ModifierActeurPage implements OnInit {
   acteurModif: any;
   editForm: any;
 
-<<<<<<< HEAD
 // /==============================================================================SESSION==========
 iduser:any;
 roles:any;
@@ -41,61 +40,6 @@ this.noms_users =  sessionStorage.getItem("nom_users");
 this.prenom_users = sessionStorage.getItem("prenom_users",);
 this.email_users = sessionStorage.getItem("email_users");
 this.numero_users = sessionStorage.getItem("numero_users");
-=======
-  constructor( private service: AdminActeurUserService, private route: ActivatedRoute,
-    private router: Router, public breakpointObserver: BreakpointObserver ) { }
-
-    actualise(): void {
-      setInterval(
-        () => {
-        }, 100, clearInterval(1500));
-    }
-
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  modiferAct = new Acteur();
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  nom = '';
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  prenom = '';
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  numero= '';
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  email= '';
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  id!: any;
-
-  ngOnInit() {
-
-    this.breakpointObserver
-    .observe(['(max-width: 767px)'])
-    .subscribe((state: BreakpointState) => {
-      if (state.matches) {
-        this.menuBureau = false;
-        this.menuMobile = true;
-        this.actualise();
-      } else {
-        this.menuBureau = true;
-        this.menuMobile = false;
-        this.actualise();
-      }
-    });
-
-    this.route.paramMap.subscribe(params =>{
-       this.id = params.get('idacteur');
-      console.log('id');
-    });
-
-    this.service.trouverparId(this.id).subscribe(data =>
-      {
-        this.acteurModif = data;
-
-        this.nom=this.acteurModif[0].nom;
-        this.prenom=this.acteurModif[0].prenom;
-        this.email=this.acteurModif[0].email;
-        this.numero=this.acteurModif[0].numero;
-        console.log(this.acteurModif[0].nom);
-      });
->>>>>>> f6dc2ee8b4f7f4f1b4cd1d6534d723c045dafcdf
   }
   resetForm(){
     this.nom = '';
