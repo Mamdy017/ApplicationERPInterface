@@ -8,6 +8,7 @@ import { EntiteService } from '../Services/entite/entite.service';
 import { Router } from '@angular/router';
 import { ListeActeurService } from '../services/liste-acteur/liste-acteur.service';
 import { Utilisateur } from '../modeles/utilisateur/utilisateur';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-entite',
@@ -107,21 +108,74 @@ export class EntitePage implements OnInit {
 
 
   creerEntite() {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        cancelButton: 'btn btn-danger',
+        confirmButton: 'btn btn-primary',
+        
+
+      },
+      heightAuto: false
+    })
+
+    if(this.nom == "" || this.slogant == "" || this.description == '' || this.iduser == '' || this.file == null ){
+      swalWithBootstrapButtons.fire(
+        this.message = " Veuillez bien remplir tous les champs !",
+      )   
+        // this.resetForm();
+    }else{
+      swalWithBootstrapButtons.fire({
+        title: 'Cette entité va etre ajooutée !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.serviceEntite.ajouterEntite(this.entiteobjet.nom, this.entiteobjet.description, this.entiteobjet.slogant,this.entiteobjet.iduser, this.file).subscribe(data => {
+            if (data.status == true) {
+              this.route.navigateByUrl("/gestionentite")
+              swalWithBootstrapButtons.fire(
+                'Entité ajoutée avec succes!',
+                'Vous êtes diriger vers la liste des entités.',
+                'success',)
+            }else {
+              swalWithBootstrapButtons.fire(
+                this.message = data.contenu,
+
+              )
+            }
+          })
+        }else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+             "Ajout de l'entité annulée"       
+          )
+
+        }
+      })
+        
+    }
+
     this.entiteobjet = this.formmodule.value
     let data = new FormData();
 
     // data.append("file",this.file)
 
-    console.log(data)
-    this.serviceEntite.ajouterEntite(this.entiteobjet.nom, this.entiteobjet.description, this.entiteobjet.slogant,this.entiteobjet.iduser, this.file).subscribe(data => {
-      this.formmodule.reset()
-      this.message = "entite ajouter avec succes";
-      this.contenu = data.contenu;
+    // console.log(data)
+    // this.serviceEntite.ajouterEntite(this.entiteobjet.nom, this.entiteobjet.description, this.entiteobjet.slogant,this.entiteobjet.iduser, this.file).subscribe(data => {
+    //   this.formmodule.reset()
+    //   this.message = "entite ajouter avec succes";
+    //   this.contenu = data.contenu;
 
-      console.log(data.contenu)
+    //   console.log(data.contenu)
 
 
-    })
+    // })
 
   }
 
@@ -142,7 +196,7 @@ export class EntitePage implements OnInit {
 
     this.entiteobjet.nom = this.nom;
 
-    this.entiteobjet.slogant = this.slogant
+    this.entiteobjet.slogant = this.slogant 
 
     console.log(this.fichier.photoentite)
 

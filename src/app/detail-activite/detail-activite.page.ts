@@ -42,6 +42,7 @@ dateDebut:any
 datefin:any
 objectifVise:any
 salle:any
+id:any
 
 formateursInternes:any;
 formateursExternes:any
@@ -66,6 +67,7 @@ getDetailListes(){
 
   this.detailActiviteService.recupererDetailActivite(idAct).subscribe(data =>{
     this.detailsActivite = data;
+    this.id = this.detailsActivite.id
     this.photo = this.detailsActivite.photo;
     this.libelle = this.detailsActivite.libelle
     this.dateDebut = this.detailsActivite.dateDebut
@@ -108,6 +110,8 @@ this.numero_users = sessionStorage.getItem("numero_users");
 // ======================================================================
 
     this.getDetailListes();
+    this.getFormateursExternes()
+    this.getFormateursInternes();
 
   }
 

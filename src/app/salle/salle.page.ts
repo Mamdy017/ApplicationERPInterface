@@ -98,7 +98,7 @@ salles:Salle
         showCancelButton: true,
         confirmButtonText: 'Confimer!',
         cancelButtonText: 'Annuler!',
-        reverseButtons: true
+        // reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
           this.salles.nom = this.nom;

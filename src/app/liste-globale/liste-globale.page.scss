@@ -50,16 +50,13 @@
   }
   td a{
     text-decoration: none;
-
+    color: #000000;
 
   }
 
 
 
-  td a:hover{
-    background-color: #FF6600;
-    color: white;
-  }
+  
 
   @media only screen and  (max-width: 767px ) {
     // td a{

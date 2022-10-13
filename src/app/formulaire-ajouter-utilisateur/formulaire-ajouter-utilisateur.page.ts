@@ -139,6 +139,12 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
       this.email_utilisateur != null && this.numero_utilisateur &&
       this.passe1_utilisateur != null && this.passe1_utilisateur != null
     ) {
+      if(this.email_utilisateur.endsWith("@orangemali.com")==false){
+        swalWithBootstrapButtons.fire(
+          this.info = "Email non valide!"
+        )
+      }
+      else
       if (this.passe1_utilisateur == this.passe2_utilisateur) {
         swalWithBootstrapButtons.fire({
           title: 'Cet utilisateur va etre ajoouté !!!!',
@@ -147,7 +153,7 @@ export class FormulaireAjouterUtilisateurPage implements OnInit {
           showCancelButton: true,
           confirmButtonText: 'Confimer!',
           cancelButtonText: 'Annuler!',
-          reverseButtons: true
+          // reverseButtons: true
         }).then((result) => {
           if (result.isConfirmed) {
             this.utilisateur.nom = this.user_nom;

@@ -347,7 +347,7 @@ leaveAnimation = (baseEl: HTMLElement) => {
         showCancelButton: true,
         confirmButtonText: 'Confimer!',
         cancelButtonText: 'Annuler!',
-        reverseButtons: true
+        
       }).then((result) => {
         if (result.isConfirmed) {
           this.http.post<any>(`http://localhost:8080/importTrie/excel/${this.myFormImportTrie.get('libelleListe').value}/${this.myFormImportTrie.get('libelleTirage').value}/${this.myFormImportTrie.get('nbreTire').value}/${this.myFormImportTrie.get('libelleActivite').value}`, formData)

@@ -242,7 +242,7 @@
                   &nbsp;&nbsp;
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
                     <ion-select id="sexe" class="form-select form-control inputvalue"
-                      formControlName="idacteurInternesOrg" [(ngModel)]="idacteursOrg" [multiple]="true"
+                      formControlName="idacteursOrg" [(ngModel)]="idacteursOrg" [multiple]="true"
                       placeholder="Organisateurs">
                       <ion-select-option selected disabled>Organisateurs</ion-select-option>
                       <ion-select-option *ngFor="let acteur of acteurs$" [value]="acteur.idacteur">{{acteur.nom}}
@@ -260,7 +260,7 @@
             <div class="mb-3 col-12 col-md-6 form-row form-floating">
               <input type="number" id="name" formControlName="nombrepersonnedemande" placeholder="Nom"
                 class="form form-control inputvalue">
-              <label for="name">Objectif Visé<span style="color: red;">*</span></label>
+              <label for="name">Nombre de personnes visées<span style="color: red;">*</span></label>
             </div>
 
             <div class="mb-3 col-12 col-md-6 form-row form-floating">

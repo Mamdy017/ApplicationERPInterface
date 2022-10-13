@@ -15,13 +15,6 @@
           left: 50%;
         }
       }
-
-      @media only screen and (min-width: 499px) and (max-width: 857px) {
-
-        .deconnexion {
-          left: 65%;
-        }
-      }
     </style>
     <div class="row flex-nowrap">
       <div class="col-auto px-2" *ngIf="menuBureau">
@@ -46,14 +39,12 @@
                 <div class="trait"></div>
                 <div class="row col-12">
                   <div class="mb-4 col-12 col-md-6 form-row form-floating">
-                    <select name="designation" id="designation" class="form-select form-control">
-                      <option selected>Designation</option>
-                      <option> Tache 1</option>
-                      <option> Tache 2</option>
-                      <label for="designation">Designation</label>
+                    <select name="designation" id="designation" class="form-select form-control" [(ngModel)]="libelleDesignation">    
+                      <option *ngFor="let design of designations" [(ngValue)]="design.libelle"> {{design.libelle}}</option>
+                      <label for="designation" >Designation</label>
                     </select>
                   </div>
-                  <div class="mb-4 col-12 col-md-6 form-row form-floating">
+                  <!-- <div class="mb-4 col-12 col-md-6 form-row form-floating">
                     <select name="activite" id="activite" class="form-select form-control">
                       <option selected>Activite</option>
                       <option>Developpement web</option>
@@ -61,29 +52,39 @@
                       <label for="activite">Activite</label>
                     </select>
 
-                  </div>
+                  </div> -->
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                    <input type="date" name="name" id="name" placeholder="Nom" class="form form-control inputvalue">
+                    <input type="date" name="dateDebut" [(ngModel)]="dateDebut" id="name" placeholder="Nom" class="form form-control inputvalue">
                     <label for="name">Date debut</label>
                   </div>
                   <div class="mb-3 col-12 col-md-6 form-row form-floating">
-                    <input type="date" name="firstname" id="firstname" placeholder="Prénom"
+                    <input type="date" [(ngModel)]="datefin" name="datefin" id="firstname" placeholder="Prénom"
                       class="form form-control inputvalue">
                     <label for="firstname">Date fin</label>
                   </div>
 
+                  <div class="mb-3 col-12 col-md-6 form-row form-floating py-2" style="border: black;">
+                    <ion-select id="sexe" class="form-select form-control inputvalue"
+                      [(ngModel)]="idusers" name="idusers" [multiple]="true" placeholder="utilisateurs">
+                      ion-label
+                      <ion-select-option selected disabled>Commission</ion-select-option>
+                      <ion-select-option *ngFor="let user of users" [value]="user.iduser">{{user.nom}}
+                      </ion-select-option>
+                    </ion-select>
+                  </div>
 
 
-                  <div class="mb-3 col-12 col-md-12 form-row form-floating">
+
+                  <!-- <div class="mb-3 col-12 col-md-12 form-row form-floating">
                     <select name="liste" id="liste" class="form-select form-control">
                       <option selected> Statut </option>
                       <option>Activer</option>
                       <option> Desactiver</option>
                       <label for="sexe">liste</label>
                     </select>
-                  </div>
+                  </div> -->
                 </div>
-                <button class="btn btnAjouter">Valider</button>
+                <button class="btn btnAjouter" (click)="addTaches()">Valider</button>
                 <span class="btn btnAjouter">Designation</span>
 
               </form>
@@ -91,10 +92,10 @@
             </div>
           </div>
           <!-- Footer -->
-          <footer class="footer mt-3 mb-3">
+          <!-- <footer class="footer mt-3 mb-3">
             <p class="text-center">&copy; 2022 | Tous droits réservés <span style="color:#FF6600;">Orange</span> Digital
               Center</p>
-          </footer>
+          </footer> -->
           <style>
             footer {
               padding: 25px;

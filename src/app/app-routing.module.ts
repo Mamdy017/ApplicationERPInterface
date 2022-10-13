@@ -104,7 +104,7 @@ const routes: Routes = [
     loadChildren: () => import('./profile-user-profile/profile-user-profile.module').then( m => m.ProfileUserProfilePageModule)
   },
   {
-    path: 'ajouter-tache',
+    path: 'ajouter-tache/:id',
     loadChildren: () => import('./ajouter-tache/ajouter-tache.module').then( m => m.AjouterTachePageModule)
   },
   {

@@ -292,10 +292,11 @@ export class ActivitePage implements OnInit {
       this.bool_erreurImpTrieFr = true;
       this.bool_erreurImpTrieBack = false;
       swalWithBootstrapButtons.fire(
-        this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin",)
+        this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin")
       // this.erreurImpTrieFr = "La data de debut ne peut pas etre superieur à la date de fin";
     }
     else {
+      
       console.log("My value : " + this.myFormActivite.get('nombrepersonnedemande').value)
       data.append("file", this.myFormActivite.get('fileSource').value);
       data.append("nom", this.myFormActivite.get('nom').value);
@@ -322,9 +323,21 @@ export class ActivitePage implements OnInit {
       data.append("libelleSalle", this.myFormActivite.get('libelleSalle').value);
       data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
 
-      console.log(`http://localhost:8080/activite/ajouter`, data);
+      //data.append("userid", this.iduser);
+      alert(this.myFormActivite.get('idacteurInternes').value)
 
-      this.http.post<any>("http://localhost:8080/activite/ajouter", data).subscribe(res => {
+      console.log(`http://localhost:8080/activite/ajouter/${this.iduser}`, data);
+      swalWithBootstrapButtons.fire({
+        title: 'Cette activité va etre ajooutée !!!!',
+        text: "Vous pouvez annuler ou confirmer!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Confimer!',
+        cancelButtonText: 'Annuler!',
+        // reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.http.post<any>(`http://localhost:8080/activite/ajouter/${this.iduser}`, data, {} ).subscribe(res => {
 
         console.log(res);
 
@@ -335,9 +348,23 @@ export class ActivitePage implements OnInit {
         if (res.status == true) {
           this.bool_erreurImpTrieBack = false;
           this.route.navigateByUrl("/details-activite");
+          swalWithBootstrapButtons.fire(
+            'Activité ajoutée avec succes!',
+            'Vous êtes diriger vers la liste des activités.',
+            'success',)
           this.actualise();
+        }else {
+          swalWithBootstrapButtons.fire(
+            this.erreurImpTrieFr = res.contenu,
+
+          )
         }
       });
+        }
+      })
+        
+
+      
     }
 
   }
