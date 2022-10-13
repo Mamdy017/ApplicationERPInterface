@@ -68,7 +68,10 @@
                       type="text" style=" border: 0; background: transparent; font-size: 12px; " name="searchText"
                       [(ngModel)]="searchText"></button>
                 </form>
-                <button class="btn btnAjouter c1"><i class="bi bi-filter-right"></i>Filtrer par Genre</button>
+                <select class="btn btnAjouter c1" name="liste" id="liste" [(ngModel)]="select_liste" class="form-select form-control" (change)="filtreParGenre($event)"><i class="bi bi-filter-right"></i>
+                <option value="Genre" selected> Genre</option>
+                 <option *ngFor="let postulatgenre of genres" > {{postulatgenre[2]}}</option>
+                </select>
               </div>
               <div class="table-responsive ra py-3">
                 <table id="season-tble" class="table">

@@ -30,8 +30,19 @@ export class PostulantTireService {
   recupererListePostulant(): Observable<any> {
     return this.http.get(`${this.api}listepostulant/afficher`);
   }
+
+  //filtre par genre
+  filtreParGenre(genre:string):Observable<any>{
+    return  this.http.get( `http://localhost:8080/postulanttire/parGenre/${genre}`);
+}
+//affiche par genre
+afficheGenre():Observable<any>{
+  return  this.http.get( `http://localhost:8080/postulanttire/afficheGenre`);
+}
   
 }
+
+
 
 // export class PostulantTireService {
 
@@ -44,3 +55,5 @@ export class PostulantTireService {
 
  
 // }
+
+

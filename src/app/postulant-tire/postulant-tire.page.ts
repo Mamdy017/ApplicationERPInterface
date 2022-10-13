@@ -21,6 +21,10 @@ export class PostulantTirePage implements OnInit {
   prenom_users: any;
   email_users: string;
   numero_users: string;
+  genres:any
+  select_liste:any
+  evenement:any
+
 
   // /+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -70,6 +74,12 @@ export class PostulantTirePage implements OnInit {
           this.actualise();
         }
       });
+
+      //afficher genre
+this.service.afficheGenre().subscribe(data => {
+  this.genres = data
+});
+
 
     // eslint-disable-next-line @typescript-eslint/naming-convention
     const id_tirages = +this.route.snapshot.params.idtirage;
@@ -126,4 +136,14 @@ export class PostulantTirePage implements OnInit {
     console.log('je suis le log')
     this.routes.navigateByUrl('/authentification');
   }
-}
+
+  filtreParGenre(event){if(this.select_liste !="Filtre par genre"){     
+      this.evenement = event.target.value    
+       console.log(event.target.value) 
+        this.service.filtreParGenre(this.select_liste).subscribe((data)=>{     
+        this.lesPersonnesTirees = data     
+              console.table(this.lesPersonnesTirees+"fyhfhfhfhfhfhhf me liste") 
+          console.log(this.lesPersonnesTirees+"fyhfhfhfhfhfhhf me liste")        
+         })     
+         }
+        }}
