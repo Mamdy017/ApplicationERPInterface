@@ -324,7 +324,7 @@ export class ActivitePage implements OnInit {
       data.append("idresponsable", this.myFormActivite.get('idresponsable').value);
 
       //data.append("userid", this.iduser);
-      alert(this.myFormActivite.get('idacteurInternes').value)
+      // alert(this.myFormActivite.get('idacteurInternes').value)
 
       console.log(`http://localhost:8080/activite/ajouter/${this.iduser}`, data);
       swalWithBootstrapButtons.fire({

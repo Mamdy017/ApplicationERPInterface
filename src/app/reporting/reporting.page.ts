@@ -5,6 +5,11 @@ import { Router } from '@angular/router';
 import { ReportingService } from '../Services/reporting.service';
 import { EntiteService } from '../Services/entite.service';
 import { AlertController, AnimationController } from '@ionic/angular';
+import { AccueilAdminService } from '../Services/accueil-admin/accueil-admin.service';
+import { ActiviteService } from '../Services/activite/activite.service';
+import { ListePostulantService } from '../Services/liste-postulant.service';
+import { ListeUserService } from '../services/liste-user/liste-user.service';
+import { Activite } from '../modeles/activite/activite';
 
 
 @Component({
@@ -37,12 +42,21 @@ export class ReportingPage implements OnInit {menuBureau: boolean = true;
   select_liste: string;
   evenement:any
   donnees:any
+  afficheAnnee:any
+  etat:any
+  activite:any
+  liste:any
+  Activite:Activite[]
 
   constructor(public breakpointObserver: BreakpointObserver,
     private serviceReporting: ReportingService,
     private serviceEntite: EntiteService,
     private alertController: AlertController,
-    private animationCtrl: AnimationController,private route:Router
+    private animationCtrl: AnimationController,
+    private route:Router,
+    private adminService: AccueilAdminService,
+    private activiteService:ActiviteService,
+    private listePostulantService:ListePostulantService,
   ) { }
 
   actualise(): void {
@@ -71,12 +85,42 @@ export class ReportingPage implements OnInit {menuBureau: boolean = true;
           this.actualise();
         }
       });
+      console.log("voir si ça marche"+this.donnees)
+
          // =========================================== RECURATION : Activités =======================================
         this.serviceReporting.afficherReporting().subscribe(data =>{
           this.affiche = data
           console.log(this.affiche)
 
         })
+
+          // =========================================== RECURATION Année =======================================
+
+          this.adminService.afficherAnnee().subscribe(data =>{
+            this.afficheAnnee = data
+            console.log(this.afficheAnnee)
+          })
+
+          // =========================================== RECURATION activite =======================================
+
+          this.serviceReporting.afficherEtatActivité().subscribe(data =>{
+            this.etat = data
+            console.log(this.etat+"me etat")
+          })
+
+          // =========================================== RECURATION liste postulant =======================================
+
+          this.listePostulantService.mesListes().subscribe(data =>{
+            this.liste = data
+            console.log(this.liste+"me liste")
+          })
+
+           // =========================================== RECURATION etat activité =======================================
+
+           this.activiteService.recupererListeActivite().subscribe(data =>{
+            this.activite = data
+            console.log(this.activite+"me activité")
+          })
 
 
     // =========================================== RECURATION : Activités =======================================
@@ -88,9 +132,12 @@ export class ReportingPage implements OnInit {menuBureau: boolean = true;
 
     this.serviceEntite.afficherEntite().subscribe(data => {
       this.lesEntites = data
+      console.log(this.lesEntites+"gdfdfddfdgwdgdggdggg")
     })
 
   }
+  
+  
 
   afficheMenuMobile() {
     this.menuBureau = true;
@@ -155,29 +202,116 @@ export class ReportingPage implements OnInit {menuBureau: boolean = true;
     })
 
   }
+  //-----PARTIE FILTRAGE----------
 
   //filtre par entite
   filtreUserParEntite(event) {
 
+
+
+    if(event.target.value == "Année"){
+     
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
+    }
+
     if(this.select_liste != "Filtre par Entité"){
-
-
-      console.log(event.target.value)
-
-      
       this.evenement = event.target.value
-    
-     this.serviceReporting.filtreParEntite(this.select_liste).subscribe((data)=>{
-  
-  
-      this.donnees = data
-  
-      console.log(this.donnees)
+      console.log(event.target.value)
+     this.serviceReporting.filtrerParEntite(this.select_liste).subscribe((data)=>{
+      this.affiche = data
+      console.table(this.affiche)
+     })
+    }
+    else{
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
+  }
+  }
+
+  //filtre par libellé de la liste
+  filtreUserParListe(event) {
+
+    if(this.select_liste != "Filtre par liste"){
+      this.evenement = event.target.value
+      console.log(event.target.value)
+     this.serviceReporting.filtreParListe(this.select_liste).subscribe((data)=>{
+      this.affiche = data
+      console.table(this.affiche)
+     })
+    }
+    else{
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
+  }
+  }
+
+  //filtre par libellé de la liste
+  filtreUserParActivite(event) {
+
+    if(this.select_liste != "Filtre par liste"){
+      this.evenement = event.target.value
+      console.log(event.target.value)
+     this.serviceReporting.filtreParActivite(this.select_liste).subscribe((data)=>{
+      this.affiche = data
+      console.table(this.affiche)
      })
 
-
     }
+    else{
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
   }
+}
+
+  //filtre par libellé de la etat de l'activité
+  filtreActiviteParEtat(event) {
+
+    if(this.select_liste != "Filtre par activite"){
+      this.evenement = event.target.value
+      console.log("voir si ça marche"+event.target.value)
+     this.serviceReporting.filtreParEtat(this.select_liste).subscribe((data)=>{
+      this.affiche = data
+      console.table(this.affiche)
+     })
+    }
+    else{
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
+  }
+  }
+
+   //filtre par année
+   filtreActiviteParAnnee(event) {
+
+    if(this.select_liste != "Filtre par activite"){
+      this.evenement = event.target.value
+      console.log("voir si ça marche"+event.target.value)
+     this.serviceReporting.filtreParAnnee(this.select_liste).subscribe((data)=>{
+      this.affiche = data
+      console.table(this.affiche)
+     })
+    }
+    else{
+      this.serviceReporting.afficherReporting().subscribe(data =>{
+        this.affiche = data
+        console.table(this.affiche)
+       })
+  }
+  }
+
+
+  
 
   // Exportation du fichier
 

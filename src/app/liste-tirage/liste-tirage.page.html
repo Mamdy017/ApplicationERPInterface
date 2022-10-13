@@ -102,8 +102,9 @@
                         <td scope="">{{liste.nombrePostulantTire}}</td>
                         <td>{{liste.date | date : 'd MMMM yyyy' }}</td>
                         <td scope="">{{liste.activite.nom}}</td>
-                        <td><a [routerLink]="['/postulant-tire',liste.idtirage]">Voir Plus</a></td>
-                        <td *ngIf="liste.validite == false" (click)="validerTirage(liste)"><a>Valider</a></td>
+                        <td><a [routerLink]="['/postulant-tire',liste.idtirage]"><i class="bi bi-plus-circle-fill"  style="font-size:20px;"></i></a></td>
+                        <td *ngIf="liste.validite == false" (click)="validerTirage(liste)"><a><i class="bi bi-check-circle i"
+                          style="color:#198754; font-size:20px;"></i></a></td>
 
                         <!-- {{liste.idtirage}} -->
                       </tr>
